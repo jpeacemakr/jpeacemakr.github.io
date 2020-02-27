@@ -55,7 +55,7 @@
 				<div class="btn-group-vertical">
 					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./gettingstarted.htm" role="button">Getting started</a>
 					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./teleport.htm" role="button">Teleporting</a>
+					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./teleport.htm" role="button">Basic commands</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./summonentity.htm" role="button">Summon entities</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./entityeffects.htm" role="button">Entity effects</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./givingitems.htm" role="button">Giving items</a>
@@ -71,34 +71,76 @@
 			<!-- content in the middle-->
 			<div class="col-8">
 				<h1 class="display-4">Chaining command blocks</h1>
-				<p class="lead">Here is some text. Some text to get started with the layout of this page.  </p>
+				<p class="lead">Multiple commands can be put together for powerful results  </p>
 				<hr>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
+				<p>It is possible to put together a complex series of events by chaining command blocks together. Settings can be changed to make them loop repeatedly or only activate under certain circumstances. There are three basic types of command blocks: normal (pink), repeating (purple), and conditional (green).</p>
 
-				<h4>Creating a command block</h4>
-				<figure class="figure float-right ml-3">
-  				<img src="./images/commandblock.jpg" class="figure-img img-fluid" alt="...">
-  				<figcaption class="figure-caption">A caption for the above image.</figcaption>
+				<figure class="figure">
+  				<img src="./images/chainedcommandblocks.jpg" class="figure-img img-fluid" alt="...">
+  				<figcaption class="figure-caption">Different types of command blocks can be chained together for complex tasks.</figcaption>
 				</figure>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
 
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>
+				<h4>Repeating command blocks</h4>
+				<p>Repeating command blocks appear purple. They repeat the command at a given interval known as a tick. Each tick is equal to 1/20th of a second. So if delay in ticks is set to 20, the command will execute once a second. 200 will be every 10 seconds.</p> <p>Beware that more executions with complex commands can lag your game. You also have to avoid infinite loops with some commands. For example you can't have TNT summon TNT or it would create a chain reaction of infinite TNT. If this happens you will have to force quit Minecraft, and you will have to disable command blocks in your setting before reloading the map.</p>
+
+
+				<h4>Chaining command blocks</h4>
+				<p>Command blocks can be put together to form a series of commands. A chain starts with either a normal (pink) command block or a repeating command block (purple). You can then attach a chain command block (green) to it.</p><p> Notice that command blocks have directional arrows on each side. Command blocks in a chain will only activate in the direction of the arrows. You can set the "execute on first tick" property to off and change the "delay in ticks" property to create a pause between blocks.  </p>
+
+
+				<h4>Conditional command blocks</h4>
+				<p>Conditional command blocks only execute if the command block pointing to it executed its command successfully. When a command block is set to conditional, the back end of the arrow changes to being concave. The conditional command blocks can act as if statement inside a loop.</p>
+
+				<p>For example, two command blocks can be chained together to detect if a structure has been destroyed, and replace it if it has been.
 				<div class="accordion" id="accordionExample">
   <div class="card">
-    <div class="card-header" id="headingOne">
+    <div class="card-header" id="headingOneA">
       <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneA" aria-expanded="true" aria-controls="collapseOneA">
+          If a stone block does not exist at (15, 25, 15) 
         </button>
       </h2>
     </div>
 
-    <div id="collapseOne" class="collapse  bg-light show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapseOneA" class="collapse  bg-light" aria-labelledby="headingOneA" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        Create a repeating command block with "/fill 15 25 15 15 25 15 stone"
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwoA">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoA" aria-expanded="false" aria-controls="collapseTwoA">
+          Then rebuild the area with stone blocks.
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwoA" class="collapse  bg-light" aria-labelledby="headingTwoA" data-parent="#accordionExample">
+      <div class="card-body">
+        Attach a conditional command block with "/fill 0 0 0 30 30 30 stone"
+      </div>
+    </div>
+  </div>
+  
+</div>
+</p>
+				<p>Conditional command blocks can often be used with the /testfor command. It checks for a set of circomstances.
+				For example:
+
+<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Test for a player within 3 blocks. 
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        /testfor @p[r=3]
       </div>
     </div>
   </div>
@@ -106,50 +148,32 @@
     <div class="card-header" id="headingTwo">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+          Test for an entity (player, creature, or certain objects) at a set of coordinates.
         </button>
       </h2>
     </div>
     <div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /testfor @e[x=3,y=3,z=3]
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse bg-light" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
+  
 </div>
+			
+
 </p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-
-
 
 
 			</div>
 
 			<!-- sidebar if needed-->
 			<div class="col-2">
-				
+				<div class="bg-light p-4">
+				<h4  class="text-primary heavy"><b>NOTE</b></h4>
+				<blockquote> 
+				If command blocks cause Minecraft to freeze, force quit the game, and you might have to disable command blocks in your setting before reloading the map.</blockquote>
+				</div>
 			</div>
 		</div>
 

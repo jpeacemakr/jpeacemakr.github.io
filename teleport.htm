@@ -55,7 +55,7 @@
 				<div class="btn-group-vertical">
 					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./gettingstarted.htm" role="button">Getting started</a>
 					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./teleport.htm" role="button">Teleporting</a>
+					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./teleport.htm" role="button">Basic commands</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./summonentity.htm" role="button">Summon entities</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./entityeffects.htm" role="button">Entity effects</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./givingitems.htm" role="button">Giving items</a>
@@ -70,77 +70,227 @@
 
 			<!-- content in the middle-->
 			<div class="col-8">
-				<h1 class="display-4">Teleporting</h1>
-				<p class="lead">Here is some text. Some text to get started with the layout of this page.  </p>
+				<h1 class="display-4">Basic commands</h1>
+				<p class="lead">Telport, kill, say, execute</p>
 				<hr>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
+				<p> Here are some basic commands that can be called by command blocks. Also, many commands have modifiers attached to them that narrow the scope of the command.
+					Commands that modify items and inventory, summon entities and modify the environment will be covered in later lessons.
+					
+					There are several parts of a command that are used frequently. They are:
+					<ul>
+					 <li>Target selector: It tells you which entity the command will target. They are:
+					 	<ul>
+					 		<li>@p: the nearest player </li>
+							<li>@e: all entities</li>
+							<li>@s: the entity activating the command</li>
+							<li>@a: all players</li>
+							<li>@r: A random player</li>
+							<li>The specific name of a player or named entity.
+					 	</ul></li>
+					 <li>Target selector argument: This can follow a target selector to narrow the scope of the target. (Example: @e[r=7] would be all enttiies within 7 blocks.) Target selector arguments can be put together, separated by commas also. (Example: @e[r=7,type=zombie] would be all zombies within 7 blocks.) A ! after the equals sign means "not". (Example: @e[type=!player] would be all entities that are not players).
+						<ul>
+					 		<li>[r=X] all entities within a radius of X.</li>
+							<li>[type=X] all entities of type X.</li>
+							<li>[x=X,y=Y,z=Z] entity at coordinates X,Y,Z</li>
+							<li>[name=X] entity with the name X</li>
+					 	</ul>
 
-				<h4>Creating a command block</h4>
-				<figure class="figure float-right ml-3">
-  				<img src="./images/commandblock.jpg" class="figure-img img-fluid" alt="...">
-  				<figcaption class="figure-caption">A caption for the above image.</figcaption>
-				</figure>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+					 </li>
+					 <li>Coordinates: The position in the world is often included in commands. They come in threes. An X, Y and Z coordinate. You can choose to show your current coordinates by selecting the option in settings. Coordinates come in two forms: 
+						<ul>
+					 		<li>Absolute: the position on the map. (X Y Z)</li>
+							<li>Relative: the position on the map in relation to what is calling the command (~X ~Y ~Z) or (^X ^Y ^Z) relative to direction they are facing</li>
+					 	</ul>
+					</ul>
 
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>
+				</p>
+
+				<h4>Teleport</h4>
+				
+				<p>The teleport command allows you to move a player, monster or other entity to another location.
+					The command is tp followed by X Y Z coordinates to teleport to a location (tp 3 34 -12) or tp followed by two target selectors to transport entities to another entity (tp @e @s). Here are some more examples:
+
+				</p>
+<p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+          Teleport all zombies to the player named Jeff. 
         </button>
       </h2>
     </div>
 
-    <div id="collapseOne" class="collapse  bg-light show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /tp @e[type=zombie] Jeff
       </div>
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingTwo">
+    <div class="card-header" id="headingTwoB">
       <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+          Teleport Jeff 100 blocks in the air.
         </button>
       </h2>
     </div>
-    <div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
+    <div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /tp Jeff ~ ~100 ~
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse bg-light" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
+  
 </div>
 </p>
+<br>
+				
+
+
+
+				
+
+
+				<h4>Kill</h4>
+				
+				<p>Some times you just need to kill some things. This command makes it easy. The command is just "kill" followed by a target. Be careful though because some objects such as minecarts and armor stands are actually considered entities. Here's some examples of kill commands:</p>
+<p>
+				<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneC">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneC" aria-expanded="true" aria-controls="collapseOneC">
+          Kill all zombies. 
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOneC" class="collapse  bg-light" aria-labelledby="headingOneC" data-parent="#accordionExample">
+      <div class="card-body">
+        /kill @e[type=zombie]
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwoD">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoD" aria-expanded="false" aria-controls="collapseTwoD">
+          Kill all players with 5 blocks of 12,-5,34.
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwoD" class="collapse  bg-light" aria-labelledby="headingTwoD" data-parent="#accordionExample">
+      <div class="card-body">
+        /kill @a[r=5,x=12,y=-5,z=34]
+      </div>
+    </div>
+  </div>
+  
+</div>
+</p>
+			<br>	
+
+
+
+				
+
+
+				
+<h4>Say</h4>
+				
 				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+<p>
+				<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneE">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneE" aria-expanded="true" aria-controls="collapseOneE">
+          Test for a player within 3 blocks. 
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOneE" class="collapse  bg-light" aria-labelledby="headingOneE" data-parent="#accordionExample">
+      <div class="card-body">
+        /testfor @p[r=3]
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwoF">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoF" aria-expanded="false" aria-controls="collapseTwoF">
+          Test for an entity (player, creature, or certain objects) at a set of coordinates.
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwoF" class="collapse  bg-light" aria-labelledby="headingTwoF" data-parent="#accordionExample">
+      <div class="card-body">
+        /testfor @e[x=3,y=3,z=3]
+      </div>
+    </div>
+  </div>
+  
+</div>
+</p>
+			<br>	
+
+
+
+				
+
+				
+
+
+				
+<h4>Execute</h4>
+				
 				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+<p>
+				<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneI">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneI" aria-expanded="true" aria-controls="collapseOneI">
+          Test for a player within 3 blocks. 
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOneI" class="collapse  bg-light" aria-labelledby="headingOneI" data-parent="#accordionExample">
+      <div class="card-body">
+        /testfor @p[r=3]
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwoJ">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoJ" aria-expanded="false" aria-controls="collapseTwoJ">
+          Test for an entity (player, creature, or certain objects) at a set of coordinates.
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwoJ" class="collapse  bg-light" aria-labelledby="headingTwoJ" data-parent="#accordionExample">
+      <div class="card-body">
+        /testfor @e[x=3,y=3,z=3]
+      </div>
+    </div>
+  </div>
+  
+</div>
+</p>
+				
+
+
+
+				
+
+
+				
+
 
 
 

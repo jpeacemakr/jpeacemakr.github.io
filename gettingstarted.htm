@@ -55,7 +55,7 @@
 				<div class="btn-group-vertical">
 					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./gettingstarted.htm" role="button">Getting started</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./teleport.htm" role="button">Teleporting</a>
+					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./teleport.htm" role="button">Basic commands</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./summonentity.htm" role="button">Summon entities</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./entityeffects.htm" role="button">Entity effects</a>
 					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./givingitems.htm" role="button">Giving items</a>
@@ -71,34 +71,68 @@
 			<!-- content in the middle-->
 			<div class="col-8">
 				<h1 class="display-4">Getting started</h1>
-				<p class="lead">Here is some text. Some text to get started with the layout of this page.  </p>
+				<p class="lead">Add the special Command Block to your inventory  </p>
 				<hr>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
+				
 
-				<h4>Creating a command block</h4>
-				<figure class="figure float-right ml-3">
-  				<img src="./images/commandblock.jpg" class="figure-img img-fluid" alt="...">
-  				<figcaption class="figure-caption">A caption for the above image.</figcaption>
+
+				<h4>Getting a command block</h4>
+				<p>The command block is a special block that is only available in creative mode. It can't be acquired in the game without a special command. Bring up the main menu with the pause button or ESC. Under the Game tab, change Default Game Mode to Creative.
+				Type in the following command in the Chat menu: "/give @s command_block".
+				This will put a command block in your inventory. Now you can place command blocks.
+			Command blocks are indestructible but be cautious as the attached buttons, levers or redstone can be destroyed.</p>
+
+				<figure class="figure">
+  				<img src="./images/commandblockmenu.jpg" class="figure-img img-fluid" alt="...">
+  				<figcaption class="figure-caption">Clicking on a command block bring up this menu.</figcaption>
 				</figure>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
 
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+				<h4>Command block settings</h4>
+				<p>Once you place the command block, you can bring up its properties by right clicking.
+					Here's a list of the properties that can be modified:
+					<ul>
+						<li>Hover note: Displays a name for the command block when you point at it. This is optional but can come in handy if you have multiple command blocks.</li>
+						<li>Block type: This controls when a command block activates. Options are Impulse, Chain or Repeat:</li>
+							<ul>
+								<li>Impulse: The command block only activates once</li>
+								<li>Chain: The command block only activates when connected to another command block.</li>
+								<li>Repeat: The command block is activated over and over.</li>
+							</ul>
+						<li>Condition: Conditional or Unconditional.</li>
+							<ul>
+								<li>Conditional: It only activates if the chained command block before it has a successful command.</li>
+								<li>Unconditional: It always activates.</li>
+							</ul>
+						<li>Redstone: This controls if a command block needs a power source. It can be set to Redstone or Always active.</li>
+							<ul>
+								<li>Needs redstone: The command block requires a button, lever (You will need to crouch to place a button or lever on a command block) or redstone power source to activate. Redstone is another powerful technique to build in Minecraft but is outside of the scope of this website.</li>
+								<li>Always active: The command block is always active.</li>
+							</ul>
+
+						<li>Execute on first tick: If on, a repeating command block will execute right away without a delay.</li>
+						<li>Delay in ticks: Sets the time between activations on a repeating command block. One tick equals 1/20th of a second.</li>
+						<li>Command input: This is the command that will be activated. </li>
+						<li>Previous output: This will display whether the command was completed successfully.</li>
+					</ul>
+
+				</p>
+				
+				<h4>Command examples</h4>
+				<p>Here are a few basic examples of commands. We will go over more examples later in the tutorial. You can search for commands by typing / in the chat menu and type in a partial phrase. The console will bring up a list of commands and their usage. Note that many of the commands for Minecraft Java Edition will not work in Minecraft Bedrock Edition.</p>
 				<p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+          Summon a zombie
         </button>
       </h2>
     </div>
 
     <div id="collapseOne" class="collapse  bg-light show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /summon zombie
       </div>
     </div>
   </div>
@@ -106,14 +140,13 @@
     <div class="card-header" id="headingTwo">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+          Kill all zombies
         </button>
       </h2>
     </div>
     <div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /kill @e[type=zombie]
       </div>
     </div>
   </div>
@@ -121,26 +154,25 @@
     <div class="card-header" id="headingThree">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
+          Give the nearest player a diamond sword 
         </button>
       </h2>
     </div>
     <div id="collapseThree" class="collapse bg-light" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /give @p diamond_sword
       </div>
     </div>
   </div>
 </div>
 </p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+
+
+				
+
+				
+
+
 
 
 
@@ -150,6 +182,12 @@
 			<!-- sidebar if needed-->
 			<div class="col-2">
 				
+				<div class="bg-light p-4">
+				<h4  class="text-primary heavy"><b>NOTE</b></h4>
+				<blockquote> 
+				Command blocks are indestructible but be cautious as the attached buttons, levers or redstone can be destroyed.</blockquote>
+				</div>
+
 			</div>
 		</div>
 
