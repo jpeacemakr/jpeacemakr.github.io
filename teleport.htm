@@ -198,23 +198,23 @@
 
 
 				
-<h4>Say</h4>
+<h4>Say and tell</h4>
 				
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
+				<p>The say command makes an entity say a phrase. The tell command has one entity whisper text to another entity. They are a great way to tell players what is happening when they activate a command block. For example: </p>
 <p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOneE">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneE" aria-expanded="true" aria-controls="collapseOneE">
-          Test for a player within 3 blocks. 
+          Tell the players they are going to die. 
         </button>
       </h2>
     </div>
 
     <div id="collapseOneE" class="collapse  bg-light" aria-labelledby="headingOneE" data-parent="#accordionExample">
       <div class="card-body">
-        /testfor @p[r=3]
+        /say You are all going to die.
       </div>
     </div>
   </div>
@@ -222,13 +222,13 @@
     <div class="card-header" id="headingTwoF">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoF" aria-expanded="false" aria-controls="collapseTwoF">
-          Test for an entity (player, creature, or certain objects) at a set of coordinates.
+          Tell other players nearby that you activated a trap.
         </button>
       </h2>
     </div>
     <div id="collapseTwoF" class="collapse  bg-light" aria-labelledby="headingTwoF" data-parent="#accordionExample">
       <div class="card-body">
-        /testfor @e[x=3,y=3,z=3]
+        /tell @a[r=20] I triggered a trap!
       </div>
     </div>
   </div>
@@ -247,21 +247,21 @@
 				
 <h4>Execute</h4>
 				
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
+				<p>The execute command is one of the most important commands. It allows you to create more complex actions by having entities be the ones who execute the commands. The format is execute followed by XYZ coordinates and then the command. For example:</p>
 <p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOneI">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneI" aria-expanded="true" aria-controls="collapseOneI">
-          Test for a player within 3 blocks. 
+          Have all non-player entities say "Hello!"" 
         </button>
       </h2>
     </div>
 
     <div id="collapseOneI" class="collapse  bg-light" aria-labelledby="headingOneI" data-parent="#accordionExample">
       <div class="card-body">
-        /testfor @p[r=3]
+        /execute @e[type=!player] ~ ~ ~ say Hello!
       </div>
     </div>
   </div>
@@ -269,13 +269,13 @@
     <div class="card-header" id="headingTwoJ">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoJ" aria-expanded="false" aria-controls="collapseTwoJ">
-          Test for an entity (player, creature, or certain objects) at a set of coordinates.
+        Make a lit bundle of TNT appear over the heads of all players.
         </button>
       </h2>
     </div>
     <div id="collapseTwoJ" class="collapse  bg-light" aria-labelledby="headingTwoJ" data-parent="#accordionExample">
       <div class="card-body">
-        /testfor @e[x=3,y=3,z=3]
+        /execute @a ~ ~5 ~ summon tnt
       </div>
     </div>
   </div>
@@ -289,11 +289,7 @@
 				
 
 
-				
-
-
-
-
+	
 
 			</div>
 
