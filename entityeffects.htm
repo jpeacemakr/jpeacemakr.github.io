@@ -72,79 +72,103 @@
 			<!-- content in the middle-->
 			<div class="col-8">
 				<h1 class="display-4">Entity effects</h1>
-				<p class="lead">Here is some text. Some text to get started with the layout of this page.  </p>
+				<p class="lead">Faster, stronger, more damage are just some of the possibilities.  </p>
 				<hr>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
+				
+				
+				<p>The effect command allows status effects to be cast on players or other entities. Many of the the effects can be given by elements already in the game, such as potions, food or spells.</p>
+				The command to add an effect is "effect" followed by a target, the name of the effect, the number of seconds for the effect to last, the power of the effect (The maximum power for an effect is 255) and true or false to add or remove an effect (true or false is optional). 
+				When an effect is added, particles will swirl around the entity. The player can see their own effects at the right side of their screen.
+				<p>You can clear all effect with "effect [target] clear".</p>	
+				<p>Here are some examples of effects:</p>
 
-				<h4>Creating a command block</h4>
-				<figure class="figure float-right ml-3">
-  				<img src="./images/commandblock.jpg" class="figure-img img-fluid" alt="...">
-  				<figcaption class="figure-caption">A caption for the above image.</figcaption>
-				</figure>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+				
+				
 
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>
+
+
+
+
+<p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+           Make yourself nauseous for 5 seconds. 
         </button>
       </h2>
     </div>
 
-    <div id="collapseOne" class="collapse  bg-light show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+ 		/effect @s nausea 5 255
+       </div>
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingTwo">
+    <div class="card-header" id="headingTwoB">
       <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+          Make all cows launch into the air.
         </button>
       </h2>
     </div>
-    <div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
+    <div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /effect @e[type=cow] levitation 2 100
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse bg-light" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
+  
 </div>
 </p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+
+<p>
+<figure class="figure">
+  				<img src="./images/entityeffect.jpg" class="figure-img img-fluid" alt="Effects create particles that swirl around entities.">
+  				<figcaption class="figure-caption">Effects create particles that swirl around entities.</figcaption>
+				</figure>
+</p>
+<br>
 
 
+					<h4>List of effects</h4>
+					<table class="table">
+<thead class="thead-light"><th width="150px">Name</th><th width="200px">Command argument</th><th>Description</th></thead>
+ <tr><td>Speed</td><td>speed</td><td>Run faster</td></tr>
+ <tr><td>Slowness</td><td>slowness</td><td>Run slower</td></tr>
+ <tr><td>Haste</td><td>haste</td><td>Increases attack speed and mining speed</td></tr>
+ <tr><td>Mining Fatigue</td><td>mining_fatigue</td><td>Decreases attack speed and mining speed</td></tr>
+ <tr><td>Strength</td><td>strength</td><td>Increases melee damage</td></tr>
+ <tr><td>Instant Health</td><td>instant_health</td><td>Heals (but damages undead)</td></tr>
+ <tr><td>Instant Damage</td><td>instant_damage</td><td>Hurts (but heals undead)</td></tr>
+ <tr><td>Jump Boost</td><td>jump_boost</td><td>Makes you jump higher and reduces fall damage</td></tr>
+ <tr><td>Nausea</td><td>nausea</td><td>Creates a drunk effect</td></tr>
+ <tr><td>Regeneration</td><td>regeneration</td><td>Heals over time</td></tr>
+ <tr><td>Resistance</td><td>resistance</td><td>reduces damage</td></tr>
+ <tr><td>Fire Resistance</td><td>fire_resistance</td><td>immune to burning</td></tr>
+ <tr><td>Water Breathing</td><td>water_breathing</td><td>You can breathe underwater</td></tr>
+ <tr><td>Invisibility</td><td>invisibility</td><td>Makes the player invisible, but armor and weapon can still be seen</td></tr>
+ <tr><td>Blindness</td><td>blindness</td><td>Limits the distance you can see and disables sprint and critical hit</td></tr>
+ <tr><td>Night Vision</td><td>night_vision</td><td>See in the dark</td></tr>
+ <tr><td>Hunger</td><td>hunger</td><td>Players get hungry faster</td></tr>
+ <tr><td>Weakness</td><td>weakness</td><td>Reduces melee damage</td></tr>
+ <tr><td>Poison</td><td>poison</td><td>Damage over time but can't kill</td></tr>
+ <tr><td>Wither</td><td>wither</td><td>Damage over time and can kill</td></tr>
+ <tr><td>Health Boost</td><td>health_boost</td><td>Increases maximum health</td></tr>
+ <tr><td>Absorption</td><td>absorption</td><td>Reduces damage</td></tr>
+ <tr><td>Saturation</td><td>saturation</td><td>Makes you less hungry</td></tr>
+ <tr><td>Levitation</td><td>levitation</td><td>Make you go up</td></tr>
+ <tr><td>Fatal Poison</td><td>fatal_poison</td><td>Damage over time and can kill</td></tr>
+ <tr><td>Conduit Power</td><td>conduit_power</td><td>Increases visibility underwater, prevents drowning and boosts mining speed</td></tr>
+ <tr><td>Slow Falling</td><td>slow_falling</td><td>Makes you fall slower</td></tr>
+ <tr><td>Bad Omen</td><td>bad_omen</td><td>Makes an illager raid start when you enter a village</td></tr>
+ <tr><td>Hero of the Village</td><td>village_hero</td><td>Discounts trades</td></tr>
 
+</table>
+<hr>
+Source: https://minecraft.gamepedia.com
 
 			</div>
 
