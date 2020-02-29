@@ -72,76 +72,139 @@
 			<!-- content in the middle-->
 			<div class="col-8">
 				<h1 class="display-4">Enchanting items</h1>
-				<p class="lead">Here is some text. Some text to get started with the layout of this page.  </p>
+				<p class="lead">Add special properties to your weapons and armor.  </p>
 				<hr>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
+				<p>The enchant command allows you to addspecial properties to the weapon or armor you have active in your hands. You can add damage, knockback, infinite ammo or other properties. When chaining commands, it is best to activate this command right after a weapon is given. Enchanting armor can be done, but you have to be holding it, then you can put it on manually. Each enchantment can only be used on certain types of items and each has a maximum level of power. Mulltiple enchantments can be given to the same item, but some do not work together. The enchant command is:</p>
 
-				<h4>Creating a command block</h4>
-				<figure class="figure float-right ml-3">
-  				<img src="./images/commandblock.jpg" class="figure-img img-fluid" alt="...">
-  				<figcaption class="figure-caption">A caption for the above image.</figcaption>
-				</figure>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+				<p><strong>/enchant [target] [enchantmentName] [level]</strong></p>
 
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+				<p>Here are some examples:</p>
+
 				<p>
-				<div class="accordion" id="accordionExample">
+ <div class="accordion" id="accordionExample">
   <div class="card">
-    <div class="card-header" id="headingOne">
+    <div class="card-header" id="headingOneZ">
       <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneZ" aria-expanded="true" aria-controls="collapseOneZ">
+          Gives player's sword fire damage. 
         </button>
       </h2>
     </div>
 
-    <div id="collapseOne" class="collapse  bg-light show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapseOneZ" class="collapse  bg-light" aria-labelledby="headingOneZ" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /enchant @s fire_aspect 2
       </div>
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingTwo">
+    <div class="card-header" id="headingTwoZ">
       <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoZ" aria-expanded="false" aria-controls="collapseTwoZ">
+          Makes all nearby players' active weapon (or armor if they are holding armor) more durable.
         </button>
       </h2>
     </div>
-    <div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
+    <div id="collapseTwoZ" class="collapse  bg-light" aria-labelledby="headingTwoZ" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        /enchant @a[r=10] unbreaking 3
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse bg-light" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
+  
 </div>
 </p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+<br>
+
+
+
+<figure class="figure">
+  				<img src="./images/firecow.jpg" class="figure-img img-fluid" alt="A cow is on fire after being hit by a sword enchanted with fire aspect.">
+  				<figcaption class="figure-caption">Hamburger, anyone? Fire aspect can add fire damage to a sword.</figcaption>
+				</figure>
+
+
+
+				<h4>List of enchantments</h4>
+
+<table class="table">
+<thead class="thead-light"><th>Enchantment</th><th>Name</th><th>Max level</th><th>Description</th><th>Item type</th></thead>
+
+<tr><td>Aqua Affinity</td><td>aqua_affinity</td><td>1</td><td>Mine faster underwater</td><td>helmet</td></tr>
+
+<tr><td>Bane of Arthropods</td><td>bane_of_arthropods</td><td>5</td><td>Increases damage against arthropods </td><td>sword,ax</td></tr>
+
+<tr><td>Blast Protection </td><td>blast_protection</td><td>4</td><td>Reduces explosion damage</td><td>all armor</td></tr>
+
+<tr><td>Channeling</td><td>channeling</td><td>1</td><td>Summons lightning bolt at mob when thrown (must be raining)</td><td>trident</td></tr>
+
+<tr><td>Depth Strider</td><td>depth_strider</td><td>3</td><td>Move fast underwater</td><td>boots</td></tr>
+
+<tr><td>Efficiency</td><td>efficiency</td><td>5</td><td>Increase mine speed</td><td>pickaxe,shovel,axe</td></tr>
+
+<tr><td>Feather Falling</td><td>feather_falling</td><td>4</td><td>Reduces fall damage</td><td>boots</td></tr>
+
+<tr><td>Fire Aspect</td><td>fire_aspect</td><td>2</td><td>Sets victim on fire</td><td>sword</td></tr>
+
+<tr><td>Fire Protection</td><td>fire_protection</td><td>4</td><td>Reduces damage from fire and lava</td><td>all armor</td></tr>
+
+<tr><td>Flame</td><td>flame</td><td>1</td><td>Adds fire damage</td><td>bow</td></tr>
+
+<tr><td>Fortune</td><td>fortune</td><td>3</td><td>Increases drops</td><td>pickaxe,shovel,axe</td></tr>
+
+<tr><td>Frost Walker</td><td>frost_walker</td><td>2</td><td>Freezes water while walking on it</td><td>boots</td></tr>
+
+<tr><td>Impaling</td><td>impaling</td><td>5</td><td>Boosts damage against sea creatures</td><td>trident</td></tr>
+
+<tr><td>Infinity</td><td>infinity</td><td>1</td><td>Infinite arrows</td><td>bow</td></tr>
+
+<tr><td>Knockback</td><td>knockback</td><td>2</td><td>Increases knockback</td><td>sword</td></tr>
+
+<tr><td>Looting</td><td>looting</td><td>3</td><td>Increases loot drops</td><td>sword</td></tr>
+
+<tr><td>Loyalty</td><td>loyalty</td><td>3</td><td>Weapon returns when thrown</td><td>trident</td></tr>
+
+<tr><td>Luck of the Sea</td><td>luck_of_the_sea</td><td>3</td><td>Increases luck while fishing</td><td> fishing rod</td></tr>
+
+<tr><td>Lure</td><td>lure</td><td>3</td><td>Catch more fish</td><td>fishing rod</td></tr>
+
+<tr><td>Mending</td><td>mending</td><td>1</td><td>Uses experience to mend item</td><td>all weapons and armor</td></tr>
+
+<tr><td>Multishot</td><td>multishot</td><td>1</td><td>Shoots 3 arrows</td><td>crossbow</td></tr>
+
+<tr><td>Piercing</td><td>piercing</td><td>4</td><td>Arrows pierce entities</td><td>crossbow</td></tr>
+
+<tr><td>Power</td><td>power</td><td>5</td><td>Increases damage</td><td>bow</td></tr>
+
+<tr><td>Projectile Protection</td><td>projectile_protection</td><td>4</td><td>Reduces projectile damage</td><td>all armor</td></tr>
+
+<tr><td>Protection</td><td>protection</td><td>4</td><td>Protection against attacks, fire, lava and falling</td><td>all armor</td></tr>
+
+<tr><td>Punch</td><td>punch</td><td>2</td><td>Increases knockback</td><td>bow</td></tr>
+
+<tr><td>Quick Charge</td><td>quick_charge</td><td>3</td><td>Reduces time to reload</td><td>crossbow</td></tr>
+
+<tr><td>Respiration</td><td>respiration</td><td>3</td><td>Hold breath longer underwater</td><td>helmet</td></tr>
+
+<tr><td>Riptide</td><td>riptide</td><td>3</td><td>Launches the player forward when thrown in water or rain</td><td>trident</td></tr>
+
+<tr><td>Sharpness</td><td>sharpness</td><td>5</td><td>Increases attack damage</td><td>sword, axe</td></tr>
+
+<tr><td>Silk Touch</td><td>silk_touch</td><td>1</td><td>Mines fragile blocks</td><td>pickaxe, shovel, axe</td></tr>
+
+<tr><td>Smite</td><td>smite</td><td>5</td><td>Increases damage against undead</td><td>sword,axe</td></tr>
+
+<tr><td>Thorns</td><td>thorns</td><td>3</td><td>Damages attackers when they hit you</td><td>all armor</td></tr>
+
+<tr><td>Unbreaking</td><td>unbreaking</td><td>3</td><td>Increases durability</td><td>all weapons and armor</td></tr>
+</table>
+<hr>
+Source: https://www.digminecraft.com/
+
+
+
+
+
 
 
 
