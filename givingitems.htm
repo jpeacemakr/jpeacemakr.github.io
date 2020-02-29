@@ -73,80 +73,229 @@
 			<!-- content in the middle-->
 			<div class="col-8">
 				<h1 class="display-4">Giving items</h1>
-				<p class="lead">Here is some text. Some text to get started with the layout of this page.  </p>
+				<p class="lead">Equip items or add them to your inventory.  </p>
 				<hr>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
 
-				<h4>Creating a command block</h4>
-				<figure class="figure float-right ml-3">
-  				<img src="./images/commandblock.jpg" class="figure-img img-fluid" alt="...">
-  				<figcaption class="figure-caption">A caption for the above image.</figcaption>
+				<figure class="figure">
+  				<img src="./images/inventory.jpg" class="figure-img img-fluid" alt="The inventory of a minecraft player.">
+  				<figcaption class="figure-caption">Commands can be used to equip items or add items to the player's inventory.</figcaption>
 				</figure>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
 
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+
+				<p>Having the right items in minecraft could mean the difference between life and death.
+				Using command blocks to add items can make the battle a lot easier.
+
+				<p>There are several commands to accomplish this:</p>
 				
-				<!--box for code examples-->
-				<p>
+				<h4>Give</h4>
+				<p>The give command puts an item or block into a player's inventory. It will place the item in the first available slot, starting with the hotbar.</p>
+				<p><strong>/give [target] [item name] [amount]</strong></p> 
+				<p>Here are some examples:</p>
+
+<p>
+ <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneZ">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneZ" aria-expanded="true" aria-controls="collapseOneZ">
+          Give all players diamond body armor. 
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOneZ" class="collapse  bg-light" aria-labelledby="headingOneZ" data-parent="#accordionExample">
+      <div class="card-body">
+        /give @a diamond_chestplate
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwoZ">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoZ" aria-expanded="false" aria-controls="collapseTwoZ">
+          Give all nearby players 40 blocks of diamond.
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwoZ" class="collapse  bg-light" aria-labelledby="headingTwoZ" data-parent="#accordionExample">
+      <div class="card-body">
+        /give @a[r=10] diamond_block 40
+      </div>
+    </div>
+  </div>
+  
+</div>
+</p>
+<br>
+
+				<h4>Replaceitem</h4>
+				<p>To replace an entity's item with another item or into the equipped items, use the following command:</p>
+				<p><strong>/replaceitem entity [target] [slotType] [slotId] [itemName] [amount]</strong></p>
+				
+				<p>Slots for player, mob or armor stand are:
+				<ul>
+				<li>slot.armor.chest</li>
+				<li>slot.armor.feet</li>
+				<li>slot.armor.head</li>
+				<li>slot.armor.legs</li>
+				<li>slot.weapon.mainhand</li>
+				<li>slot.weapon.offhand</li>
+				<li>slot.hotbar (hotbar slots go from 0 to 8)</li>
+				<li>slot.inventory (inventory slots go from 0 to 26)</li>
+				</ul>
+				</p>
+				<p>Here are some examples:</p> 
+				
+				
+<p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+          Have all players equip diamond body armor. 
         </button>
       </h2>
     </div>
 
-    <div id="collapseOne" class="collapse  bg-light show" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		 /replaceitem entity @a slot.armor.chest 0 diamond_chestplate 1
       </div>
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingTwo">
+    <div class="card-header" id="headingTwoB">
       <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+          Place fireworks in the player's first slot of their hotbar.
         </button>
       </h2>
     </div>
-    <div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
+    <div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		 /replaceitem entity @s slot.hotbar 0 fireworks
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse bg-light" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
+  
 </div>
 </p>
-				
+<br>
 
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+				<p>Horses have different slot types. Slot types include slot.armor and slot.saddle, but horses must be tamed before giving them a saddle or armor.<p> 
+				<p>Here are some examples:</p>
+
+
+<p>
+				<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneD">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneD" aria-expanded="true" aria-controls="collapseOneD">
+          Give all tamed horses a saddle. 
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOneD" class="collapse  bg-light" aria-labelledby="headingOneD" data-parent="#accordionExample">
+      <div class="card-body">
+				/replaceitem entity @e[type=horse] slot.saddle 1 saddle 1
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwoD">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoD" aria-expanded="false" aria-controls="collapseTwoD">
+          Give all tamed horses diamond armor.
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwoD" class="collapse  bg-light" aria-labelledby="headingTwoD" data-parent="#accordionExample">
+      <div class="card-body">
+				/replaceitem entity @e[type=horse] slot.armor 1 horsearmordiamond 1 
+      </div>
+    </div>
+  </div>
+  
+</div>
+</p>
+<br>
+
+				<p>To replace an item or block in a container (such as a chest or dispenser):</p>
+				<p><strong>/replaceitem block X Y Z slot.container [slotId] [itemName] [amount] [data] [components]</strong><br>
+				(Note that the container slot numbers start at 0, not 1.)</p>
+				<p>Example:</p>
+				
+<p>
+				<div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneC">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneC" aria-expanded="true" aria-controls="collapseOneC">
+          Place iron boots in the first slot in the chest at coordinates 12 72 -1. 
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOneC" class="collapse  bg-light" aria-labelledby="headingOneC" data-parent="#accordionExample">
+      <div class="card-body">
+		/replaceitem block 12 72 -1 slot.container 0 iron_boots 1
+      </div>
+    </div>
+  </div>
+  
+</div>
+</p>
+<br>
+
+
+ </p>
+
+				<h4>List of common items</h4>
+				<p>The complete list of items is very long in minecraft. You can search for items by name by typing them in the console or searching online. Here are some of the more common items:
+<ul>
+<li>diamond_axe</li>
+<li>diamond_boots</li>
+<li>diamond_chestplate</li>
+<li>diamond_helmet</li>
+<li>diamond_hoe</li>
+<li>diamond_leggings</li>
+<li>diamond_pickaxe</li>
+<li>diamond_shovel</li>
+<li>diamond_sword</li>
+<li>bow</li>
+<li>crossbow</li>
+<li>arrow</li>
+<li>elytra</li>
+<li>shield</li>
+<li>horsearmordiamond</li>
+<li>saddle</li>
+<li>lead</li>
+<li>torch</li>
+<li>trident</li>
+<li>turtle_helmet</li>
+<li>armor_stand</li>
+<li>chest</li>
+<li>dispenser</li>
+<li>fireball</li>
+<li>fireworks</li>
+<li>flint_and_steel</li>
+<li>bucket</li>
+<li>fishing_rod</li>
+<li>golden_apple</li>
+</ul>
+
+</p>
+
+
+
+
+
+
+
+
 
 
 
