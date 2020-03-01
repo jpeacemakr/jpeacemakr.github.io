@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,12 +7,15 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
 
 	<title>Command Blocks for Minecraft Bedrock Edition</title>
 </head>
-<body  style="padding-top:100px">
+<body class="mypaddedbody">
 
 
+
+	
 	<!-- Header nav bar to be used on every page -->
 
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
@@ -38,41 +40,48 @@
 
 			</ul>
 		</div>
-		<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
-
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks</a>
+		</div>
 	</nav>
 
 
 
 
 
-	<div class="container">
+	<div class="container-fluid pl-5 pr-5">
 
 		<div class="row">
 
 			<!-- Vertical nav bar on left side -->
-			<div class="col-2">
-				<div class="btn-group-vertical">
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./gettingstarted.htm" role="button">Getting started</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./teleport.htm" role="button">Basic commands</a>
-					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./summonentity.htm" role="button">Summon entities</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./entityeffects.htm" role="button">Entity effects</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./givingitems.htm" role="button">Giving items</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./enchantitems.htm" role="button">Enchanting items</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./environment.htm" role="button">Environment</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./clonefillblocks.htm" role="button">Cloning blocks</a>
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
 				</div>
 			</div>
 
 
 
 			<!-- content in the middle-->
-			<div class="col-8">
+			<div class="col">
 				<h1 class="display-4">Summoning entities</h1>
 				<p class="lead">Add monsters, villagers and more to your world</p>
 				<hr>
-				<p>Entities include all living things in Minecraft, and a few other things too. Boats, armor stands and minecarts are all considered entites too. The command to summon an entity is /summon name_of_the_entity X Y Z. For example:</p>
+				<p>Entities include all living things in Minecraft, and a few other things too. Boats, armor stands and minecarts are all considered entites too.</p> 
+				<p><strong>Syntax: /summon [entity type] X Y Z </strong></p> 
+			    <p>Here is an example:</p>
 
 <p>
 <div class="accordion" id="accordionExample">
@@ -218,13 +227,23 @@ This video shows Coliseum of Death, an arena style map that lets the players bec
 <tr><td>bee	</td><td>Bee</td></tr>
 </table>
 <hr>
+<p>
 Source: https://minecraft.gamepedia.com/
+</p>
 
+
+
+<br>
+						<hr>
+						<p class="text-center">
+						Previous lesson: <a href="./teleport.htm">Basic commands</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./entityeffects.htm">Entity effects</a>
+						<p>
+						<hr>
 
 			</div>
 
 			<!-- sidebar if needed-->
-			<div class="col-2">
+			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
 				
 			</div>
 		</div>
@@ -242,13 +261,12 @@ Source: https://minecraft.gamepedia.com/
 
 
      <!-- Footer to be used on every page -->
-<div  style="padding:30px; text-align:center">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
 <a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
 <a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
 <a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
 </div>
-
 
 
 

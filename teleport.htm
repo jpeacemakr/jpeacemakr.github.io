@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,12 +7,15 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
 
 	<title>Command Blocks for Minecraft Bedrock Edition</title>
 </head>
-<body  style="padding-top:100px">
+<body class="mypaddedbody">
 
 
+
+	
 	<!-- Header nav bar to be used on every page -->
 
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
@@ -38,30 +40,35 @@
 
 			</ul>
 		</div>
-		<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
-
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks</a>
+		</div>
 	</nav>
 
 
 
 
 
-	<div class="container">
+	<div class="container-fluid pl-5 pr-5">
 
 		<div class="row">
 
 			<!-- Vertical nav bar on left side -->
-			<div class="col-2">
-				<div class="btn-group-vertical">
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./gettingstarted.htm" role="button">Getting started</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./teleport.htm" role="button">Basic commands</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./summonentity.htm" role="button">Summon entities</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./entityeffects.htm" role="button">Entity effects</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./givingitems.htm" role="button">Giving items</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./enchantitems.htm" role="button">Enchanting items</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./environment.htm" role="button">Environment</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./clonefillblocks.htm" role="button">Cloning blocks</a>
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
 				</div>
 			</div>
 
@@ -69,14 +76,15 @@
 
 
 			<!-- content in the middle-->
-			<div class="col-8">
+			<div class="col">
 				<h1 class="display-4">Basic commands</h1>
 				<p class="lead">Telport, kill, say, execute</p>
 				<hr>
 				<p> Here are some basic commands that can be called by command blocks. Also, many commands have modifiers attached to them that narrow the scope of the command.
 					Commands that modify items and inventory, summon entities and modify the environment will be covered in later lessons.
+					You can generally check the syntax of a command by typing it in the console.</p>
 					
-					There are several parts of a command that are used frequently. They are:
+					<p>There are several parts of a command that are used frequently. They are:
 					<ul>
 					 <li>Target selector: It tells you which entity the command will target. They are:
 					 	<ul>
@@ -114,10 +122,22 @@ Your browser does not support the video tag. You can find the video <a href="./m
 This video shows the teleport command being called by command blocks in a space facility. You can download the map <a href="./downloads/spacestation.zip">here</a>.
 </p>
 				
-				<p>The teleport command allows you to move a player, monster or other entity to another location.
-					The command is tp followed by X Y Z coordinates to teleport to a location (tp 3 34 -12) or tp followed by two target selectors to transport entities to another entity (tp @e @s). Here are some more examples:
+				<p>The /teleport or /tp command allows you to move a player, monster or other entity to another location.
+					The command is /tp followed by X Y Z coordinates to teleport to a location (/tp 3 34 -12), /tp followed by a target selector and coordinates (/tp @a ~ ~ ~),  or /tp followed by two target selectors to transport entities to another entity (/tp @e @s). You can't teleport to more than one entity though.
+</p>
 
+<p><strong>Syntax:<br>
+				/teleport X Y Z<br>
+				/teleport [target selector[argument=value]] X Y Z<br>
+				/teleport [target selector[argument1=value1] [target selector 2[argument2=value2]]</strong></p>
+
+<p>You can also add a true or false to prevent it from telporting you into a block.<br>
+You can also add "facing" with a target (either entity or coordinate) to set the direction after teleporting.
 				</p>
+
+				<p>Here are some examples:</p>
+
+					
 <p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
@@ -162,7 +182,12 @@ This video shows the teleport command being called by command blocks in a space 
 
 				<h4>Kill</h4>
 				
-				<p>Some times you just need to kill some things. This command makes it easy. The command is just "kill" followed by a target. Be careful though because some objects such as minecarts and armor stands are actually considered entities. Here's some examples of kill commands:</p>
+				<p>Some times you just need to kill some things. This command makes it easy. The command is just "kill" followed by a target. Be careful though because some objects such as minecarts and armor stands are actually considered entities.</p> 
+
+<p><strong>Syntax: /kill [target selector[argument=value]]</strong></p>
+
+
+					<p>Here's some examples of kill commands:</p>
 <p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
@@ -207,7 +232,13 @@ This video shows the teleport command being called by command blocks in a space 
 				
 <h4>Say and tell</h4>
 				
-				<p>The say command makes an entity say a phrase. The tell command has one entity whisper text to another entity. They are a great way to tell players what is happening when they activate a command block. For example: </p>
+				<p>The say command makes an entity say a phrase. The tell command has one entity whisper text to another entity. They are a great way to tell players what is happening when they activate a command block. </p>
+
+				<p><strong>Syntax:<br>
+				/say  [target selector[argument=value]] [phrase]<br>
+				/tell [target selector[argument=value]] [phrase]</strong></p>
+
+					<p>Here's some examples: </p>
 <p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
@@ -254,7 +285,12 @@ This video shows the teleport command being called by command blocks in a space 
 				
 <h4>Execute</h4>
 				
-				<p>The execute command is one of the most important commands. It allows you to create more complex actions by having entities be the ones who execute the commands. The format is execute followed by XYZ coordinates and then the command. For example:</p>
+				<p>The execute command is one of the most important commands. It allows you to create more complex actions by having entities be the ones who execute the commands. A command block can't modify its own inventory or enchant its own weapons. It uses the /execute command to call the commands on entities (or in relation to their positions in some cases). The format is /execute followed by XYZ coordinates and then the command.</p> 
+
+				<p><strong>Syntax:<br>
+				/execute [target selector[argument=value]] X Y Z [command]</strong></p>
+
+				Here's some examples:</p>
 <p>
 				<div class="accordion" id="accordionExample">
   <div class="card">
@@ -293,7 +329,12 @@ This video shows the teleport command being called by command blocks in a space 
 
 
 
-				
+				<br>
+						<hr>
+						<p class="text-center">
+						Previous lesson: <a href="./chainingblocks.htm">Chaining blocks</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./summonentity.htm">Summoning entities</a>
+						<p>
+						<hr>
 
 
 	
@@ -301,7 +342,7 @@ This video shows the teleport command being called by command blocks in a space 
 			</div>
 
 			<!-- sidebar if needed-->
-			<div class="col-2">
+			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
 				
 			</div>
 		</div>
@@ -317,15 +358,13 @@ This video shows the teleport command being called by command blocks in a space 
 
 
 
-
      <!-- Footer to be used on every page -->
-<div  style="padding:30px; text-align:center">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
 <a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
 <a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
 <a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
 </div>
-
 
 
 

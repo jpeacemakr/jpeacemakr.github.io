@@ -8,10 +8,14 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
 
 	<title>Command Blocks for Minecraft Bedrock Edition</title>
 </head>
-<body  style="padding-top:100px">
+<body class="mypaddedbody">
+
+
+
 
 
 	<!-- Header nav bar to be used on every page -->
@@ -38,30 +42,37 @@
 
 			</ul>
 		</div>
-		<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
-
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks</a>
+		</div>
 	</nav>
 
 
 
 
 
-	<div class="container">
+<!-- Main content area -->
+
+
+	<div class="container-fluid pl-5 pr-5">
 
 		<div class="row">
 
 			<!-- Vertical nav bar on left side -->
-			<div class="col-sm-2">
+			<div class="col-md-2">
 				<div class="btn-group-justified">
-					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0" href="./gettingstarted.htm" role="button">Getting started</a>
-					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0" href="./teleport.htm" role="button">Basic commands</a>
-					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0" href="./summonentity.htm" role="button">Summon entities</a>
-					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0" href="./entityeffects.htm" role="button">Entity effects</a>
-					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0" href="./givingitems.htm" role="button">Giving items</a>
-					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0" href="./enchantitems.htm" role="button">Enchanting items</a>
-					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0" href="./environment.htm" role="button">Environment</a>
-					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0" href="./clonefillblocks.htm" role="button">Cloning blocks</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block  text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
 					<br>
 				</div>
 			</div>
@@ -69,8 +80,9 @@
 
 
 
+
 			<!-- content in the middle-->
-			<div class="col-sm-8">
+			<div class="col">
 				<h1 class="display-4">Getting started</h1>
 				<p class="lead">Add the special Command Block to your inventory  </p>
 				<hr>
@@ -125,7 +137,7 @@
 
 				<p>
 				<div class="accordion" id="accordionExample">
-  <div class="card">
+  <div class="card lightbluebg">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -140,7 +152,7 @@
       </div>
     </div>
   </div>
-  <div class="card">
+  <div class="card lightbluebg">
     <div class="card-header" id="headingTwo">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -154,7 +166,7 @@
       </div>
     </div>
   </div>
-  <div class="card">
+  <div class="card  lightbluebg">
     <div class="card-header" id="headingThree">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -173,8 +185,11 @@
 
 
 				
-
-				
+						<hr>
+						<p class="text-center">
+						Previous lesson: <a href="">Name of lesson</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="">Name of lesson</a>
+						<p>
+						<hr>
 
 
 
@@ -183,10 +198,10 @@
 
 			</div>
 
-			<!-- sidebar if needed-->
-			<div class="col-sm-2">
+			<!-- sidebar if needed. it diappears when screen shrinks-->
+			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
 				
-				<div class="bg-light p-4">
+				<div class="p-4 lightbluebg">
 				<h4  class="text-primary heavy"><b>NOTE</b></h4>
 				<blockquote> 
 				Command blocks are indestructible but be cautious as the attached buttons, levers or redstone can be destroyed.</blockquote>
@@ -194,6 +209,7 @@
 
 			</div>
 		</div>
+
 
 
 
@@ -208,7 +224,7 @@
 
 
      <!-- Footer to be used on every page -->
-<div  style="padding:30px; text-align:center">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
 <a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
 <a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;

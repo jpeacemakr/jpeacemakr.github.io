@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,12 +7,17 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
 
 	<title>Command Blocks for Minecraft Bedrock Edition</title>
 </head>
-<body  style="padding-top:100px">
+<body class="mypaddedbody">
 
 
+
+
+
+	
 	<!-- Header nav bar to be used on every page -->
 
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
@@ -38,30 +42,35 @@
 
 			</ul>
 		</div>
-		<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
-
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks</a>
+		</div>
 	</nav>
 
 
 
 
 
-	<div class="container">
+	<div class="container-fluid pl-5 pr-5">
 
 		<div class="row">
 
 			<!-- Vertical nav bar on left side -->
-			<div class="col-2">
-				<div class="btn-group-vertical">
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./gettingstarted.htm" role="button">Getting started</a>
-					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./teleport.htm" role="button">Basic commands</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./summonentity.htm" role="button">Summon entities</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./entityeffects.htm" role="button">Entity effects</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./givingitems.htm" role="button">Giving items</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./enchantitems.htm" role="button">Enchanting items</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./environment.htm" role="button">Environment</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./clonefillblocks.htm" role="button">Cloning blocks</a>
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
 				</div>
 			</div>
 
@@ -69,7 +78,7 @@
 
 
 			<!-- content in the middle-->
-			<div class="col-8">
+			<div class="col">
 				<h1 class="display-4">Chaining command blocks</h1>
 				<p class="lead">Multiple commands can be put together for powerful results  </p>
 				<hr>
@@ -135,8 +144,13 @@ This video shows a map called TNT Fight. Players on a giant block try to blow ea
 </p>
 <br>
 <h4>Testfor</h4>
-				<p>Conditional command blocks can often be used with the /testfor command. It checks for a set of circumstances and if that condition is true, then the following conditional command block can execute.
-				For example:
+				<p>Conditional command blocks can often be used with the /testfor command. It checks for a set of circumstances and if that condition is true, then the following conditional command block can execute. It has a target selector and optinal arguments (These are described in more detail in the next lesson).
+				<p><strong>Syntax:<br>
+				/testfor [target selector[argument=value]]<br>
+				/testfor [target selector[argument1=value1,argument2=value2]]</strong>
+				</p>
+
+				<p>Here are some examples:</p>
 
 <div class="accordion" id="accordionExample">
   <div class="card">
@@ -158,13 +172,13 @@ This video shows a map called TNT Fight. Players on a giant block try to blow ea
     <div class="card-header" id="headingTwo">
       <h2 class="mb-0">
         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Test for an entity (player, creature, or certain objects) at a set of coordinates.
+          Test for a zombie at a set of coordinates.
         </button>
       </h2>
     </div>
     <div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
       <div class="card-body">
-        /testfor @e[x=3,y=3,z=3]
+        /testfor @e[type=zombie,x=3,y=3,z=3]
       </div>
     </div>
   </div>
@@ -175,11 +189,18 @@ This video shows a map called TNT Fight. Players on a giant block try to blow ea
 </p>
 
 
+<br>
+						<hr>
+						<p class="text-center">
+						Previous lesson: <a href="./gettingstarted.htm">Getting started</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./teleport.htm">Basic commands</a>
+						<p>
+						<hr>
+
 			</div>
 
 			<!-- sidebar if needed-->
-			<div class="col-2">
-				<div class="bg-light p-4">
+			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+				<div class="p-4 lightbluebg">
 				<h4  class="text-primary heavy"><b>NOTE</b></h4>
 				<blockquote> 
 				If command blocks cause Minecraft to freeze, force quit the game, and you might have to disable command blocks in your setting before reloading the map.</blockquote>
@@ -197,8 +218,8 @@ This video shows a map called TNT Fight. Players on a giant block try to blow ea
 
 
 
-    <!-- Footer to be used on every page -->
-<div  style="padding:30px; text-align:center">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+     <!-- Footer to be used on every page -->
+<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
 <a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
 <a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;

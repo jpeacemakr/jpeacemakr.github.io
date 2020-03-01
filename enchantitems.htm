@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,12 +7,18 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
 
 	<title>Command Blocks for Minecraft Bedrock Edition</title>
 </head>
-<body  style="padding-top:100px">
+<body class="mypaddedbody">
 
 
+
+
+
+
+	
 	<!-- Header nav bar to be used on every page -->
 
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
@@ -38,30 +43,35 @@
 
 			</ul>
 		</div>
-		<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
-
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks</a>
+		</div>
 	</nav>
 
 
 
 
 
-	<div class="container">
+	<div class="container-fluid pl-5 pr-5">
 
 		<div class="row">
 
 			<!-- Vertical nav bar on left side -->
-			<div class="col-2">
-				<div class="btn-group-vertical">
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./gettingstarted.htm" role="button">Getting started</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./teleport.htm" role="button">Basic commands</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./summonentity.htm" role="button">Summon entities</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./entityeffects.htm" role="button">Entity effects</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./givingitems.htm" role="button">Giving items</a>
-					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./enchantitems.htm" role="button">Enchanting items</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./environment.htm" role="button">Environment</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./clonefillblocks.htm" role="button">Cloning blocks</a>
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
 				</div>
 			</div>
 
@@ -70,13 +80,13 @@
 
 
 			<!-- content in the middle-->
-			<div class="col-8">
+			<div class="col">
 				<h1 class="display-4">Enchanting items</h1>
 				<p class="lead">Add special properties to your weapons and armor.  </p>
 				<hr>
-				<p>The enchant command allows you to addspecial properties to the weapon or armor you have active in your hands. You can add damage, knockback, infinite ammo or other properties. When chaining commands, it is best to activate this command right after a weapon is given. Enchanting armor can be done, but you have to be holding it, then you can put it on manually. Each enchantment can only be used on certain types of items and each has a maximum level of power. Mulltiple enchantments can be given to the same item, but some do not work together. The enchant command is:</p>
+				<p>The enchant command allows you to addspecial properties to the weapon or armor you have active in your hands. You can add damage, knockback, infinite ammo or other properties. When chaining commands, it is best to activate this command right after a weapon is given. Enchanting armor can be done, but you have to be holding it, then you can put it on manually. Each enchantment can only be used on certain types of items and each has a maximum level of power. Mulltiple enchantments can be given to the same item, but some do not work together. </p>
 
-				<p><strong>/enchant [target] [enchantmentName] [level]</strong></p>
+				<p><strong>Syntax: /enchant [target] [enchantmentName] [level]</strong></p>
 
 				<p>Here are some examples:</p>
 
@@ -211,20 +221,26 @@ Your browser does not support the audio element.
 <tr><td>Unbreaking</td><td>unbreaking</td><td>3</td><td>Increases durability</td><td>all weapons and armor</td></tr>
 </table>
 <hr>
+<p>
 Source: https://www.digminecraft.com/
+</p>
 
 
 
 
 
-
-
+<br>
+						<hr>
+						<p class="text-center">
+						Previous lesson: <a href="./givingitems.htm">Giving items</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./environment.htm">Environment</a>
+						<p>
+						<hr>
 
 
 			</div>
 
 			<!-- sidebar if needed-->
-			<div class="col-2">
+			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
 				
 			</div>
 		</div>
@@ -240,8 +256,8 @@ Source: https://www.digminecraft.com/
 
 
 
-    <!-- Footer to be used on every page -->
-<div  style="padding:30px; text-align:center">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+     <!-- Footer to be used on every page -->
+<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
 <a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
 <a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;

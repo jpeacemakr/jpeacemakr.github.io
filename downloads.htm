@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,14 +7,17 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
 
 	<title>Command Blocks for Minecraft Bedrock Edition</title>
 </head>
-<body  style="padding-top:100px">
+<body class="mypaddedbody">
 
 
 
 
+
+	
 	<!-- Header nav bar to be used on every page -->
 
 	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
@@ -26,13 +28,13 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="./index.htm">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="./index.htm">Home </a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="./gettingstarted.htm">Tutorial</a>
+					<a class="nav-link" href="./gettingstarted.htm">Tutorial </a>
 				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="./downloads.htm">Downloads</a>
+				<li class="nav-item">
+					<a class="nav-link active" href="./downloads.htm">Downloads <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="./blog.htm">Blog</a>
@@ -40,20 +42,24 @@
 
 			</ul>
 		</div>
-		<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
-
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="#"  >Command Blocks</a>
+		</div>
 	</nav>
 
 
 
 
 
-	<div class="container">
+	<div class="container-fluid pl-5 pr-5">
 
 		<div class="row">
 
 			<!-- Vertical nav bar on left side -->
-			<div class="col-2">
+			<div class="col-md-2">
 				
 			</div>
 
@@ -61,7 +67,7 @@
 
 
 			<!-- content in the middle-->
-			<div class="col-8">
+			<div class="col">
 				<h1 class="display-4">Downloads</h1>
 				<p class="lead">Custom maps to show how command blocks can be used  </p>
 				<hr>
@@ -115,7 +121,7 @@
 			</div>
 
 			<!-- sidebar if needed-->
-			<div class="col-2">
+			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
 				
 			</div>
 		</div>
@@ -130,14 +136,13 @@
 
 
 
-    <!-- Footer to be used on every page -->
-<div  style="padding:30px; text-align:center">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+     <!-- Footer to be used on every page -->
+<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
 <a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
 <a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
 <a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
 </div>
-
 
 
 

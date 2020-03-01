@@ -1,75 +1,82 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./css/minecraft.css">
 
-	<title>Command Blocks for Minecraft Bedrock Edition</title>
+  <title>Command Blocks for Minecraft Bedrock Edition</title>
 </head>
-<body  style="padding-top:100px">
-
-
-	<!-- Header nav bar to be used on every page -->
-
-	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="./index.htm">Home </a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="./downloads.htm">Downloads</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="./blog.htm">Blog</a>
-				</li>
-
-			</ul>
-		</div>
-		<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
-
-	</nav>
+<body class="mypaddedbody">
 
 
 
 
+	
+  <!-- Header nav bar to be used on every page -->
 
-	<div class="container">
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="./index.htm">Home </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./downloads.htm">Downloads</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./blog.htm">Blog</a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="d-none d-sm-none d-md-block">
+      <a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
+    </div>
+    <div class="d-md-none">
+      <a class="navbar-brand text-white" href="#"  >Command Blocks</a>
+    </div>
+  </nav>
+
+
+
+
+  <div class="container-fluid pl-5 pr-5">
 
 		<div class="row">
 
 			<!-- Vertical nav bar on left side -->
-			<div class="col-2">
-				<div class="btn-group-vertical">
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./gettingstarted.htm" role="button">Getting started</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./chainingblocks.htm" role="button">Chaining blocks</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./teleport.htm" role="button">Basic commands</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./summonentity.htm" role="button">Summon entities</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./entityeffects.htm" role="button">Entity effects</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./givingitems.htm" role="button">Giving items</a>
-					<a class="btn btn-primary btn-md bg-secondary text-left pl-3 pr-3" href="./enchantitems.htm" role="button">Enchanting items</a>
-					<a class="btn btn-primary btn-md text-left pl-3 pr-3" href="./environment.htm" role="button">Environment</a>
-					<a class="btn btn-primary btn-md bg-dark text-left pl-3 pr-3" href="./clonefillblocks.htm" role="button">Cloning blocks</a>
-				</div>
-			</div>
+      <div class="col-md-2">
+        <div class="btn-group-justified">
+          <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+          <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+          <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+          <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+          <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+          <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+          <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+          <a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+          <a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+          <br>
+        </div>
+      </div>
 
 
 
 
 			<!-- content in the middle-->
-			<div class="col-8">
+			<div class="col">
 				<h1 class="display-4">Environment</h1>
 				<p class="lead">Time, weather and other game rules.  </p>
 				<hr>
@@ -226,7 +233,7 @@
 
 <p>A list of game rules:</p>
 <table class="table">
-<thead class="thead-light"><th width="150px">Rule name</th><th>Description</th><th>Default value</th><th>Value type</th></thead>
+<thead class="thead-light"><th>Rule name</th><th>Description</th><th>Default value</th><th>Value type</th></thead>
 <tr><td>commandBlockOutput</td><td>Whether command blocks should notify admins when they perform commands</td><td>true</td><td>Boolean</td></tr>
 <tr><td>doDaylightCycle</td><td>Whether the day-night cycle and moon phases progress</td><td>true</td><td>Boolean</td></tr>
 <tr><td>doEntityDrops</td><td>Whether entities that are not mobs should have drops</td><td>true</td><td>Boolean</td></tr>
@@ -252,15 +259,27 @@
 <tr><td>tntExplodes</td><td>Whether TNT explodes after activation</td><td>true</td><td>Boolean</td></tr>
 </table>
 <hr>
+<p>
 Source: https://minecraft.gamepedia.com/
-			</div>
+	</p>		
+
+
+
+<br>
+            <hr>
+            <p class="text-center">
+            Previous lesson: <a href="./enchantitems.htm">Enchanting items</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="clonefillblocks.htm">Cloning/filling</a>
+            <p>
+            <hr>
+
+      </div>
 
 
 
 
 
 			<!-- sidebar if needed-->
-			<div class="col-2">
+      <div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
 				
 			</div>
 		</div>
@@ -276,8 +295,8 @@ Source: https://minecraft.gamepedia.com/
 
 
 
-    <!-- Footer to be used on every page -->
-<div  style="padding:30px; text-align:center">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+     <!-- Footer to be used on every page -->
+<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
 <a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
 <a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
