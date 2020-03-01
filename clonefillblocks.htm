@@ -88,7 +88,7 @@
 				<p>For replace or masked clone commands:</p>
 				<p><strong>Syntax: /clone [begin x y z] [end x y z] [destination x y z] [replace OR masked] [normal OR force OR move]</strong>
 				</p>
-				<p> The clone command uses two sets of coordinates to select the area. They represent diagonally opposite corners of a box. The destination coordinates are where the box will be cloned to (the lowest x y z corner).</p>
+				<p> The clone command uses two sets of coordinates to select the area. They represent diagonally opposite corners of a box. The destination coordinates are where the box will be cloned to (the lowest x y z corner). Relative coordinates using ~ can also be used.</p>
 				<p>
 				The second optional argument is one of the following:
 				<ul>
@@ -98,66 +98,152 @@
 				</ul>
 				</p>
 
-				<p>For the filtered clone command, a block name and optional tileData number are added:</p>
+				<p>For the filtered clone command, a block name and optional tileData number are added. The command only clones the blocks that match this type.</p>
 				<p>
 				<strong>Syntax: /clone [begin x y z] [end x y z] [destination x y z] filtered [normal OR force OR move] [block name] [tileData number]</strong>
 				</p>
-				<p>The "block name" is just the name of the block (Example: cobblestone). You can also use a more generic block name like stone and then give a number for the specific tileData number 0-15 (Example: wool 5 will give you orange wool.) The default tileData number is 0.
+				<p>The [block name] is just the name of the block (Example: cobblestone) that will be cloned. You can also use a more generic block name like stone and then give a number for the specific tileData number 0-15 (Example: wool 5 will give you orange wool.) The default tileData number is 0.
 
 
 				</p>
+<p>Here are some examples:</p>
 
+				<p>
+ <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneB">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneB" aria-expanded="true" aria-controls="collapseOneB">
+          Move the box starting at 10 100 10 and ending at -10 105 -10 up 100 spaces.
+        </button>
+      </h2>
+    </div>
 
-
-
-
-<h4>Setblock</h4>
-
-<p>The /setblock command is very similar to the /fill command except that it only does one block.</p>
-<p>
-<strong>Syntax: setblock [position x y z] [block name] [tileData number] [replace OR destroy OR keep]</strong>
+    <div id="collapseOneB" class="collapse  bg-light" aria-labelledby="headingOneB" data-parent="#accordionExample">
+      <div class="card-body">
+        /clone 10 100 10 -10 105 -10 -10 200 -10 replace move
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwoB">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+        	Move only the cobblestone blocks in the box starting at 10 100 10 and ending at -10 105 -10.
+		</button>
+      </h2>
+    </div>
+    <div id="collapseTwoB" class="collapse bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
+      <div class="card-body">
+        /clone 10 100 10 -10 105 -10 -10 200 -10 filtered normal cobblestone
+      </div>
+    </div>
+  </div>
+  
+</div>
 </p>
-<p>
-	The last argument has three options:
-	<ul>
-<li>replace (the default): The old block is replaced with the new one. Neither the block nor its contents drop. 
-<li>destroy: The original is destroyed and drops the block and its contents.
-<li>keep: Only changes if the original was air.
-</ul>
+<br>
+
+
+
+
+				<h4>Setblock</h4>
+
+				<p>The /setblock command is very similar to the /fill command except that it only does one block.</p>
+				<p>
+				<strong>Syntax: setblock [position x y z] [block name] [tileData number] [replace OR destroy OR keep]</strong>
+				</p>
+				<p>
+					The last argument has three options:
+					<ul>
+				<li>replace (the default): The old block is replaced with the new one. Neither the block nor its contents drop. 
+				<li>destroy: The original is destroyed and drops the block and its contents.
+				<li>keep: Only changes if the original was air.
+				</ul>
+				</p>
+
+<p>Here are some examples:</p>
+
+				<p>
+ <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneA">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneA" aria-expanded="true" aria-controls="collapseOneA">
+          Create a cobblestone block 5 spaces above where you are. 
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOneA" class="collapse  bg-light" aria-labelledby="headingOneA" data-parent="#accordionExample">
+      <div class="card-body">
+        /setblock ~ ~5 ~ cobblestone
+      </div>
+    </div>
+  </div>
+  
+  
+</div>
 </p>
-
-
+<br>
 
 
 
 				<h4>Filling blocks</h4>
 			
+				<p>The /fill command fills a box with one type of block. It does not have a source like the /clone command. It can be used to quickly fill or destroy large sections of blocks. You can't create blocks that need to be attached to other block, such as buttons or doors.</p>
+
+				<p><strong>Syntax:<br>
+				/fill [from: x y z] [to: x y z] [block name] [tileData number] [outline OR hollow OR destroy OR keep]<br>
+				/fill [from: x y z] [to: x y z] [block name] [tileData number] replace [block name] [tileData number]
+				</strong></p>
 				<p>
+				The /fill command has five options:
+				<ul>
+				<li>Outline: Replaces only the blocks on the outer edge of the fill area. Block inside stay intact.</li>
+				<li>Hollow: Replaces the blocks on the outer edge of the fill area. Inner blocks are changed to air.</li>
+				<li>Destroy: Replaces all block in the area. Original blocks and their contents drop.</li>
+				<li>Keep: Replaces only the air blocks.</li>
+				<li>Replace (default): Replaces only the blocks that match the second [block name] and [tileData number]. If second [block name] and [tileData number] are not given, all blocks are replaced. </li>
+				</ul>
+				</p>
+<p>Here are some examples:</p>
 
-fill <from: x y z> <to: x y z> <tileName: Block> [tileData: int] [outline|hollow|destroy|keep]
-fill <from: x y z> <to: x y z> <tileName: Block> <tileData: int> replace [<replaceTileName: Block>] [<replaceDataValue: int>]
+				<p>
+ <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOneZ">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneZ" aria-expanded="true" aria-controls="collapseOneZ">
+          Replace all stone in the given area with orange wool. 
+        </button>
+      </h2>
+    </div>
 
-
-
-/fill 52 100 -15 100 73 -20 wool 1 replace stone 5
-/fill 52 100 -15 100 73 -20 wool 1 replace stone 5
-DIRT WOOD pLANKS STONE WOOL ICE
-numbers are 0-15 
-ICE 5
-
-OR FOR SPECIFIC ITEMS
-OR YOU CAN USE 0
-BLUE_ICE 0
-
-BLOCKS THAT NEED TO BE PLACE ON OTHER THINGS SUCH AS DOORS OR BUTTONS WILL JUST FALL TO THEGROUND.
-
-
-destroy - Replaces all blocks (including air) in the fill region with the specified block, dropping the existing blocks (including those that are unchanged) and block contents as entities as if they had been mined with an unenchanted diamond shovel or pickaxe. (Blocks that can be mined only with shears, such as vines, do not drop; neither do liquids.)
-hollow - Replaces only the blocks on the outer edge of the fill region with the specified block. Inner blocks are changed to air, dropping their contents as entities but not themselves. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
-keep - Replaces only the air blocks in the fill region with the specified block.
-outline - Replaces only the blocks on the outer edge of the fill region with the specified block. Inner blocks are not affected. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
-replace - Replaces all blocks (including air) in the fill region with the specified block, without dropping blocks or block contents as entities. Optionally, instead of specifying a data tag for the replacing block, block ID and data values may be specified to limit which blocks are replaced (see replaceTileName and replaceDataValue below)
-If not specified, defaults to replace.
+    <div id="collapseOneZ" class="collapse  bg-light" aria-labelledby="headingOneZ" data-parent="#accordionExample">
+      <div class="card-body">
+        /fill 52 100 -15 100 73 -20 stone 0 replace wool 5
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwoZ">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoZ" aria-expanded="false" aria-controls="collapseTwoZ">
+          Make a hollow box of blue ice.
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwoZ" class="collapse  bg-light" aria-labelledby="headingTwoZ" data-parent="#accordionExample">
+      <div class="card-body">
+        /fill 52 100 -15 100 73 -20 blue_ice hollow
+      </div>
+    </div>
+  </div>
+  
+</div>
+</p>
+<br>
 
 
 				</p>
