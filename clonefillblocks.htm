@@ -72,78 +72,95 @@
 			<!-- content in the middle-->
 			<div class="col-8">
 				<h1 class="display-4">Cloning/filling blocks</h1>
-				<p class="lead">Here is some text. Some text to get started with the layout of this page.  </p>
+				<p class="lead">You can use these commands to move, copy or create big sections of blocks.  </p>
 				<hr>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
+			
+				<h4>Cloning blocks</h4>
+			
+				<p>The clone command copies one section of the map to another area of the map. It has options to copy or move. It also has options to only clone blocks of a certain type or to clone non-air blocks.</p>
+				<p>There are three types of clone commands: Replace, masked or filtered.</p>
+				<ul>
+					<li>Replace: clone all block, overwriting the original blocks (the default)</li>
+					<li>Masked: clone only non-air blocks</li>
+					<li>Filtered: clone only blocks of a certain type</li>
+				</ul> 
 
-				<h4>Creating a command block</h4>
-				<figure class="figure float-right ml-3">
-  				<img src="./images/commandblock.jpg" class="figure-img img-fluid" alt="...">
-  				<figcaption class="figure-caption">A caption for the above image.</figcaption>
-				</figure>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+				<p>For replace or masked clone commands:</p>
+				<p><strong>Syntax: /clone [begin x y z] [end x y z] [destination x y z] [replace OR masked] [normal OR force OR move]</strong>
+				</p>
+				<p> The clone command uses two sets of coordinates to select the area. They represent diagonally opposite corners of a box. The destination coordinates are where the box will be cloned to (the lowest x y z corner).</p>
 				<p>
-				<div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
-        </button>
-      </h2>
-    </div>
+				The second optional argument is one of the following:
+				<ul>
+				<li>Normal: Don't force or move (the default)</li>
+				<li>Force: Clones even if the source and destination areas overlap</li>
+				<li>Move: Replaces the destination area with air</li>
+				</ul>
+				</p>
 
-    <div id="collapseOne" class="collapse  bg-light show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse bg-light" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
+				<p>For the filtered clone command, a block name and optional tileData number are added:</p>
+				<p>
+				<strong>Syntax: /clone [begin x y z] [end x y z] [destination x y z] filtered [normal OR force OR move] [block name] [tileData number]</strong>
+				</p>
+				<p>The "block name" is just the name of the block (Example: cobblestone). You can also use a more generic block name like stone and then give a number for the specific tileData number 0-15 (Example: wool 5 will give you orange wool.) The default tileData number is 0.
+
+
+				</p>
+
+
+
+
+
+<h4>Setblock</h4>
+
+<p>The /setblock command is very similar to the /fill command except that it only does one block.</p>
+<p>
+<strong>Syntax: setblock [position x y z] [block name] [tileData number] [replace OR destroy OR keep]</strong>
 </p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
-				<p>Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. Here is some text. Some text to get started with the layout of this page. </p>
-				<p>Here is some text.</p>
+<p>
+	The last argument has three options:
+	<ul>
+<li>replace (the default): The old block is replaced with the new one. Neither the block nor its contents drop. 
+<li>destroy: The original is destroyed and drops the block and its contents.
+<li>keep: Only changes if the original was air.
+</ul>
+</p>
 
 
+
+
+
+				<h4>Filling blocks</h4>
+			
+				<p>
+
+fill <from: x y z> <to: x y z> <tileName: Block> [tileData: int] [outline|hollow|destroy|keep]
+fill <from: x y z> <to: x y z> <tileName: Block> <tileData: int> replace [<replaceTileName: Block>] [<replaceDataValue: int>]
+
+
+
+/fill 52 100 -15 100 73 -20 wool 1 replace stone 5
+/fill 52 100 -15 100 73 -20 wool 1 replace stone 5
+DIRT WOOD pLANKS STONE WOOL ICE
+numbers are 0-15 
+ICE 5
+
+OR FOR SPECIFIC ITEMS
+OR YOU CAN USE 0
+BLUE_ICE 0
+
+BLOCKS THAT NEED TO BE PLACE ON OTHER THINGS SUCH AS DOORS OR BUTTONS WILL JUST FALL TO THEGROUND.
+
+
+destroy - Replaces all blocks (including air) in the fill region with the specified block, dropping the existing blocks (including those that are unchanged) and block contents as entities as if they had been mined with an unenchanted diamond shovel or pickaxe. (Blocks that can be mined only with shears, such as vines, do not drop; neither do liquids.)
+hollow - Replaces only the blocks on the outer edge of the fill region with the specified block. Inner blocks are changed to air, dropping their contents as entities but not themselves. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
+keep - Replaces only the air blocks in the fill region with the specified block.
+outline - Replaces only the blocks on the outer edge of the fill region with the specified block. Inner blocks are not affected. If the fill region has no inner blocks (because it is smaller than three blocks in at least one dimension), acts like replace.
+replace - Replaces all blocks (including air) in the fill region with the specified block, without dropping blocks or block contents as entities. Optionally, instead of specifying a data tag for the replacing block, block ID and data values may be specified to limit which blocks are replaced (see replaceTileName and replaceDataValue below)
+If not specified, defaults to replace.
+
+
+				</p>
 
 
 			</div>
