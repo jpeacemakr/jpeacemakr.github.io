@@ -18,14 +18,14 @@
 
 
 
-	
 	<!-- Header nav bar to be used on every page -->
 
-	<nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
@@ -43,13 +43,22 @@
 
 			</ul>
 		</div>
+
 		<div class="d-none d-sm-none d-md-block">
-			<a class="navbar-brand text-white" href="#"  >Command Blocks for Minecraft Bedrock Edition</a>
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks for Minecraft Bedrock Edition</a>
 		</div>
 		<div class="d-md-none">
-			<a class="navbar-brand text-white" href="#"  >Command Blocks</a>
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks</a>
 		</div>
+
 	</nav>
+
+
+
+
+
+
+
 
 
 
@@ -92,110 +101,110 @@
 				<p>You can clear all effect with "/effect [target] clear".</p>	
 
 				<p><strong>Syntax: <br>
-				/effect [target] [name of effect] [time in seconds] [power of effect (0-255)] [true OR false (optional)]<br>
-				/effect [target] clear
+					/effect [target] [name of effect] [time in seconds] [power of effect (0-255)] [true OR false (optional)]<br>
+					/effect [target] clear
 				</strong></p> 
 
 				<p>Here are some examples of effects:</p>
 
-			
 
 
-<p>
-				<div class="accordion" id="accordionExample">
-  <div class="card">
-    <div class="card-header" id="headingOne">
-      <h2 class="mb-0">
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-           Make yourself nauseous for 5 seconds. 
-        </button>
-      </h2>
-    </div>
 
-    <div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
- 		/effect @s nausea 5 255
-       </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwoB">
-      <h2 class="mb-0">
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
-          Make all cows launch into the air.
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
-      <div class="card-body">
-        /effect @e[type=cow] levitation 2 100
-      </div>
-    </div>
-  </div>
-  
-</div>
-</p>
+				<p>
+					<div class="accordion" id="accordionExample">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Make yourself nauseous for 5 seconds. 
+									</button>
+								</h2>
+							</div>
 
-<p>
-<figure class="figure">
-  				<img src="./images/entityeffect.jpg" class="figure-img img-fluid" alt="Effects create particles that swirl around entities.">
-  				<figcaption class="figure-caption">Effects create particles that swirl around entities.</figcaption>
-				</figure>
-</p>
-<br>
+							<div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
+								<div class="card-body">
+									/effect @s nausea 5 255
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="headingTwoB">
+								<h2 class="mb-0">
+									<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+										Make all cows launch into the air.
+									</button>
+								</h2>
+							</div>
+							<div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
+								<div class="card-body">
+									/effect @e[type=cow] levitation 2 100
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</p>
+
+				<p>
+					<figure class="figure">
+						<img src="./images/entityeffect.jpg" class="figure-img img-fluid" alt="Effects create particles that swirl around entities.">
+						<figcaption class="figure-caption">Effects create particles that swirl around entities.</figcaption>
+					</figure>
+				</p>
+				<br>
 
 
-					<h4>List of effects</h4>
-					<table class="table">
-<thead class="thead-light"><th>Name</th><th>Command argument</th><th>Description</th></thead>
- <tr><td>Speed</td><td>speed</td><td>Run faster</td></tr>
- <tr><td>Slowness</td><td>slowness</td><td>Run slower</td></tr>
- <tr><td>Haste</td><td>haste</td><td>Increases attack speed and mining speed</td></tr>
- <tr><td>Mining Fatigue</td><td>mining_fatigue</td><td>Decreases attack speed and mining speed</td></tr>
- <tr><td>Strength</td><td>strength</td><td>Increases melee damage</td></tr>
- <tr><td>Instant Health</td><td>instant_health</td><td>Heals (but damages undead)</td></tr>
- <tr><td>Instant Damage</td><td>instant_damage</td><td>Hurts (but heals undead)</td></tr>
- <tr><td>Jump Boost</td><td>jump_boost</td><td>Makes you jump higher and reduces fall damage</td></tr>
- <tr><td>Nausea</td><td>nausea</td><td>Creates a drunk effect</td></tr>
- <tr><td>Regeneration</td><td>regeneration</td><td>Heals over time</td></tr>
- <tr><td>Resistance</td><td>resistance</td><td>reduces damage</td></tr>
- <tr><td>Fire Resistance</td><td>fire_resistance</td><td>immune to burning</td></tr>
- <tr><td>Water Breathing</td><td>water_breathing</td><td>You can breathe underwater</td></tr>
- <tr><td>Invisibility</td><td>invisibility</td><td>Makes the player invisible, but armor and weapon can still be seen</td></tr>
- <tr><td>Blindness</td><td>blindness</td><td>Limits the distance you can see and disables sprint and critical hit</td></tr>
- <tr><td>Night Vision</td><td>night_vision</td><td>See in the dark</td></tr>
- <tr><td>Hunger</td><td>hunger</td><td>Players get hungry faster</td></tr>
- <tr><td>Weakness</td><td>weakness</td><td>Reduces melee damage</td></tr>
- <tr><td>Poison</td><td>poison</td><td>Damage over time but can't kill</td></tr>
- <tr><td>Wither</td><td>wither</td><td>Damage over time and can kill</td></tr>
- <tr><td>Health Boost</td><td>health_boost</td><td>Increases maximum health</td></tr>
- <tr><td>Absorption</td><td>absorption</td><td>Reduces damage</td></tr>
- <tr><td>Saturation</td><td>saturation</td><td>Makes you less hungry</td></tr>
- <tr><td>Levitation</td><td>levitation</td><td>Make you go up</td></tr>
- <tr><td>Fatal Poison</td><td>fatal_poison</td><td>Damage over time and can kill</td></tr>
- <tr><td>Conduit Power</td><td>conduit_power</td><td>Increases visibility underwater, prevents drowning and boosts mining speed</td></tr>
- <tr><td>Slow Falling</td><td>slow_falling</td><td>Makes you fall slower</td></tr>
- <tr><td>Bad Omen</td><td>bad_omen</td><td>Makes an illager raid start when you enter a village</td></tr>
- <tr><td>Hero of the Village</td><td>village_hero</td><td>Discounts trades</td></tr>
+				<h4>List of effects</h4>
+				<table class="table">
+					<thead class="thead-light"><th>Name</th><th>Command argument</th><th>Description</th></thead>
+					<tr><td>Speed</td><td>speed</td><td>Run faster</td></tr>
+					<tr><td>Slowness</td><td>slowness</td><td>Run slower</td></tr>
+					<tr><td>Haste</td><td>haste</td><td>Increases attack speed and mining speed</td></tr>
+					<tr><td>Mining Fatigue</td><td>mining_fatigue</td><td>Decreases attack speed and mining speed</td></tr>
+					<tr><td>Strength</td><td>strength</td><td>Increases melee damage</td></tr>
+					<tr><td>Instant Health</td><td>instant_health</td><td>Heals (but damages undead)</td></tr>
+					<tr><td>Instant Damage</td><td>instant_damage</td><td>Hurts (but heals undead)</td></tr>
+					<tr><td>Jump Boost</td><td>jump_boost</td><td>Makes you jump higher and reduces fall damage</td></tr>
+					<tr><td>Nausea</td><td>nausea</td><td>Creates a drunk effect</td></tr>
+					<tr><td>Regeneration</td><td>regeneration</td><td>Heals over time</td></tr>
+					<tr><td>Resistance</td><td>resistance</td><td>reduces damage</td></tr>
+					<tr><td>Fire Resistance</td><td>fire_resistance</td><td>immune to burning</td></tr>
+					<tr><td>Water Breathing</td><td>water_breathing</td><td>You can breathe underwater</td></tr>
+					<tr><td>Invisibility</td><td>invisibility</td><td>Makes the player invisible, but armor and weapon can still be seen</td></tr>
+					<tr><td>Blindness</td><td>blindness</td><td>Limits the distance you can see and disables sprint and critical hit</td></tr>
+					<tr><td>Night Vision</td><td>night_vision</td><td>See in the dark</td></tr>
+					<tr><td>Hunger</td><td>hunger</td><td>Players get hungry faster</td></tr>
+					<tr><td>Weakness</td><td>weakness</td><td>Reduces melee damage</td></tr>
+					<tr><td>Poison</td><td>poison</td><td>Damage over time but can't kill</td></tr>
+					<tr><td>Wither</td><td>wither</td><td>Damage over time and can kill</td></tr>
+					<tr><td>Health Boost</td><td>health_boost</td><td>Increases maximum health</td></tr>
+					<tr><td>Absorption</td><td>absorption</td><td>Reduces damage</td></tr>
+					<tr><td>Saturation</td><td>saturation</td><td>Makes you less hungry</td></tr>
+					<tr><td>Levitation</td><td>levitation</td><td>Make you go up</td></tr>
+					<tr><td>Fatal Poison</td><td>fatal_poison</td><td>Damage over time and can kill</td></tr>
+					<tr><td>Conduit Power</td><td>conduit_power</td><td>Increases visibility underwater, prevents drowning and boosts mining speed</td></tr>
+					<tr><td>Slow Falling</td><td>slow_falling</td><td>Makes you fall slower</td></tr>
+					<tr><td>Bad Omen</td><td>bad_omen</td><td>Makes an illager raid start when you enter a village</td></tr>
+					<tr><td>Hero of the Village</td><td>village_hero</td><td>Discounts trades</td></tr>
 
-</table>
-<hr>
-<p>
-Source: https://minecraft.gamepedia.com
-</p>
+				</table>
+				<hr>
+				<p>
+					Source: https://minecraft.gamepedia.com
+				</p>
 
-<br>
-						<hr>
-						<p class="text-center">
-						Previous lesson: <a href="./summonentity.htm">Summoning entities</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./givingitems.htm">Giving items</a>
-						<p>
-						<hr>
+				<br>
+				<hr>
+				<p class="text-center">
+					Previous lesson: <a href="./summonentity.htm">Summoning entities</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./givingitems.htm">Giving items</a>
+				</p>
+				<hr>
 
 			</div>
 
 			<!-- sidebar if needed-->
 			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
-				
+
 			</div>
 		</div>
 
@@ -210,13 +219,13 @@ Source: https://minecraft.gamepedia.com
 
 
 
-     <!-- Footer to be used on every page -->
-<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
-<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
-<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
-<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
-</div>
+	<!-- Footer to be used on every page -->
+	<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+		<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+		<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+		<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
+	</div>
 
 
 
