@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
+
+	<title>Command Blocks for Minecraft Bedrock Edition</title>
+</head>
+<body class="mypaddedbody">
+
+
+	
+
+
+
+	<!-- Header nav bar to be used on every page -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="./index.htm">Home </a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./downloads.htm">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./blog.htm">Blog</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks</a>
+		</div>
+
+	</nav>
+
+
+
+
+
+
+
+
+	<div class="container-fluid pl-5 pr-5">
+
+		<div class="row">
+
+			<!-- Vertical nav bar on left side -->
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
+				</div>
+			</div>
+
+
+
+
+			<!-- content in the middle-->
+			<div class="col">
+				<h1 class="display-4">Giving items</h1>
+				<p class="lead">Equip items or add them to your inventory.  </p>
+				<hr>
+
+				<figure class="figure">
+					<img src="./images/inventory.jpg" class="figure-img img-fluid" alt="The inventory of a minecraft player.">
+					<figcaption class="figure-caption">Commands can be used to equip items or add items to the player's inventory.</figcaption>
+				</figure>
+
+
+				<p>Having the right items in Minecraft could mean the difference between life and death.
+					Using command blocks to add items can make the battle a lot easier.
+
+					<p>There are several commands to accomplish this:</p>
+					
+					<h4>Give</h4>
+					<p>The give command puts an item or block into a player's inventory. It will place the item in the first available slot, starting with the hotbar.</p>
+					<p><strong>Syntax: /give [target] [item name] [amount]</strong></p> 
+					<p>Here are some examples:</p>
+
+					<p>
+						<div class="accordion" id="accordionExample">
+							<div class="card">
+								<div class="card-header" id="headingOneZ">
+									<h2 class="mb-0">
+										<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneZ" aria-expanded="true" aria-controls="collapseOneZ">
+											Give all players diamond body armor. 
+										</button>
+									</h2>
+								</div>
+
+								<div id="collapseOneZ" class="collapse  bg-light" aria-labelledby="headingOneZ" data-parent="#accordionExample">
+									<div class="card-body">
+										/give @a diamond_chestplate
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header" id="headingTwoZ">
+									<h2 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoZ" aria-expanded="false" aria-controls="collapseTwoZ">
+											Give all nearby players 40 blocks of diamond.
+										</button>
+									</h2>
+								</div>
+								<div id="collapseTwoZ" class="collapse  bg-light" aria-labelledby="headingTwoZ" data-parent="#accordionExample">
+									<div class="card-body">
+										/give @a[r=10] diamond_block 40
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</p>
+					<br>
+
+					<h4>Replaceitem</h4>
+					<p>To replace an entity's item with another item or into the equipped items, use the following command:</p>
+					<p><strong>Syntax: /replaceitem entity [target] [slotType] [slotId] [itemName] [amount]</strong></p>
+					
+					<p>Slots for player, mob or armor stand are:
+						<ul>
+							<li>slot.armor.chest</li>
+							<li>slot.armor.feet</li>
+							<li>slot.armor.head</li>
+							<li>slot.armor.legs</li>
+							<li>slot.weapon.mainhand</li>
+							<li>slot.weapon.offhand</li>
+							<li>slot.hotbar (hotbar slots go from 0 to 8)</li>
+							<li>slot.inventory (inventory slots go from 0 to 26)</li>
+						</ul>
+					</p>
+					<p>Here are some examples:</p> 
+					
+					
+					<p>
+						<div class="accordion" id="accordionExample">
+							<div class="card">
+								<div class="card-header" id="headingOne">
+									<h2 class="mb-0">
+										<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Have all players equip diamond body armor. 
+										</button>
+									</h2>
+								</div>
+
+								<div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
+									<div class="card-body">
+										/replaceitem entity @a slot.armor.chest 0 diamond_chestplate 1
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header" id="headingTwoB">
+									<h2 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+											Place fireworks in the player's first slot of their hotbar.
+										</button>
+									</h2>
+								</div>
+								<div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
+									<div class="card-body">
+										/replaceitem entity @s slot.hotbar 0 fireworks
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</p>
+					<br>
+
+					<p>Horses have different slot types. Slot types include slot.armor and slot.saddle, but horses must be tamed before giving them a saddle or armor.<p> 
+						<p>Here are some examples:</p>
+
+
+						<p>
+							<div class="accordion" id="accordionExample">
+								<div class="card">
+									<div class="card-header" id="headingOneD">
+										<h2 class="mb-0">
+											<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneD" aria-expanded="true" aria-controls="collapseOneD">
+												Give all tamed horses a saddle. 
+											</button>
+										</h2>
+									</div>
+
+									<div id="collapseOneD" class="collapse  bg-light" aria-labelledby="headingOneD" data-parent="#accordionExample">
+										<div class="card-body">
+											/replaceitem entity @e[type=horse] slot.saddle 1 saddle 1
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header" id="headingTwoD">
+										<h2 class="mb-0">
+											<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoD" aria-expanded="false" aria-controls="collapseTwoD">
+												Give all tamed horses diamond armor.
+											</button>
+										</h2>
+									</div>
+									<div id="collapseTwoD" class="collapse  bg-light" aria-labelledby="headingTwoD" data-parent="#accordionExample">
+										<div class="card-body">
+											/replaceitem entity @e[type=horse] slot.armor 1 horsearmordiamond 1 
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</p>
+						<br>
+
+						<p>To replace an item or block in a container (such as a chest or dispenser):</p>
+						<p><strong>Syntax: /replaceitem block X Y Z slot.container [slotId] [itemName] [amount] [data] [components]</strong><br>
+						(Note that the container slot numbers start at 0, not 1.)</p>
+						<p>Example:</p>
+						
+						<p>
+							<div class="accordion" id="accordionExample">
+								<div class="card">
+									<div class="card-header" id="headingOneC">
+										<h2 class="mb-0">
+											<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneC" aria-expanded="true" aria-controls="collapseOneC">
+												Place iron boots in the first slot in the chest at coordinates 12 72 -1. 
+											</button>
+										</h2>
+									</div>
+
+									<div id="collapseOneC" class="collapse  bg-light" aria-labelledby="headingOneC" data-parent="#accordionExample">
+										<div class="card-body">
+											/replaceitem block 12 72 -1 slot.container 0 iron_boots 1
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</p>
+						<br>
+
+
+					</p>
+
+					<h4>List of common items</h4>
+					<p>The complete list of items is very long in Minecraft. You can search for items by name by typing them in the console or searching online. Here are some of the more common items:
+						<ul>
+							<li>diamond_axe</li>
+							<li>diamond_boots</li>
+							<li>diamond_chestplate</li>
+							<li>diamond_helmet</li>
+							<li>diamond_hoe</li>
+							<li>diamond_leggings</li>
+							<li>diamond_pickaxe</li>
+							<li>diamond_shovel</li>
+							<li>diamond_sword</li>
+							<li>bow</li>
+							<li>crossbow</li>
+							<li>arrow</li>
+							<li>elytra</li>
+							<li>shield</li>
+							<li>horsearmordiamond</li>
+							<li>saddle</li>
+							<li>lead</li>
+							<li>torch</li>
+							<li>trident</li>
+							<li>turtle_helmet</li>
+							<li>armor_stand</li>
+							<li>chest</li>
+							<li>dispenser</li>
+							<li>fireball</li>
+							<li>fireworks</li>
+							<li>flint_and_steel</li>
+							<li>bucket</li>
+							<li>fishing_rod</li>
+							<li>golden_apple</li>
+						</ul>
+
+					</p>
+
+
+
+
+
+
+
+
+					<br>
+					<hr>
+					<p class="text-center">
+						Previous lesson: <a href="./entityeffects.htm">Entity effects</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./enchantitems.htm">Enchanting items</a>
+					</p>
+					<hr>
+
+
+
+				</div>
+
+				<!-- sidebar if needed-->
+				<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+					
+				</div>
+			</div>
+
+
+
+
+		</div>
+
+
+
+
+
+
+
+
+		<!-- Footer to be used on every page -->
+		<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+			<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+			<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+			<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
+		</div>
+
+
+
+
+
+
+
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	</body>
+	</html>
