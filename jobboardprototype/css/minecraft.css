@@ -80,3 +80,13 @@
 .tab {
  	margin-bottom:20px; 
 }
+
+.stretch {
+	width:100%!important;
+	max-width:auto!important; 
+}
+
+.shrink {
+	width:none!important;
+	max-width:none!important; 
+}
