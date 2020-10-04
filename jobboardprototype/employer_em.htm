@@ -10,6 +10,18 @@
 	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
 
 	<title>University of Mary Washington Computer Science Department Job / Internship Board</title>
+
+
+	<script>
+		function myFlagFunction() {
+			alert("The review has been flagged.");
+		}
+
+		function myDeleteEmployerFunction() {
+			confirm("This will delete this employer profile and your account! Do you want to continue?");
+		}
+	</script>
+	
 </head>
 <body class="mypaddedbody">
 
@@ -47,10 +59,10 @@
 		</div>
 
 		<div class="d-none d-sm-none d-md-block">
-			<a class="navbar-brand text-white" href="./index.htm"> Logged in as jdoe@employer.com</a>
+			<a class="navbar-brand text-white"> Logged in as jdoe@employer.com</a>
 		</div>
 		<div class="d-md-none">
-			<a class="navbar-brand text-white" href="./index.htm"> Logged in as jdoe@employer.com</a>
+			<a class="navbar-brand text-white"> Logged in as jdoe@employer.com</a>
 		</div>
 
 	</nav>
@@ -76,19 +88,25 @@
 
 
 			<h2 class="display-4">America Online</h2>
-				<p class="lead">Internet service provider, Alexandria, Va. (3.5/5 stars)  </p>
+				<p class="lead">Internet service provider, Alexandria, Va. (3.5/5 stars)</p> 
+				<p> 				  
+					<a href="employeredit_em.htm" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">EDIT EMPLOYER</a> 
+					<a href="#" class="btn btn-dark btn-md active" role="button" aria-pressed="true" onclick="myDeleteEmployerFunction()">DELETE EMPLOYER</a> 
+				</p>
+				<hr>
+				<p>America Online is the nation's largest internet service provider and we will one day take over the world. Our blzing fast internet access allows customers to download a 1MB file in just under a minute. For more information, visit www.aol.com.</p>
 				<hr>
 				
 				<h6 class="text-primary">EMPLOYER REVIEWS</h6><br>
 				
 				<h5>This is a great company (5 stars) </h5>
-				<p>Sept. 19, 2020: This is a great company to work for. We have such a bright future here. Nothing will ever replace dial-up internet service. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. &nbsp;<a href="#" class="badge badge-secondary">FLAG REVIEW</a></p>
+				<p>Sept. 19, 2020: This is a great company to work for. We have such a bright future here. Nothing will ever replace dial-up internet service. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. &nbsp;<a href="#" class="badge badge-secondary" onclick="myFlagFunction()">FLAG REVIEW</a></p>
 
 				<h5>Maybe we should do our own high-speed access (3 stars) </h5>
-				<p>Sept. 20, 2020: This is a great company to work for. We have such a bright future here. Nothing will ever replace dial-up internet service.  Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. &nbsp;<a href="#" class="badge badge-secondary">FLAG REVIEW</a></p>
+				<p>Sept. 20, 2020: This is a great company to work for. We have such a bright future here. Nothing will ever replace dial-up internet service.  Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review. &nbsp;<a href="#" class="badge badge-secondary" onclick="myFlagFunction()">FLAG REVIEW</a></p>
 
 				<h5>I was laid off (1 stars)</h5>
-				<p>Sept. 21, 2020: This is a great company to work for. We have such a bright future here. Nothing will ever replace dial-up internet service. &nbsp;<a href="#" class="badge badge-secondary">FLAG REVIEW</a> </p>
+				<p>Sept. 21, 2020: This is a great company to work for. We have such a bright future here. Nothing will ever replace dial-up internet service. &nbsp;<a href="#" class="badge badge-secondary" onclick="myFlagFunction()">FLAG REVIEW</a> </p>
 				
 				
 				<br>

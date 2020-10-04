@@ -31,16 +31,13 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="index_ad.htm">Home   </a>
+					<a class="nav-link" href="index_em.htm">Home   </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="post_em.htm">Post a job </a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="post_ad.htm">Post a job <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="index_ad.htm">Jobs awaiting approval(2)</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="flaggedreviews_ad.htm">Flagged reviews(1)</a>
+					<a class="nav-link" href="employer_em.htm">View employer profile <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="index.htm">Log out</a>
@@ -50,13 +47,15 @@
 		</div>
 
 		<div class="d-none d-sm-none d-md-block">
-			<a class="navbar-brand text-white"> Logged in as Admin</a>
+			<a class="navbar-brand text-white"> Logged in as jdoe@employer.com</a>
 		</div>
 		<div class="d-md-none">
-			<a class="navbar-brand text-white"> Logged in as Admin</a>
+			<a class="navbar-brand text-white"> Logged in as jdoe@employer.com</a>
 		</div>
 
 	</nav>
+
+
 
 
 
@@ -90,8 +89,8 @@
 				<!-- tabs for navigation -->
 
 				<span class="bglightblue boxsmall">
-					<b>&nbsp;&nbsp;POST A JOB&nbsp;&nbsp;</b>
-				</span>&nbsp;
+					<b>&nbsp;&nbsp;EDIT EMPLOYER&nbsp;&nbsp;</b>
+				</span>
 				<br>
 
 
@@ -105,40 +104,44 @@
 
 						<!-- search bar-->
 
-						<form class="form-row align-items-end" action="index_ad.htm">
+						<form class="form-row align-items-end" action="employer_em.htm">
 							
 
 							<div class="col-md-12">
 								<label for="exampleFormControlInput1">Company name</label>
-								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" value="America Online">
 							<br>
 							</div>
 
 
-							<div class="col-md-12">
+							<div class="col">
 								<label for="exampleFormControlInput1">Industry type</label>
-								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" value="Internet service provider">
 							<br>
 							</div>
 
 
-							<div class="col-md-12">
+							<div class="col">
 								<label for="exampleFormControlInput1">Location</label>
-								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" value="Alexandria, Va.">
 							<br>
 							</div>
-							
+
+
 							<div class="col-md-12">
 							    <label for="exampleFormControlTextarea1">Description</label>
-							    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+							    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">America Online is the nation's largest internet service provider and we will one day take over the world. Our blzing fast internet access allows customers to download a 1MB file in just under a minute. For more information, visit www.aol.com.</textarea><br>
 							</div>
 
-							<div class="col-md-12">
-								<button type="submit" class="btn btn-primary ">POST JOB</button>
+
+							<div class="col">
+								<button type="submit" class="btn btn-primary ">SAVE CHANGES</button>
 							</div>
 
 
 						</form>
+
+						
 
 
 					</div>
