@@ -30,24 +30,35 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="index.htm">Home   </a>
-				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="login.htm">Login to post a job <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="index_ad.htm">Home  <span class="sr-only">(current)</span> </a>
 				</li>
-				
+				<li class="nav-item">
+					<a class="nav-link" href="post_ad.htm">Post a job </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="index_ad.htm">Jobs awaiting approval(2)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="flaggedreviews_ad.htm">Flagged reviews(1)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="index.htm">Log out</a>
+				</li>
+
 			</ul>
 		</div>
 
 		<div class="d-none d-sm-none d-md-block">
-			<a class="navbar-brand text-white" href="./index.htm"> </a>
+			<a class="navbar-brand text-white" href="./index.htm"> Logged in as Admin</a>
 		</div>
 		<div class="d-md-none">
-			<a class="navbar-brand text-white" href="./index.htm"> </a>
+			<a class="navbar-brand text-white" href="./index.htm"> Logged in as Admin</a>
 		</div>
 
 	</nav>
+
+
 
 
 
@@ -80,11 +91,11 @@
 
 				<!-- tabs for navigation -->
 
-				<span class="bglightblue boxsmall">
-					<b>&nbsp;&nbsp;LOG IN&nbsp;&nbsp;</b>
-				</span>&nbsp;
 				<span class="bglightblueshaded boxsmall">
-					<b>&nbsp;&nbsp;<a href="signup.htm">SIGN UP</a>&nbsp;&nbsp;</b>
+					<b>&nbsp;&nbsp;<a href="index_ad.htm">SEARCH JOBS / INTERNSHIPS</a>&nbsp;&nbsp;</b>
+				</span>&nbsp;
+				<span href="#" class="bglightblue boxsmall">
+					<b>&nbsp;&nbsp;SEARCH EMPLOYERS&nbsp;&nbsp;</b>
 				</span>
 				<br>
 
@@ -97,36 +108,49 @@
 
 
 
-
 						<!-- search bar-->
 
-						<form class="form-row align-items-end" action="index_ad.htm">
+						<form class="form-row align-items-end">
 							
 
+							<div class="col-md-3">
 
-							<div class="col">
-								<label for="exampleFormControlInput1">Email address</label>
-								<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+								<label for="exampleFormControlSelect1">Search field</label>
+								<select class="form-control " id="exampleFormControlSelect1">
+									<option>Name</option>
+									<option>Industry</option>
+									<option>Location</option>
+								</select>
 							</div>
-							
 
 							<div class="col">
-								<label for="exampleFormControlInput1">Password</label>
-								<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+								<label for="exampleFormControlInput1">Search text</label>
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
 							</div>
 
 							<div class="col-md-1">
-								<button type="submit" class="btn btn-primary ">LOG IN</button>
+								<button type="submit" class="btn btn-primary ">SEARCH</button>
 							</div>
 
 
 						</form>
 
 						<br>
-						<p>If you don't have an account, <a href="signup.htm">sign up for one</a>.
 
-						
 
+
+						<!-- table of words -->
+
+						<table class="table">
+							<thead class="thead-light"><th>Employer name</th><th>Industry</th><th>Location</th><th>Rating</th></thead>
+
+							<tr><td><a href="employer_ad.htm">America Online</a></td><td>internet service provider</td><td>Alexandria, Va.</td><td>4.3/5</td></tr>
+							<tr><td><a href="employer_ad.htm">Lycos Search Engine</a></td><td>search engine</td><td>Lorton, Va.</td><td>4.1/5</td></tr>
+							<tr><td><a href="employer_ad.htm">Altavista</a></td><td>search engine</td><td>Bowling Green, Va.</td><td>3.2/5</td></tr>
+							<tr><td><a href="employer_ad.htm">Novell</a></td><td>network software</td><td>Lanham, Md.</td><td>2.8/5</td></tr>
+							
+							
+						</table>
 
 					</div>
 

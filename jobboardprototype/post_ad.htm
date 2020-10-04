@@ -31,20 +31,29 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="index.htm">Home   </a>
+					<a class="nav-link" href="index_ad.htm">Home   </a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="login.htm">Login to post a job <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="post_ad.htm">Post a job <span class="sr-only">(current)</span></a>
 				</li>
-				
+				<li class="nav-item">
+					<a class="nav-link" href="index_ad.htm">Jobs awaiting approval(2)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="flaggedreviews_ad.htm">Flagged reviews(1)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="index.htm">Log out</a>
+				</li>
+
 			</ul>
 		</div>
 
 		<div class="d-none d-sm-none d-md-block">
-			<a class="navbar-brand text-white" href="./index.htm"> </a>
+			<a class="navbar-brand text-white" href="./index.htm"> Logged in as Admin</a>
 		</div>
 		<div class="d-md-none">
-			<a class="navbar-brand text-white" href="./index.htm"> </a>
+			<a class="navbar-brand text-white" href="./index.htm"> Logged in as Admin</a>
 		</div>
 
 	</nav>
@@ -81,11 +90,8 @@
 				<!-- tabs for navigation -->
 
 				<span class="bglightblue boxsmall">
-					<b>&nbsp;&nbsp;LOG IN&nbsp;&nbsp;</b>
+					<b>&nbsp;&nbsp;POST A JOB&nbsp;&nbsp;</b>
 				</span>&nbsp;
-				<span class="bglightblueshaded boxsmall">
-					<b>&nbsp;&nbsp;<a href="signup.htm">SIGN UP</a>&nbsp;&nbsp;</b>
-				</span>
 				<br>
 
 
@@ -97,35 +103,42 @@
 
 
 
-
 						<!-- search bar-->
 
 						<form class="form-row align-items-end" action="index_ad.htm">
 							
 
+							<div class="col-md-12">
+								<label for="exampleFormControlInput1">Company name</label>
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+							<br>
+							</div>
 
-							<div class="col">
-								<label for="exampleFormControlInput1">Email address</label>
-								<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+
+							<div class="col-md-12">
+								<label for="exampleFormControlInput1">Industry type</label>
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+							<br>
+							</div>
+
+
+							<div class="col-md-12">
+								<label for="exampleFormControlInput1">Location</label>
+								<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+							<br>
 							</div>
 							
-
-							<div class="col">
-								<label for="exampleFormControlInput1">Password</label>
-								<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+							<div class="col-md-12">
+							    <label for="exampleFormControlTextarea1">Description</label>
+							    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea><br>
 							</div>
 
-							<div class="col-md-1">
-								<button type="submit" class="btn btn-primary ">LOG IN</button>
+							<div class="col-md-12">
+								<button type="submit" class="btn btn-primary ">POST JOB</button>
 							</div>
 
 
 						</form>
-
-						<br>
-						<p>If you don't have an account, <a href="signup.htm">sign up for one</a>.
-
-						
 
 
 					</div>

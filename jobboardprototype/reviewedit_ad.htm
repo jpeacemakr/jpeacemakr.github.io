@@ -31,20 +31,29 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" href="index.htm">Home   </a>
+					<a class="nav-link" href="index_ad.htm">Home   </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="post_ad.htm">Post a job </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="index_ad.htm">Jobs awaiting approval(2)</a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="login.htm">Login to post a job <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="flaggedreviews_ad.htm">Flagged reviews(1)<span class="sr-only">(current)</span></a>
 				</li>
-				
+				<li class="nav-item">
+					<a class="nav-link" href="index.htm">Log out</a>
+				</li>
+
 			</ul>
 		</div>
 
 		<div class="d-none d-sm-none d-md-block">
-			<a class="navbar-brand text-white" href="./index.htm"> </a>
+			<a class="navbar-brand text-white" href="./index.htm"> Logged in as Admin</a>
 		</div>
 		<div class="d-md-none">
-			<a class="navbar-brand text-white" href="./index.htm"> </a>
+			<a class="navbar-brand text-white" href="./index.htm"> Logged in as Admin</a>
 		</div>
 
 	</nav>
@@ -81,11 +90,8 @@
 				<!-- tabs for navigation -->
 
 				<span class="bglightblue boxsmall">
-					<b>&nbsp;&nbsp;LOG IN&nbsp;&nbsp;</b>
+					<b>&nbsp;&nbsp;EDIT REVIEW&nbsp;&nbsp;</b>
 				</span>&nbsp;
-				<span class="bglightblueshaded boxsmall">
-					<b>&nbsp;&nbsp;<a href="signup.htm">SIGN UP</a>&nbsp;&nbsp;</b>
-				</span>
 				<br>
 
 
@@ -97,37 +103,38 @@
 
 
 
-
 						<!-- search bar-->
 
-						<form class="form-row align-items-end" action="index_ad.htm">
-							
+						<h5>Review for America Online, internet service provider, Alexandria, Va. (Sept. 19, 2020)</h5>
+						<br>
+						<form>
+						  <div class="form-group">
+						    <label for="exampleFormControlInput1">Title</label>
+						    <input class="form-control" id="exampleFormControlInput1" value="This is a great company">
+						  </div>
+						  <div class="form-group">
+						    <label for="exampleFormControlSelect1">Rate this employer</label>
+						    <select class="custom-select" size="1">
+							  <option>Select number of stars (1-5)</option>
+							  <option value="1">1 star</option>
+							  <option value="2">2 stars</option>
+							  <option selected value="3">3 stars</option>
+							  <option value="3">4 stars</option>
+							  <option value="3">5 stars</option>
 
+							</select>
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="exampleFormControlTextarea1">Text</label>
+						    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">This is a great company to work for. We have such a bright future here. Nothing will ever replace dial-up internet service. Here are some more words for this review. Here are some more words for this review. Here are some more words for this review.</textarea>
+						  </div>
 
-							<div class="col">
-								<label for="exampleFormControlInput1">Email address</label>
-								<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-							</div>
-							
-
-							<div class="col">
-								<label for="exampleFormControlInput1">Password</label>
-								<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
-							</div>
-
-							<div class="col-md-1">
-								<button type="submit" class="btn btn-primary ">LOG IN</button>
-							</div>
-
+						  <a href="index_ad.htm" class="btn btn-primary btn-md active" role="button" aria-pressed="true">SAVE REVIEW</a>
 
 						</form>
 
-						<br>
-						<p>If you don't have an account, <a href="signup.htm">sign up for one</a>.
-
 						
-
-
 					</div>
 
 
