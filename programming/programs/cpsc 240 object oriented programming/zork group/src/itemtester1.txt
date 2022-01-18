@@ -1,0 +1,4 @@
+fidgetSpinner
+2
+spin:Wheeeee!
+---

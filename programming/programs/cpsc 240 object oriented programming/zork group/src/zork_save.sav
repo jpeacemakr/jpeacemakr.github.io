@@ -1,0 +1,73 @@
+Zork ++ save data
+Dungeon file: finaltest.zork
+Room states:
+Stephen's office:
+beenHere=false
+contents:StarWarsToy,WawaTravelMug,donut
+---
+Room B6:
+beenHere=false
+---
+Basement hallway:
+beenHere=false
+---
+Rotunda balcony:
+beenHere=false
+contents:magicWand,Bomb
+---
+Rotunda:
+beenHere=true
+contents:scissors,test,DrPepper
+---
+===
+Harold:
+current room:Basement hallway
+inventory:
+class:Thief
+health:30
+score:0
+---
+Juniper:
+current room:Rotunda
+inventory:
+class:Warrior
+health:70
+score:0
+---
+===
+James:
+move/follow:0,0
+current room:Stephen's office
+inventory:officeKey
+armor:teeShirt
+shield:trashCanLid
+dialogue:Hey! Your homework is late!
+hostility:-1.0
+stats:6,7,8
+health:70
+score:5
+---
+Michael:
+move/follow:1,1
+current room:Rotunda
+inventory:Michael'sCorpse
+weapon:pencil
+shield:laptop
+dialogue:Hey, are we working on zork today? I have an evening class, otherwise I’m free.
+hostility:-1.0
+stats:4,5,9
+health:50
+score:5
+---
+Joey:
+move/follow:1,1
+current room:Room B6
+inventory:waterBottle
+weapon:chainsaw
+armor:freshOutfit
+dialogue:Nothin like coding with the boys, huh?
+hostility:1.0
+stats:10,10,10
+health:100
+score:5
+---

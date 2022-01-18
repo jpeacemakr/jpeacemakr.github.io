@@ -1,0 +1,90 @@
+Review Iteration 2.  Go over Trello board.  What did you plan, what did you get done?  Why didn’t you finish what you thought you would finish.  How would you change what you did?  Demo what you have completed.
+
+
+
+Introduction
+------------
+I am going to talk about what we did for Iteration 2 in our Internship / Job Board for the UMW Computer Science Department.
+
+
+ITERATION 1
+-----------
+We already had the job pages running with a basic form to add and remove jobs. There was no login of any type yet.
+
+It was pretty basic looking too with no navigation bar.
+
+The hardest part was doing the individual job pages because the pages are generated dynamically.
+
+
+This made a lot of the similar work for the employer list in Iteration 2 easier.
+
+
+
+ITERATION 2
+-----------
+My perspective
+
+Added functional requirements for iteration 2 to our trello board.
+
+((SHOW TRELLO BOARD))
+
+Functional requirements
+- Admin login with email and password. If they are not correct it displays a message.
+- Employer profile lists
+- Employer reviews on individual employers profiles.
+- Admin ability to edit employer info
+- Admin ability to edit/delete reviews
+
+Other things we got done:
+Navigation and display
+- added a dynamic menu at the top
+- added styling using bootstrap
+	uses a component that wraps each pages content and that can be sent which tab it needs to highlight.
+
+((SHOW WEBSITE))
+
+How the workflow happened:
+Me and Raymond jumped on the admin login and knocked out a basic working login pretty quickly.
+It checks the user email with the password in the database, and then stores a cookie to let the website know who is logged in.
+It is not encrypted yet, but it is something we will be adding soon.
+
+We ended up going ahead and doing the Employer login as well, although it was not in this iteration, because it is so closely tied to the Admin login and the dynamic menu. It was easier to go ahead and do it now than it was to come back two weeks later and pick up where we left off.
+
+Other group members needed some help setting up the initial employer profile pages which use dynamic routing to generate the page on the fly.
+
+All employer profiles at this point have to be created by adding them directly to the SQL file.
+
+Other team members were able to then finish add reviews and delete employer profile.
+Delete employer profile also delete all jobs and reviews that are attached to that employer profile.
+
+
+((BACK TO ME))
+
+
+CONCLUSION
+----------
+What didn't get done:
+Edit/remove reviews had to be pushed back.
+Password encryption, which should be easy but we are putting off until we do the employer sign up in Iteration 3.
+
+
+We were supposed to do the design work before the coding but a lot of it didn't happen that way.
+We did a lot of the planning about what information was needed, and how it was going to be passed.
+I think all of the pseudo code and sequence diagrams were done after the coding was already done.
+
+Partially due to fact that the jobs listing half was done and the employer listing half was so similar, a lot of code could be reused and we already had the steps worked out.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

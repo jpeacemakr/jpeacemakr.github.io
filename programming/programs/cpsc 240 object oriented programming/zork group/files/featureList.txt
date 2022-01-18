@@ -1,0 +1,59 @@
+Help -- Text adventure games can feel finicky, so type "help" to display some useful information about commands.
+===
+Multiple users -- Our engine supports play with multiple users. The minimum and maximum number of players is
+determined within each .zork file. The user(s) simply enter how many players there are, enter a name and choose a 
+player type (see next entry) for each player. The turn is incremented after an "action" command is completed (every
+command except health, score, look, and inventory). Players may cooperate, not cooperate, or even fight each other as
+winning/dying is only a game-ending event when there are no players remaining.
+
+You can test multiple users if you get a friend (or foe, still works the same) and enter 2 in the first prompt. You
+will be asked to input a name (choose wisely) and then offered a choice of player types (choose wisely-er). From
+there, just be sure to pay attention to the prompt to see whose turn it is. It's surprisingly intuitive.
+===
+Player type -- The user is offered a choice between different player types. These different types have different names
+and stat values, all hydrated from the zork file. There are three stats, all capped at 10 points:
+
+Dexterity: Dexterity affects the chance for an attack to miss entirely. If your dexterity is higher, your attacks will
+land more consistently.
+Endurance: This value changes the player's maximum health. The higher the number, the higher the health.
+Strength: This value determines two things - one, how much damage the player does, and two, the weight capacity of
+the player's inventory.
+
+You can test this by choosing each of the player types on different runs, and comparing miss frequency (see combat),
+maximum health (type "health"), damage done (see combat again), and carry capacity (type "i") among them.
+===
+Equipping -- Every item in our zork game can be equipped and treated as a weapon, armor, or shield. The choice is
+made automatically when equipping the item.
+
+Weapons: Every item is by default a weapon, and has a value associated with it within the zork file for its damage.
+Armor: There is a separate section in the zork files for armor. These special items take up a different slot when
+equipped, and their number value corresponds to the percentage of damage reduced from each attack.
+Shields: There is another section in zork for shields. They too take up a different slot, and their number represents
+the chance for an attack to be blocked entirely.
+
+You can test these items by taking and equipping (or just equipping if typing is your enemy) the scissors,
+bulletProofVest, and laptop and pressing "i" for inventory. A modified print-out will display with the stats of the
+items. You can test them further in combat - see below.
+===
+Combat -- Combat takes place among any characters within the same room. This includes the current player, any other
+players, and NonPlayableCharacters (see below). It is initiated by the user entering the command "attack charName".
+Users beware, if an NPC is hostile, they will initiate combat if you do any other action command in the first turn.
+
+Damage dealt is calculated by the strength of the hitter, the damage of the weapon of the hitter, and the damage
+reduction of the armor of the target. In addition, the chance for an attack to miss or be blocked entirely is
+determined by the shield of the target and both parties' dexterity.
+
+You can test combat by going "d" to Basement hallway and fighting Michael.
+===
+NonPlayableCharacters -- NPCs are much like players in that they have their own stats, inventories, equipped items,
+and score. They also have attributes in the .zork file that players do not, like the ability to move to a new room or
+stay, follow a player once combat is initiated, return dialogue, and be hostile or friendly. Hostility is set in the
+.zork file, but the player can affect it. If a character is hostile and the player gives them an item, they will
+become less hostile. On the other hand, attacking a friendly NPC will make them hostile. Higher valued items will
+affect the hostility more.
+
+If an NPC is killed, their inventory is added to the room's contents and their score is added to the player's. You
+can test that by killing Michael (I promise his feelings won't be hurt) and checking your score ("score") and room's
+contents ("look"). If, perhaps, you'd like to have a few words before "attack Michael"-ing him to bits, you can type
+"talk to Micahel" to see what he has to say. You can test the hostility by giving Michael the [TESTED ITEM COMBO] and
+by hitting Joey a few times (he's in B6).

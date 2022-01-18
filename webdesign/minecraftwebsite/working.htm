@@ -1,0 +1,256 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
+
+	<title>Command Blocks for Minecraft Bedrock Edition</title>
+</head>
+<body class="mypaddedbody">
+
+
+
+
+	<!-- Header nav bar to be used on every page -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="./index.htm">Home </a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./downloads.htm">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./blog.htm">Blog</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks</a>
+		</div>
+
+	</nav>
+
+
+
+
+
+
+
+
+	<!-- Main content area -->
+
+
+	<div class="container-fluid pl-5 pr-5">
+
+		<div class="row">
+
+			<!-- Vertical nav bar on left side -->
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block  text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
+				</div>
+			</div>
+
+
+
+
+
+			<!-- content in the middle-->
+			<div class="col">
+				<h1 class="display-4">Getting started</h1>
+				<p class="lead">Add the special Command Block to your inventory  </p>
+				<hr>
+				
+
+
+				<h4>Getting a command block</h4>
+				<p>The command block is a special block that is only available in creative mode. It can't be acquired in the game without a special command. Bring up the main menu with the pause button or ESC. Under the Game tab, change Default Game Mode to Creative.
+					Type in the following command in the Chat menu: "/give @s command_block".
+					This will put a command block in your inventory. Now you can place command blocks.
+				</p>
+				<p>Command blocks are indestructible but be cautious as the attached buttons, levers or redstone can be destroyed. Also, if you don't want the text to display commands as they run, run the following command: "/gamerule sendcommandfeedback false".
+				</p>
+
+				<figure class="figure">
+					<img src="./images/commandblockmenu.jpg" class="figure-img img-fluid" alt="...">
+					<figcaption class="figure-caption">Clicking on a command block bring up this menu.</figcaption>
+				</figure>
+
+				<h4>Command block settings</h4>
+				<p>Once you place the command block, you can bring up its properties by right clicking.
+					Here's a list of the properties that can be modified:
+					<ul>
+						<li>Hover note: Displays a name for the command block when you point at it. This is optional but can come in handy if you have multiple command blocks.</li>
+						<li>Block type: This controls when a command block activates. Options are Impulse, Chain or Repeat:</li>
+						<ul>
+							<li>Impulse: The command block only activates once</li>
+							<li>Chain: The command block only activates when connected to another command block.</li>
+							<li>Repeat: The command block is activated over and over.</li>
+						</ul>
+						<li>Condition: Conditional or Unconditional.</li>
+						<ul>
+							<li>Conditional: It only activates if the chained command block before it has a successful command.</li>
+							<li>Unconditional: It always activates.</li>
+						</ul>
+						<li>Redstone: This controls if a command block needs a power source. It can be set to Redstone or Always active.</li>
+						<ul>
+							<li>Needs redstone: The command block requires a button, lever (You will need to crouch to place a button or lever on a command block) or redstone power source to activate. Redstone is another powerful technique to build in Minecraft but is outside of the scope of this website.</li>
+							<li>Always active: The command block is always active.</li>
+						</ul>
+
+						<li>Execute on first tick: If on, a repeating command block will execute right away without a delay.</li>
+						<li>Delay in ticks: Sets the time between activations on a repeating command block. One tick equals 1/20th of a second.</li>
+						<li>Command input: This is the command that will be activated. </li>
+						<li>Previous output: This will display whether the command was completed successfully.</li>
+					</ul>
+
+				</p>
+				
+				<h4>Command examples</h4>
+				<p>Here are a few basic examples of commands. We will go over more examples later in the tutorial. You can search for commands by typing / in the chat menu and type in a partial phrase. The console will bring up a list of commands and their usage. Note that many of the commands for Minecraft Java Edition will not work in Minecraft Bedrock Edition. </p>
+
+				<p>
+					<div class="accordion" id="accordionExample">
+						<div class="card lightbluebg">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Summon a zombie
+									</button>
+								</h2>
+							</div>
+
+							<div id="collapseOne" class="collapse bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
+								<div class="card-body">
+									/summon zombie
+								</div>
+							</div>
+						</div>
+						<div class="card lightbluebg">
+							<div class="card-header" id="headingTwo">
+								<h2 class="mb-0">
+									<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+										Kill all zombies
+									</button>
+								</h2>
+							</div>
+							<div id="collapseTwo" class="collapse  bg-light" aria-labelledby="headingTwo" data-parent="#accordionExample">
+								<div class="card-body">
+									/kill @e[type=zombie]
+								</div>
+							</div>
+						</div>
+						<div class="card  lightbluebg">
+							<div class="card-header" id="headingThree">
+								<h2 class="mb-0">
+									<button class="btn btn-link collapsed " type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										Give the nearest player a diamond sword 
+									</button>
+								</h2>
+							</div>
+							<div id="collapseThree" class="collapse bg-light" aria-labelledby="headingThree" data-parent="#accordionExample">
+								<div class="card-body">
+									/give @p diamond_sword
+								</div>
+							</div>
+						</div>
+					</div>
+				</p>
+
+
+				
+				<hr>
+				<p class="text-center">
+					Previous lesson: <a href="">Name of lesson</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="">Name of lesson</a>
+					</p>
+						<hr>
+
+
+
+
+
+
+					</div>
+
+					<!-- sidebar if needed. it diappears when screen shrinks-->
+					<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+						
+						<div class="p-4 lightbluebg">
+							<h4  class="text-primary heavy"><b>NOTE</b></h4>
+							<blockquote> 
+							Command blocks are indestructible but be cautious as the attached buttons, levers or redstone can be destroyed.</blockquote>
+						</div>
+
+					</div>
+				</div>
+
+
+
+
+
+			</div>
+
+
+
+
+
+
+
+
+			<!-- Footer to be used on every page -->
+			<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+				<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+				<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+				<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+			<!-- Optional JavaScript -->
+			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+			<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+		</body>
+		</html>

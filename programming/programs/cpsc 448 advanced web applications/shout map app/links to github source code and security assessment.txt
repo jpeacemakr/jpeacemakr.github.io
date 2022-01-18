@@ -1,0 +1,13 @@
+James Peacemaker
+CPSC 448 final project
+
+Here are links to the source code on github and the security assessment.
+
+https://github.com/jpeacemakr/shoutmap
+
+https://sonarcloud.io/dashboard?id=jpeacemakr_shoutmap
+
+Note that the github source code does not include the environment folder which I have used to store all the usernames, passwords and keys to access firebase and mongoDB.
+These should not be made public, but if you want to run it locally, I have included the source code with the environment files in this file upload. 
+The back end api mongo.js is in the api folder and can be run with node. 
+

@@ -1,0 +1,188 @@
+Trinkle Hall
+Zork++
+1,4
+Classes:
+Barbarian:3,4,8
+Thief:9,3,2
+Warrior:5,7,5
+===
+Items:
+Bomb
+95, 10
+examine:The bomb is a heavy, glistening black sphere. On the top appears to be some form of detonator.
+kick[Wound(2)]:Ouch! That hurt your foot.
+detonate[Artwork(explosion.art),Die]:An ear-splitting halo of shrapnel kills you and seriously degrades the room's interior.
+---
+officeKey,key
+1,5
+---
+pencil
+1,10
+break[Transform(pencilBits)]:The yellow #2 pencil snaps like a twig.
+sharpen[Transform(sharpPencil),Artwork(pencil.art)]:The pencil is much sharper now. 
+---
+pencilbits,pencil
+1,1
+eat[Disappear,wound(-5)]:Your esophagus accumulates several splinters.
+---
+sharpPencil,pencil
+1,20
+break[Transform(pencilBits)]:The yellow #2 pencil snaps like a twig
+poke[wound(-3)]: Ouch!
+---
+waterBottle,bottle
+3,12
+---
+laptopPieces,laptop
+8,30
+---
+DrPepper,can,soda
+10,3
+kick[Drop]:The can skitters down the hallway.
+shake:A liquid fizzes menacingly inside the can.
+drink[Transform(emptyCan),Wound(-1)]:Gulp, gulp -- that was GOOD!  *belch*
+---
+emptyCan,can,soda
+2,1
+kick[Drop]:The empty can skitters down the hallway.
+drink:Sorry, all gone!
+stomp[Transform(squishedCan)]:The can crunches down into a thin disk, useful for recycling.
+---
+squishedCan,can
+2,2
+throw[Drop]:Zing!
+stomp:Further stomping seems to have no effect.
+recycle[Score(5),Disappear]:Boom-ya, helped save the environment.
+---
+magicWand,wand
+5,5
+break[Wound(10),Disappear]:The wand snaps in half. Strange magic fills the air, making you feel suddenly ill.
+wave[Score(5),Teleport]:An angelic form briefly appears, smiles, and just as quickly fades away. 
+---
+StarWarsToy,Yoda,toy
+5, 3
+touch[Score(1)]:Yoda says, "Do, or do not! There is no try."
+break:Luckily, it's made of rugged plastic.
+---
+chainsaw
+35, 40
+---
+donut
+7, 1
+eat[Disappear,Wound(-2),Artwork(crumbs.art)]:You feel mildly guilt-ridden.
+stomp:The donut is now smooshed.
+---
+michael’sCorpse,corpse,body
+50,99
+poke:He’s sleeping pretty soundly, better not disturb him.
+---
+===
+Armor:
+teeShirt,shirt,tee
+8,5
+---
+freshOutfit,outfit,clothes
+5,35
+---
+===
+Shields:
+Laptop,computer
+10,20
+open[Artwork(cat.art)]:The laptop opens to a YouTube page of cat videos.
+break[Transform(laptopPieces),wound(-3)]:That was an expensive mistake.
+---
+WawaTravelMug,mug
+10, 15
+refill[Win]:You refill the mug with everlasting light roast coffee, and live happily ever after!
+---
+===
+Rooms:
+Rotunda
+You are in a beautiful round entry chamber, with tall white pillars that
+seemingly reach to the skies. There is an elevator here.
+---
+Basement hallway
+A long, white hallway stretches to the east and west. It is cold here, and you
+can detect the faint smell of body odor. A vending machine hums softly in the
+corner.
+---
+Stephen's office
+Contents: StarWarsToy,donut
+This is a cluttered office, with many geeky toys sprawling on a desk.
+---
+Room B6
+Sunlight streams through tall windows and illuminates a brilliant classroom.
+---
+Rotunda balcony
+Contents: magicWand
+You stand on a circular white balcony overlooking an entry hall.
+Columnar bannisters in ancient Grecian style stand between you and the
+precipice.
+---
+===
+Exits:
+Rotunda
+u
+Rotunda balcony
+---
+Rotunda balcony
+d
+Rotunda
+---
+Rotunda
+d
+Basement hallway
+---
+Basement hallway
+u
+Rotunda
+---
+Room B6
+w
+Basement hallway
+---
+Basement hallway
+e
+Room B6
+---
+Basement hallway
+w
+Stephen's office
+---
+Stephen's office
+e
+Basement hallway
+---
+===
+NPCs:
+Stephen:0
+0,0
+weapon:DrPepper
+armor:teeShirt
+shield:WawaTravelMug
+inventory:officeKey
+6,7,8
+Stephen’s Office
+Hey! Your homework is late!
+---
+Michael:2
+0,1
+weapon:pencil
+shield:laptop
+inventory:michael’sCorpse
+4,5,9
+Basement hallway
+Hey, are we working on zork today? I
+have an evening class, otherwise I’m free.
+---
+Joey:3
+0,1
+weapon:chainsaw
+armor:freshOutfit
+inventory:waterBottle
+10,10,10
+Room B6
+Nothin like coding with the boys, huh?
+---
+===
+

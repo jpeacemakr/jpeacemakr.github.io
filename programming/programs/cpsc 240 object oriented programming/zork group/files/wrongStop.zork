@@ -1,0 +1,173 @@
+Wrong Stop
+Zork III
+===
+Items:
+pants,jeans,modestyProtectors
+3
+wear:Oh, much better!
+rip:Now everyone can see your bloomers!
+---
+map
+1
+read:It's upside-down, the problem seems too hard to solve so you give up.
+---
+binoculars
+2
+use:Someone put ink on the eye pieces, now you look like a raccoon. Classic.
+break:They break easily, must have been cheap.
+---
+depressingNote,note
+1
+read:It reads "Aren't we all trapped in this dismal game of life?"
+discard:Much like sadness, you can't get rid of it.
+---
+torch
+5
+swing:Whoosh!
+light:It spontaneously combusts. Be careful!
+---
+rock,stone
+15
+kick:You scream your favorite expletive, having just broken your toe.
+move:You reveal countless bugs. You put it back calmly, like an adult.
+fight:Um... are you sure? Really? Okay... you break your hand, the rock is fine.
+---
+couch,sofa,loveseat
+100
+try:You sink into the luxurious, plushy butt heaven.
+move:Nice try stick-arms, not even an inch!
+---
+tv,television
+25
+watch:Ugh, the Maury show.
+steal:Your conscience stops you.
+borrow:Now that, you can do!
+---
+dog,pet
+25
+feed:He's still hungry, no surprise there.
+pet:He seems happy with you.
+eat:That, I will not let you do. You're a bit of a freak, huh?
+---
+===
+Rooms:
+UFO
+Contents: pants
+You don't know why you were so afraid when the nice aliens first picked you up.
+Everything is warm and fuzzy, and the cookies that they made from your mom's
+recipe are filling your stomach. But sadly, they say, it is time to go, as they
+have learned what they sought. They take back their medical apparel and allow
+you to leave freely.
+---
+Open field
+Contents: map
+You are standing in the midst of an open, grassy field, far from home. There is
+what appears to be an immensely large and intricate depiction of Donald Trump's
+face with noses in place of his eyes burned into the grass. Great crop circle
+choice!
+---
+Rock face
+"DO YOU SMELL WHAT THE ROCK IS COOKING?!"
+You step back, shocked, as the cliffside version of Dwayne Johnson flashes his
+Hollywood smile.
+---
+Plateau
+Contents: binoculars
+The plains stretch out as far as the eye can see in all directions. The walls
+are too steep to climb back down. As you take it all in, you stumble over what
+feels like a concealed entrance.
+---
+Not a trap
+Contents: depressingNote
+Still more grass... but you feel suspicious now and can't pinpoint why.
+---
+Probable trap
+A piano inexplicably falls from the heavens, crushing you where you stand. In
+your final moments, the kid from Home Alone kicks you and runs away, laughing
+maniacally.
+---
+Cave
+Contents: torch,rock
+The light pours through the open door above. The walls are smooth and uniform,
+almost as if it were done by man. There is a large, formidable iron door. The
+doormat says "Beware of Dog."
+---
+Lovely living room
+Contents: couch,tv,dog
+A HUGE German Shepherd greets you warmly, licking your face. Not much to beware
+of after all! The room is small yet very cozy. Nobody else seems to be home.
+---
+Bathroom
+It's a totally normal bathroom... do your business, and get out, and definitely
+DO NOT open that closet!
+---
+Secret elevator
+So you just HAD to open it. Psh, typical adventurer.
+---
+===
+Exits:
+UFO
+d
+Open field
+---
+Open field
+n
+Rock face
+---
+Open field
+e
+Not a trap
+---
+Open field
+w
+Probable trap
+---
+Rock face
+s
+Open field
+---
+Not a trap
+w
+Open field
+---
+Rock face
+u
+Plateau
+---
+Plateau
+d
+Cave
+---
+Cave
+u
+Plateau
+---
+Cave
+s
+Lovely living room
+---
+Lovely living room
+n
+Cave
+---
+Lovely living room
+s
+Bathroom
+---
+Bathroom
+n
+Lovely living room
+---
+Bathroom
+s
+Secret elevator
+---
+Secret elevator
+u
+Open field
+---
+Secret elevator
+n
+Bathroom
+---
+===

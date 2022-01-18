@@ -1,0 +1,29 @@
+Zork III save data
+Dungeon file: /home/jpeacemakr/zorkProject/src/trinkle3.zork
+Room states:
+Stephen's office:
+beenHere=true
+---
+Room B6:
+beenHere=true
+Contents: DrPepper
+---
+Basement hallway:
+beenHere=true
+---
+Rotunda balcony:
+beenHere=false
+Contents: chainsaw,magicWand
+---
+Rotunda:
+beenHere=true
+Contents: StarWarsToy
+---
+===
+Adventurer1:
+Current room: Stephen's office
+Inventory: WawaTravelMug
+---
+Adventurer2:
+Current room: Basement hallway
+Inventory: donut

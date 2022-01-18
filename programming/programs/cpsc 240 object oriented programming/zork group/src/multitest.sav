@@ -1,0 +1,35 @@
+Zork ++ save data
+Dungeon file: multiplayer.zork
+Room states:
+Stephen's office:
+beenHere=true
+Contents: StarWarsToy,WawaTravelMug,donut
+---
+Room B6:
+beenHere=false
+---
+Basement hallway:
+beenHere=true
+Contents: emptyCan
+---
+Rotunda balcony:
+beenHere=true
+Contents: chainsaw,Bomb
+---
+Rotunda:
+beenHere=true
+---
+===
+James:
+current room: Rotunda
+Inventory: 
+health: 90
+score: 0
+---
+Bettina:
+current room: Stephen's office
+Inventory: 
+health: 100
+score: 1
+---
+===

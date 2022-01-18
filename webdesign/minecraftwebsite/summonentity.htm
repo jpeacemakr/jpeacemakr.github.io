@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
+
+	<title>Command Blocks for Minecraft Bedrock Edition</title>
+</head>
+<body class="mypaddedbody">
+
+
+
+	
+
+
+
+	<!-- Header nav bar to be used on every page -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="./index.htm">Home </a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./downloads.htm">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./blog.htm">Blog</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks</a>
+		</div>
+
+	</nav>
+
+
+
+
+
+
+
+
+	<div class="container-fluid pl-5 pr-5">
+
+		<div class="row">
+
+			<!-- Vertical nav bar on left side -->
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
+				</div>
+			</div>
+
+
+
+			<!-- content in the middle-->
+			<div class="col">
+				<h1 class="display-4">Summoning entities</h1>
+				<p class="lead">Add monsters, villagers and more to your world</p>
+				<hr>
+				<p>Entities include all living things in Minecraft, and a few other things too. Boats, armor stands and minecarts are all considered entities too.</p> 
+				<p><strong>Syntax: /summon [entity type] X Y Z </strong></p> 
+				<p>Here is an example:</p>
+
+				<p>
+					<div class="accordion" id="accordionExample">
+						<div class="card">
+							<div class="card-header" id="headingOneC">
+								<h2 class="mb-0">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneC" aria-expanded="true" aria-controls="collapseOneC">
+										Summon a horse. 
+									</button>
+								</h2>
+							</div>
+
+							<div id="collapseOneC" class="collapse  bg-light" aria-labelledby="headingOneC" data-parent="#accordionExample">
+								<div class="card-body">
+									/summon horse ~ ~ ~
+								</div>
+							</div>
+						</div>
+					</div>
+				</p>
+				<br>
+
+
+				<video width="100%" controls>
+					<source src="./media/coliseumofdeath.mp4" type="video/mp4">
+						Your browser does not support the video tag. You can find the video <a href="./media/coliseumofdeath.mp4">here</a>.
+					</video>
+					<p>
+						This video shows Coliseum of Death, an arena style map that lets the players become different types of warriors. One of the interesting parts of this map is the ability for one entity to summon another entity. In this case, the map uses a repeating command block and the /execute command so that snowballs summon lightning bolts when they are thrown. There are multiple other commands in the map, including entity effects, give and enchant. You can download the map <a href="./downloads/coliseumofdeath.zip">here</a>.
+					</p>
+
+					<br>
+					<h4>List of entities</h4>
+					<p>Note that some items cannot be summoned.
+						<table class="table">
+							<thead class="thead-light"><th>Items</th><th></th></thead>
+
+
+							<tr><td>xp_orb </td><td>Experience Orb</td></tr>
+							<tr><td>tnt	</td><td>Primed TNT</td></tr>
+							<tr><td>armor_stand	</td><td>Armor stand</td></tr>
+							<tr><td>xp_bottle	</td><td>Thrown Bottle o' Enchanting</td></tr>
+							<tr><td>eye_of_ender_signal	</td><td>Eye of Ender</td></tr>
+							<tr><td>ender_crystal	</td><td>Ender Crystal</td></tr>
+							<tr><td>fireworks_rocket	</td><td>Firework rocket</td></tr>
+							<tr><td>thrown_trident	</td><td>Trident</td></tr>
+							<tr><td>shulker_bullet	</td><td>Shulker bullet</td></tr>
+							<tr><td>fishing_hook	</td><td>Fishing Rod hook</td></tr>
+							<tr><td>dragon_fireball	</td><td>Dragon fireball</td></tr>
+							<tr><td>arrow	</td><td>Shot arrow</td></tr>
+							<tr><td>snowball	</td><td>Thrown snowball</td></tr>
+							<tr><td>egg	</td><td>Thrown egg</td></tr>
+							<tr><td>painting	</td><td>Painting</td></tr>
+							<tr><td>minecart	</td><td>Minecart</td></tr>
+							<tr><td>fireball	</td><td>Ghast fireball</td></tr>
+							<tr><td>splash_potion	</td><td>Thrown splash potion</td></tr>
+							<tr><td>ender_pearl	</td><td>Thrown Ender Pearl</td></tr>
+							<tr><td>leash_knot	</td><td>Leash knot</td></tr>
+							<tr><td>wither_skull	</td><td>Wither skull</td></tr>
+							<tr><td>boat	</td><td>Boat</td></tr>
+							<tr><td>wither_skull_dangerous	</td><td>Blue wither skull</td></tr>
+							<tr><td>lightning_bolt	</td><td>Lightning Bolt</td></tr>
+							<tr><td>small_fireball	</td><td>Blaze fireball</td></tr>
+							<tr><td>area_effect_cloud	</td><td>Area Effect Cloud</td></tr>
+							<tr><td>hopper_minecart	</td><td>Minecart with Hopper</td></tr>
+							<tr><td>tnt_minecart	</td><td>Minecart with TNT</td></tr>
+							<tr><td>chest_minecart	</td><td>Minecart with Chest</td></tr>
+							<tr><td>command_block_minecart	</td><td>Minecart with Command Block</td></tr>
+							<tr><td>lingering_potion	</td><td>Thrown lingering potion</td></tr>
+							<tr><td>llama_spit	</td><td>Llama spit</td></tr>
+							<tr><td>evocation_fang	</td><td>Evocation fangs</td></tr>
+							<tr><td>ice_bomb	</td><td>Ice Bomb</td></tr>
+							<tr><td>balloon	</td><td>Balloon</td></tr>
+
+							<thead class="thead-light"><th>Hostile mobs</th><th></th></thead>
+
+							<tr><td>zombie	</td><td>Zombie</td></tr>
+							<tr><td>creeper	</td><td>Creeper</td></tr>
+							<tr><td>skeleton	</td><td>Skeleton</td></tr>
+							<tr><td>spider	</td><td>Spider</td></tr>
+							<tr><td>zombie_pigman	</td><td>Zombie Pigman</td></tr>
+							<tr><td>slime	</td><td>Slime</td></tr>
+							<tr><td>enderman	</td><td>Enderman</td></tr>
+							<tr><td>silverfish	</td><td>Silverfish</td></tr>
+							<tr><td>cave_spider	</td><td>Cave Spider</td></tr>
+							<tr><td>ghast	</td><td>Ghast</td></tr>
+							<tr><td>magma_cube	</td><td>Magma Cube</td></tr>
+							<tr><td>blaze	</td><td>Blaze</td></tr>
+							<tr><td>zombie_villager	</td><td>Zombie Villager</td></tr>
+							<tr><td>witch	</td><td>Witch</td></tr>
+							<tr><td>stray	</td><td>Stray</td></tr>
+							<tr><td>husk	</td><td>Husk</td></tr>
+							<tr><td>wither_skeleton	</td><td>Wither Skeleton</td></tr>
+							<tr><td>guardian	</td><td>Guardian</td></tr>
+							<tr><td>elder_guardian	</td><td>Elder Guardian</td></tr>
+							<tr><td>wither	</td><td>Wither</td></tr>
+							<tr><td>ender_dragon	</td><td>Ender Dragon</td></tr>
+							<tr><td>shulker	</td><td>Shulker</td></tr>
+							<tr><td>endermite	</td><td>Endermite</td></tr>
+							<tr><td>vindicator	</td><td>Vindicator</td></tr>
+							<tr><td>phantom	</td><td>Phantom</td></tr>
+							<tr><td>ravager	</td><td>Ravager</td></tr>
+							<tr><td>evocation_illager	</td><td>Evoker</td></tr>
+							<tr><td>vex	</td><td>Vex</td></tr>
+							<tr><td>drowned	</td><td>Drowned</td></tr>
+							<tr><td>pillager	</td><td>Pillager</td></tr>
+							<tr><td>zombie_villager_v2	</td><td>Zombie Villager</td></tr>
+
+							<thead class="thead-light"><th>Neutral mobs</th><th></th></thead>
+
+							<tr><td>chicken	</td><td>Chicken</td></tr>
+							<tr><td>cow	</td><td>Cow</td></tr>
+							<tr><td>pig	</td><td>Pig</td></tr>
+							<tr><td>sheep	</td><td>Sheep</td></tr>
+							<tr><td>wolf	</td><td>Wolf</td></tr>
+							<tr><td>villager	</td><td>Villager</td></tr>
+							<tr><td>mooshroom	</td><td>Mooshroom</td></tr>
+							<tr><td>squid	</td><td>Squid</td></tr>
+							<tr><td>rabbit	</td><td>Rabbit</td></tr>
+							<tr><td>bat	</td><td>Bat</td></tr>
+							<tr><td>iron_golem	</td><td>Iron Golem</td></tr>
+							<tr><td>snow_golem	</td><td>Snow Golem</td></tr>
+							<tr><td>ocelot	</td><td>Ocelot</td></tr>
+							<tr><td>horse	</td><td>Horse</td></tr>
+							<tr><td>donkey	</td><td>Donkey</td></tr>
+							<tr><td>mule	</td><td>Mule</td></tr>
+							<tr><td>skeleton_horse	</td><td>Skeleton Horse</td></tr>
+							<tr><td>zombie_horse	</td><td>Zombie Horse</td></tr>
+							<tr><td>polar_bear	</td><td>Polar Bear</td></tr>
+							<tr><td>llama	</td><td>Llama</td></tr>
+							<tr><td>parrot	</td><td>Parrot</td></tr>
+							<tr><td>dolphin	</td><td>Dolphin</td></tr>
+							<tr><td>turtle	</td><td>Turtle</td></tr>
+							<tr><td>cat	</td><td>Cat</td></tr>
+							<tr><td>pufferfish	</td><td>Pufferfish</td></tr>
+							<tr><td>salmon	</td><td>Salmon</td></tr>
+							<tr><td>tropicalfish	</td><td>Tropical Fish</td></tr>
+							<tr><td>cod	</td><td>Cod</td></tr>
+							<tr><td>panda	</td><td>Panda</td></tr>
+							<tr><td>villager_v2	</td><td>Villager</td></tr>
+							<tr><td>wandering_trader	</td><td>Wandering Trader</td></tr>
+							<tr><td>fox	</td><td>Fox</td></tr>
+							<tr><td>bee	</td><td>Bee</td></tr>
+						</table>
+						<hr>
+						<p>
+							Source: https://minecraft.gamepedia.com/
+						</p>
+
+
+
+						<br>
+						<hr>
+						<p class="text-center">
+							Previous lesson: <a href="./teleport.htm">Basic commands</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./entityeffects.htm">Entity effects</a>
+						</p>
+						<hr>
+
+					</div>
+
+					<!-- sidebar if needed-->
+					<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+						
+					</div>
+				</div>
+
+
+
+
+			</div>
+
+
+
+
+
+
+
+
+			<!-- Footer to be used on every page -->
+			<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+				<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+				<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+				<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
+			</div>
+
+
+
+
+
+
+
+
+			<!-- Optional JavaScript -->
+			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+			<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+		</body>
+		</html>

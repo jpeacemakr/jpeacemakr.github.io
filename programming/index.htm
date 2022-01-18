@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	<!-- Localp CSS -->
+	<style>
+		/* The grid: Four equal columns that floats next to each other */
+		.column {
+		  width: 50%;
+		  padding: 10px;
+		}
+
+		.column2 {
+		  width: 50%;
+		  padding: 10px;
+		}
+
+		/* Style the images inside the grid */
+		.column img {
+		  opacity: 1;
+		  cursor: pointer;
+		}
+
+		/* Style the images inside the grid */
+		.column2 img {
+		  opacity: 1;
+		  cursor: arrow;
+		}
+
+		.column img:hover {
+		  opacity: 0.6;
+		}
+
+
+
+		/* Clear floats after the columns */
+		.row:after {
+		  content: "";
+		  display: table;
+		  clear: both;
+		}
+
+		/* The expanding image container (positioning is needed to position the close button and the text) */
+		.container {
+		  position: relative;
+		  display: none;
+		}
+
+		/* Expanding image text */
+		#imgtext {
+		  color: black;
+		  font-size: 20px;
+		}
+
+		/* Closable button inside the image */
+		.closebtn {
+		  position: absolute;
+		  top: 30px;
+		  right: 65px;
+		  color: white;
+			text-shadow: 1px 1px 6px #000000;
+		  font-size: 35px;
+		  cursor: pointer;
+		}
+
+		.thumb {
+			width: 23%;
+			padding: 5px;
+
+		}
+	</style>
+
+
+
+	<script language="javascript">
+
+		function myFunction(imgs) {
+		  // Get the expanded image
+		  var expandImg = document.getElementById("expandedImg");
+		  // Get the image text
+		  var imgText = document.getElementById("imgtext");
+		  // Use the same src in the expanded image as the image being clicked on from the grid
+		  expandImg.src = imgs.src;
+		  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+		  imgText.innerHTML = imgs.alt;
+		  // Show the container element (hidden with CSS)
+		  expandImg.parentElement.style.display = "block";
+		}
+	</script>
+
+
+	<title>James Peacemaker Jr.</title>
+
+</head>
+
+
+
+
+<body class="mypaddedbody">
+
+	<!-- Header nav bar to be used on every page -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top"  style="background-color:#336699;">
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarNav" >
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="../index.htm">Home </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../webdesign/index.htm">Web design<span class="sr-only"></span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="../programming/index.htm"><b>Programming</b></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../printdesign/index.htm">Print</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../Graphics/index.htm">Graphics </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="../resume/index.htm">Résumé</a>
+				</li>
+
+
+			</ul>
+		</div>
+
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="../index.htm"><b>James Peacemaker Jr.</b></a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="../index.htm"><b>James Peacemaker Jr.</b></a>
+		</div>
+
+	</nav>
+
+
+
+
+
+	<div class="container-fluid pl-5 pr-5">
+
+		<div class="row">
+
+			<!-- Vertical nav bar on left side -->
+			<div class="col-md-2">
+			</div>
+
+
+
+			<!-- content in the middle-->
+			<div class="col">
+				<h1 class="display-4">Programming</h1>
+				<p class="lead">An overview of some of the projects I have worked on</p>
+				<hr>
+
+				<p>This is a simple list of some of the programming assignments I have done for classes. It is not a complete list, but I hope that it will give people an idea of the level of complexity I have programmed in various languages. Some screenshots and prototype designs can be found in the <a href="../webdesign/index.htm">web design section</a>.</p>
+
+
+				<h5>Javascript</h5>
+				<p>I have developed several web applications using Javascript for the front end and the back end.</p>
+				<ul>
+					<li><b>Job board web app:</b> We created a job board website for the University of Mary Washington Computer Science Department.
+					The site was built in an iterative, team environment with five contributors. We went through the full software engineer development cycle starting with user stories, and functional and nonfunctional requirements, design diagrams, and ending with test cases. The companies could log in and create and edit jobs. Students browse job listings and could rate companies and leave reviews of the employers. Administrators could create and edit jobs, edit or delete company profiles, as well as approve job listings, or edit and delete company reviews. We used Next.js (a React framework) for the front end. The APIs were also written in Javascript. PostgreSQL was used for the database.</li>
+
+					<li><b>GPS message board app:</b> The message board records the user's GPS coordinates so messages are tagged with a specific location. I used Ionic React, a React framwework to build progressive web applications, so the app could be used via the web or installed on iPhone or Android devices. The app used MongoDB with a custom API written in javascript. I used Google Firebase for the login.</li>
+
+					<li><b>Hillary Clinton email server search:</b> This website allows you to search the emails that were publicly made available from Secretary of State Hillary Clinton's private email server that was used as political fodder in the 2016 presidential race.
+					The website uses Next.js for the front end and a Javascript API and Elasticsearch (used for searching text) for the back end.</li>
+
+					<li><b>Nutrition search:</b> This website allows you to search for nutrition information for common foods.</li>
+
+					<li><b>Super Search:</b> This website allows the user to search their zip code for restaurants, stores and movie times
+					The website give the ability for the user to create an account and log in with password encryption.
+					The front end was done in Next.js and the back end was done with Javascript and PostgreSQL.</li>
+
+					<li><b>Campground search:</b> This project uses Next.js to create a front end for a campground search API.</li>
+
+					<li><b>Various APIs for PostgreSQL:</b> campground search app, a workshop signup app, and an app that searched for a city name, country name, country code or continent.</li>
+				</ul>
+
+
+
+				<h5>Java</h5>
+				<ul>
+
+					<li><b>Text-based role playing game:</b> This was an object-oriented program that was based on the classic video game Zork. It started as an individual project, but later became a three-person group project. The program was built in numerous iterations, with each adding functionality. Players navigate a series of rooms and interact with objects and NPCs. Our version read from a map file and saved progress to a save game file. It included multiplayer options, an inventory that included armor and weapons, NPCs that moved through the map, and attack abilities. This project included UML diagrams, sequence diagrams and extensive documentation.</li>
+
+					<li><b>Jedi name generator:</b> This program reads in a list of names from a file and output a list of Jedi names based on the original names.</li>
+				</ul>
+
+
+
+
+
+
+				<h5>C</h5>
+				<ul>
+					<li><b>Shell program:</b> I wrote my own basic shell for Linux. It includes pipes, input and output redirection, running background commands, basic commands like changing and displaying directories.</li>
+
+					<li><b>Operating system simulations:</b>various programs to demonstrate memory handling, schedulers, signals and threads.</li>
+
+					<li><b>Pig Latin translator: </b>A program that could convert a text file or typed-in phrases to pig latin. The program accounts for all word types, punctuation, and numbers.</li>
+				</ul>
+
+
+
+
+				<h5>C++</h5>
+				<ul>
+					<li><b>Jet fighter:</b> I created a 3-D animated scene using OpenGL that allows the user to take off from a runway and fly a jetfighter. The user can steer, accelerate and brake. <img src="jetfinished.jpg" width="100%"></li>
+
+					<li><b>Drawing program: </b>A simple program using OpenGL that is similar to Paint that can draw lines and shapes.</li>
+
+					<li><b>Maze creator: </b>I created a program that randomly generates a maze and then plots a course through the maze.</li>
+
+					<li><b>Nim: </b>A program to simulate nim, a game that has 3 piles of stones and the person to take the last stone loses.</li>
+
+					<li><b>Math mind trick: </b>A program to simulate a number trick that aims to trick the user into thinking the program can read their mind.</li>
+
+					<li><b>Various other programs: </b>A course registration program, fast food ordering system, pharmacy system, a program to play the card game war, a program to simulate the game craps, a flight distance calculator.</li>
+				</ul>
+
+
+			</div>
+
+
+
+			<!-- right sidebar if needed-->
+			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+
+	<!-- Footer to be used on every page -->
+	<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+		<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+		<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+		<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a>
+	</div>
+
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

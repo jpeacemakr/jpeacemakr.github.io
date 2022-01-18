@@ -1,0 +1,6 @@
+At the beginning of main.
+The process at the beginning of main: 234
+This process is the parent: 234
+This process is the child: 235
+The process at the end of main: = 234
+The process at the end of main: = 235

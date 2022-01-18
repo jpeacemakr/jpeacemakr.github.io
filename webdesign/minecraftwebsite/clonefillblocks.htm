@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
+
+	<title>Command Blocks for Minecraft Bedrock Edition</title>
+</head>
+<body class="mypaddedbody">
+
+
+
+
+
+
+
+	<!-- Header nav bar to be used on every page -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="./index.htm">Home </a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./downloads.htm">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./blog.htm">Blog</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks</a>
+		</div>
+
+	</nav>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="container-fluid pl-5 pr-5">
+
+		<div class="row">
+
+			<!-- Vertical nav bar on left side -->
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
+				</div>
+			</div>
+
+
+
+
+
+			<!-- content in the middle-->
+			<div class="col">
+				<h1 class="display-4">Cloning/filling blocks</h1>
+				<p class="lead">You can use these commands to move, copy or create big sections of blocks.  </p>
+				<hr>
+				
+
+				<video width="100%" controls>
+					<source src="./media/infiniteminecart.mp4" type="video/mp4">
+						Your browser does not support the video tag. You can find the video <a href="./media/infiniteminecart.mp4">here</a>.
+					</video>
+					<p>
+						This video shows the clone command being called by command blocks activated by a minecart. The commands keep the rail going indefinitely. You can download the map <a href="./downloads/infiniteminecart.zip">here</a>.
+					</p>
+
+
+
+					<h4>Cloning blocks</h4>
+					
+					<p>The clone command copies one section of the map to another area of the map. It has options to copy or move. It also has options to only clone blocks of a certain type or to clone non-air blocks. If possible, avoid cloning the same command block that uses the /clone command.</p>
+					<p>There are three types of clone commands: Replace, masked or filtered.</p>
+					<ul>
+						<li>Replace: clone all block, overwriting the original blocks (the default)</li>
+						<li>Masked: clone only non-air blocks</li>
+						<li>Filtered: clone only blocks of a certain type</li>
+					</ul> 
+
+					<p>For replace or masked clone commands:</p>
+					<p><strong>Syntax: /clone [begin x y z] [end x y z] [destination x y z] [replace OR masked] [normal OR force OR move]</strong>
+					</p>
+					<p> The clone command uses two sets of coordinates to select the area. They represent diagonally opposite corners of a box. The destination coordinates are where the box will be cloned to (the lowest x y z corner). Relative coordinates using ~ can also be used.</p>
+					<p>
+						The second optional argument is one of the following:
+						<ul>
+							<li>Normal: Don't force or move (the default)</li>
+							<li>Force: Clones even if the source and destination areas overlap</li>
+							<li>Move: Replaces the destination area with air</li>
+						</ul>
+					</p>
+
+					<p>For the filtered clone command, a block name and optional tileData number are added. The command only clones the blocks that match this type.</p>
+					<p>
+						<strong>Syntax: /clone [begin x y z] [end x y z] [destination x y z] filtered [normal OR force OR move] [block name] [tileData number]</strong>
+					</p>
+					<p>The [block name] is just the name of the block (Example: cobblestone) that will be cloned. You can also use a more generic block name like stone and then give a number for the specific tileData number 0-15 (Example: wool 5 will give you orange wool.) The default tileData number is 0.
+
+
+					</p>
+					<p>Here are some examples:</p>
+
+					<p>
+						<div class="accordion" id="accordionExample">
+							<div class="card">
+								<div class="card-header" id="headingOneB">
+									<h2 class="mb-0">
+										<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneB" aria-expanded="true" aria-controls="collapseOneB">
+											Move the box starting at 10 100 10 and ending at -10 105 -10 up 100 spaces.
+										</button>
+									</h2>
+								</div>
+
+								<div id="collapseOneB" class="collapse  bg-light" aria-labelledby="headingOneB" data-parent="#accordionExample">
+									<div class="card-body">
+										/clone 10 100 10 -10 105 -10 -10 200 -10 replace move
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-header" id="headingTwoB">
+									<h2 class="mb-0">
+										<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+											Move only the cobblestone blocks in the box starting at 10 100 10 and ending at -10 105 -10.
+										</button>
+									</h2>
+								</div>
+								<div id="collapseTwoB" class="collapse bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
+									<div class="card-body">
+										/clone 10 100 10 -10 105 -10 -10 200 -10 filtered normal cobblestone
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</p>
+					<br>
+
+
+
+					<h4>Setblock</h4>
+
+					<p>The /setblock command is very similar to the /fill command except that it only does one block.</p>
+					<p>
+						<strong>Syntax: /setblock [position x y z] [block name] [tileData number] [replace OR destroy OR keep]</strong>
+					</p>
+					<p>
+						The last argument has three options:
+						<ul>
+							<li>replace (the default): The old block is replaced with the new one. Neither the block nor its contents drop. 
+								<li>destroy: The original is destroyed and drops the block and its contents.
+									<li>keep: Only changes if the original was air.
+									</ul>
+								</p>
+
+								<p>Here are some examples:</p>
+
+								<p>
+									<div class="accordion" id="accordionExample">
+										<div class="card">
+											<div class="card-header" id="headingOneA">
+												<h2 class="mb-0">
+													<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneA" aria-expanded="true" aria-controls="collapseOneA">
+														Create a cobblestone block 5 spaces above where you are. 
+													</button>
+												</h2>
+											</div>
+
+											<div id="collapseOneA" class="collapse  bg-light" aria-labelledby="headingOneA" data-parent="#accordionExample">
+												<div class="card-body">
+													/setblock ~ ~5 ~ cobblestone
+												</div>
+											</div>
+										</div>
+										
+										
+									</div>
+								</p>
+								<br>
+
+
+
+								<h4>Filling blocks</h4>
+								
+								<p>The /fill command fills a box with one type of block. It does not have a source like the /clone command. It can be used to quickly fill or destroy large sections of blocks. You can't create blocks that need to be attached to other block, such as buttons or doors.</p>
+
+								<p><strong>Syntax:<br>
+									/fill [from: x y z] [to: x y z] [block name] [tileData number] [outline OR hollow OR destroy OR keep]<br>
+									/fill [from: x y z] [to: x y z] [block name] [tileData number] replace [block name] [tileData number]
+								</strong></p>
+								<p>
+									The /fill command has five options:
+									<ul>
+										<li>Outline: Replaces only the blocks on the outer edge of the fill area. Block inside stay intact.</li>
+										<li>Hollow: Replaces the blocks on the outer edge of the fill area. Inner blocks are changed to air.</li>
+										<li>Destroy: Replaces all block in the area. Original blocks and their contents drop.</li>
+										<li>Keep: Replaces only the air blocks.</li>
+										<li>Replace (default): Replaces only the blocks that match the second [block name] and [tileData number]. If second [block name] and [tileData number] are not given, all blocks are replaced. </li>
+									</ul>
+								</p>
+								<p>Here are some examples:</p>
+
+								<p>
+									<div class="accordion" id="accordionExample">
+										<div class="card">
+											<div class="card-header" id="headingOneZ">
+												<h2 class="mb-0">
+													<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneZ" aria-expanded="true" aria-controls="collapseOneZ">
+														Replace all stone in the given area with orange wool. 
+													</button>
+												</h2>
+											</div>
+
+											<div id="collapseOneZ" class="collapse  bg-light" aria-labelledby="headingOneZ" data-parent="#accordionExample">
+												<div class="card-body">
+													/fill 52 100 -15 100 73 -20 stone 0 replace wool 5
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header" id="headingTwoZ">
+												<h2 class="mb-0">
+													<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoZ" aria-expanded="false" aria-controls="collapseTwoZ">
+														Make a hollow box of blue ice.
+													</button>
+												</h2>
+											</div>
+											<div id="collapseTwoZ" class="collapse  bg-light" aria-labelledby="headingTwoZ" data-parent="#accordionExample">
+												<div class="card-body">
+													/fill 52 100 -15 100 73 -20 blue_ice hollow
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</p>
+
+
+
+							</p>
+
+
+
+							<br>
+							<hr>
+							<p class="text-center">
+								Previous lesson: <a href="./environment.htm">Environment</a>
+							</p>
+							<hr>
+
+						</div>
+
+						<!-- sidebar if needed-->
+						<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+							
+						</div>
+					</div>
+
+
+
+
+				</div>
+
+
+
+
+
+
+				<!-- Footer to be used on every page -->
+				<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+					<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+					<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+					<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
+				</div>
+
+
+
+
+
+
+
+				<!-- Optional JavaScript -->
+				<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+				<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+			</body>
+			</html>

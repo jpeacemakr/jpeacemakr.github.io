@@ -1,0 +1,16 @@
+I ended up not working with anyone in my group. They blew threw it really fast in the breakout room and I couldn't keep up. I didn't want to slow them down as I am still learning C. I ended up doing it on my own at my own pace.
+
+I used the following websites as a reference for syntax or to learn how some things worked. I did not copy code from them.
+
+https://www.gnu.org/software/libc/manual/html_node/Using-Getopt.html
+https://www.geeksforgeeks.org/getopt-function-in-c-to-parse-command-line-arguments/
+https://www.tutorialspoint.com/cprogramming/c_file_io.htm
+https://www.geeksforgeeks.org/getppid-getpid-linux/
+https://man7.org/linux/man-pages/man2/kill.2.html
+https://www.tutorialspoint.com/c_standard_library/errorno_h.htm
+https://www.studymite.com/blog/strings-in-c#read_using_getline
+
+
+
+
+

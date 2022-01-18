@@ -1,0 +1,14 @@
+Zork II save data
+Dungeon file: save.sav
+Room states:
+Stephen's office:
+beenHere=true
+---
+Basement hallway:
+beenHere=true
+---
+Rotunda:
+beenHere=true
+---
+===
+Current room: Stephen's office

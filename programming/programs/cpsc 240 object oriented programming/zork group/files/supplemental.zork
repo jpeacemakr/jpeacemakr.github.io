@@ -1,0 +1,204 @@
+Trinkle Hall
+Zork++
+1,2
+Classes:
+Barbarian:3,4,8
+Thief:9,3,2
+Warrior:5,7,5
+===
+Items:
+Bomb
+95,1
+examine:The bomb is a heavy, glistening black sphere. On the top appears to be some form of detonator.
+kick[Wound(3)]:Ouch! That hurt your foot.
+detonate[Die]:An ear-splitting halo of shrapnel kills you and seriously degrades the room's interior.
+---
+DrPepper,can,soda
+10,3
+kick[Drop]:The can skitters down the hallway.
+shake:A liquid fizzes menacingly inside the can.
+drink[Transform(emptyCan),Wound(-1)]:Gulp, gulp -- that was GOOD!  *belch*
+---
+emptyCan,can,soda
+2,2
+kick[Drop]:The empty can skitters down the hallway.
+drink:Sorry, all gone!
+stomp[Transform(squishedCan)]:The can crunches down into a thin disk, useful for recycling.
+---
+scissors
+2,10
+eat[Wound(100)]:So sharp and yummy!
+---
+squishedCan,can
+2,1
+throw[Drop]:Zing!
+stomp:Further stomping seems to have no effect.
+recycle[Score(5),Disappear]:Boom-ya, helped save the environment.
+---
+magicWand,wand
+5,-10
+break[Wound(10),Disappear]:The wand snaps in half. Strange magic fills the air, making you feel suddenly ill.
+wave[Score(5),Teleport]:An angelic form briefly appears, smiles, and just as quickly fades away. 
+---
+StarWarsToy,Yoda,toy
+5
+touch[Score(1)]:Yoda says, "Do, or do not! There is no try."
+break:Luckily, it's made of rugged plastic.
+---
+chainsaw
+35,30
+---
+WawaTravelMug,mug
+10,2
+refill[Win]:You refill the mug with everlasting light roast coffee, and live happily ever after! :)
+---
+donut
+7,1
+eat[Disappear,Wound(-2)]:You feel mildly guilt-ridden.
+stomp:The donut is now smooshed.
+---
+officeKey
+1,1
+---
+waterBottle
+2,3
+---
+pencil
+1,6
+sharpen[Score(10),Transform(sharpPencil)]:It is now a deadly instrument.
+---
+sharpPencil
+1,15
+---
+===
+Shields:
+laptop,computer
+10,20
+open[Artwork(cat.art)]:The laptop opens to a YouTube page of cat videos.
+break[Transform(laptopPieces),wound(-3)]:That was an expensive mistake.
+---
+trashCanLid,lid
+10,15
+---
+Michael'sCorpse
+20,80
+---
+===
+Armor:
+teeShirt,shirt,tee
+8,2
+---
+freshOutfit,outfit,clothes
+5,35
+---
+bulletProofVest,vest
+15,40
+---
+===
+Rooms:
+Rotunda
+contents:scissors,bulletProofVest,laptop
+You are in a beautiful round entry chamber, with tall white pillars that
+seemingly reach to the skies. There is an elevator here.
+---
+Basement hallway
+contents:DrPepper
+A long, white hallway stretches to the east and west. It is cold here, and you
+can detect the faint smell of body odor. A vending machine hums softly in the
+corner.
+---
+Stephen's office
+contents:StarWarsToy,WawaTravelMug,donut
+This is a cluttered office, with many geeky toys sprawling on a desk.
+---
+Room B6
+Sunlight streams through tall windows and illuminates a brilliant classroom.
+---
+Rotunda balcony
+contents:magicWand,Bomb
+You stand on a circular white balcony overlooking an entry hall.
+Columnar bannisters in ancient Grecian style stand between you and the
+precipice.
+---
+===
+Exits:
+Rotunda
+u
+Rotunda balcony
+---
+Rotunda balcony
+d
+Rotunda
+---
+Rotunda
+d
+Basement hallway
+---
+Basement hallway
+u
+Rotunda
+---
+Room B6
+w
+Basement hallway
+---
+Basement hallway
+e
+Room B6
+---
+Basement hallway
+w
+Stephen's office
+---
+Stephen's office
+e
+Basement hallway
+---
+===
+NPCs:
+James:
+move/follow:0,0
+weapon:DrPepper
+armor:teeShirt
+shield:trashCanLid
+inventory:officeKey
+stats:6,7,8
+current room:Stephen's office
+dialogue:Hey! Your homework is late!
+score:5
+hostility:-1.0
+health:
+---
+Michael:
+move/follow:0,1
+weapon:pencil
+inventory:Michael'sCorpse
+stats:1,5,9
+current room:Basement hallway
+dialogue:Hey, are we working on zork today? I have an evening class, otherwise I’m free.
+score:5
+hostility:-1.0
+health:
+---
+Joey:
+move/follow:1,1
+weapon:chainsaw
+armor:freshOutfit
+inventory:waterBottle
+stats:10,10,10
+current room:Room B6
+dialogue:Nothin like coding with the boys, huh?
+score:5
+hostility:1.0
+health:60
+---
+Rat:
+move/follow:1,0
+stats:1,1,1
+current room:Basement hallway
+dialogue:Squeak mf squeak!
+score:2
+hostility:-1.0
+health:
+---
+===

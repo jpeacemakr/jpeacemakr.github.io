@@ -1,0 +1,96 @@
+NOTES:
+Topic: What are your input/output interfaces that your project requires?  What are some attributes that you have agreed upon that will be in your interfaces?
+
+------------------------
+------------------------
+
+Introduction
+------------
+I am James. I am part of a seven-member team working to develop an internship job board for computer science majors at the Univeristy of Mary Washington.
+
+
+Purpose
+--------
+Getting the right intership or first job can really help set a student's path for their entire career.
+
+This project will help facilitate that process.
+
+Take some of the burden off the professors from having to post every job manually. 
+
+Make it easier for employers to post jobs.
+
+Give students a chance to share their experience working at various companies and organizations.
+
+Today, I am going to talk a little bit about the interface for the project. How the input and output of the site will appear.
+
+
+
+Major functions
+--------------
+Two major functions will be that employers will be able to post internships or jobs for computer science majors.
+People who have interned at these companies or organizations will be able to give them reviews to kinda give people a heads up on what to expect.
+
+
+The users
+---------
+There are different views for each user: the student, the employers and the admin.
+
+The screen will appear differently to each user.
+Dynamic navigation menu across the top that changes depending who is logged in.
+
+
+The home page layout
+----------
+Job search and listing should be the first page because it would be the sought information.
+Employer reviews would be prominent on the front page also.
+
+
+
+Output screens
+--------------
+Job list/search -- combined functionality so one page can serve more than one function. 
+Employer list/search
+
+Individual job pages
+Employer profile pages -- combined with post review.
+
+Admin listing approval page
+Admin flagged reviews page
+
+
+
+Input screens
+-------------
+Login for admin and employers
+Create account for employers
+
+Edit/delete company profile
+Post/approve/edit/delete job
+Post/edit/delete review
+
+
+
+Conclusion
+-----------
+It is important to structure a website so that it is intuitive for all the users and easy to navigate. 
+
+Throwing too much at someone using the website can be overwhelming so we try to limit unecessary features for the users who don't need to see them. 
+
+We use different views for each user: the student, the employers and the admin.
+
+The screen will appear differently to each user.
+There will be a dynamic navigation menu across the top that changes depending who is logged in.
+
+
+---------
+I hope this shows kind of how the site will be structured and the types of information we want to include.
+
+If you have any questions, feel free to let us know. Thanks.
+
+
+
+
+
+
+
+

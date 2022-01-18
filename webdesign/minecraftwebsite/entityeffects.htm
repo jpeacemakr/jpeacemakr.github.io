@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
+
+	<title>Command Blocks for Minecraft Bedrock Edition</title>
+</head>
+<body class="mypaddedbody">
+
+
+
+
+
+
+	<!-- Header nav bar to be used on every page -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="./index.htm">Home </a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./downloads.htm">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./blog.htm">Blog</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks</a>
+		</div>
+
+	</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="container-fluid pl-5 pr-5">
+
+		<div class="row">
+
+			<!-- Vertical nav bar on left side -->
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
+				</div>
+			</div>
+
+
+
+
+
+			<!-- content in the middle-->
+			<div class="col">
+				<h1 class="display-4">Entity effects</h1>
+				<p class="lead">Faster, stronger, deadlier are just some of the possibilities.  </p>
+				<hr>
+				
+				
+				<p>The /effect command allows status effects to be cast on players or other entities. Many of the the effects can be given by elements already in the game, such as potions, food or spells.</p>
+				The command is "/effect" followed by a target, the name of the effect, the number of seconds for the effect to last, the power of the effect (The maximum power for an effect is 255) and true or false to add or remove an effect (true or false is optional). 
+				When an effect is added, particles will swirl around the entity. The player can see their own effects at the right side of their screen.
+				<p>You can clear all effect with "/effect [target] clear".</p>	
+
+				<p><strong>Syntax: <br>
+					/effect [target] [name of effect] [time in seconds] [power of effect (0-255)] [true OR false (optional)]<br>
+					/effect [target] clear
+				</strong></p> 
+
+				<p>Here are some examples of effects:</p>
+
+
+
+
+				<p>
+					<div class="accordion" id="accordionExample">
+						<div class="card">
+							<div class="card-header" id="headingOne">
+								<h2 class="mb-0">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Make yourself nauseous for 5 seconds. 
+									</button>
+								</h2>
+							</div>
+
+							<div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
+								<div class="card-body">
+									/effect @s nausea 5 255
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="headingTwoB">
+								<h2 class="mb-0">
+									<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+										Make all cows launch into the air.
+									</button>
+								</h2>
+							</div>
+							<div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
+								<div class="card-body">
+									/effect @e[type=cow] levitation 2 100
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</p>
+
+				<p>
+					<figure class="figure">
+						<img src="./images/entityeffect.jpg" class="figure-img img-fluid" alt="Effects create particles that swirl around entities.">
+						<figcaption class="figure-caption">Effects create particles that swirl around entities.</figcaption>
+					</figure>
+				</p>
+				<br>
+
+
+				<h4>List of effects</h4>
+				<table class="table">
+					<thead class="thead-light"><th>Name</th><th>Command argument</th><th>Description</th></thead>
+					<tr><td>Speed</td><td>speed</td><td>Run faster</td></tr>
+					<tr><td>Slowness</td><td>slowness</td><td>Run slower</td></tr>
+					<tr><td>Haste</td><td>haste</td><td>Increases attack speed and mining speed</td></tr>
+					<tr><td>Mining Fatigue</td><td>mining_fatigue</td><td>Decreases attack speed and mining speed</td></tr>
+					<tr><td>Strength</td><td>strength</td><td>Increases melee damage</td></tr>
+					<tr><td>Instant Health</td><td>instant_health</td><td>Heals (but damages undead)</td></tr>
+					<tr><td>Instant Damage</td><td>instant_damage</td><td>Hurts (but heals undead)</td></tr>
+					<tr><td>Jump Boost</td><td>jump_boost</td><td>Makes you jump higher and reduces fall damage</td></tr>
+					<tr><td>Nausea</td><td>nausea</td><td>Creates a drunk effect</td></tr>
+					<tr><td>Regeneration</td><td>regeneration</td><td>Heals over time</td></tr>
+					<tr><td>Resistance</td><td>resistance</td><td>reduces damage</td></tr>
+					<tr><td>Fire Resistance</td><td>fire_resistance</td><td>immune to burning</td></tr>
+					<tr><td>Water Breathing</td><td>water_breathing</td><td>You can breathe underwater</td></tr>
+					<tr><td>Invisibility</td><td>invisibility</td><td>Makes the player invisible, but armor and weapon can still be seen</td></tr>
+					<tr><td>Blindness</td><td>blindness</td><td>Limits the distance you can see and disables sprint and critical hit</td></tr>
+					<tr><td>Night Vision</td><td>night_vision</td><td>See in the dark</td></tr>
+					<tr><td>Hunger</td><td>hunger</td><td>Players get hungry faster</td></tr>
+					<tr><td>Weakness</td><td>weakness</td><td>Reduces melee damage</td></tr>
+					<tr><td>Poison</td><td>poison</td><td>Damage over time but can't kill</td></tr>
+					<tr><td>Wither</td><td>wither</td><td>Damage over time and can kill</td></tr>
+					<tr><td>Health Boost</td><td>health_boost</td><td>Increases maximum health</td></tr>
+					<tr><td>Absorption</td><td>absorption</td><td>Reduces damage</td></tr>
+					<tr><td>Saturation</td><td>saturation</td><td>Makes you less hungry</td></tr>
+					<tr><td>Levitation</td><td>levitation</td><td>Make you go up</td></tr>
+					<tr><td>Fatal Poison</td><td>fatal_poison</td><td>Damage over time and can kill</td></tr>
+					<tr><td>Conduit Power</td><td>conduit_power</td><td>Increases visibility underwater, prevents drowning and boosts mining speed</td></tr>
+					<tr><td>Slow Falling</td><td>slow_falling</td><td>Makes you fall slower</td></tr>
+					<tr><td>Bad Omen</td><td>bad_omen</td><td>Makes an illager raid start when you enter a village</td></tr>
+					<tr><td>Hero of the Village</td><td>village_hero</td><td>Discounts trades</td></tr>
+
+				</table>
+				<hr>
+				<p>
+					Source: https://minecraft.gamepedia.com
+				</p>
+
+				<br>
+				<hr>
+				<p class="text-center">
+					Previous lesson: <a href="./summonentity.htm">Summoning entities</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./givingitems.htm">Giving items</a>
+				</p>
+				<hr>
+
+			</div>
+
+			<!-- sidebar if needed-->
+			<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+
+			</div>
+		</div>
+
+
+
+
+	</div>
+
+
+
+
+
+
+
+	<!-- Footer to be used on every page -->
+	<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+		<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+		<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+		<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
+	</div>
+
+
+
+
+
+
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

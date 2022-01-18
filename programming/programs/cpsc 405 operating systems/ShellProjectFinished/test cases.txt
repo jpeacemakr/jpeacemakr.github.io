@@ -1,0 +1,413 @@
+Basic commands
+This tests basic commands cd, pwd, ls. 
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % pwd
+directory: /mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject
+mysh2 % ls
+ ShellProject.pdf                  'james shell low level new.drawio'   lsbackgroundtest.txt   pigold.c
+ ShellProjectAnswers.docx          'james shell low level new.png'      lsoutput.txt           pigold2.c
+ basichidden.txt                   'james shell low level.drawio'       output.txt             pipe_and_exec.c
+ declaration.txt                   'james shell low level.png'          output2.txt            redirect_stdout.c
+'effort paper.txt'                  jamesshell                          outputnew.txt          sh.c
+ found.                             jamesshell.c                        outputnew2.txt         simple_pipe.c
+ input.txt                          jamesshellv1.c                      parent_child_pipe.c    skipwhitespace.c
+'james shell high level 2.drawio'  'low level design.txt'               pig                    starter_sh.c
+'james shell high level.drawio'     ls                                  pig.c                 'test cases.txt'
+'james shell high level.png'        ls.c                                pigbad.c
+mysh3 % cd ..
+mysh3 % ls
+'C notes.txt'                    'ProcessAPILab to turn in'         doit                   lecture3-Scheduling.pdf
+ CPSC405SyllabusSpring21.pdf      ScheduleProject                   doit.c                 lecture4-VirtualMem.pdf
+'FirstLab to submit'             'ScheduleProject to turn in'       doitwithdebug.c        lecture5-Paging.pdf
+'FirstLab to submit.zip'          ShellProject                     'exec types in c.txt'   lecture6-TLB.pdf
+ FirstLab.pdf                     SignalLab                         gerbil                 lectureLocks.pptx
+'FirstLabAnswers template.docx'  'Zoom test prep.docx'              gerbil.c               lectureThreads.pptx
+ Labs_export                      ZoomPoints.xlsx                   gerbil2                linkedlist.c
+ Labs_export.zip                  a.out                             gerbil2.c             'notes concurrency.txt'
+ Lecture1-Intro.pdf              'assembly programming notes.txt'   gerbil3                pipeexample.c
+ Lecture2-VirtualCPU.pdf         'class info.txt'                   gerbil3.c              program_sections.c
+ MainArgsLab                      class1                            gerbilelipsis          q0_demo.c
+'MainArgsLab to turn in'          class1.zip                        gerbilelipsis.c        variable_attributes.c
+'MainArgsLab to turn in.zip'     'compiling with gcc.txt'           hello                 'zoom point questions.txt'
+ MemoryLab                       'crib notes.txt'                   hello.c
+ ProcessAPILab                   'dictionary example'               lecture2.c
+mysh4 % cd ShellProject
+mysh4 % ls
+ ShellProject.pdf                  'james shell low level new.drawio'   lsbackgroundtest.txt   pigold.c
+ ShellProjectAnswers.docx          'james shell low level new.png'      lsoutput.txt           pigold2.c
+ basichidden.txt                   'james shell low level.drawio'       output.txt             pipe_and_exec.c
+ declaration.txt                   'james shell low level.png'          output2.txt            redirect_stdout.c
+'effort paper.txt'                  jamesshell                          outputnew.txt          sh.c
+ found.                             jamesshell.c                        outputnew2.txt         simple_pipe.c
+ input.txt                          jamesshellv1.c                      parent_child_pipe.c    skipwhitespace.c
+'james shell high level 2.drawio'  'low level design.txt'               pig                    starter_sh.c
+'james shell high level.drawio'     ls                                  pig.c                 'test cases.txt'
+'james shell high level.png'        ls.c                                pigbad.c
+mysh5 %
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+
+
+
+Test the options flags on a program:
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % ls -l
+total 820
+-rwxrwxrwx 1 jpeacemakr jpeacemakr  98395 Mar 22 00:17  ShellProject.pdf
+-rwxrwxrwx 1 jpeacemakr jpeacemakr 204466 Mar 31 16:43  ShellProjectAnswers.docx
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   1112 Mar 28 19:55  basichidden.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   8120 Mar 28 00:55  declaration.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   1874 Mar 31 16:16 'effort paper.txt'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr      0 Mar 28 19:01  found.
+-rwxrwxrwx 1 jpeacemakr jpeacemakr    774 Mar 27 18:41  input.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   3114 Mar 31 16:42 'james shell high level 2.drawio'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   3114 Mar 31 16:41 'james shell high level.drawio'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr  71360 Mar 31 16:41 'james shell high level.png'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   3066 Mar 31 14:56 'james shell low level new.drawio'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr 111653 Mar 31 14:57 'james shell low level new.png'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   3898 Mar 30 01:19 'james shell low level.drawio'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr 118179 Mar 30 01:20 'james shell low level.png'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr  18352 Mar 31 20:00  jamesshell
+-rwxrwxrwx 1 jpeacemakr jpeacemakr  15404 Mar 31 20:01  jamesshell.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr  10922 Mar 24 03:51  jamesshellv1.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   2338 Mar 30 00:35 'low level design.txt'
+-rwxrwxrwx 1 jpeacemakr jpeacemakr  17072 Mar 26 15:45  ls
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   2950 Mar 26 15:47  ls.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr    346 Mar 28 19:01  lsbackgroundtest.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr    382 Mar 28 20:12  lsoutput.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   1112 Mar 28 00:40  output.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr  10780 Mar 28 00:55  output2.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   1112 Mar 28 18:44  outputnew.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   1112 Mar 28 18:45  outputnew2.txt
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   2075 Mar 22 00:17  parent_child_pipe.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr  17464 Mar 28 00:39  pig
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   6357 Mar 28 00:39  pig.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   6493 Mar 27 22:07  pigbad.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   3518 Mar 27 15:26  pigold.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   6475 Mar 27 21:32  pigold2.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   1550 Mar 23 22:50  pipe_and_exec.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr    965 Mar 22 00:17  redirect_stdout.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   9526 Mar 22 00:17  sh.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr    566 Mar 22 00:17  simple_pipe.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr    837 Mar 22 00:17  skipwhitespace.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr   3415 Mar 22 00:51  starter_sh.c
+-rwxrwxrwx 1 jpeacemakr jpeacemakr    313 Mar 31 16:29 'test cases.txt'
+mysh2 %
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+
+
+
+Test my own list (./ls) program. It shows the current directory and lists the time and state modified, file size and name.
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % ./ls
+directory: /mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject
+last modified: 2021-03-31 20:00:23      size: 512B      .
+last modified: 2021-03-31 16:21:40      size: 512B      ..
+last modified: 2021-03-31 16:46:54      size: 512B      .git
+last modified: 2021-03-28 19:55:42      size: 1112B     basichidden.txt
+last modified: 2021-03-28 00:55:14      size: 8120B     declaration.txt
+last modified: 2021-03-31 16:16:12      size: 1874B     effort paper.txt
+last modified: 2021-03-28 19:01:35      size: 0B        found.
+last modified: 2021-03-27 18:41:40      size: 774B      input.txt
+last modified: 2021-03-31 16:42:07      size: 3114B     james shell high level 2.drawio
+last modified: 2021-03-31 16:41:20      size: 3114B     james shell high level.drawio
+last modified: 2021-03-31 16:41:50      size: 71360B    james shell high level.png
+last modified: 2021-03-31 14:56:56      size: 3066B     james shell low level new.drawio
+last modified: 2021-03-31 14:57:15      size: 111653B   james shell low level new.png
+last modified: 2021-03-30 01:19:38      size: 3898B     james shell low level.drawio
+last modified: 2021-03-30 01:20:05      size: 118179B   james shell low level.png
+last modified: 2021-03-31 20:00:23      size: 18352B    jamesshell
+last modified: 2021-03-31 20:01:26      size: 15404B    jamesshell.c
+last modified: 2021-03-24 03:51:39      size: 10922B    jamesshellv1.c
+last modified: 2021-03-30 00:35:44      size: 2338B     low level design.txt
+last modified: 2021-03-26 15:45:14      size: 17072B    ls
+last modified: 2021-03-26 15:47:26      size: 2950B     ls.c
+last modified: 2021-03-28 19:01:35      size: 346B      lsbackgroundtest.txt
+last modified: 2021-03-28 20:12:15      size: 382B      lsoutput.txt
+last modified: 2021-03-28 00:40:46      size: 1112B     output.txt
+last modified: 2021-03-28 00:55:40      size: 10780B    output2.txt
+last modified: 2021-03-28 18:44:57      size: 1112B     outputnew.txt
+last modified: 2021-03-28 18:45:40      size: 1112B     outputnew2.txt
+last modified: 2021-03-22 00:17:13      size: 2075B     parent_child_pipe.c
+last modified: 2021-03-28 00:39:53      size: 17464B    pig
+last modified: 2021-03-28 00:39:46      size: 6357B     pig.c
+last modified: 2021-03-27 22:07:21      size: 6493B     pigbad.c
+last modified: 2021-03-27 15:26:49      size: 3518B     pigold.c
+last modified: 2021-03-27 21:32:30      size: 6475B     pigold2.c
+last modified: 2021-03-23 22:50:52      size: 1550B     pipe_and_exec.c
+last modified: 2021-03-22 00:17:14      size: 965B      redirect_stdout.c
+last modified: 2021-03-22 00:17:14      size: 9526B     sh.c
+last modified: 2021-03-22 00:17:14      size: 98395B    ShellProject.pdf
+last modified: 2021-03-31 16:43:35      size: 204466B   ShellProjectAnswers.docx
+last modified: 2021-03-22 00:17:14      size: 566B      simple_pipe.c
+last modified: 2021-03-22 00:17:14      size: 837B      skipwhitespace.c
+last modified: 2021-03-22 00:51:09      size: 3415B     starter_sh.c
+last modified: 2021-03-31 20:07:11      size: 7498B     test cases.txt
+mysh2 %
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+
+Testing my pig (./pig) program. Rather than cat or dog, I made pig, which translates text into pig latin. It is shown here translating two sentences from standard input then I use input redirection to translate a file containing lyrics from one of my favorite songs.
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % ./pig
+This is a sentence that I want to translate.
+Isthay isay aay entencesay atthay Iay antway otay anslatetray.
+It also handles "punctuation" and (Capitalization).
+Itay alsoay andleshay "unctuationpay" anday (Apitalizationcay).
+^C
+Closing active programs.
+mysh2 % ./pig < input.txt
+Enwhay Iay indfay elfmysay inay imestay ofay oubletray, Othermay Arymay omescay otay emay
+Eakingspay ordsway ofay isdomway, etlay itay ebay
+Anday inay ymay ourhay ofay arknessday eshay isay andingstay ightray inay ontfray ofay emay
+Eakingspay ordsway ofay isdomway, etlay itay ebay
+Etlay itay ebay, etlay itay ebay, etlay itay ebay, etlay itay ebay
+Isperwhay ordsway ofay isdomway, etlay itay ebay
+Anday enwhay ethay okenbray eartedhay eoplepay ivinglay inay ethay orldway agreeay
+Erethay illway ebay anay answeray, etlay itay ebay
+Orfay oughthay eythay aymay ebay artedpay, erethay isay illstay aay ancechay atthay eythay illway eesay
+Erethay illway ebay anay answeray, etlay itay ebay
+Etlay itay ebay, etlay itay ebay, etlay itay ebay, etlay itay ebay
+Erethay illway ebay anay answeray, etlay itay ebay
+Etlay itay ebay, etlay itay ebay, etlay itay ebay, etlay itay ebay
+Isperwhay ordsway ofay isdomway, etlay itay ebay
+Etlay itay ebay, etlay itay ebay, etlay itay ebay, etlay itay ebay
+Isperwhay ordsway ofay isdomway, etlay itay ebay, ebay
+Anday enwhay ethay ightnay isay oudyclay erethay...
+mysh3 %
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+
+
+
+Testing the redirect output operator >.
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % ls > output.txt
+mysh2 % cat output.txt
+ShellProject.pdf
+ShellProjectAnswers.docx
+basichidden.txt
+declaration.txt
+effort paper.txt
+found.
+input.txt
+james shell high level 2.drawio
+james shell high level.drawio
+james shell high level.png
+james shell low level new.drawio
+james shell low level new.png
+james shell low level.drawio
+james shell low level.png
+jamesshell
+jamesshell.c
+jamesshellv1.c
+low level design.txt
+ls
+ls.c
+lsbackgroundtest.txt
+lsoutput.txt
+output.txt
+output2.txt
+outputnew.txt
+outputnew2.txt
+parent_child_pipe.c
+pig
+pig.c
+pigbad.c
+pigold.c
+pigold2.c
+pipe_and_exec.c
+redirect_stdout.c
+sh.c
+simple_pipe.c
+skipwhitespace.c
+starter_sh.c
+test cases.txt
+mysh3 %
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+
+
+
+Testing the redirect input operator <. I use an output.txt file from ls > output.txt.
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % grep txt < output.txt
+basichidden.txt
+declaration.txt
+effort paper.txt
+input.txt
+killout.txt
+low level design.txt
+lsbackgroundtest.txt
+lsoutput.txt
+output.txt
+output2.txt
+outputnew.txt
+outputnew2.txt
+signalout.txt
+siout.txt
+test cases.txt
+mysh2 %
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+
+
+
+
+Testing the ability to pipe two programs together. The output of ls is used as the input for grep txt:
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % ls | grep txt
+basichidden.txt
+declaration.txt
+effort paper.txt
+input.txt
+low level design.txt
+lsbackgroundtest.txt
+lsoutput.txt
+output.txt
+output2.txt
+outputnew.txt
+outputnew2.txt
+test cases.txt
+mysh2 %
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+
+Testing the ability to run a program in the background. Here I test catch_signals. It takes 4 CTRL C signals to kill it but does not show output. The ps program is used to show process that are running. 
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % ./catch_signals &
+mysh2 % ps
+  PID TTY          TIME CMD
+    7 tty1     00:00:01 bash
+  680 tty1     00:00:00 jamesshell
+  681 tty1     00:00:01 catch_signals
+  682 tty1     00:00:00 ps
+mysh3 % ^C
+Closing active programs.
+mysh3 % ^C
+Closing active programs.
+mysh3 % ps
+  PID TTY          TIME CMD
+    7 tty1     00:00:01 bash
+  680 tty1     00:00:00 jamesshell
+  681 tty1     00:00:07 catch_signals
+  683 tty1     00:00:00 ps
+mysh4 % ^C
+Closing active programs.
+mysh4 % ^C
+Closing active programs.
+mysh4 % ps
+  PID TTY          TIME CMD
+    7 tty1     00:00:01 bash
+  680 tty1     00:00:00 jamesshell
+  681 tty1     00:00:11 catch_signals <defunct>
+  684 tty1     00:00:00 ps
+mysh5 % jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+Running in the background with redirected output:
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % ls > output.txt &
+mysh2 % cat output.txt
+FPE_signal
+FPE_signal.c
+ShellProject.pdf
+ShellProjectAnswers.docx
+basichidden.txt
+catch_signals
+catch_signals.c
+declaration.txt
+effort paper.txt
+found.
+input.txt
+james shell high level 2.drawio
+james shell high level.drawio
+james shell high level.png
+james shell low level new.drawio
+james shell low level new.png
+james shell low level.drawio
+james shell low level.png
+jamesshell
+jamesshell.c
+jamesshellv1.c
+killme_with_a_signal
+killme_with_a_signal.c
+killout.txt
+low level design.txt
+ls
+ls.c
+lsbackgroundtest.txt
+lsoutput.txt
+my_kill
+my_kill.c
+output.txt
+output2.txt
+outputnew.txt
+outputnew2.txt
+parent_child_pipe.c
+pig
+pig.c
+pigbad.c
+pigold.c
+pigold2.c
+pipe_and_exec.c
+redirect_stdout.c
+sh.c
+signalout.txt
+simple_pipe.c
+siout.txt
+skipwhitespace.c
+starter_sh.c
+test cases.txt
+mysh3 % jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+
+
+
+
+Testing CTRL-C and CTRL-D. CTRL C sends signal for program to end. It is caught by the program ./catch_signals until the fifth time. CTRL-D exits out of the shell.
+
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$ ./jamesshell
+mysh1 % ./catch_signals
+Ok, let's go, kill me (371) if you can!
+^CSignal 2  ouch, that hurt!
+
+Closing active programs.
+^CSignal 2  ouch, that hurt!
+
+Closing active programs.
+mysh2 % ^CSignal 2  ouch, that hurt!
+
+Closing active programs.
+
+mysh2 % ^CSignal 2  ouch, that hurt!
+
+I've had enough!
+Closing active programs.
+
+mysh2 % ps
+  PID TTY          TIME CMD
+    7 tty1     00:00:01 bash
+  370 tty1     00:00:00 jamesshell
+  372 tty1     00:00:00 ps
+mysh3 %
+jpeacemakr@MyPrecious:/mnt/c/Users/Bettina/Desktop/cpsc405/ShellProject$
+
+

@@ -1,0 +1,58 @@
+Zork III save data
+Dungeon file: ../files/theRock3.zork
+Room states:
+Esophagus:
+beenHere=true
+---
+Small intestine:
+beenHere=false
+Contents: toy car
+---
+Porcelain bowl of death:
+beenHere=false
+---
+Dwayne "The Rock" Johnson's pillow:
+beenHere=true
+Contents: sleeping pill
+---
+Brain:
+beenHere=false
+Contents: yummy brain goodness
+---
+Bloodstream:
+beenHere=false
+---
+Nose:
+beenHere=false
+Contents: booger,nose hair
+---
+Stomach:
+beenHere=false
+Contents: piece of bacon,paper clip
+---
+Nostril:
+beenHere=false
+---
+Windpipe:
+beenHere=false
+---
+Heart:
+beenHere=false
+---
+Large intestine:
+beenHere=false
+---
+Mouth:
+beenHere=true
+Contents: loose tooth,gold filling,saliva
+---
+Lungs:
+beenHere=false
+---
+===
+Adventurer:
+current room: Esophagus
+health: 0
+score: 0
+---
+===

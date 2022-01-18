@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/minecraft.css">
+
+	<title>Command Blocks for Minecraft Bedrock Edition</title>
+</head>
+<body class="mypaddedbody">
+
+
+
+	
+
+
+
+
+
+
+	<!-- Header nav bar to be used on every page -->
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="./index.htm">Home </a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./downloads.htm">Downloads</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./blog.htm">Blog</a>
+				</li>
+
+			</ul>
+		</div>
+
+		<div class="d-none d-sm-none d-md-block">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks for Minecraft Bedrock Edition</a>
+		</div>
+		<div class="d-md-none">
+			<a class="navbar-brand text-white" href="./index.htm">Command Blocks</a>
+		</div>
+
+	</nav>
+
+
+
+
+
+
+
+
+	<div class="container-fluid pl-5 pr-5">
+
+		<div class="row">
+
+			<!-- Vertical nav bar on left side -->
+			<div class="col-md-2">
+				<div class="btn-group-justified">
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+					<a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+					<a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+					<a class="btn btn-primary btn-block bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+					<a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+					<br>
+				</div>
+			</div>
+
+
+
+
+			<!-- content in the middle-->
+			<div class="col">
+				<h1 class="display-4">Basic commands</h1>
+				<p class="lead">Teleport, kill, say, execute</p>
+				<hr>
+				<p> Here are some basic commands that can be called by command blocks. Also, many commands have modifiers attached to them that narrow the scope of the command.
+					Commands that modify items and inventory, summon entities and modify the environment will be covered in later lessons.
+				You can generally check the syntax of a command by typing it in the console.</p>
+				
+				<p>There are several parts of a command that are used frequently. They are:
+					<ul>
+						<li>Target selector: It tells you which entity the command will target. They are:
+							<ul>
+								<li>@p: the nearest player </li>
+								<li>@e: all entities</li>
+								<li>@s: the entity activating the command</li>
+								<li>@a: all players</li>
+								<li>@r: A random player</li>
+								<li>The specific name of a player or named entity.
+								</ul></li>
+								<li>Target selector argument: This can follow a target selector to narrow the scope of the target. (Example: @e[r=7] would be all entities within 7 blocks.) Target selector arguments can be put together, separated by commas also. (Example: @e[r=7,type=zombie] would be all zombies within 7 blocks.) A ! after the equals sign means "not". (Example: @e[type=!player] would be all entities that are not players).
+									<ul>
+										<li>[r=X] all entities within a radius of X.</li>
+										<li>[type=X] all entities of type X.</li>
+										<li>[x=X,y=Y,z=Z] entity at coordinates X,Y,Z</li>
+										<li>[name=X] entity with the name X</li>
+									</ul>
+
+								</li>
+								<li>Coordinates: The position in the world is often included in commands. They come in threes. An X, Y and Z coordinate. You can choose to show your current coordinates by selecting the option in settings. Coordinates come in two forms: 
+									<ul>
+										<li>Absolute: the position on the map. (X Y Z)</li>
+										<li>Relative: the position on the map in relation to what is calling the command (~X ~Y ~Z) or (^X ^Y ^Z) relative to direction they are facing</li>
+									</ul>
+								</ul>
+
+							</p>
+
+							<h4>Teleport</h4>
+							<video width="100%" controls>
+								<source src="./media/spacestation.mp4" type="video/mp4">
+									Your browser does not support the video tag. You can find the video <a href="./media/spacestation.mp4">here</a>.
+								</video>
+								<p>
+									This video shows the /teleport command being called by command blocks in a space facility. You can download the map <a href="./downloads/spacestation.zip">here</a>.
+								</p>
+								
+								<p>The /teleport or /tp command allows you to move a player, monster or other entity to another location.
+									The command is /tp followed by X Y Z coordinates to teleport to a location (/tp 3 34 -12), /tp followed by a target selector and coordinates (/tp @a ~ ~ ~),  or /tp followed by two target selectors to transport entities to another entity (/tp @e @s). You can't teleport to more than one entity though.
+								</p>
+
+								<p><strong>Syntax:<br>
+									/teleport X Y Z<br>
+									/teleport [target selector[argument=value]] X Y Z<br>
+								/teleport [target selector[argument1=value1] [target selector 2[argument2=value2]]</strong></p>
+
+								<p>You can also add a true or false to prevent it from telporting you into a block.<br>
+									You can also add "facing" with a target (either entity or coordinate) to set the direction after teleporting.
+								</p>
+
+								<p>Here are some examples:</p>
+
+								
+								<p>
+									<div class="accordion" id="accordionExample">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h2 class="mb-0">
+													<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+														Teleport all zombies to the player named Jeff. 
+													</button>
+												</h2>
+											</div>
+
+											<div id="collapseOne" class="collapse  bg-light" aria-labelledby="headingOne" data-parent="#accordionExample">
+												<div class="card-body">
+													/tp @e[type=zombie] Jeff
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header" id="headingTwoB">
+												<h2 class="mb-0">
+													<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+														Teleport Jeff 100 blocks in the air.
+													</button>
+												</h2>
+											</div>
+											<div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
+												<div class="card-body">
+													/tp Jeff ~ ~100 ~
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</p>
+								<br>
+								
+
+
+
+								
+
+
+								<h4>Kill</h4>
+								
+								<p>Some times you just need to kill some things. This command makes it easy. The command is just "kill" followed by a target. Be careful though because some objects such as minecarts and armor stands are actually considered entities.</p> 
+
+								<p><strong>Syntax: /kill [target selector[argument=value]]</strong></p>
+
+
+								<p>Here's some examples of kill commands:</p>
+								<p>
+									<div class="accordion" id="accordionExample">
+										<div class="card">
+											<div class="card-header" id="headingOneC">
+												<h2 class="mb-0">
+													<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneC" aria-expanded="true" aria-controls="collapseOneC">
+														Kill all zombies. 
+													</button>
+												</h2>
+											</div>
+
+											<div id="collapseOneC" class="collapse  bg-light" aria-labelledby="headingOneC" data-parent="#accordionExample">
+												<div class="card-body">
+													/kill @e[type=zombie]
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header" id="headingTwoD">
+												<h2 class="mb-0">
+													<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoD" aria-expanded="false" aria-controls="collapseTwoD">
+														Kill all players with 5 blocks of 12,-5,34.
+													</button>
+												</h2>
+											</div>
+											<div id="collapseTwoD" class="collapse  bg-light" aria-labelledby="headingTwoD" data-parent="#accordionExample">
+												<div class="card-body">
+													/kill @a[r=5,x=12,y=-5,z=34]
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</p>
+								<br>	
+
+
+
+								
+
+
+								
+								<h4>Say and tell</h4>
+								
+								<p>The say command makes an entity say a phrase. The tell command has one entity whisper text to another entity. They are a great way to tell players what is happening when they activate a command block. </p>
+
+								<p><strong>Syntax:<br>
+									/say  [target selector[argument=value]] [phrase]<br>
+								/tell [target selector[argument=value]] [phrase]</strong></p>
+
+								<p>Here's some examples: </p>
+								<p>
+									<div class="accordion" id="accordionExample">
+										<div class="card">
+											<div class="card-header" id="headingOneE">
+												<h2 class="mb-0">
+													<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneE" aria-expanded="true" aria-controls="collapseOneE">
+														Tell the players they are going to die. 
+													</button>
+												</h2>
+											</div>
+
+											<div id="collapseOneE" class="collapse  bg-light" aria-labelledby="headingOneE" data-parent="#accordionExample">
+												<div class="card-body">
+													/say You are all going to die.
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header" id="headingTwoF">
+												<h2 class="mb-0">
+													<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoF" aria-expanded="false" aria-controls="collapseTwoF">
+														Tell other players nearby that you activated a trap.
+													</button>
+												</h2>
+											</div>
+											<div id="collapseTwoF" class="collapse  bg-light" aria-labelledby="headingTwoF" data-parent="#accordionExample">
+												<div class="card-body">
+													/tell @a[r=20] I triggered a trap!
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</p>
+								<br>	
+
+
+
+								
+
+								
+
+								
+								<h4>Execute</h4>
+								
+								<p>The execute command is one of the most important commands. It allows you to create more complex actions by having entities be the ones who execute the commands. A command block can't modify its own inventory or enchant its own weapons. It uses the /execute command to call the commands on entities (or in relation to their positions in some cases). The format is /execute followed by XYZ coordinates and then the command.</p> 
+
+								<p><strong>Syntax:<br>
+								/execute [target selector[argument=value]] X Y Z [command]</strong></p>
+
+							Here's some examples:</p>
+							<p>
+								<div class="accordion" id="accordionExample">
+									<div class="card">
+										<div class="card-header" id="headingOneI">
+											<h2 class="mb-0">
+												<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneI" aria-expanded="true" aria-controls="collapseOneI">
+													Have all non-player entities say "Hello!"" 
+												</button>
+											</h2>
+										</div>
+
+										<div id="collapseOneI" class="collapse  bg-light" aria-labelledby="headingOneI" data-parent="#accordionExample">
+											<div class="card-body">
+												/execute @e[type=!player] ~ ~ ~ say Hello!
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-header" id="headingTwoJ">
+											<h2 class="mb-0">
+												<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoJ" aria-expanded="false" aria-controls="collapseTwoJ">
+													Make a lit bundle of TNT appear over the heads of all players.
+												</button>
+											</h2>
+										</div>
+										<div id="collapseTwoJ" class="collapse  bg-light" aria-labelledby="headingTwoJ" data-parent="#accordionExample">
+											<div class="card-body">
+												/execute @a ~ ~5 ~ summon tnt
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</p>
+							
+
+
+
+							<br>
+							<hr>
+							<p class="text-center">
+								Previous lesson: <a href="./chainingblocks.htm">Chaining blocks</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="./summonentity.htm">Summoning entities</a>
+							</p>
+							<hr>
+
+
+							
+
+						</div>
+
+						<!-- sidebar if needed-->
+						<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+							
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+
+
+
+				<!-- Footer to be used on every page -->
+				<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+					<a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+					<a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+					<a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
+				</div>
+
+
+
+
+
+
+
+
+				<!-- Optional JavaScript -->
+				<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+				<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+				<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+			</body>
+			</html>

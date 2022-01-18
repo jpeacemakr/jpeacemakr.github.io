@@ -1,0 +1,14 @@
+fork James 42 kernel_process
+fork Bettina 43 kernel_process
+fork Newton 12 James
+fork Eden 9 Bettina
+fork Dolly 1 kernel_process
+kill Dolly
+fork Dolly 1 kernel_process
+kill Dolly
+kill Dolly
+printprocs
+printpid Dolly
+printppid Dolly
+printpid Bettina
+printppid Bettina

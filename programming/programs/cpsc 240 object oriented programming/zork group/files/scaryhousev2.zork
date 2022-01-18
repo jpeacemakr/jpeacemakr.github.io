@@ -1,0 +1,229 @@
+Spooky House
+Zork III
+===
+Items:
+RustySpoon,spoon
+5
+bend:The thoroughly rusted spoon crumbles to a fine red dust. 
+---
+ClownMask,mask
+10
+wear:You dawn the mask... you kinda look like the joker's cousin.
+---
+lighter
+2
+light:The lighter makes sparks, but no flame. Must be out of fuel.
+sniff:You feel dizzy, and several brain cells bid you farewell. 
+---
+BrokenPlate,plate,dish
+5
+---
+BaseballBat,bat
+15
+swing:The bat feels dangerous in your hands, could be useful.
+knock:You give the bat a few knocks. Feels sturdy.
+smell:You take a whiff, the bat smells of a nice maple tree.
+clean:You wipe a small blood stain from the bat with your sleeve.
+---
+LeatherJacket,jacket,coat
+15
+wear:Lookin good ;)
+---
+pistol,gun
+10
+shoot:The gun appears to be out of ammo.
+reload:You can't seem to find any bullets.
+---
+GasCan,gas,oil,
+10
+pour:A few drips of gasoline dribble out of the gas can. 
+drink:Probably a bad idea.
+---
+computer,pc
+100000
+open:The computer is password protected.
+unlockit:The computer is opened to spreadsheet of comic books & their prices, totaling over $10,000!
+smash:This computer doesn't seem to run any version of super smash bros.
+---
+note,letter,paper,notebook
+1
+read:Amidst some doodles of Dr. Doom is the phrase "unlockit".
+rip:Don't do that! these doodles are far too good to waste.
+---
+quarter,coin
+1
+inspect:Cold hard cash. Looks like a Mississippi quarter.
+---
+BoxOfComics,box,comics
+35
+open:Dozens of comics are all wrapped in plastic, carefully preserved.
+---
+TrashCans,trash
+40
+open:You choke back vomit upon seeing what appears to be a finger in the trash.
+---
+===
+Rooms:
+Front Porch
+Contents: lighter
+You stand on a creaky wooden porch in front of an old brick building. 
+the windows are (mostly) broken, and the building seems to tower
+deep into the sky.
+---
+Living Room
+Contents: BrokenPlate,RustySpoon
+An extraordinarily dusty table sits in the corner with some decrepid 
+plateware and a very rotten pizza on it. Cobwebs adorn the walls.
+A spiral staircase in the corner leads upstairs. The front door is 
+ajar on one wall, and another equally creaky looking door sits on another.
+---
+Alley
+Contents: BaseballBat,ClownMask
+A narrow alleyway stretches out in front of you. It is poorly lit, but
+you can see some trash cans, and a rope hanging from the side of one of
+the buildings.
+---
+Roof
+The bitter evening wind whips through your hair as you peer into the 
+darkness behind the building you stand on. You can make out some trees
+in what appears to be a small forest, but nothing else. A rope hangs from
+the edge of the rooftop, and a small hatch in the roof sits next to you. 
+---
+Bedroom
+Contents: pistol
+You enter the bedroom. Your heart pounds in your chest as you scan the
+dimly lit room. There's a bed in the center of the room with a torn 
+red dress laying across it. A .45 pistol sits on the bedside table.
+There are stairs leading down, a small hatch on the ceiling with no 
+way to get to it, and what appears to be a door to a bathroom on the
+wall at the foot of the bed.
+---
+Bathroom
+The bathroom seems too clean, given how filthy the rest of the place
+is. The only exception is a hairline crack through the mirror above 
+the sink. There is a closet next to the toilet with an unusually 
+narrow door. 
+---
+Closet
+Contents: LeatherJacket
+You manage to wedge yourself through the narrow door, and the closet 
+actually opens up a fair amount once inside. A leather jacket is hanging
+next to you, upon moving it you see that there is a hatch in the floor...
+you peer down the hatch. There is no ladder, and it is far too dark to
+see more than a foot or two down. 
+---
+Secret Office
+Contents: computer,note
+A gaping hole sits in the center of the ceiling. Two small flourescent 
+lights cut through the darkness to light up a tiny office. There is
+a desk with an old computer and a partially crumpled note on it. The 
+walls that don't make up the corner where the desk sits each have a 
+door on them.
+---
+Vault
+Contents: quarter
+A long hallway sprawls before what looks just like a bank vault door 
+from the movies. The vault door is slightly ajar, so you enter with ease. 
+Much to your disappointment, there are no massive piles of money here,
+but a single quarter sits on the floor. George Washington has never 
+looked so smug. A crudely dug tunnel catches your eyer from the corner
+of the room.
+---
+Greenhouse
+Contents: GasCan
+You stand in a small, cramped greenhouse. Long since deceased produce
+is strewn about, creating an unbearable stench that makes your eyes water.
+The gas can in the corner is doing no favors for the odor. 
+---
+Basement
+Contents: BoxOfComics
+You climb down the stairs into a disappointingly boring basement. There
+are some boxes, one of them looks like it is labeled "Comics".
+---
+===
+Exits:
+Front Porch
+n
+Living Room
+---
+Living Room
+s
+Front Porch
+---
+Front Porch
+w
+Alley
+---
+Alley
+e
+Front Porch
+---
+Living Room
+u
+Bedroom
+---
+Bedroom
+d
+Living Room
+---
+Living Room
+e
+Basement
+---
+Basement
+w
+Living Room
+---
+Alley
+u
+Roof
+---
+Roof
+w
+Alley
+---
+Roof
+d
+Bedroom
+---
+Bedroom
+e
+Bathroom
+---
+Bathroom
+w
+Bedroom
+---
+Bathroom
+s
+Closet
+---
+Closet
+n
+Bathroom
+---
+Closet
+d
+Secret Office
+---
+Secret Office
+s
+Vault
+---
+Vault
+n
+Secret Office
+---
+Secret Office
+e
+Greenhouse
+---
+Greenhouse
+w
+Secret Office
+---
+Vault
+d
+Alley
+---
+===

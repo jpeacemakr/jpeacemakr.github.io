@@ -1,0 +1,18 @@
+// title:peacemaker.cpp
+// author:james peacemaker
+// class:CPSC 470j
+// e-mail adress:jpeac1ij@mwc.edu
+// language:C++
+// purpose: this program create a fighter jet that can fly around using the keyboard
+// description: they fighter plane can fly around using the keyboard.
+
+instructions:
+
+// 4 on the number pad is left
+// 6 on the number pad is right
+// 8 on the number pad is to pitch up (back on the joystick)
+// 2 on the number pad is to pitch down (forward on the joystick)
+// 7 on the number pad is to roll left
+// 9 on the number pad is to roll right
+// + is used to go forward
+// - is to used to go backwards

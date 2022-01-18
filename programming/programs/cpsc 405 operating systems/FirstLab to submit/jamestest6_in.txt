@@ -1,0 +1,11 @@
+fork James 42 kernel_process
+fork Bettina 43 kernel_process
+fork Newton 12 James
+fork Eden 9 Bettina
+fork Dolly 1 kernel_process
+fork Dolly 1 kernel_process
+printprocs
+printpid Dolly
+printppid Dolly
+printpid Bettina
+printppid Bettina

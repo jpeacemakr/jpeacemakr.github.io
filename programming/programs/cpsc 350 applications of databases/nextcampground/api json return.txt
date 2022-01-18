@@ -1,0 +1,12 @@
+
+
+http://35.190.190.219/info?q=Apache
+
+{
+"id":2,
+"name":"Apache",
+"image_url":"http://zacharski.org/files/campgrounds/apache3.jpg",
+"closest_town":"Cloudcroft, NM",
+"description":"Apache Campground offers 25 sites. Mixed conifer/aspen forest sites at 8,900' provide southern NM escape from summer heat on the desert floor. Tables, fire rings, parking spurs, gray water sumps, toilets, central garbage depository, plus interpretive trails. 24 family units spaced far apart. Tents are allowed and RVs limited to a maximum of 30' in length.",
+"restrooms":"Vault Toilet (2)",
+"image":null}

@@ -1,0 +1,66 @@
+
+
+This is a simple list of some of the programming assignments I have done for classes. It is not a complete list, but I hope that it will give people an idea of the level of complexity I have programmed in various languages.
+
+
+Javascript
+
+I have developed several web applications using Javascript for the front end and the back end.
+
+Job board web app: We created a job board website for the University of Mary Washington Computer Science Department. 
+The site was built in an iterative, team environment with five contributors. We went through the full software engineer development cycle starting with user stories, and functional and nonfunctional requirements, design diagrams, and ending with test cases. The companies could log in and create and edit jobs. 
+Students browse job listings and could rate companies and leave reviews of the employers. Administrators could create and edit jobs, edit or delete company profiles, as well as approve job listings, or edit and delete company reviews. We used Next.js (a React framework) for the front end. The APIs were also written in Javascript. PostgreSQL was used for the database. 
+
+GPS message board app: The message board records the user's GPS coordinates so messages are tagged with a specific location. I used Ionic React, a React framwework to build progressive web applications, so the app could be used via the web or installed on iPhone or Android devices. The app used MongoDB with a custom API written in javascript. I used Google Firebase for the login.
+
+Hillary Clinton email server search: This website allows you to search the emails that were publicly made available from Secretary of State Hillary Clinton's private email server that was used as political fodder in the 2016 presidential race.
+The website uses Next.js for the front end and a Javascript API and Elasticsearch (used for searching text) for the back end.
+
+Nutrition search: This website allows you to search for nutrition information for common foods.
+
+Super Search: This website allows the user to search their zip code for restaurants, stores and movie times
+The website give the ability for the user to create a n account and log in with password encryption.
+The front end was done in Next.js and the back end was done with Javascript and PostgreSQL.
+
+Campground search: This project uses Next.js to create a front end for a campground search API.
+
+Various APIs for PostgreSQL: campground search app, a workshop signup app, and an app that searched for a city name, country name, country code or continent.
+
+
+
+Java
+
+Text-based role playing game: This was an object-oriented program that was based on the classic video game Zork. It started as an individual project, but later became a three-person group project. The program was built in numerous iterations, with each adding functionality. Players navigate a series of rooms and interact with objects and NPCs. Our version read from a map file and saved progress to a save game file. It included multiplayer options, an inventory and attack abilities. This project included UML diagrams, sequence diagrams and extensive documentation.
+
+Jedi name generator: This program reads in a list of names from a file and output a list of Jedi names based on the original names.
+
+
+
+
+
+C
+Shell program: I wrote my own basic shell for Linux. It includes pipes, input and output redirection, running background commands, basic commands like changing and displaying directories.
+
+Various programs to simulate tasks performed by an operating system: memory handling, schedulers, signals and threads.
+
+Pig Latin translator: A program that could convert a text file or typed-in phrases to pig latin. The program accounts for all word types, punctuation, and numbers.
+
+
+
+
+
+C++
+Jet fighter: I created a 3-D animated scene using OpenGL that allows the user to take off from a runway and fly a jetfighter. The user can steer, accelerate and brake.
+
+Drawing program: A simple program using OpenGL that is similar to Paint that can draw lines and shapes.
+
+Maze creator: I created a program that randomly generates a maze and then plots a course through the maze.
+
+Nim: A program to simulate nim, a game that has 3 piles of stones and the person to take the last stone loses.
+
+Math mind trick: A program to simulate a number trick that aims to trick the user into thinking the program can read their mind.
+
+Various other programs: A course registration program, fast food ordering system, pharmacy system, a program to play the card game war, a program to simulate the game craps, a flight distance calculator.
+
+
+

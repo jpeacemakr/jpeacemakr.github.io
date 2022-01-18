@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./css/minecraft.css">
+
+  <title>Command Blocks for Minecraft Bedrock Edition</title>
+</head>
+<body class="mypaddedbody">
+
+
+
+
+	
+
+
+
+  <!-- Header nav bar to be used on every page -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="./index.htm">Home </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="./gettingstarted.htm">Tutorial <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./downloads.htm">Downloads</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./blog.htm">Blog</a>
+        </li>
+
+      </ul>
+    </div>
+
+    <div class="d-none d-sm-none d-md-block">
+      <a class="navbar-brand text-white" href="./index.htm">Command Blocks for Minecraft Bedrock Edition</a>
+    </div>
+    <div class="d-md-none">
+      <a class="navbar-brand text-white" href="./index.htm">Command Blocks</a>
+    </div>
+
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="container-fluid pl-5 pr-5">
+
+    <div class="row">
+
+     <!-- Vertical nav bar on left side -->
+     <div class="col-md-2">
+      <div class="btn-group-justified">
+        <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./gettingstarted.htm" role="button">Getting started</a>
+        <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./chainingblocks.htm" role="button">Chaining blocks</a>
+        <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./teleport.htm" role="button">Basic commands</a>
+        <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./summonentity.htm" role="button">Summoning entities</a>
+        <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./entityeffects.htm" role="button">Entity effects</a>
+        <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./givingitems.htm" role="button">Giving items</a>
+        <a class="btn btn-primary btn-block bg-secondary text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./enchantitems.htm" role="button">Enchanting items</a>
+        <a class="btn btn-primary btn-block text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./environment.htm" role="button">Environment</a>
+        <a class="btn btn-primary btn-block block-md bg-dark text-left pl-3 pr-3 mb-0 mt-0 sharpcorners" href="./clonefillblocks.htm" role="button">Cloning/filling</a>
+        <br>
+      </div>
+    </div>
+
+
+
+
+    <!-- content in the middle-->
+    <div class="col">
+      <h1 class="display-4">Environment</h1>
+      <p class="lead">Time, weather and other game rules.  </p>
+      <hr>
+      <h4>Weather</h4>
+      <p>This command allows you to set the current weather type. Weather effects the entire world at the same time. Options are clear, rain(turns on snow in cold biome) or thunder (thunder snow in cold biome). </p>
+
+      <p><strong>Syntax: /weather [weather type] [duration]</strong></p>
+
+      <p>The duration is in seconds between 1 and 1000000. Duration defaults to 5 minutes if number is omitted. A repeating command block can be used to set the weather permanently. Use a long tick delay to avoid lag.</p>
+
+      <p>Note that special effects can happen during rain or lightning. Lightning can cause explosions or fire, although the fire is generally put out by the rain.</p>
+      <p> Lighting can also transform some creatures into charged variants: 
+        <ul>
+          <li>Creepers become charged creepers, which deal more damage with a larger explosion radius.</li>
+          <li>Pigs become zombie pigmen.</li>
+          <li>Villagers become witches.</li>
+          <li>Mooshrooms change color from red to brown or from brown to red.</li>
+        </ul>
+      </p>
+      <p>Lightning can also create a "Skeleton Trap Horse." The chances are 0.75–1.5 percent on easy, 1.5–4 percent on normal, and 2.8125–6.75 percent on hard. When a player gets near a horse, it transforms into four skeleton horsemen. The trap disappears after 15 minutes if it has not been activated.</p>
+
+
+      <p>Here are some examples:</p>
+
+      <p>
+       <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOneZ">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneZ" aria-expanded="true" aria-controls="collapseOneZ">
+                Change weather to thunder for 1 minute. 
+              </button>
+            </h2>
+          </div>
+
+          <div id="collapseOneZ" class="collapse  bg-light" aria-labelledby="headingOneZ" data-parent="#accordionExample">
+            <div class="card-body">
+              /weather thunder 60
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwoZ">
+            <h2 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoZ" aria-expanded="false" aria-controls="collapseTwoZ">
+                Turn off rain and thunder.
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwoZ" class="collapse  bg-light" aria-labelledby="headingTwoZ" data-parent="#accordionExample">
+            <div class="card-body">
+              /weather clear
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </p>
+    <br>
+
+
+    <h4>Time</h4>
+
+    <p>Time of day can be set with the "/time add" or "/time set" commands. Some mobs will only appear at night and will be set on fire when the sun comes out.</p>
+
+    <p> <strong> Syntax: /time add [amount] or /time set [amount]</strong></p>
+
+    <p>Time runs from 0 to 23999 (1 hour = 1000). Words can also be used for /time set. Day = 1000, noon = 6000, sunset =12000, night = 13000, midnight = 18000, sunrise = 23000.</p>
+    ‌
+    <p>Here are some examples:</p>
+
+    <p>
+     <div class="accordion" id="accordionExample">
+      <div class="card">
+        <div class="card-header" id="headingOneA">
+          <h2 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneA" aria-expanded="true" aria-controls="collapseOneA">
+              Set time to midnight. 
+            </button>
+          </h2>
+        </div>
+
+        <div id="collapseOneA" class="collapse  bg-light" aria-labelledby="headingOneA" data-parent="#accordionExample">
+          <div class="card-body">
+            /time set midnight
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwoA">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoA" aria-expanded="false" aria-controls="collapseTwoA">
+              Make time jump ahead 12 hours.
+            </button>
+          </h2>
+        </div>
+        <div id="collapseTwoA" class="collapse  bg-light" aria-labelledby="headingTwoA" data-parent="#accordionExample">
+          <div class="card-body">
+            /time add 12000
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </p>
+  <br>
+
+
+
+
+  <h4>Game rules</h4>
+  <p>Game rules include many of the things found in the settings menu of Minecraft. Other options found hear can also be useful in customizing gameplay.</p>
+  <p><strong>Syntax: /gamerule [rule name] [value]</strong></p>
+
+  <p>Setting sendCommandFeedback and commandBlockOutput to false is important if you are doing repeating command blocks. Otherwise you will get spammed with notifications.</p>
+
+  <p>Here are some examples:</p>
+
+  <p>
+   <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOneB">
+        <h2 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOneB" aria-expanded="true" aria-controls="collapseOneB">
+            Make it so players can't hurt each other. 
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseOneB" class="collapse  bg-light" aria-labelledby="headingOneB" data-parent="#accordionExample">
+        <div class="card-body">
+          /gamerule pvp false
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwoZ">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwoB" aria-expanded="false" aria-controls="collapseTwoB">
+            Make it so you don't get hurt when falling.
+          </button>
+        </h2>
+      </div>
+      <div id="collapseTwoB" class="collapse  bg-light" aria-labelledby="headingTwoB" data-parent="#accordionExample">
+        <div class="card-body">
+          /gamerule falldamage false
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</p>
+<br>
+
+<p>A list of game rules:</p>
+<table class="table">
+  <thead class="thead-light"><th>Rule name</th><th>Description</th><th>Default value</th><th>Value type</th></thead>
+  <tr><td>commandBlockOutput</td><td>Whether command blocks should notify admins when they perform commands</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>doDaylightCycle</td><td>Whether the day-night cycle and moon phases progress</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>doEntityDrops</td><td>Whether entities that are not mobs should have drops</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>doFireTick</td><td>Whether fire should spread and naturally extinguish</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>doInsomnia</td><td>Whether phantoms can spawn in the nighttime</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>immediateRespawn</td><td>Players respawn immediately without showing the death screen </td><td>false</td><td>Boolean</td></tr>
+  <tr><td>doMobLoot</td><td>Whether mobs should drop items</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>doMobSpawning</td><td>Whether mobs should naturally spawn. Does not affect monster spawners.</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>doTileDrops</td><td>Whether blocks should have drops</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>doWeatherCycle</td><td>Whether the weather can change naturally. The /weather command can still change weather.</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>drowningDamage</td><td>Whether the player should take damage when drowning</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>fallDamage</td><td>Whether the player should take fall damage</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>fireDamage</td><td>Whether the player should take fire damage</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>keepInventory</td><td>Whether the player should keep items and experience in their inventory after death</td><td>false</td><td>Boolean</td></tr>
+  <tr><td>mobGriefing</td><td>Whether creepers, zombies, endermen, ghasts, withers, ender dragons, rabbits, sheep, villagers, and snow golems should be able to change blocks and whether mobs can pick up items. This also affects the capability of zombie-like creatures like zombie pigmen and drowned to pathfind to turtle eggs. This will also prevent villagers from breeding.</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>naturalRegeneration</td><td>Whether the player can regenerate health naturally if their hunger is full enough (doesn't affect external healing, such as golden apples, the Regeneration effect, etc.)</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>pvp</td><td>Whether the player can fight with other players</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>randomTickSpeed</td><td>How often a random block tick occurs (such as plant growth, leaf decay, etc.) per chunk section per game tick. 0 disables random ticks, higher numbers increase random ticks. Setting to a high integer results in high speeds of decay and growth</td><td>1‌</td><td>Integer</td></tr>
+  <tr><td>sendCommandFeedback</td><td>Whether the feedback from commands executed by a player should show up in chat. Also affects the default behavior of whether command blocks store their output text</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>showCoordinates</td><td>Whether the player's coordinates are displayed</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>showDeathMessages</td><td>Whether death messages are put into chat when a player dies. Also affects whether a message is sent to the pet's owner when the pet dies.</td><td>true</td><td>Boolean</td></tr>
+  <tr><td>spawnRadius</td><td>The number of blocks outward from the world spawn coordinates that a player spawns in when first joining a server or when dying without a personal spawnpoint.</td><td>5‌</td><td>Integer</td></tr>
+  <tr><td>tntExplodes</td><td>Whether TNT explodes after activation</td><td>true</td><td>Boolean</td></tr>
+</table>
+<hr>
+<p>
+  Source: https://minecraft.gamepedia.com/
+</p>		
+
+
+
+<br>
+<hr>
+<p class="text-center">
+  Previous lesson: <a href="./enchantitems.htm">Enchanting items</a> &nbsp;&nbsp;|&nbsp;&nbsp; Next lesson: <a href="clonefillblocks.htm">Cloning/filling</a>
+</p>
+<hr>
+
+</div>
+
+
+
+
+
+<!-- sidebar if needed-->
+<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+  
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Footer to be used on every page -->
+<div  class="myfooter">Copyright 2020, Peacemaker Media Empire. &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="http://www.facebook.com"><img src="./images/facebook.svg" width="20px"></a>&nbsp;
+  <a href="http://www.twitter.com"><img src="./images/twitter.svg" width="20px"></a>&nbsp;
+  <a href="http://www.instagram.com"><img src="./images/instagram.svg" width="20px"></a>&nbsp;
+  <a href="http://www.youtube.com"><img src="./images/youtube.svg" width="20px"></a> 
+</div>
+
+
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

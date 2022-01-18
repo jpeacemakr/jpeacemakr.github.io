@@ -1,0 +1,30 @@
+Zork ++ save data
+Dungeon file: plustest.zork
+Room states:
+Stephen's office:
+beenHere=false
+Contents: StarWarsToy,WawaTravelMug,donut
+---
+Room B6:
+beenHere=false
+---
+Basement hallway:
+beenHere=false
+Contents: DrPepper
+---
+Rotunda balcony:
+beenHere=true
+Contents: chainsaw,magicWand,Bomb
+---
+Rotunda:
+beenHere=true
+Contents: scissors
+---
+===
+Adventurer:
+current room: Rotunda balcony
+Inventory: 
+health: 50
+score: 0
+---
+===

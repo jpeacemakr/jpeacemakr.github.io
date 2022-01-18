@@ -1,0 +1,9 @@
+1 cpsc 101 intro to computer science
+2 busn 101 intro to business
+3 arts 102 2D design
+4 arts 103 3D design
+5 engl 101 english
+6 span 101 intro to spanish
+7 fren 101 intro to french
+8 germ 101 intro to german
+9 cpsc 104 internet

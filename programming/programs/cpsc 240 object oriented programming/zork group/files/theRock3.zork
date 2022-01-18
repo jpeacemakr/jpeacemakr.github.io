@@ -1,0 +1,209 @@
+Dwayne "The Rock" Johnson
+Zork III
+===
+Items:
+loose tooth,tooth
+5
+pull:The tooth wiggles a bit.
+hit:Teeth are hard.
+eat:The tooth will not fit in you mouth. That's probably a good thing given your size and the sharpness of the tooth.
+---
+booger
+2
+pick:You can pick your nose, and you can pick your enemies, but you shouldn't pick your enemy's nose!
+eat:What is wrong with you? This should not even be an option!
+---
+nose hair,hair
+3
+pull:The Rock screams in pain!
+grab:The hair stretches like a guitar string and you begin playing "Stairway to Heaven."
+eat:Don't do that! You might get a hairball!
+---
+piece of bacon,Kevin,bacon
+5
+eat:It's no brains, but it does have a yummy bacon flavor! I think I will name it "Kevin."
+---
+sleeping pill,pill
+5
+eat:You slowly fall asleep. Meanwhile a tiny Dwayne "The Rock" Johnson begins burrowing his way into your brain.
+---
+gold filling,filling
+100
+pull:The gold filling will not budge.
+eat:You can't eat this.
+---
+yummy brain goodness,brain,brains
+10
+eat:You grow invincible with the power of Rock brains!
+devour:I like your enthusiasm but you could just type "eat."
+---
+saliva,spit
+3
+drink:This hydration will allow you to persist through your mission.
+eat:This is a liquid, not a solid. Silly worm.
+---
+toy car,car
+100
+drive:You get in and hit the gas. The little orange car jumps over a gap in the intestines as a Waylon Jennings song suddenly begins playing.
+eat:This is too big to eat. You are not a giant like the Rock.
+---
+paper clip,clip
+5
+straighten:You hold aloft your magic paper clip. Lightning surrounds you. You yell "By the power of grey matter, I have the power!!!"
+eat:Just because the Rock eats random items like a goat, it does not mean you can.
+---
+===
+Rooms:
+Dwayne "The Rock" Johnson's pillow
+Contents: sleeping pill
+You are a parasitic worm with a taste for brains. You see the shimmer of moonlight glimmering off of The Rock's bulging muscles and shiny head. You are not sure how you got here on the Rock's sweat-soaked pillow but the warm air from his mouth invites you in.
+---
+Mouth
+Contents: loose tooth,gold filling,saliva
+The Rock's perfect teeth nearly glow in the dark, and the smell of last night's dinner is still strong. But it is not cheeseburger you crave. You can only be satiated by that sweet taste of brains.
+---
+Esophagus
+The slimy coating of protein shakes in The Rock's throat reminds you of your childhood in the cocoon with your squirming brethren. Your anger grows as you remember how they were crushed under the
+foot of a muscular, tatooed giant. Soon you will get your revenge.
+---
+Stomach
+Contents: piece of bacon,paper clip
+The acid churns, stinging your skin. The bacon from the cheeseburger is tempting, but alas it is no substitute for those sweet, sweet brains. A bleeding ucler offers a third option to the normal ways out.
+---
+Small intestine
+Contents: toy car
+Small finger-like villi line the walls of this narrow tunnel. The Rock's rock hard abs and partially digest food make it difficult to move. This seems like a really bad direction to be going.
+---
+Large intestine
+So you are really doing this? There is no turning back now as the gurgling noises and shaking gets worse.
+---
+Porcelain bowl of death
+The brightness surrounds you. There is a screaming like you have never heard before. The sound! The smell! The taste! The rush of the whirlpool carries you to your death. No brains. No revenge. No way back. Hit d to start the game again.
+---
+Nose
+Contents: booger,nose hair
+You stand in a slimy, hair-filled cave. You can smell what the Rock was cooking.
+---
+Windpipe
+The wind rushes in and out as The Rock begins to sing "You're Welcome" from "Moana." You think to yourself, "How can one man have so much talent?"
+---
+Lungs
+The Rock's lungs are like caverns. You pause to enjoy the fresh air and to think heavily about what you plan on doing. Sure, brains are delicious, but 
+how can you deprive the world of the star of numerous masterpieces like "The Scorpion King," "Rampage,""Skyscraper," "Doom," "Baywatch" and "The Tooth Fairy."
+---
+Heart
+The sound is deafening as the heart of this beast pounds like a drum from "Jumanji: Welcome to the Jungle." 
+---
+Bloodstream
+The river of blood (and bourbon) carries you away like a water slide at an amusement park. The sweet, sweet, sweet taste of brains is only a step away.
+---
+Brain
+Contents: yummy brain goodness
+At last, you feast! You burrow through his brain matter like a rotten apple, laying eggs in your wake. Soon your Rock-worm hybrid babies will emerge. First the Rock, then the world! Type q to quit.
+---
+Nostril
+There is a sudden gasp of air and an explosion. Your lifeless body is hurled through the air and sticks to the wall. You have died. Type d to start again. 
+---
+===
+Exits:
+Dwayne "The Rock" Johnson's pillow
+s
+Mouth
+---
+Mouth
+w
+Nose
+---
+Mouth
+e
+Windpipe
+---
+Mouth
+s
+Esophagus
+---
+Esophagus
+n
+Mouth
+---
+Esophagus
+s
+Stomach
+---
+Stomach
+e
+Bloodstream
+---
+Stomach
+s
+Small intestine
+---
+Stomach
+n
+Esophagus
+---
+Small intestine
+n
+Stomach
+---
+Small intestine
+s
+Large intestine
+---
+Large intestine
+s
+Porcelain bowl of death
+---
+Windpipe
+w
+Mouth
+---
+Windpipe
+s
+Lungs
+---
+Lungs
+n
+Windpipe
+---
+Lungs
+s
+Heart
+---
+Heart
+s
+Bloodstream
+---
+Heart
+n
+Lungs
+---
+Bloodstream
+n
+Heart
+---
+Bloodstream
+w
+Stomach
+---
+Bloodstream
+s
+Brain
+---
+Nostril
+d
+Dwayne "The Rock" Johnson's pillow
+---
+Nose
+w
+Nostril
+---
+Nose
+e
+Mouth
+---
+Porcelain bowl of death
+d
+Dwayne "The Rock" Johnson's pillow
+---
+===
