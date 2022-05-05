@@ -115,6 +115,7 @@
    
         <div id="win" class="winHide">
             <img src="images/sky.svg">
+            <p id="scoreWin"></p>
             <button onClick="winHide(); startGame();">CLOSE</button>
         </div>
 
@@ -616,10 +617,6 @@
             });
 
             // update cookie with score
-
-            $.cookie("visits", "10");
-            console.log("cookie: " + $.cookie("visits")); // print "10"
-
             // set initial cookie values if cookie doesn't exist
             if (typeof $.cookie('gamesplayed') === 'undefined'){
                 $.cookie("gamesplayed", 1);
@@ -640,6 +637,15 @@
             console.log("highscore: " + $.cookie("highscore")); 
             console.log("lowscore: " + $.cookie("lowscore")); 
             console.log("totalscore: " + $.cookie("totalscore")); 
+
+            // set html to display scores
+            document.getElementById("scoreFinal").innerHTML = 
+            "<p>Your score: " + myScore.gameScore + " (" + myScore.title + ")" + "</p>" + 
+            "<p>Games played: " + $.cookie("gamesplayed") + "</p>" 
+            "<p>Highest score: " + $.cookie("highscore") + "</p>" 
+            "<p>Lowest score: " + $.cookie("lowscore") + "</p>" 
+            "<p>Average score: " + (parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
+            ;
         }
     }
 
