@@ -630,7 +630,8 @@
             // set initial cookie values if cookie doesn't exist
             // get date for cookies to expire in one year
             cookieDate = new Date;
-            cookieDate.setTime(cookieDate.getDate() + 365);
+            cookieDate.setDate(cookieDate.getDate() + 365);
+
 
             if (typeof $.cookie('gamesplayed') === 'undefined'){
                 $.cookie("gamesplayed", 1, { expires: cookieDate });
