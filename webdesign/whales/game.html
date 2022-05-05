@@ -103,7 +103,7 @@
 
         </style>
 
-        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="scripts/jquery.js"></script>
         <script src="scripts/jquery.cookie.js"></script>
 
     </head>
@@ -620,14 +620,25 @@
             $.cookie("visits", "10");
             console.log("cookie: " + $.cookie("visits")); // print "10"
 
-            // reset the game
-            // changed to have user close the window with a button
-            /*
-             await sleep(5000).then(() => {  
-                winHide();
-            });
-            startGame();
-            */
+            if (typeof $.cookie('gamesplayed') === 'undefined'){
+                $.cookie("gamesplayed", 1);
+                $.cookie("highscore", myScore.gameScore);
+                $.cookie("lowescore", myScore.gameScore);
+                $.cookie("totalscore", myScore.gameScore);
+            } else {
+                $.cookie("gamesplayed", $.cookie("gamesplayed")+1);
+                if (myScore.gameScore > $.cookie("highscore")){
+                    $.cookie("highscore", myScore.gameScore);
+                }
+                if (myScore.gameScore < $.cookie("lowscore")){
+                    $.cookie("lowscore", myScore.gameScore);
+                }
+                $.cookie("totalscore", $.cookie("totalscore")+myScore.gameScore);
+            }
+            console.log("gamesplayed: " + $.cookie("gamesplayed")); 
+            console.log("highscore: " + $.cookie("highscore")); 
+            console.log("lowscore: " + $.cookie("lowscore")); 
+            console.log("totalscore: " + $.cookie("totalscore")); 
         }
     }
 
