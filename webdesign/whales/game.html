@@ -64,6 +64,16 @@
                 transition-timing-function: ease;
             }
 
+            #scoreWin {
+                position: absolute;
+                top: 390px;
+                left: 210px;
+                width: 300px;
+                padding: 0px 20px 0px 20px;
+                background-color: white;
+                box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+            }
+
 
             .footer {
                 width: 960px;
@@ -115,8 +125,8 @@
    
         <div id="win" class="winHide">
             <img src="images/sky.svg">
-            <p id="scoreWin"></p>
-            <button onClick="winHide(); startGame();">CLOSE</button>
+            <div id="scoreWin"></div>
+            <button style = "position: absolute; top:570px; left:310px; cursor: pointer;" onClick="winHide(); startGame();">PLAY AGAIN</button>
         </div>
 
         <div class = "page">
@@ -618,20 +628,24 @@
 
             // update cookie with score
             // set initial cookie values if cookie doesn't exist
+            // get date for cookies to expire in one year
+            cookieDate = new Date;
+            cookieDate.setTime(cookieDate.getDate() + 365);
+
             if (typeof $.cookie('gamesplayed') === 'undefined'){
-                $.cookie("gamesplayed", 1);
-                $.cookie("highscore", myScore.gameScore);
-                $.cookie("lowscore", myScore.gameScore);
-                $.cookie("totalscore", myScore.gameScore);
+                $.cookie("gamesplayed", 1, { expires: cookieDate });
+                $.cookie("highscore", myScore.gameScore, { expires: cookieDate });
+                $.cookie("lowscore", myScore.gameScore), { expires: cookieDate };
+                $.cookie("totalscore", myScore.gameScore), { expires: cookieDate };
             } else {
-                $.cookie("gamesplayed", parseInt($.cookie("gamesplayed"))+1); // increment games played
+                $.cookie("gamesplayed", parseInt($.cookie("gamesplayed"))+1, { expires: cookieDate }); // increment games played
                 if (myScore.gameScore > $.cookie("highscore")){ // set new high score if higher
-                    $.cookie("highscore", myScore.gameScore);
+                    $.cookie("highscore", myScore.gameScore, { expires: cookieDate });
                 }
                 if (myScore.gameScore < $.cookie("lowscore")){ // set new low score if lower
-                    $.cookie("lowscore", myScore.gameScore);
+                    $.cookie("lowscore", myScore.gameScore, { expires: cookieDate });
                 }
-                $.cookie("totalscore", parseInt($.cookie("totalscore"))+myScore.gameScore); // add score to total score (will be used for average score)
+                $.cookie("totalscore", parseInt($.cookie("totalscore"))+myScore.gameScore, { expires: cookieDate }); // add score to total score (will be used for average score)
             }
             console.log("gamesplayed: " + $.cookie("gamesplayed")); 
             console.log("highscore: " + $.cookie("highscore")); 
@@ -640,11 +654,11 @@
 
             // set html to display scores
             document.getElementById("scoreWin").innerHTML = 
-            "<p>Your score: " + myScore.gameScore + " (" + myScore.title + ")" + "</p>" + 
-            "<p>Games played: " + $.cookie("gamesplayed") + "</p>" +
-            "<p>Highest score: " + $.cookie("highscore") + "</p>" +
-            "<p>Lowest score: " + $.cookie("lowscore") + "</p>" +
-            "<p>Average score: " + (parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
+            "<h3>Your score: " + myScore.gameScore + " <br>(" + myScore.title + ")" + "</h3>" + 
+            "<p>Games played: " + $.cookie("gamesplayed") + "<br>" +
+            "Highest score: " + $.cookie("highscore") + "<br>" +
+            "Lowest score: " + $.cookie("lowscore") + "<br>" +
+            "Average score: " + (parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
             ;
         }
     }
