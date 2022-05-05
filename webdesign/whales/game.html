@@ -620,20 +620,21 @@
             $.cookie("visits", "10");
             console.log("cookie: " + $.cookie("visits")); // print "10"
 
+            // set initial cookie values if cookie doesn't exist
             if (typeof $.cookie('gamesplayed') === 'undefined'){
                 $.cookie("gamesplayed", 1);
                 $.cookie("highscore", myScore.gameScore);
-                $.cookie("lowescore", myScore.gameScore);
+                $.cookie("lowscore", myScore.gameScore);
                 $.cookie("totalscore", myScore.gameScore);
             } else {
-                $.cookie("gamesplayed", $.cookie("gamesplayed")+1);
-                if (myScore.gameScore > $.cookie("highscore")){
+                $.cookie("gamesplayed", parseInt($.cookie("gamesplayed"))+1); // increment games played
+                if (myScore.gameScore > $.cookie("highscore")){ // set new high score if higher
                     $.cookie("highscore", myScore.gameScore);
                 }
-                if (myScore.gameScore < $.cookie("lowscore")){
+                if (myScore.gameScore < $.cookie("lowscore")){ // set new low score if lower
                     $.cookie("lowscore", myScore.gameScore);
                 }
-                $.cookie("totalscore", $.cookie("totalscore")+myScore.gameScore);
+                $.cookie("totalscore", parseInt($.cookie("totalscore"))+myScore.gameScore); // add score to total score (will be used for average score)
             }
             console.log("gamesplayed: " + $.cookie("gamesplayed")); 
             console.log("highscore: " + $.cookie("highscore")); 
