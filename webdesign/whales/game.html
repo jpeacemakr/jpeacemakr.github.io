@@ -641,9 +641,9 @@
             // set html to display scores
             document.getElementById("scoreWin").innerHTML = 
             "<p>Your score: " + myScore.gameScore + " (" + myScore.title + ")" + "</p>" + 
-            "<p>Games played: " + $.cookie("gamesplayed") + "</p>" 
-            "<p>Highest score: " + $.cookie("highscore") + "</p>" 
-            "<p>Lowest score: " + $.cookie("lowscore") + "</p>" 
+            "<p>Games played: " + $.cookie("gamesplayed") + "</p>" +
+            "<p>Highest score: " + $.cookie("highscore") + "</p>" +
+            "<p>Lowest score: " + $.cookie("lowscore") + "</p>" +
             "<p>Average score: " + (parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
             ;
         }
