@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <style>
+            body {
+                background-image: url('images/waves.svg');
+                background-size: cover;
+                background-position-y:-130px;
+                background-position-x:-10px;
+                background-size: 110%;
+                font-family: Georgia;
+            }
+
+            canvas {
+                background-image: radial-gradient(#BBDDFF, #77AADD);
+                display: block;
+            }
+            
+            .page {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header {
+                width: 960px;
+            }
+
+            .center {
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                width: 960px;
+                box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+            }
+            .words {
+                text-align:left;
+                background-color:#ffffff; 
+                padding: 8px 20px 20px 20px; 
+            }
+            #canvasDiv {
+            }
+
+            #win {
+                position: absolute;
+                width: 800px;
+                height:400px;
+                z-index: 1;
+            }
+
+            .winShow {
+                top: 10px;
+                left:calc(50% - 400px); 
+                transition: top 2s;
+                transition-timing-function: ease;
+            }
+
+            .winHide {
+                top: -800px;
+                left:calc(50% - 400px); 
+                transition: top 4s;
+                transition-timing-function: ease;
+            }
+
+
+            .footer {
+                width: 960px;
+                font-size:12px;
+            }
+
+
+            .arrow {
+                opacity:75%;
+                cursor: pointer;
+                width: 80px;
+                height: 80px;
+            }
+            .arrow:hover {
+                opacity:50%;
+            }
+            .arrow:active {
+                opacity:100%;
+            }
+
+
+            .image-swap {
+                cursor: pointer;
+                width:80px;
+            }
+            .image-swap>img, .image-swap:active>img:first-child {
+                display: none;
+            }
+            .image-swap>img:first-child, .image-swap:active>img:last-child {
+                display: block;
+            }
+
+
+            * {
+                box-sizing:border-box;
+            }
+
+        </style>
+
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="scripts/jquery.cookie.js"></script>
+
+    </head>
+
+
+    <body onload=" startGame()" onkeydown="keyPressed(event)">
+
+        <audio src="sounds/bomb.mp3" id="bombAudio"></audio>
+   
+        <div id="win" class="winHide">
+            <img src="images/sky.svg">
+            <button onClick="winHide(); startGame();">CLOSE</button>
+        </div>
+
+        <div class = "page">
+            <div class="header">
+                <!-- Header -->
+                <image src="images/periscopecropped.svg" style="width:120px;float:left; margin-left:20px; margin-right:20px" alt="persicope">
+                <h1 style="position:absolute; margin-left:165px; margin-top:10px; font-size: 58px; text-shadow: 1px 1px 2px black; white-space: nowrap;"><span style="color:white">Don't torpedo the </span"><span style="color:#bedfff ">whales!</span></h1>
+                <p style="font-family: Georgia; position:absolute; margin-left:170px; margin-top:75px; font-size: 15px; color:#4e7dad"><i>(An absurd game of luck and logic)</i></p>
+            </div>
+            <div class="center">
+                <!-- Words for the game -->
+                <div class ="words">
+                    <p><b>Objective:</b> You are a submarine captain. Your mission is to sink the 3 enemy submarines without hitting the 5 innocent whales.
+                    You can't see in the murky water, but sonar numbers (1-4) show how far a target is away from each shot after it is fired.</p>
+                    <p><b>Scoring:</b></p>
+                    <ul>
+                        <li>+1,000: Hitting an enemy submarine</li>
+                        <li>-100: Hitting a poor defenseless whale</li>
+                        <li>-10: Missing a shot with a torpedo</li>
+                    </ul>
+
+                    <!-- Uses script to display the score, targets left -->
+                    <h4 id="score"></h4>
+
+                    <!-- The controls -->
+                    <div style="width:240px; height:240px; position:relative; margin:auto; background-image: url(images/circle.svg); background-size: 100%;">
+                        <img class="arrow" src="images/arrow.svg" style="position:absolute; top:0px; left:80px;" onClick="myGamePiece.moveUp();">
+                        <img class="arrow" src="images/arrow.svg" style="position:absolute; top:80px; left:0px; transform: rotate(-90deg);" onClick="myGamePiece.moveLeft();">
+                        <img class="arrow" src="images/arrow.svg" style="position:absolute; top:80px; left: 160px; transform: rotate(90deg);" onClick="myGamePiece.moveRight();">
+                        <img class="arrow" src="images/arrow.svg" style="position:absolute; top:160px; left: 80px; transform: rotate(180deg);" onClick="myGamePiece.moveDown();">
+                        
+                        <!-- <button style="position:absolute; bottom:0px; left:0px; opacity: 0;" onClick="myGameArea.reveal();">REVEAL</button>
+                        <button style="position:absolute; bottom:0px; left:160px; opacity: 0;" onClick="startGame();">RESET</button> -->
+                        
+                        <div class="image-swap" style="position:absolute; top:82px; left:80px;" onClick="myGamePiece.reveal();">
+                            <img src="images/button.svg" style="width:80px; height:80px;"/>
+                            <img src="images/buttonpushed.svg" style="width:80px; height:80px;"/>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- The canvas where the game is drawn -->
+                <div id="canvasDiv"></div>
+            </div>
+            <div class="footer">
+                <!-- Footer -->
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+<script>
+
+    ///////////////////////////////////
+    // about
+    // by James Peacemaker
+    // the game is made up of a matrix of squares like a checkerboard
+    // the game piece can move from one game square to another
+
+
+    ////////////////////////////////////
+    // game initialization variables
+    var gameSquareSize = 20; // size of the game piece and game squares in pixels
+    var gameSquareNumberX = 30; // number of X game squares (width)
+    var gameSquareNumberY = 30; // number of Y game squares (height)
+    // var gamePieceColor = "#BBDDFF";
+    var gridColor = "#6699CC";
+    // var backgroundColor1 = "#99CCFF"; // inside of radial blend
+    // var backgroundColor2 = "#6699CC"; // outside of radial blend
+    var targetNumber = 3;
+    var victimNumber = 5;
+
+
+    /////////////////////////////////        
+    // start the game. called from body onload()
+    function startGame() {
+        myScore.start();
+        myGameArea.start();
+        myTargets.start();
+        myGameArea.render();
+    }
+
+
+    ///////////////////////////////
+    // represents each square on the board
+    // number 1-5 corresponds to distance from target or victim. 0 for target. 9 for victim. 6-8 reserved for future.
+    class GameSquare {
+        // let mySquare = new GameSquare();
+        constructor() {
+            this.hidden = true;
+            this.value = 5;
+        }
+        reveal() {
+            this.hidden = false;
+        }
+    }
+
+
+    //////////////////////////////
+    // object to control the board. it is a matrix of GameSquares
+    var myGameArea = {
+        // grid of game piece positions
+        gameMatrix: new Array (gameSquareNumberX),
+        
+        // canvas to draw into
+        canvas : document.createElement("canvas"),
+        
+        // initializes the values of the game board then calls function to initialize game piece
+        start : function() {
+            // set canvas size to number of game square (x and y axis) times the size of each game square
+            this.canvas.width = gameSquareNumberX * gameSquareSize;
+            this.canvas.height = gameSquareNumberY * gameSquareSize;
+            this.context = this.canvas.getContext("2d");
+            document.getElementById("canvasDiv").appendChild(this.canvas);
+            
+            this.canvas.addEventListener("mousedown", doMouseDown, false);
+
+            // turn array into square array of arrays
+            for(let i=0; i<gameSquareNumberX; i++){
+                this.gameMatrix[i] = new Array (gameSquareNumberY);
+            }
+
+            // initialize the game squares
+            for(let i=0; i<gameSquareNumberX; i++){
+                for(let j=0; j<gameSquareNumberY; j++){
+                    this.gameMatrix[i][j] = new GameSquare();
+                }
+            }
+
+            //initialize game piece
+            myGamePiece.start(gameSquareNumberX/2,gameSquareNumberY/2,gameSquareSize,gameSquareSize);               
+        },
+
+        // render the board                
+        render : function() {
+            
+            // Create gradient
+            // var bgGradient = this.context.createRadialGradient(300, 300, 5, 300, 300, 500);
+            // bgGradient.addColorStop(0, backgroundColor1);
+            // bgGradient.addColorStop(1, backgroundColor2);
+            // Fill with gradient
+            // this.context.fillStyle = bgGradient;
+            // this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            
+            // clear the canvas
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+            // redraw the player
+            myGamePiece.render();
+
+            // redraw the board
+            // set grid style
+            this.context.lineWidth = 1;
+            this.context.strokeStyle = gridColor; 
+            
+            // draw grid horizontal lines
+            for (var i=1; i < gameSquareNumberY; i++) {
+                this.context.moveTo(0, i*gameSquareSize);
+                this.context.lineTo(this.canvas.width, i*gameSquareSize);
+                this.context.stroke();
+            }
+            // draw grid vertical lines
+            for (var i=1; i < gameSquareNumberX; i++) {
+                this.context.moveTo(i*gameSquareSize, 0);
+                this.context.lineTo(i*gameSquareSize, this.canvas.height);
+                this.context.stroke();
+            }
+
+            // draw board values
+            this.context.font = '10pt Helvetica';
+            this.context.fillStyle = "#000000";
+            for (var i=0; i < gameSquareNumberX; i++) {
+                for (var j=0; j < gameSquareNumberY; j++) {
+                    if (this.gameMatrix[i][j].hidden == false){
+                        if (this.gameMatrix[i][j].value == 1){
+                            this.context.fillStyle = "red";
+                            this.context.fillRect(i*gameSquareSize, j*gameSquareSize, gameSquareSize, gameSquareSize);
+                            this.context.fillStyle = "black";
+                            this.context.fillText(this.gameMatrix[i][j].value, i*gameSquareSize+6, j*gameSquareSize+16);
+                        } else if (this.gameMatrix[i][j].value == 2){
+                            this.context.fillStyle = "orange";
+                            this.context.fillRect(i*gameSquareSize, j*gameSquareSize, gameSquareSize, gameSquareSize);
+                            this.context.fillStyle = "black";
+                            this.context.fillText(this.gameMatrix[i][j].value, i*gameSquareSize+6, j*gameSquareSize+16);
+                        } else if (this.gameMatrix[i][j].value == 3){
+                            this.context.fillStyle = "yellow";
+                            this.context.fillRect(i*gameSquareSize, j*gameSquareSize, gameSquareSize, gameSquareSize);
+                            this.context.fillStyle = "black";
+                            this.context.fillText(this.gameMatrix[i][j].value, i*gameSquareSize+6, j*gameSquareSize+16);
+                        } else if (this.gameMatrix[i][j].value == 4){
+                            this.context.fillStyle = "lime";
+                            this.context.fillRect(i*gameSquareSize, j*gameSquareSize, gameSquareSize, gameSquareSize);
+                            this.context.fillStyle = "black";
+                            this.context.fillText(this.gameMatrix[i][j].value, i*gameSquareSize+6, j*gameSquareSize+16);
+                        } else if (this.gameMatrix[i][j].value == 0){
+                            //this.context.fillStyle = "white";
+                            postImage("./images/deadsubicon.jpg", i*gameSquareSize, j*gameSquareSize);
+                        } else if (this.gameMatrix[i][j].value == 9){
+                            //this.context.fillStyle = "purple";
+                            postImage("./images/deadwhaleicon.jpg", i*gameSquareSize, j*gameSquareSize);
+                        } else {
+                            this.context.fillStyle = "#ddeeff";
+                            this.context.fillRect(i*gameSquareSize, j*gameSquareSize, gameSquareSize, gameSquareSize);
+                        }
+                    }
+                }
+            }
+        },
+
+        // reveal the values on the game board (used for debugging and cheating)
+        reveal : function() {
+            // draw board values
+            this.context.font = '10pt Helvetica';
+            this.context.fillStyle = "#000000";
+            for (var i=0; i < gameSquareNumberX; i++) {
+                for (var j=0; j < gameSquareNumberY; j++) {
+                    this.context.fillText(this.gameMatrix[i][j].value, i*gameSquareSize+6, j*gameSquareSize+16);
+                }
+            }
+        },
+
+        // reset the game board and player
+        clear : function() {
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            myGamePiece.clear();
+            this.render();
+        }
+    }
+
+
+
+    ///////////////////////////////////
+    // object to control the player's game piece
+    var myGamePiece = {
+        // default position, size and color
+        x : 0,
+        y : 0,
+        // these values can be used for a fill-type player instead of an image-type player.
+        // width : gameSquareSize,
+        // height: gameSquareSize,
+        // color : "red",
+        context: myGameArea.context,
+
+        // set game piece at start                
+        start : function(x, y, width, height) {
+            this.x = x;
+            this.y = y;
+            // this.width = width;
+            // this.height = height;
+            // this.color = color;
+            this.context = myGameArea.context;
+            this.render();
+            // this.context.fillStyle = this.color;
+            // this.context.fillRect(this.x, this.y, this.width, this.height);
+        },
+
+        // render the player again                
+        render : function() {
+            //this.context.fillStyle = this.color;
+            //this.context.fillRect(this.x, this.y, this.width, this.height);
+
+            const imgCrosshair = new Image();        
+            imgCrosshair.src = './images/crosshair.svg';        
+            imgCrosshair.onload = () => {          
+                myGameArea.context.drawImage(imgCrosshair, this.x*gameSquareSize-80, this.y*gameSquareSize-80);        
+            };
+        },
+
+        // movement functions
+        moveRight : function() {
+            if (this.x*gameSquareSize+gameSquareSize<myGameArea.canvas.width){
+                this.x= this.x + 1;
+                myGameArea.render();
+            }
+        },
+        moveLeft : function() {
+            if (this.x>0){
+                this.x= this.x - 1;
+                myGameArea.render();
+            }
+        },
+        moveUp : function() {
+            if (this.y>0){
+                this.y= this.y - 1;
+                myGameArea.render();
+            }
+        },
+        moveDown : function() {
+            if ((this.y+1)*gameSquareSize < myGameArea.canvas.height){
+                this.y= this.y + 1;
+                myGameArea.render();
+            }
+        },
+
+        // This is the bomb function. it reveals the spot on the map where the gamePiece is located.
+        // It shows a bomb image in the location and then clears it one second later.
+        // It then displays a splash screen (submarine or whale) if something was hit.
+        reveal : async function() {
+            if (myGameArea.gameMatrix[this.x][this.y].hidden == 1) { 
+                myGameArea.gameMatrix[this.x][this.y].hidden = 0;
+                myGameArea.render();
+                playBombAudio();
+                postImage("./images/bomb.jpg", myGamePiece.x*gameSquareSize, myGamePiece.y*gameSquareSize);
+            
+                // check if anything was hit and update score and targets left
+                if (myGameArea.gameMatrix[this.x][this.y].value == 0) {
+                    myTargets.targetRemaining--;
+                    myScore.update(1000);
+                    await sleep(1000).then(() => {  
+                        myGameArea.render();
+                    });
+                    splashSubmarine();
+                    if (myTargets.targetRemaining == 0) {
+                        myScore.finish();
+                    }  
+                } else if (myGameArea.gameMatrix[this.x][this.y].value == 9) {
+                    myTargets.victimRemaining--;
+                    myScore.update(-100);
+                    await sleep(1000).then(() => {  
+                        myGameArea.render();
+                    });  
+                    splashWhale();
+                } 
+                else {
+                    myScore.update(-10);
+                    await sleep(1000).then(() => {  
+                        myGameArea.render();
+                    });  
+                }
+            }
+        },
+        
+        // reset the player to starting position
+        clear : function() {
+            this.x = gameSquareNumberX/2;
+            this.y = gameSquareNumberY/2;
+        }
+    }
+
+
+
+    ///////////////////////////////////
+    // object to initialize the targets and set distance values on the game board.
+    var myTargets = {
+
+        targetRemaining : targetNumber,
+        victimRemaining : victimNumber,
+
+        start : function() {
+            this.targetRemaining = targetNumber;
+            this.victimRemaining = victimNumber;
+            this.setTarget();
+            this.setVictims();
+        },
+        
+        // create the targets and set the distance values in the game matrix               
+        setTarget : function() {
+
+            // pick random tile for a target
+            // from 0 to gameSquareNumber-1 (0-29)
+            var foundTargets = 0;
+            while (foundTargets < targetNumber) {
+                var targetX = Math.floor(Math.random() * gameSquareNumberX);
+                var targetY = Math.floor(Math.random() * gameSquareNumberY); 
+                // if target square is used, pick a new target
+                if (myGameArea.gameMatrix[targetX][targetY].value != 0){
+                    myGameArea.gameMatrix[targetX][targetY].value = 0;
+                    foundTargets++;
+                    // console.log("Debug: target position: " + (targetX+1) + " " + (targetY+1));
+                    
+                    // set distance values in the gameMaxtrix
+                    //get area to be manipulated
+                    var minX = targetX-4;
+                    var maxX = targetX+4;
+                    // console.log("Debug: X range to expand: " + minX + " " + maxX);
+
+                    var minY = targetY-4;
+                    var maxY = targetY+4;
+                    // console.log("Debug: Y range to expand: " + minY + " " + maxY);
+                
+                    // make concentric passes to set distance from target
+                    for (var pass = 1; pass < 5; pass++){
+                        for (var i = minX; i <= maxX; i++){
+                            for (var j = minY; j <= maxY; j++){
+                                // console.log("Debug: expanding area: " + i + " " + j);
+                                if ((i >=0 && i < gameSquareNumberX) && (j >=0 && j < gameSquareNumberY) && (myGameArea.gameMatrix[i][j].value <= 5)){
+                                    myGameArea.gameMatrix[i][j].value = Math.min(myGameArea.gameMatrix[i][j].value, 5-pass);
+                                }
+                            }
+                        }
+                        minX++;
+                        maxX--;
+                        minY++;
+                        maxY--;
+                    }
+                }
+            }
+        
+        // create the victims (innocent bystanders) and set distance values in the game matrix
+        }, setVictims : function() {
+            // pick random tiles for victims
+            // from 0 to gameSquareNumber-1 (0-29)
+            // if target square is used, pick a new target
+            var foundVictims = 0;
+            while (foundVictims < victimNumber) {
+                var targetX = Math.floor(Math.random() * gameSquareNumberX);
+                var targetY = Math.floor(Math.random() * gameSquareNumberY); 
+                // if victim square is used, pick a new victim
+                if ((myGameArea.gameMatrix[targetX][targetY].value != 0) && (myGameArea.gameMatrix[targetX][targetY].value != 9)){
+                    myGameArea.gameMatrix[targetX][targetY].value = 9;
+                    foundVictims++;
+                    // console.log("Debug: victim position: " + (targetX+1) + " " + (targetY+1));
+                
+                    // set distance values
+                    //get area to be manipulated
+                    var minX = targetX-4;
+                    var maxX = targetX+4;
+                    // console.log("Debug: X range to expand: " + minX + " " + maxX);
+
+                    var minY = targetY-4;
+                    var maxY = targetY+4;
+                    // console.log("Debug: Y range to expand: " + minY + " " + maxY);
+
+                    // make concentric passes to set distance from target
+                    for (var pass = 1; pass < 5; pass++){
+                        for (var i = minX; i <= maxX; i++){
+                            for (var j = minY; j <= maxY; j++){
+                                // console.log("Debug: expanding area: " + i + " " + j);
+                                if ((i >=0 && i < gameSquareNumberX) && (j >=0 && j < gameSquareNumberY) && (myGameArea.gameMatrix[i][j].value <= 5)){
+                                    myGameArea.gameMatrix[i][j].value = Math.min(myGameArea.gameMatrix[i][j].value, 5-pass);
+                                }
+                            }
+                        }
+                        minX++;
+                        maxX--;
+                        minY++;
+                        maxY--;
+                    }
+                }
+            }
+        }
+    }
+
+
+    
+    ////////////////////////////////////////////
+    // object to control the scoreboard
+    var myScore = {
+        gameScore : 0,
+        title : "Noob",
+        
+        // set score at start                
+        start : function() {
+            this.gameScore = 0;
+            this.title = "Noob";
+            document.getElementById("score").innerHTML = 
+            "<p>Score: " + this.gameScore + " (" + this.title + ")" + "</p>" + 
+            "<p>Submarines left: " + myTargets.targetRemaining + "</p>" 
+            ;
+        },
+
+        // update score and title by amount change
+        update : function(change) {
+            this.gameScore = this.gameScore + change;
+            if (this.gameScore > 2500){
+                this.title = "Hero";
+            } else if (this.gameScore > 2200) {
+                this.title = "Sharpshooter";
+            } else if (this.gameScore > 1500) {
+                this.title = "Warrior";
+            } else if (this.gameScore > 800) {
+                this.title = "Completely adequate";
+            } else if (this.gameScore > 500) {
+                this.title = "Indiscriminate killer";
+            } else if (this.gameScore > 0) {
+                this.title = "Buffoon";
+            } else if (this.gameScore > -100) {
+                this.title = "Jinxed";
+            } else if (this.gameScore > -250) {
+                this.title = "Scourge of the sea";
+            } else if (this.gameScore > -500) {
+                this.title = "Eco-terrorist";
+            } else {
+                this.title = "War criminal";
+            }
+            document.getElementById("score").innerHTML = 
+            "<p>Score: " + this.gameScore + " (" + this.title + ")" + "</p>" + 
+            "<p>Submarines left: " + myTargets.targetRemaining + "</p>" 
+            ;
+        }, 
+        
+        finish : async function() {
+            // show splash screen
+            await sleep(3000).then(() => {  
+                winShow();
+            });
+
+            // update cookie with score
+
+            $.cookie("visits", "10");
+            console.log("cookie: " + $.cookie("visits")); // print "10"
+
+            // reset the game
+            // changed to have user close the window with a button
+            /*
+             await sleep(5000).then(() => {  
+                winHide();
+            });
+            startGame();
+            */
+        }
+    }
+
+
+
+    /////////////////////////////////
+    // used to detect keyboard button being pressed. Uses onkeydown() in body tag
+    function keyPressed(event) {
+        if (event.keyCode == 37) {
+            myGamePiece.moveLeft();
+            return true;
+        } 
+        else if (event.keyCode == 39) {
+            myGamePiece.moveRight();
+            return true;
+        } 
+        else if (event.keyCode == 38) {
+            myGamePiece.moveUp();
+            return true;
+        } 
+        else if (event.keyCode == 40) {
+            myGamePiece.moveDown();
+            return true;
+        } 
+        else if (event.keyCode == 70) { // f for fire
+            myGamePiece.reveal();
+            return true;
+        } 
+        else if (event.keyCode == 87) { // w for win
+            myScore.finish();
+            return true;
+        } 
+        else if (event.keyCode == 82) { // r for reveal
+            myGameArea.reveal();
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
+
+
+
+    
+    /////////////////////////////////////
+    // sets position of game piece based on mouse click
+    function doMouseDown(event) {
+        // get position of mouse on screen
+        canvasX = event.pageX;
+        canvasY = event.pageY;
+        //console.log("Debug: screen mouse position " + canvasX + " " + canvasY);
+
+        //subtract canvas position from mouse position on screen
+        var rect = myGameArea.canvas.getBoundingClientRect();
+        canvasX = canvasX - rect.left;
+        canvasY = canvasY - rect.top;
+        // console.log("Debug: canvas mouse position " + canvasX + " " + canvasY);
+        
+        // draw new position rounded to the nearest gameSquareSize
+        myGamePiece.x = parseInt(canvasX/gameSquareSize);
+        myGamePiece.y = parseInt(canvasY/gameSquareSize);
+
+        myGameArea.render();
+    }
+
+
+    // sleep function
+    let sleep = milliseconds => {  
+        return new Promise(resolve => setTimeout(resolve, milliseconds));  
+    };  
+
+
+    ///////////////////////////////
+    // sounds
+
+    // sound when torpedo is fired
+    function playBombAudio(){
+        document.getElementById("bombAudio").play();
+    }
+
+    // sound when submarine is hit
+    function playSubAudio(){
+        document.getElementById("bombAudio").play();
+    }
+
+    // sound when whale is hit
+    function playWhaleAudio(){
+        document.getElementById("bombAudio").play();
+    }
+
+    // sound when game is over
+    function playWinAudio(){
+        document.getElementById("bombAudio").play();
+    }
+    
+
+
+    ////////////////////////////////////
+    // images
+
+
+    // post a photo at location x,y
+    function postImage(fileName, x, y){
+        const img = new Image();        
+        img.src = fileName;        
+        img.onload = () => {          
+            myGameArea.context.drawImage(img, x, y);        
+        };
+    }
+
+    // whale hit by torpedo splash screen image
+    function splashWhale(){
+        const img = new Image();        
+        img.src = './images/whaleshot.svg';        
+        img.onload = () => {          
+            myGameArea.context.drawImage(img, 0, 0);
+        };
+    }
+
+    // submarine hit by torpedo splash screen image
+    function splashSubmarine(){
+        const img = new Image();        
+        img.src = './images/submarine.svg';        
+        img.onload = () => {          
+            myGameArea.context.drawImage(img, 0, 0);
+        };
+    }
+
+    // splash screen image when all submarines have been destroyed
+    function splashWin(){
+        const img = new Image();        
+        img.src = './images/sky.svg';        
+        img.onload = () => {          
+            myGameArea.context.drawImage(img, 0, 0);
+        };
+    }
+
+    function winShow() {
+        var element = document.getElementById("win");
+        element.classList.remove("winHide");
+        element.classList.add("winShow");
+    }
+
+    function winHide() {
+        var element = document.getElementById("win");
+        element.classList.remove("winShow");
+        element.classList.add("winHide");
+    }
+
+
+
+</script>
+
+
+
