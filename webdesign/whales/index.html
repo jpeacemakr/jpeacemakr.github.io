@@ -659,7 +659,7 @@
             "<p>Games played: " + $.cookie("gamesplayed") + "<br>" +
             "Highest score: " + $.cookie("highscore") + "<br>" +
             "Lowest score: " + $.cookie("lowscore") + "<br>" +
-            "Average score: " + (parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
+            "Average score: " + Math.round(parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
             ;
         }
     }
