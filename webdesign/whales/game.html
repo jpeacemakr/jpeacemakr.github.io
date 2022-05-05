@@ -635,8 +635,8 @@
             if (typeof $.cookie('gamesplayed') === 'undefined'){
                 $.cookie("gamesplayed", 1, { expires: cookieDate });
                 $.cookie("highscore", myScore.gameScore, { expires: cookieDate });
-                $.cookie("lowscore", myScore.gameScore), { expires: cookieDate };
-                $.cookie("totalscore", myScore.gameScore), { expires: cookieDate };
+                $.cookie("lowscore", myScore.gameScore, { expires: cookieDate });
+                $.cookie("totalscore", myScore.gameScore, { expires: cookieDate });
             } else {
                 $.cookie("gamesplayed", parseInt($.cookie("gamesplayed"))+1, { expires: cookieDate }); // increment games played
                 if (myScore.gameScore > $.cookie("highscore")){ // set new high score if higher
