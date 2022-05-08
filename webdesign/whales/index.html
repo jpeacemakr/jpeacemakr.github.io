@@ -7,9 +7,6 @@
             body {
                 background-image: url('images/waves.svg');
                 background-size: cover;
-                background-position-y:-130px;
-                background-position-x:-10px;
-                background-size: 110%;
                 font-family: Georgia;
             }
 
@@ -139,14 +136,16 @@
             <div class="center">
                 <!-- Words for the game -->
                 <div class ="words">
-                    <p><b>Objective:</b> You are a submarine captain. Your mission is to sink the 3 enemy submarines without hitting the 5 innocent whales.
-                    You can't see in the murky water, but sonar numbers (1-4) show how far a target is away from each shot after it is fired.</p>
-                    <p><b>Scoring:</b></p>
-                    <ul>
-                        <li>+1,000: Hitting an enemy submarine</li>
-                        <li>-100: Hitting a poor defenseless whale</li>
-                        <li>-10: Missing a shot with a torpedo</li>
-                    </ul>
+                    <div class ="rules">
+                        <p><b>Objective:</b> You are a submarine captain. Your mission is to sink the 3 enemy submarines without hitting the 5 innocent whales.
+                        You can't see in the murky water, but sonar numbers (1-4) show how far a target is away from each shot after it is fired.</p>
+                        <p><b>Scoring:</b></p>
+                        <ul>
+                            <li>+1,000: Hitting an enemy submarine</li>
+                            <li>-100: Hitting a poor defenseless whale</li>
+                            <li>-10: Missing a shot with a torpedo</li>
+                        </ul>
+                    </div>
 
                     <!-- Uses script to display the score, targets left -->
                     <h4 id="score"></h4>
@@ -201,6 +200,36 @@
     // var backgroundColor2 = "#6699CC"; // outside of radial blend
     var targetNumber = 3;
     var victimNumber = 5;
+
+
+    
+    // used to resize the game
+    function sizeFunction(x) {
+        if (x.matches) { // If media query matches
+            console.log("Small size screen");
+            gameSquareNumberX = 20;
+            gameSquareNumberY = 20;
+            document.querySelector('.center').style.flexDirection = 'column-reverse';
+            document.querySelector('.center').style.width = '400px';
+            document.querySelector('.header').style.width = '400px';
+            document.querySelector('.rules').style.display = 'none';
+
+
+        } else {
+            console.log("large size screen");
+            gameSquareNumberX = 30;
+            gameSquareNumberY = 30;
+            document.querySelector('.center').style.flexDirection = 'row';
+            document.querySelector('.center').style.width = '960px';
+            document.querySelector('.header').style.width = '960px';
+            document.querySelector('.rules').style.display = 'block';
+        }
+    }
+    var x = window.matchMedia("(max-width: 700px)");
+    sizeFunction(x); // Call listener function at run time
+    x.addListener(sizeFunction); // Attach listener function on state changes
+
+
 
 
     /////////////////////////////////        
@@ -809,6 +838,8 @@
         element.classList.remove("winShow");
         element.classList.add("winHide");
     }
+
+
 
 
 
