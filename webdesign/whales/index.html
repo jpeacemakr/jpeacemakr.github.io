@@ -70,7 +70,8 @@
             #scoreWin {
                 position: absolute;
                 top: 390px;
-                left: 210px;
+                left: 250px;
+                left: calc(50% - 150px);
                 width: 300px;
                 padding: 0px 20px 0px 20px;
                 background-color: white;
@@ -127,9 +128,9 @@
         <audio src="sounds/bomb.mp3" id="bombAudio"></audio>
    
         <div id="win" class="winHide">
-            <img src="images/sky.svg">
+            <img style ="display: block; margin-left: auto; margin-right: auto;" src="images/sky.svg">
             <div id="scoreWin"></div>
-            <button style = "position: absolute; top:570px; left:310px; cursor: pointer;" onClick="winHide(); startGame();">PLAY AGAIN</button>
+            <button style = "position: absolute; width:120px; top:570px; left:calc(50% - 60px); cursor: pointer;" onClick="winHide(); startGame();">PLAY AGAIN</button>
         </div>
 
         <div class = "page">
