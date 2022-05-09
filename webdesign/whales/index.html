@@ -215,10 +215,10 @@
     var victimNumber = 5;
 
 
-    var w = window.screen.width;
+    var w = Math.min(window.screen.width, window.innerWidth);
     console.log("width:" + w);
 
-    var h = window.screen.height;
+    var h = Math.min (window.screen.height, window.innerHeight);
     console.log("height:" + h);
 
     
@@ -227,7 +227,7 @@
         if (x.matches) { // If media query matches
             console.log("Small size screen");
             //gameSquareNumberX = 16;
-            gameSquareNumberX = Math.floor((w-20)/20);
+            gameSquareNumberX = Math.floor((w-40)/20);
 
             //gameSquareNumberY = 16;
             gameSquareNumberY = Math.floor((h-340)/20);
@@ -440,8 +440,8 @@
             // this.width = width;
             // this.height = height;
             // this.color = color;
-            this.context = myGameArea.context;
-            this.render();
+            //this.context = myGameArea.context;
+            //this.render();
             // this.context.fillStyle = this.color;
             // this.context.fillRect(this.x, this.y, this.width, this.height);
         },
