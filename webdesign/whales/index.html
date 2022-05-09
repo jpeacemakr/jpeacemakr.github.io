@@ -214,20 +214,32 @@
     var victimNumber = 5;
 
 
+    var w = window.screen.width;
+    console.log("width:" + w);
+
+    var h = window.screen.height;
+    console.log("height:" + h);
+
     
     // used to resize the game if screen is small
     function sizeFunction(x) {
         if (x.matches) { // If media query matches
             console.log("Small size screen");
-            gameSquareNumberX = 16;
-            gameSquareNumberY = 16;
+            //gameSquareNumberX = 16;
+            gameSquareNumberX = Math.floor((w-20)/20);
+
+            //gameSquareNumberY = 16;
+            gameSquareNumberY = Math.floor((h-340)/20);
+
             document.querySelector('.header').style.display = 'none';
             document.querySelector('.header2').style.display = 'block';
             document.querySelector('.center').style.flexDirection = 'column-reverse';
-            document.querySelector('.center').style.width = '320px';
+            document.querySelector('.center').style.width = gameSquareNumberX*20 + "px";
             document.querySelector('.rules').style.display = 'none';
             document.querySelector('#score').style.display = 'none';
             document.querySelector('.footer').style.display = 'none';
+            console.log("gameSquareNumberX: " + gameSquareNumberX + ", gameSquareNumberY: " + gameSquareNumberY );
+
 
         } else {
             console.log("large size screen");
@@ -242,6 +254,7 @@
             document.querySelector('.footer').style.display = 'block';
         }
     }
+
     var x = window.matchMedia("(max-width: 1000px)");
     sizeFunction(x); // Call listener function at run time
     x.addListener(sizeFunction); // Attach listener function on state changes
@@ -306,7 +319,7 @@
             }
 
             //initialize game piece
-            myGamePiece.start(gameSquareNumberX/2,gameSquareNumberY/2,gameSquareSize,gameSquareSize);               
+            myGamePiece.start(Math.floor(gameSquareNumberX/2),Math.floor(gameSquareNumberY/2),gameSquareSize,gameSquareSize);               
         },
 
         // render the board                
