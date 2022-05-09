@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="161.20129mm"
-   height="138.64244mm"
-   viewBox="0 0 161.2013 138.64244"
+   width="155mm"
+   height="155mm"
+   viewBox="0 0 155.00001 155"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
@@ -24,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.4396184"
-     inkscape:cx="342.10456"
-     inkscape:cy="253.88673"
+     inkscape:zoom="1.0179639"
+     inkscape:cx="122.30296"
+     inkscape:cy="253.93827"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
      inkscape:window-x="-9"
@@ -739,9 +739,9 @@
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7454);fill:#000000;fill-opacity:1;stroke:none"><tspan
            x="179.9082"
            y="171.54194"
-           id="tspan6711"><tspan
+           id="tspan1214"><tspan
              style="font-family:Georgia;-inkscape-font-specification:'Georgia, Normal'"
-             id="tspan6709">SUB SUNK!</tspan></tspan></text>
+             id="tspan1212">SUB SUNK!</tspan></tspan></text>
       <text
          xml:space="preserve"
          transform="matrix(0.17929921,0,0,0.15463952,-0.09682525,79.660631)"
@@ -749,9 +749,9 @@
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect7454-1);fill:#82dcff;fill-opacity:1;stroke:none"><tspan
            x="179.9082"
            y="171.54194"
-           id="tspan6715"><tspan
+           id="tspan1218"><tspan
              style="font-style:italic;font-family:Georgia;-inkscape-font-specification:'Georgia, Italic';fill:#3fc9ff"
-             id="tspan6713">You got a direct hit!</tspan></tspan></text>
+             id="tspan1216">You got a direct hit!</tspan></tspan></text>
     </g>
     <path
        style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter2996)"

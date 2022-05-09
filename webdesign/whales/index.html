@@ -7,6 +7,8 @@
             body {
                 background-image: url('images/waves.svg');
                 background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
                 font-family: Georgia;
             }
 
@@ -23,6 +25,10 @@
 
             .header {
                 width: 960px;
+            }
+
+            .header2 {
+                width: 320px;
             }
 
             .center {
@@ -133,6 +139,12 @@
                 <h1 style="position:absolute; margin-left:165px; margin-top:10px; font-size: 58px; text-shadow: 1px 1px 2px black; white-space: nowrap;"><span style="color:white">Don't torpedo the </span"><span style="color:#bedfff ">whales!</span></h1>
                 <p style="font-family: Georgia; position:absolute; margin-left:170px; margin-top:75px; font-size: 15px; color:#4e7dad"><i>(An absurd game of luck and logic)</i></p>
             </div>
+            <div class="header2">
+                <!-- Header for mobile-->
+                <image src="images/periscopecropped.svg" style="width:70px;float:left; margin-left:0px; margin-right:0px" alt="persicope">
+                <h1 style="position:absolute; margin-left:75px; margin-top:10px; font-size: 18px; text-shadow: 1px 1px 2px black; white-space: nowrap;"><span style="color:white">Don't torpedo the </span"><span style="color:#bedfff ">whales!</span></h1>
+                <p style="font-family: Georgia; position:absolute; margin-left:75px; margin-top:38px; font-size: 12px; color:#4e7dad"><i>(An absurd game of luck and logic)</i></p>
+            </div>
             <div class="center">
                 <!-- Words for the game -->
                 <div class ="words">
@@ -165,14 +177,14 @@
                             <img src="images/buttonpushed.svg" style="width:80px; height:80px;"/>
                         </div>
                     </div>
-
+                    
                 </div>
                 <!-- The canvas where the game is drawn -->
                 <div id="canvasDiv"></div>
             </div>
             <div class="footer">
                 <!-- Footer -->
-                Version 1.123
+                Version 1.2
             </div>
         </div>
     </body>
@@ -203,29 +215,34 @@
 
 
     
-    // used to resize the game
+    // used to resize the game if screen is small
     function sizeFunction(x) {
         if (x.matches) { // If media query matches
             console.log("Small size screen");
-            gameSquareNumberX = 20;
-            gameSquareNumberY = 20;
+            gameSquareNumberX = 16;
+            gameSquareNumberY = 16;
+            document.querySelector('.header').style.display = 'none';
+            document.querySelector('.header2').style.display = 'block';
             document.querySelector('.center').style.flexDirection = 'column-reverse';
-            document.querySelector('.center').style.width = '400px';
-            document.querySelector('.header').style.width = '400px';
+            document.querySelector('.center').style.width = '320px';
             document.querySelector('.rules').style.display = 'none';
-
+            document.querySelector('#score').style.display = 'none';
+            document.querySelector('.footer').style.display = 'none';
 
         } else {
             console.log("large size screen");
-            gameSquareNumberX = 30;
-            gameSquareNumberY = 30;
+            gameSquareNumberX = 28;
+            gameSquareNumberY = 28;
+            document.querySelector('.header').style.display = 'block';
+            document.querySelector('.header2').style.display = 'none';
             document.querySelector('.center').style.flexDirection = 'row';
             document.querySelector('.center').style.width = '960px';
-            document.querySelector('.header').style.width = '960px';
             document.querySelector('.rules').style.display = 'block';
+            document.querySelector('#score').style.display = 'block';
+            document.querySelector('.footer').style.display = 'block';
         }
     }
-    var x = window.matchMedia("(max-width: 700px)");
+    var x = window.matchMedia("(max-width: 1000px)");
     sizeFunction(x); // Call listener function at run time
     x.addListener(sizeFunction); // Attach listener function on state changes
 
@@ -615,8 +632,7 @@
             this.gameScore = 0;
             this.title = "Noob";
             document.getElementById("score").innerHTML = 
-            "<p>Score: " + this.gameScore + " (" + this.title + ")" + "</p>" + 
-            "<p>Submarines left: " + myTargets.targetRemaining + "</p>" 
+            "<p>Score: " + this.gameScore + " (" + this.title + ")" + "</p>"  
             ;
         },
 
@@ -645,8 +661,7 @@
                 this.title = "War criminal";
             }
             document.getElementById("score").innerHTML = 
-            "<p>Score: " + this.gameScore + " (" + this.title + ")" + "</p>" + 
-            "<p>Submarines left: " + myTargets.targetRemaining + "</p>" 
+            "<p>Score: " + this.gameScore + " (" + this.title + ")" + "</p>" 
             ;
         }, 
         
@@ -805,7 +820,7 @@
         const img = new Image();        
         img.src = './images/whaleshot.svg';        
         img.onload = () => {          
-            myGameArea.context.drawImage(img, 0, 0);
+            myGameArea.context.drawImage(img, 0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
         };
     }
 
@@ -814,7 +829,7 @@
         const img = new Image();        
         img.src = './images/submarine.svg';        
         img.onload = () => {          
-            myGameArea.context.drawImage(img, 0, 0);
+            myGameArea.context.drawImage(img, 0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
         };
     }
 
