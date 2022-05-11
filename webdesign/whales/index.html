@@ -170,8 +170,8 @@
                     <!-- Uses script to display the score, targets left -->
                     <h4 id="score"></h4>
 
-                    <!-- The controls -->
-                    <div style="width:240px; height:240px; position:relative; margin:auto; background-image: url(images/circle.svg); background-size: 100%;">
+                    <!-- The controls for large screen-->
+                    <div class="controls" style="width:240px; height:240px; position:relative; margin:auto; background-image: url(images/circle.svg); background-size: 100%;">
                         <img class="arrow" src="images/arrow.svg" style="position:absolute; top:0px; left:80px;" onClick="myGamePiece.moveUp();">
                         <img class="arrow" src="images/arrow.svg" style="position:absolute; top:80px; left:0px; transform: rotate(-90deg);" onClick="myGamePiece.moveLeft();">
                         <img class="arrow" src="images/arrow.svg" style="position:absolute; top:80px; left: 160px; transform: rotate(90deg);" onClick="myGamePiece.moveRight();">
@@ -180,6 +180,19 @@
                         <div class="image-swap" style="position:absolute; top:82px; left:80px;" onClick="myGamePiece.reveal();">
                             <img src="images/button.svg" style="width:80px; height:80px;"/>
                             <img src="images/buttonpushed.svg" style="width:80px; height:80px;"/>
+                        </div>
+                    </div>
+
+                    <!-- The controls for small screen-->
+                    <div class="controls2" style="width:300px; height:60px; position:relative; margin:auto;">
+                        <img class="arrow" src="images/arrow.svg" style="position:absolute; top:5px; left:60px; width:60px; height:60px;" onClick="myGamePiece.moveUp();">
+                        <img class="arrow" src="images/arrow.svg" style="position:absolute; top:5px; left:0px; width:60px; height:60px; transform: rotate(-90deg);" onClick="myGamePiece.moveLeft();">
+                        <img class="arrow" src="images/arrow.svg" style="position:absolute; top:5px; left: 240px; width:60px; height:60px; transform: rotate(90deg);" onClick="myGamePiece.moveRight();">
+                        <img class="arrow" src="images/arrow.svg" style="position:absolute; top:5px; left: 180px; width:60px; height:60px; transform: rotate(180deg);" onClick="myGamePiece.moveDown();">
+                        
+                        <div class="image-swap" style="position:absolute; top:5px; left:118px;" onClick="myGamePiece.reveal();">
+                            <img src="images/button.svg" style="width:68px; height:68px;"/>
+                            <img src="images/buttonpushed.svg" style="width:68px; height:68px;"/>
                         </div>
                     </div>
                     
@@ -235,7 +248,7 @@
             gameSquareNumberX = Math.floor((w-40)/20);
 
             //gameSquareNumberY = 16;
-            gameSquareNumberY = Math.floor((h-340)/20);
+            gameSquareNumberY = Math.floor((h-180)/20);
 
             document.querySelector('.header').style.display = 'none';
             document.querySelector('.header2').style.display = 'block';
@@ -245,6 +258,8 @@
             document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
             document.querySelector('.rules').style.display = 'none';
             document.querySelector('#score').style.display = 'none';
+            document.querySelector('.controls').style.display = 'none';
+            document.querySelector('.controls2').style.display = 'block';
             document.querySelector('.footer').style.display = 'none';
             console.log("gameSquareNumberX: " + gameSquareNumberX + ", gameSquareNumberY: " + gameSquareNumberY );
 
@@ -261,6 +276,8 @@
             document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
             document.querySelector('.rules').style.display = 'block';
             document.querySelector('#score').style.display = 'block';
+            document.querySelector('.controls').style.display = 'block';
+            document.querySelector('.controls2').style.display = 'none';
             document.querySelector('.footer').style.display = 'block';
         }
     }
