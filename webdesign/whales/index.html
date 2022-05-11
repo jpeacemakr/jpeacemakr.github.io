@@ -90,7 +90,8 @@
 
             .footer {
                 width: 960px;
-                font-size:12px;
+                font-size: 12px;
+                padding-top: 2px;
             }
 
             .arrow {
@@ -183,7 +184,7 @@
                     </div>
                     
                 </div>
-                <!-- The canvas where the game is drawn -->
+                <!-- The canvas where the game is drawn. One layer for the game board. One layer for the player game piece -->
                 <div id="canvasDivHolder">
                     <div id="canvasDiv"></div>
                     <div id="canvasDivPlayer"></div>
@@ -511,12 +512,14 @@
                 playBombAudio();
                 this.postImage("./images/bomb.jpg", myGamePiece.x*gameSquareSize, myGamePiece.y*gameSquareSize);
             
+                myGameArea.render();
+
                 // check if anything was hit and update score and targets left
                 if (myGameArea.gameMatrix[this.x][this.y].value == 0) {
                     myTargets.targetRemaining--;
                     myScore.update(1000);
                     await sleep(1000).then(() => {  
-                        myGameArea.render();
+                        this.render();
                     });
                     splashSubmarine();
                     if (myTargets.targetRemaining == 0) {
@@ -526,24 +529,23 @@
                     myTargets.victimRemaining--;
                     myScore.update(-100);
                     await sleep(1000).then(() => {  
-                        myGameArea.render();
+                        this.render();
                     });  
                     splashWhale();
                 } 
                 else {
                     myScore.update(-10);
                     await sleep(1000).then(() => {  
-                        myGameArea.render();
+                        this.render();
                     });  
                 }
-                this.render();
             }
         },
         
         // reset the player to starting position
         clear : function() {
-            this.x = gameSquareNumberX/2;
-            this.y = gameSquareNumberY/2;
+            this.x = Math.floor(gameSquareNumberX/2);
+            this.y = Math.floor(gameSquareNumberY/2);
         },
 
 
@@ -710,7 +712,7 @@
         
         finish : async function() {
             // show splash screen
-            await sleep(3000).then(() => {  
+            await sleep(1000).then(() => {  
                 winShow();
             });
 
@@ -814,6 +816,7 @@
     }
 
 
+    ///////////////////////////////
     // sleep function
     let sleep = milliseconds => {  
         return new Promise(resolve => setTimeout(resolve, milliseconds));  
@@ -866,21 +869,18 @@
         };
     }
 
+    // show the win screen. it changes the class of the win element
     function winShow() {
         var element = document.getElementById("win");
         element.classList.remove("winHide");
         element.classList.add("winShow");
     }
-
+    // hide the win screen. it changes the class of the win element
     function winHide() {
         var element = document.getElementById("win");
         element.classList.remove("winShow");
         element.classList.add("winHide");
     }
-
-
-
-
 
 </script>
 
