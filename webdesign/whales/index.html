@@ -11,11 +11,6 @@
                 background-attachment: fixed;
                 font-family: Georgia;
             }
-
-            canvas {
-                background-image: radial-gradient(#BBDDFF, #77AADD);
-                display: block;
-            }
             
             .page {
                 display: flex;
@@ -43,7 +38,22 @@
                 background-color:#ffffff; 
                 padding: 8px 20px 20px 20px; 
             }
+            
+            canvas {
+                display: block;
+            }
+
+            #canvasDivHolder {
+                display:block;
+                background-image: radial-gradient(#BBDDFF, #77AADD);
+            }
+            
             #canvasDiv {
+                position:absolute;
+            }
+            
+            #canvasDivPlayer {
+                position:absolute;
             }
 
             #win {
@@ -78,12 +88,10 @@
                 box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
             }
 
-
             .footer {
                 width: 960px;
                 font-size:12px;
             }
-
 
             .arrow {
                 opacity:75%;
@@ -98,7 +106,6 @@
                 opacity:100%;
             }
 
-
             .image-swap {
                 cursor: pointer;
                 width:80px;
@@ -109,7 +116,6 @@
             .image-swap>img:first-child, .image-swap:active>img:last-child {
                 display: block;
             }
-
 
             * {
                 box-sizing:border-box;
@@ -170,9 +176,6 @@
                         <img class="arrow" src="images/arrow.svg" style="position:absolute; top:80px; left: 160px; transform: rotate(90deg);" onClick="myGamePiece.moveRight();">
                         <img class="arrow" src="images/arrow.svg" style="position:absolute; top:160px; left: 80px; transform: rotate(180deg);" onClick="myGamePiece.moveDown();">
                         
-                        <!-- <button style="position:absolute; bottom:0px; left:0px; opacity: 0;" onClick="myGameArea.reveal();">REVEAL</button>
-                        <button style="position:absolute; bottom:0px; left:160px; opacity: 0;" onClick="startGame();">RESET</button> -->
-                        
                         <div class="image-swap" style="position:absolute; top:82px; left:80px;" onClick="myGamePiece.reveal();">
                             <img src="images/button.svg" style="width:80px; height:80px;"/>
                             <img src="images/buttonpushed.svg" style="width:80px; height:80px;"/>
@@ -181,11 +184,14 @@
                     
                 </div>
                 <!-- The canvas where the game is drawn -->
-                <div id="canvasDiv"></div>
+                <div id="canvasDivHolder">
+                    <div id="canvasDiv"></div>
+                    <div id="canvasDivPlayer"></div>
+                </div>
             </div>
             <div class="footer">
                 <!-- Footer -->
-                Version 1.2
+                Version 1.3
             </div>
         </div>
     </body>
@@ -207,20 +213,18 @@
     var gameSquareSize = 20; // size of the game piece and game squares in pixels
     var gameSquareNumberX = 30; // number of X game squares (width)
     var gameSquareNumberY = 30; // number of Y game squares (height)
-    // var gamePieceColor = "#BBDDFF";
     var gridColor = "#6699CC";
-    // var backgroundColor1 = "#99CCFF"; // inside of radial blend
-    // var backgroundColor2 = "#6699CC"; // outside of radial blend
     var targetNumber = 3;
     var victimNumber = 5;
 
 
+    ////////////////////////////////////////
+    // used to get the size of the screen. used to set the number of squares on the game board
     var w = Math.min(window.screen.width, window.innerWidth);
     console.log("width:" + w);
 
     var h = Math.min (window.screen.height, window.innerHeight);
     console.log("height:" + h);
-
     
     // used to resize the game if screen is small
     function sizeFunction(x) {
@@ -236,20 +240,24 @@
             document.querySelector('.header2').style.display = 'block';
             document.querySelector('.center').style.flexDirection = 'column-reverse';
             document.querySelector('.center').style.width = gameSquareNumberX*20 + "px";
+            document.querySelector('#canvasDivHolder').style.minWidth = gameSquareNumberX*20 + "px";
+            document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
             document.querySelector('.rules').style.display = 'none';
             document.querySelector('#score').style.display = 'none';
             document.querySelector('.footer').style.display = 'none';
             console.log("gameSquareNumberX: " + gameSquareNumberX + ", gameSquareNumberY: " + gameSquareNumberY );
 
-
         } else {
             console.log("large size screen");
             gameSquareNumberX = 28;
             gameSquareNumberY = 28;
+            
             document.querySelector('.header').style.display = 'block';
             document.querySelector('.header2').style.display = 'none';
             document.querySelector('.center').style.flexDirection = 'row';
             document.querySelector('.center').style.width = '960px';
+            document.querySelector('#canvasDivHolder').style.minWidth = gameSquareNumberX*20 + "px";
+            document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
             document.querySelector('.rules').style.display = 'block';
             document.querySelector('#score').style.display = 'block';
             document.querySelector('.footer').style.display = 'block';
@@ -268,8 +276,10 @@
     function startGame() {
         myScore.start();
         myGameArea.start();
+        myGamePiece.start();
         myTargets.start();
         myGameArea.render();
+        myGamePiece.render();
     }
 
 
@@ -294,6 +304,9 @@
         // grid of game piece positions
         gameMatrix: new Array (gameSquareNumberX),
         
+        // whether game area values should be revealed (cheat)
+        revealValue: false,
+        
         // canvas to draw into
         canvas : document.createElement("canvas"),
         
@@ -305,8 +318,6 @@
             this.context = this.canvas.getContext("2d");
             document.getElementById("canvasDiv").appendChild(this.canvas);
             
-            this.canvas.addEventListener("mousedown", doMouseDown, false);
-
             // turn array into square array of arrays
             for(let i=0; i<gameSquareNumberX; i++){
                 this.gameMatrix[i] = new Array (gameSquareNumberY);
@@ -317,16 +328,13 @@
                 for(let j=0; j<gameSquareNumberY; j++){
                     this.gameMatrix[i][j] = new GameSquare();
                 }
-            }
-
-            //initialize game piece
-            myGamePiece.start(Math.floor(gameSquareNumberX/2),Math.floor(gameSquareNumberY/2),gameSquareSize,gameSquareSize);               
+            }                          
         },
 
         // render the board                
         render : function() {
             
-            // Create gradient
+            // Can be used to create gradient background
             // var bgGradient = this.context.createRadialGradient(300, 300, 5, 300, 300, 500);
             // bgGradient.addColorStop(0, backgroundColor1);
             // bgGradient.addColorStop(1, backgroundColor2);
@@ -334,13 +342,6 @@
             // this.context.fillStyle = bgGradient;
             // this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
             
-            // clear the canvas
-            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
-            // redraw the player
-            myGamePiece.render();
-
-            // redraw the board
             // set grid style
             this.context.lineWidth = 1;
             this.context.strokeStyle = gridColor; 
@@ -386,10 +387,10 @@
                             this.context.fillText(this.gameMatrix[i][j].value, i*gameSquareSize+6, j*gameSquareSize+16);
                         } else if (this.gameMatrix[i][j].value == 0){
                             //this.context.fillStyle = "white";
-                            postImage("./images/deadsubicon.jpg", i*gameSquareSize, j*gameSquareSize);
+                            this.postImage("./images/deadsubicon.jpg", i*gameSquareSize, j*gameSquareSize);
                         } else if (this.gameMatrix[i][j].value == 9){
                             //this.context.fillStyle = "purple";
-                            postImage("./images/deadwhaleicon.jpg", i*gameSquareSize, j*gameSquareSize);
+                            this.postImage("./images/deadwhaleicon.jpg", i*gameSquareSize, j*gameSquareSize);
                         } else {
                             this.context.fillStyle = "#ddeeff";
                             this.context.fillRect(i*gameSquareSize, j*gameSquareSize, gameSquareSize, gameSquareSize);
@@ -401,21 +402,35 @@
 
         // reveal the values on the game board (used for debugging and cheating)
         reveal : function() {
-            // draw board values
-            this.context.font = '10pt Helvetica';
-            this.context.fillStyle = "#000000";
-            for (var i=0; i < gameSquareNumberX; i++) {
-                for (var j=0; j < gameSquareNumberY; j++) {
-                    this.context.fillText(this.gameMatrix[i][j].value, i*gameSquareSize+6, j*gameSquareSize+16);
+            if (this.revealValue == false) { // reveal board values
+                // draw board values
+                this.context.font = '10pt Helvetica';
+                this.context.fillStyle = "#000000";
+                for (var i=0; i < gameSquareNumberX; i++) {
+                    for (var j=0; j < gameSquareNumberY; j++) {
+                        this.context.fillText(this.gameMatrix[i][j].value, i*gameSquareSize+6, j*gameSquareSize+16);
+                    }
                 }
+                this.revealValue = true;
+            } else { // conceal board values
+                this.revealValue = false;
+                this.clear();
             }
         },
 
         // reset the game board and player
         clear : function() {
             this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            myGamePiece.clear();
             this.render();
+        },
+
+        // post a photo at location x,y
+        postImage : function (fileName, x, y){
+            const img = new Image();        
+            img.src = fileName;        
+            img.onload = () => {          
+                this.context.drawImage(img, x, y);        
+            };
         }
     }
 
@@ -433,28 +448,31 @@
         // color : "red",
         context: myGameArea.context,
 
+        canvas : document.createElement("canvas"),
+
+
         // set game piece at start                
-        start : function(x, y, width, height) {
-            this.x = x;
-            this.y = y;
-            // this.width = width;
-            // this.height = height;
-            // this.color = color;
-            //this.context = myGameArea.context;
-            //this.render();
-            // this.context.fillStyle = this.color;
-            // this.context.fillRect(this.x, this.y, this.width, this.height);
+        start : function() {
+            this.x = Math.floor(gameSquareNumberX/2);
+            this.y = Math.floor(gameSquareNumberY/2);
+
+            // set canvas size to number of game square (x and y axis) times the size of each game square
+            this.canvas.width = gameSquareNumberX * gameSquareSize;
+            this.canvas.height = gameSquareNumberY * gameSquareSize;
+            this.context = this.canvas.getContext("2d");
+            document.getElementById("canvasDivPlayer").appendChild(this.canvas);
+
+            // make game piece movable by mouse
+            this.canvas.addEventListener("mousedown", doMouseDown, false);
         },
 
         // render the player again                
         render : function() {
-            //this.context.fillStyle = this.color;
-            //this.context.fillRect(this.x, this.y, this.width, this.height);
-
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
             const imgCrosshair = new Image();        
             imgCrosshair.src = './images/crosshair.svg';        
             imgCrosshair.onload = () => {          
-                myGameArea.context.drawImage(imgCrosshair, this.x*gameSquareSize-80, this.y*gameSquareSize-80);        
+                this.context.drawImage(imgCrosshair, this.x*gameSquareSize-80, this.y*gameSquareSize-80);        
             };
         },
 
@@ -462,25 +480,25 @@
         moveRight : function() {
             if (this.x*gameSquareSize+gameSquareSize<myGameArea.canvas.width){
                 this.x= this.x + 1;
-                myGameArea.render();
+                this.render();
             }
         },
         moveLeft : function() {
             if (this.x>0){
                 this.x= this.x - 1;
-                myGameArea.render();
+                this.render();
             }
         },
         moveUp : function() {
             if (this.y>0){
                 this.y= this.y - 1;
-                myGameArea.render();
+                this.render();
             }
         },
         moveDown : function() {
             if ((this.y+1)*gameSquareSize < myGameArea.canvas.height){
                 this.y= this.y + 1;
-                myGameArea.render();
+                this.render();
             }
         },
 
@@ -490,9 +508,8 @@
         reveal : async function() {
             if (myGameArea.gameMatrix[this.x][this.y].hidden == 1) { 
                 myGameArea.gameMatrix[this.x][this.y].hidden = 0;
-                myGameArea.render();
                 playBombAudio();
-                postImage("./images/bomb.jpg", myGamePiece.x*gameSquareSize, myGamePiece.y*gameSquareSize);
+                this.postImage("./images/bomb.jpg", myGamePiece.x*gameSquareSize, myGamePiece.y*gameSquareSize);
             
                 // check if anything was hit and update score and targets left
                 if (myGameArea.gameMatrix[this.x][this.y].value == 0) {
@@ -519,6 +536,7 @@
                         myGameArea.render();
                     });  
                 }
+                this.render();
             }
         },
         
@@ -526,7 +544,18 @@
         clear : function() {
             this.x = gameSquareNumberX/2;
             this.y = gameSquareNumberY/2;
+        },
+
+
+        // post a photo at location x,y
+        postImage : function (fileName, x, y){
+            const img = new Image();        
+            img.src = fileName;        
+            img.onload = () => {          
+                this.context.drawImage(img, x, y);        
+            };
         }
+
     }
 
 
@@ -781,7 +810,7 @@
         myGamePiece.x = parseInt(canvasX/gameSquareSize);
         myGamePiece.y = parseInt(canvasY/gameSquareSize);
 
-        myGameArea.render();
+        myGamePiece.render();
     }
 
 
@@ -819,22 +848,12 @@
     ////////////////////////////////////
     // images
 
-
-    // post a photo at location x,y
-    function postImage(fileName, x, y){
-        const img = new Image();        
-        img.src = fileName;        
-        img.onload = () => {          
-            myGameArea.context.drawImage(img, x, y);        
-        };
-    }
-
     // whale hit by torpedo splash screen image
     function splashWhale(){
         const img = new Image();        
         img.src = './images/whaleshot.svg';        
         img.onload = () => {          
-            myGameArea.context.drawImage(img, 0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
+            myGamePiece.context.drawImage(img, 0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
         };
     }
 
@@ -843,16 +862,7 @@
         const img = new Image();        
         img.src = './images/submarine.svg';        
         img.onload = () => {          
-            myGameArea.context.drawImage(img, 0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
-        };
-    }
-
-    // splash screen image when all submarines have been destroyed
-    function splashWin(){
-        const img = new Image();        
-        img.src = './images/sky.svg';        
-        img.onload = () => {          
-            myGameArea.context.drawImage(img, 0, 0);
+            myGamePiece.context.drawImage(img, 0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
         };
     }
 
