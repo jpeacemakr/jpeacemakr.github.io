@@ -2,8 +2,14 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Don't torpedo the whales!</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
         <style>
+            a {
+                color: #4e7dad;
+            }
+
             body {
                 background-image: url('images/waves.svg');
                 background-size: cover;
@@ -28,21 +34,16 @@
 
             .center {
                 display: flex;
-                flex-direction: row;
                 align-items: stretch;
-                width: 960px;
                 box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
             }
+
             .words {
                 text-align:left;
                 background-color:#ffffff; 
                 padding: 8px 20px 20px 20px; 
             }
-            
-            canvas {
-                display: block;
-            }
-
+           
             #canvasDivHolder {
                 display:block;
                 background-image: radial-gradient(#BBDDFF, #77AADD);
@@ -141,6 +142,7 @@
         </div>
 
         <div class = "page">
+            
             <div class="header">
                 <!-- Header -->
                 <image src="images/periscopecropped.svg" style="width:120px;float:left; margin-left:20px; margin-right:20px" alt="persicope">
@@ -148,15 +150,24 @@
                 <p style="font-family: Georgia; position:absolute; margin-left:170px; margin-top:75px; font-size: 15px; color:#4e7dad"><i>(An absurd game of luck and logic)</i></p>
             </div>
             <div class="header2">
-                <!-- Header for mobile-->
-                <image src="images/periscopecropped.svg" style="width:70px;float:left; margin-left:0px; margin-right:0px" alt="persicope">
-                <h1 style="position:absolute; margin-left:75px; margin-top:10px; font-size: 18px; text-shadow: 1px 1px 2px black; white-space: nowrap;"><span style="color:white">Don't torpedo the </span"><span style="color:#bedfff ">whales!</span></h1>
-                <p style="font-family: Georgia; position:absolute; margin-left:75px; margin-top:38px; font-size: 12px; color:#4e7dad"><i>(An absurd game of luck and logic)</i></p>
+                <!-- Header for mobile size. Smaller version with button to show the rules and score -->
+                <image src="images/periscopecropped.svg" style="width:80px;float:left; margin-left:0px; margin-right:0px" alt="persicope">
+                <h1 style="position:absolute; margin-left:25px; margin-top:12px; font-size: 21px; text-shadow: 1px 1px 2px black; white-space: nowrap;"><span style="color:white">Don't torpedo the </span"><span style="color:#bedfff ">whales!</span></h1>
+                <p style="font-family: Georgia; position:absolute; margin-left:85px; margin-top:40px; font-size: 12px; color:#4e7dad"><i>(An absurd game of luck and logic) </i> <a href="#" id="info">[?]</a></p>
+                <script>
+                    $('#info').click(function() {
+                        $('.rules').css({
+                            'display': 'block'
+                        });
+                    });
+                </script>
             </div>
+            
             <div class="center">
                 <!-- Words for the game -->
-                <div class ="words">
-                    <div class ="rules">
+                <div class="words">
+
+                    <div class="rules">
                         <p><b>Objective:</b> You are a submarine captain. Your mission is to sink the 3 enemy submarines without hitting the 5 innocent whales.
                         You can't see in the murky water, but sonar numbers (1-4) show how far a target is away from each shot after it is fired.</p>
                         <p><b>Scoring:</b></p>
@@ -165,10 +176,21 @@
                             <li>-100: Hitting a poor defenseless whale</li>
                             <li>-10: Missing a shot with a torpedo</li>
                         </ul>
+
+                        <!-- Uses script to display the score -->
+                        <h4 id="score">Test</h4>
+                        
+                        <!-- button to hide the rules and score in mobile size only -->
+                        <button id="closeRules" style="margin:0 auto; cursor:pointer;">CLOSE</button>
+                        <script>
+                            $('#closeRules').click(function() {
+                                $('.rules').css({
+                                    'display': 'none',
+                                });
+                            });
+                        </script>
                     </div>
 
-                    <!-- Uses script to display the score, targets left -->
-                    <h4 id="score"></h4>
 
                     <!-- The controls for large screen-->
                     <div class="controls" style="width:240px; height:240px; position:relative; margin:auto; background-image: url(images/circle.svg); background-size: 100%;">
@@ -225,8 +247,8 @@
     ////////////////////////////////////
     // game initialization variables
     var gameSquareSize = 20; // size of the game piece and game squares in pixels
-    var gameSquareNumberX = 30; // number of X game squares (width)
-    var gameSquareNumberY = 30; // number of Y game squares (height)
+    var gameSquareNumberX = 28; // number of X game squares (width)
+    var gameSquareNumberY = 28; // number of Y game squares (height)
     var gridColor = "#6699CC";
     var targetNumber = 3;
     var victimNumber = 5;
@@ -248,7 +270,7 @@
             gameSquareNumberX = Math.floor((w-40)/20);
 
             //gameSquareNumberY = 16;
-            gameSquareNumberY = Math.floor((h-180)/20);
+            gameSquareNumberY = Math.floor((h-190)/20);
 
             document.querySelector('.header').style.display = 'none';
             document.querySelector('.header2').style.display = 'block';
@@ -256,13 +278,23 @@
             document.querySelector('.center').style.width = gameSquareNumberX*20 + "px";
             document.querySelector('#canvasDivHolder').style.minWidth = gameSquareNumberX*20 + "px";
             document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
+            document.querySelector('#canvasDivHolder').style.width = gameSquareNumberX*20 + "px";
+            document.querySelector('#canvasDivHolder').style.height = gameSquareNumberY*20 + "px";
             document.querySelector('.rules').style.display = 'none';
-            document.querySelector('#score').style.display = 'none';
+            document.querySelector('.rules').style.position = 'absolute';
+            document.querySelector('.rules').style.backgroundColor = '#FFFFCC';
+            document.querySelector('.rules').style.padding = '8px 20px 20px 20px';
+            document.querySelector('.rules').style.zIndex = '3';
+            document.querySelector('.rules').style.width = (gameSquareNumberX*20) + "px";
+            document.querySelector('.rules').style.height = (gameSquareNumberY*20) + "px";
+            document.querySelector('.rules').style.top = 80 + "px";
+            document.querySelector('#closeRules').style.display = 'block';
             document.querySelector('.words').style.padding = '8px 0px 20px 0px';
             document.querySelector('.controls').style.display = 'none';
             document.querySelector('.controls2').style.display = 'block';
             document.querySelector('.footer').style.display = 'none';
-            console.log("gameSquareNumberX: " + gameSquareNumberX + ", gameSquareNumberY: " + gameSquareNumberY );
+            
+
 
         } else {
             console.log("large size screen");
@@ -275,12 +307,21 @@
             document.querySelector('.center').style.width = '960px';
             document.querySelector('#canvasDivHolder').style.minWidth = gameSquareNumberX*20 + "px";
             document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
+            document.querySelector('#canvasDivHolder').style.width = gameSquareNumberX*20 + "px";
+            document.querySelector('#canvasDivHolder').style.height = gameSquareNumberY*20 + "px";
             document.querySelector('.rules').style.display = 'block';
-            document.querySelector('#score').style.display = 'block';
+            document.querySelector('.rules').style.position = '';
+            document.querySelector('.rules').style.backgroundColor = '';
+            document.querySelector('.rules').style.padding = '';
+            document.querySelector('.rules').style.width = "";
+            document.querySelector('.rules').style.height = "";
+            document.querySelector('.rules').style.top = "";
+            document.querySelector('#closeRules').style.display = 'none';
             document.querySelector('.words').style.padding = '8px 20px 20px 20px';
             document.querySelector('.controls').style.display = 'block';
             document.querySelector('.controls2').style.display = 'none';
             document.querySelector('.footer').style.display = 'block';
+            
         }
     }
 
@@ -696,7 +737,7 @@
             this.gameScore = 0;
             this.title = "Noob";
             document.getElementById("score").innerHTML = 
-            "<p>Score: " + this.gameScore + " (" + this.title + ")" + "</p>"  
+            "Score: " + this.gameScore + " (" + this.title + ")"  
             ;
         },
 
@@ -725,7 +766,7 @@
                 this.title = "War criminal";
             }
             document.getElementById("score").innerHTML = 
-            "<p>Score: " + this.gameScore + " (" + this.title + ")" + "</p>" 
+            "Score: " + this.gameScore + " (" + this.title + ")" 
             ;
         }, 
         
