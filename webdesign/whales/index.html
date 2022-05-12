@@ -64,24 +64,39 @@
                 z-index: 1;
             }
 
-            .winShow {
-                top: 10px;
+            #whale {
+                position: absolute;
+                width: 800px;
+                height:400px;
+                z-index: 1;
+            }
+
+            #submarine {
+                position: absolute;
+                width: 800px;
+                height:400px;
+                z-index: 1;
+            }
+
+
+            .show {
+                top: 80px;
                 left:calc(50% - 400px); 
                 transition: top 2s;
                 transition-timing-function: ease;
             }
 
-            .winHide {
+            .hide {
                 top: -800px;
                 left:calc(50% - 400px); 
                 transition: top 4s;
                 transition-timing-function: ease;
             }
 
+
             #scoreWin {
                 position: absolute;
-                top: 390px;
-                left: 250px;
+                top: 290px;
                 left: calc(50% - 150px);
                 width: 300px;
                 padding: 0px 20px 0px 20px;
@@ -133,14 +148,28 @@
 
     <body onload=" startGame()" onkeydown="keyPressed(event)">
 
+        <!-- audio files to be played -->
         <audio src="sounds/bomb.mp3" id="bombAudio"></audio> 
    
-        <div id="win" class="winHide">
-            <img style ="display: block; margin-left: auto; margin-right: auto;" src="images/sky.svg">
+        <!-- splash screens. they start as hidden and then come down when called using show and hide functions -->
+        <div id="win" class="hide">
+            <img style ="width: 65%; display: block; margin-left: auto; margin-right: auto;" src="images/sky.svg">
             <div id="scoreWin"></div>
-            <button style = "position: absolute; width:120px; top:570px; left:calc(50% - 60px); cursor: pointer;" onClick="winHide(); startGame();">PLAY AGAIN</button>
+            <button style = "position: absolute; width:120px; top:470px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('win'); startGame();">PLAY AGAIN</button>
         </div>
 
+        <div id="whale" class="hide">
+            <img style ="width: 55%; display: block; margin-left: auto; margin-right: auto;" src="images/whaleshot.svg">
+            <button style = "position: absolute; width:120px; top:400px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('whale');">CONTINUE</button>
+        </div>
+
+        <div id="submarine" class="hide">
+            <img style ="width: 55%; display: block; margin-left: auto; margin-right: auto;" src="images/submarineshot.svg">
+            <button style = "position: absolute; width:120px; top:400px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('submarine');">CONTINUE</button>
+        </div>
+
+
+        <!-- begin visible page -->
         <div class = "page">
             
             <div class="header">
@@ -163,6 +192,7 @@
                 </script>
             </div>
             
+            <!-- center section. the area between the header and the footer -->
             <div class="center">
                 <!-- Words for the game -->
                 <div class="words">
@@ -204,7 +234,6 @@
                             <img src="images/buttonpushed.svg" style="width:80px; height:80px;"/>
                         </div>
                     </div>
-
                     <!-- The controls for small screen-->
                     <div class="controls2" style="width:300px; height:60px; position:relative; margin:auto;">
                         <img class="arrow" src="images/arrow.svg" style="position:absolute; top:5px; left:60px; width:60px; height:60px;" onClick="myGamePiece.moveUp();">
@@ -227,7 +256,7 @@
             </div>
             <div class="footer">
                 <!-- Footer -->
-                Version 1.3
+                Version 1.31
             </div>
         </div>
     </body>
@@ -242,6 +271,7 @@
     // by James Peacemaker
     // the game is made up of a matrix of squares like a checkerboard
     // the game piece can move from one game square to another
+    // it uses two overlapping canvases. one underneath for the game board and one on top for the player
 
 
     ////////////////////////////////////
@@ -250,8 +280,8 @@
     var gameSquareNumberX = 28; // number of X game squares (width)
     var gameSquareNumberY = 28; // number of Y game squares (height)
     var gridColor = "#6699CC";
-    var targetNumber = 3;
-    var victimNumber = 5;
+    var targetNumber = 3; // the number of submarines
+    var victimNumber = 5; // the number of whales
 
 
     ////////////////////////////////////////
@@ -268,7 +298,6 @@
             console.log("Small size screen");
             //gameSquareNumberX = 16;
             gameSquareNumberX = Math.floor((w-40)/20);
-
             //gameSquareNumberY = 16;
             gameSquareNumberY = Math.floor((h-190)/20);
 
@@ -293,14 +322,11 @@
             document.querySelector('.controls').style.display = 'none';
             document.querySelector('.controls2').style.display = 'block';
             document.querySelector('.footer').style.display = 'none';
-            
-
 
         } else {
             console.log("large size screen");
             gameSquareNumberX = 28;
             gameSquareNumberY = 28;
-            
             document.querySelector('.header').style.display = 'block';
             document.querySelector('.header2').style.display = 'none';
             document.querySelector('.center').style.flexDirection = 'row';
@@ -345,7 +371,7 @@
 
 
     ///////////////////////////////
-    // represents each square on the board
+    // represents each square on the board. is used by myGameArea
     // number 1-5 corresponds to distance from target or victim. 0 for target. 9 for victim. 6-8 reserved for future.
     class GameSquare {
         // let mySquare = new GameSquare();
@@ -360,7 +386,7 @@
 
 
     //////////////////////////////
-    // object to control the board. it is a matrix of GameSquares
+    // object to control the game board. it is a matrix of GameSquares
     var myGameArea = {
         // grid of game piece positions
         gameMatrix: new Array (gameSquareNumberX),
@@ -497,7 +523,7 @@
 
 
 
-    ///////////////////////////////////
+    ///////////////////////////////////////////
     // object to control the player's game piece
     var myGamePiece = {
         // default position, size and color
@@ -508,9 +534,7 @@
         // height: gameSquareSize,
         // color : "red",
         context: myGameArea.context,
-
         canvas : document.createElement("canvas"),
-
 
         // set game piece at start                
         start : function() {
@@ -569,7 +593,7 @@
         reveal : async function() {
             if (myGameArea.gameMatrix[this.x][this.y].hidden == 1) { 
                 myGameArea.gameMatrix[this.x][this.y].hidden = 0;
-                playBombAudio();
+                playAudio("bombAudio");
                 this.postImage("./images/bomb.jpg", myGamePiece.x*gameSquareSize, myGamePiece.y*gameSquareSize);
             
                 myGameArea.render();
@@ -581,8 +605,9 @@
                     await sleep(1000).then(() => {  
                         this.render();
                     });
-                    splashSubmarine();
+                    show("submarine"); // activate splash screen if sub is hit
                     if (myTargets.targetRemaining == 0) {
+                        // if no submarines are left
                         myScore.finish();
                     }  
                 } else if (myGameArea.gameMatrix[this.x][this.y].value == 9) {
@@ -591,7 +616,7 @@
                     await sleep(1000).then(() => {  
                         this.render();
                     });  
-                    splashWhale();
+                    show("whale"); // activate splash screen if whale is hit
                 } 
                 else {
                     myScore.update(-10);
@@ -608,7 +633,6 @@
             this.y = Math.floor(gameSquareNumberY/2);
         },
 
-
         // post a photo at location x,y
         postImage : function (fileName, x, y){
             const img = new Image();        
@@ -617,9 +641,7 @@
                 this.context.drawImage(img, x, y);        
             };
         }
-
     }
-
 
 
     ///////////////////////////////////
@@ -773,7 +795,7 @@
         finish : async function() {
             // show splash screen
             await sleep(1000).then(() => {  
-                winShow();
+                show("win");
             });
 
             // update cookie with score
@@ -851,8 +873,6 @@
         }
     }
 
-
-
     
     /////////////////////////////////////
     // sets position of game piece based on mouse click
@@ -884,62 +904,27 @@
 
 
     ///////////////////////////////
-    // sounds
-
-    // sound when torpedo is fired
-    function playBombAudio(){
-        document.getElementById("bombAudio").play();
+    // plays sound. it uses id for embedded audio file
+    function playAudio(name){
+        document.getElementById(name).play();
     }
-
-    // sound when submarine is hit
-    function playSubAudio(){
-        document.getElementById("bombAudio").play();
-    }
-
-    // sound when whale is hit
-    function playWhaleAudio(){
-        document.getElementById("bombAudio").play();
-    }
-
-    // sound when game is over
-    function playWinAudio(){
-        document.getElementById("bombAudio").play();
-    }
-    
+   
 
 
     ////////////////////////////////////
     // images
-
-    // whale hit by torpedo splash screen image
-    function splashWhale(){
-        const img = new Image();        
-        img.src = './images/whaleshot.svg';        
-        img.onload = () => {          
-            myGamePiece.context.drawImage(img, 0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
-        };
+    
+    // show the splash screen with the id of name. it changes the class of the win element
+    function show(name) {
+        var element = document.getElementById(name);
+        element.classList.remove("hide");
+        element.classList.add("show");
     }
-
-    // submarine hit by torpedo splash screen image
-    function splashSubmarine(){
-        const img = new Image();        
-        img.src = './images/submarine.svg';        
-        img.onload = () => {          
-            myGamePiece.context.drawImage(img, 0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
-        };
-    }
-
-    // show the win screen. it changes the class of the win element
-    function winShow() {
-        var element = document.getElementById("win");
-        element.classList.remove("winHide");
-        element.classList.add("winShow");
-    }
-    // hide the win screen. it changes the class of the win element
-    function winHide() {
-        var element = document.getElementById("win");
-        element.classList.remove("winShow");
-        element.classList.add("winHide");
+    // hide the splash screen with the id of name. it changes the class of the win element
+    function hide(name) {
+        var element = document.getElementById(name);
+        element.classList.remove("show");
+        element.classList.add("hide");
     }
 
 </script>
