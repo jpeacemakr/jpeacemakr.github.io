@@ -9,6 +9,18 @@
             a {
                 color: #4e7dad;
             }
+            button{
+                background-color: #0099ff;
+                color: white;
+                border-radius: 8px;
+                border:none;
+                padding: 8px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+            }
+            button:hover {
+                background-color: #62bcf9;
+            }
 
             body {
                 background-image: url('images/waves.svg');
@@ -155,12 +167,12 @@
         <div id="win" class="hide">
             <img style ="width: 65%; display: block; margin-left: auto; margin-right: auto;" src="images/sky.svg">
             <div id="scoreWin"></div>
-            <button style = "position: absolute; width:120px; top:470px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('win'); startGame();">PLAY AGAIN</button>
+            <button style = "position: absolute; width:120px; top:420px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('win'); startGame();">PLAY AGAIN</button>
         </div>
 
         <div id="whale" class="hide">
             <img style ="width: 55%; display: block; margin-left: auto; margin-right: auto;" src="images/whaleshot.svg">
-            <button style = "position: absolute; width:120px; top:400px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('whale');">CONTINUE</button>
+            <button style = "position: absolute; width:120px; top:390px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('whale');">CONTINUE</button>
         </div>
 
         <div id="submarine" class="hide">
@@ -198,17 +210,14 @@
                 <div class="words">
 
                     <div class="rules">
-                        <p><b>Objective:</b> You are a submarine captain. Your mission is to sink the 3 enemy submarines without hitting the 5 innocent whales.
-                        You can't see in the murky water, but sonar numbers (1-4) show how far a target is away from each shot after it is fired.</p>
-                        <p><b>Scoring:</b></p>
-                        <ul>
-                            <li>+1,000: Hitting an enemy submarine</li>
-                            <li>-100: Hitting a poor defenseless whale</li>
-                            <li>-10: Missing a shot with a torpedo</li>
-                        </ul>
+                        <p><b>Objective:</b> Your mission is to sink the 3 enemy submarines without hitting the 5 innocent whales. Sonar numbers (1-4) show how far a target is away from each shot after it is fired.</p>
+                        <p><b>Scoring:</b> +1,000: Hitting an enemy submarine.<br> 
+                            -100: Hitting a poor defenseless whale.<br>
+                            -10: Missing a shot with a torpedo.<br>
+                        </p>
 
                         <!-- Uses script to display the score -->
-                        <h4 id="score">Test</h4>
+                        <h4 id="score"></h4>
                         
                         <!-- button to hide the rules and score in mobile size only -->
                         <button id="closeRules" style="margin:0 auto; cursor:pointer;">CLOSE</button>
@@ -315,7 +324,7 @@
             document.querySelector('.rules').style.padding = '8px 20px 20px 20px';
             document.querySelector('.rules').style.zIndex = '3';
             document.querySelector('.rules').style.width = (gameSquareNumberX*20) + "px";
-            document.querySelector('.rules').style.height = (gameSquareNumberY*20) + "px";
+            document.querySelector('.rules').style.height = (gameSquareNumberY*20)+88 + "px";
             document.querySelector('.rules').style.top = 80 + "px";
             document.querySelector('#closeRules').style.display = 'block';
             document.querySelector('.words').style.padding = '8px 0px 20px 0px';
@@ -605,11 +614,12 @@
                     await sleep(1000).then(() => {  
                         this.render();
                     });
-                    show("submarine"); // activate splash screen if sub is hit
                     if (myTargets.targetRemaining == 0) {
                         // if no submarines are left
                         myScore.finish();
-                    }  
+                    } else {
+                        show("submarine"); // activate splash screen if sub is hit
+                    } 
                 } else if (myGameArea.gameMatrix[this.x][this.y].value == 9) {
                     myTargets.victimRemaining--;
                     myScore.update(-100);
@@ -758,9 +768,17 @@
         start : function() {
             this.gameScore = 0;
             this.title = "Noob";
-            document.getElementById("score").innerHTML = 
-            "Score: " + this.gameScore + " (" + this.title + ")"  
-            ;
+            
+            cookieDate = new Date;
+            cookieDate.setDate(cookieDate.getDate() + 365);
+
+            if (typeof $.cookie('gamesplayed') === 'undefined'){
+                $.cookie("gamesplayed", 0, { expires: cookieDate });
+                $.cookie("highscore", 0, { expires: cookieDate });
+                $.cookie("lowscore", 0, { expires: cookieDate });
+                $.cookie("totalscore", 0, { expires: cookieDate });
+            }
+            this.setId("score");
         },
 
         // update score and title by amount change
@@ -787,10 +805,19 @@
             } else {
                 this.title = "War criminal";
             }
-            document.getElementById("score").innerHTML = 
-            "Score: " + this.gameScore + " (" + this.title + ")" 
-            ;
+            this.setId("score");    
         }, 
+
+        setId : function(name) {
+            // set html to display scores
+            document.getElementById(name).innerHTML = 
+            "<p>Score: " + myScore.gameScore + " (" + myScore.title + ")" + "<br>" + 
+            "Games played: " + $.cookie("gamesplayed") + "<br>" +
+            "Highest score: " + $.cookie("highscore") + "<br>" +
+            "Lowest score: " + $.cookie("lowscore") + "<br>" +
+            "Average score: " + Math.round(parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
+            ;
+        },
         
         finish : async function() {
             // show splash screen
@@ -804,7 +831,7 @@
             cookieDate = new Date;
             cookieDate.setDate(cookieDate.getDate() + 365);
 
-            if (typeof $.cookie('gamesplayed') === 'undefined'){
+            if (typeof $.cookie('gamesplayed') === 'undefined' || $.cookie('gamesplayed') == 0){
                 $.cookie("gamesplayed", 1, { expires: cookieDate });
                 $.cookie("highscore", myScore.gameScore, { expires: cookieDate });
                 $.cookie("lowscore", myScore.gameScore, { expires: cookieDate });
@@ -823,15 +850,8 @@
             console.log("highscore: " + $.cookie("highscore")); 
             console.log("lowscore: " + $.cookie("lowscore")); 
             console.log("totalscore: " + $.cookie("totalscore")); 
-
-            // set html to display scores
-            document.getElementById("scoreWin").innerHTML = 
-            "<h3>Your score: " + myScore.gameScore + " <br>(" + myScore.title + ")" + "</h3>" + 
-            "<p>Games played: " + $.cookie("gamesplayed") + "<br>" +
-            "Highest score: " + $.cookie("highscore") + "<br>" +
-            "Lowest score: " + $.cookie("lowscore") + "<br>" +
-            "Average score: " + Math.round(parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
-            ;
+            
+            this.setId("scoreWin");    
         }
     }
 
