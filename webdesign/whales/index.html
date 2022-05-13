@@ -163,7 +163,11 @@
     <body onload=" startGame()" onkeydown="keyPressed(event)">
 
         <!-- audio files to be played -->
-        <audio src="sounds/bomb.mp3" id="bombAudio"></audio> 
+        <audio src="sounds/bomb.mp3" id="bombAudio"></audio>
+        <audio src="sounds/whalehit.mp3" id="whaleHit"></audio> 
+        <audio src="sounds/submarinehit.mp3" id="submarineHit"></audio> 
+        <audio src="sounds/yay.mp3" id="yay"></audio> 
+ 
    
         <!-- splash screens. they start as hidden and then come down when called using show and hide functions -->
         <div id="win" class="hide">
@@ -267,7 +271,7 @@
             </div>
             <div class="footer">
                 <!-- Footer -->
-                Version 1.32
+                Version 1.4
             </div>
         </div>
     </body>
@@ -621,6 +625,9 @@
                         myScore.finish();
                     } else {
                         show("submarine"); // activate splash screen if sub is hit
+                        await sleep(1000).then(() => {  
+                            playAudio("submarineHit");
+                        });  
                     } 
                 } else if (myGameArea.gameMatrix[this.x][this.y].value == 9) {
                     myTargets.victimRemaining--;
@@ -629,6 +636,9 @@
                         this.render();
                     });  
                     show("whale"); // activate splash screen if whale is hit
+                    await sleep(1000).then(() => {  
+                        playAudio("whaleHit");
+                    });  
                 } 
                 else {
                     myScore.update(-10);
@@ -825,6 +835,7 @@
             // show splash screen
             await sleep(1000).then(() => {  
                 show("win");
+                playAudio("yay");
             });
 
             // update cookie with score
