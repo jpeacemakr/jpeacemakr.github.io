@@ -17,6 +17,7 @@
                 padding: 8px;
                 font-family: Arial, Helvetica, sans-serif;
                 font-weight: bold;
+                cursor:pointer;
             }
             button:hover {
                 background-color: #62bcf9;
@@ -167,17 +168,17 @@
         <div id="win" class="hide">
             <img style ="width: 65%; display: block; margin-left: auto; margin-right: auto;" src="images/sky.svg">
             <div id="scoreWin"></div>
-            <button style = "position: absolute; width:120px; top:420px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('win'); startGame();">PLAY AGAIN</button>
+            <button style = "position: absolute; width:120px; top:420px; left:calc(50% - 60px);" onClick="hide('win'); startGame();">PLAY AGAIN</button>
         </div>
 
         <div id="whale" class="hide">
             <img style ="width: 55%; display: block; margin-left: auto; margin-right: auto;" src="images/whaleshot.svg">
-            <button style = "position: absolute; width:120px; top:390px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('whale');">CONTINUE</button>
+            <button style = "position: absolute; width:120px; top:390px; left:calc(50% - 60px);" onClick="hide('whale');">CONTINUE</button>
         </div>
 
         <div id="submarine" class="hide">
             <img style ="width: 55%; display: block; margin-left: auto; margin-right: auto;" src="images/submarineshot.svg">
-            <button style = "position: absolute; width:120px; top:400px; left:calc(50% - 60px); cursor: pointer;" onClick="hide('submarine');">CONTINUE</button>
+            <button style = "position: absolute; width:120px; top:400px; left:calc(50% - 60px);" onClick="hide('submarine');">CONTINUE</button>
         </div>
 
 
@@ -194,7 +195,7 @@
                 <!-- Header for mobile size. Smaller version with button to show the rules and score -->
                 <image src="images/periscopecropped.svg" style="width:80px;float:left; margin-left:0px; margin-right:0px" alt="persicope">
                 <h1 style="position:absolute; margin-left:25px; margin-top:12px; font-size: 21px; text-shadow: 1px 1px 2px black; white-space: nowrap;"><span style="color:white">Don't torpedo the </span"><span style="color:#bedfff ">whales!</span></h1>
-                <p style="font-family: Georgia; position:absolute; margin-left:85px; margin-top:40px; font-size: 12px; color:#4e7dad"><i>(An absurd game of luck and logic) </i> <a href="#" id="info">[?]</a></p>
+                <p style="font-family: Georgia; position:absolute; margin-left:85px; margin-top:40px; font-size: 12px; color:#4e7dad"><i>(An absurd game of luck and logic) </i> <button id="info" style="position:inline; margin-left:5px; width:18px; font-size:9px; padding:3px; border-radius:12px;">?</button></p>
                 <script>
                     $('#info').click(function() {
                         $('.rules').css({
@@ -220,7 +221,7 @@
                         <h4 id="score"></h4>
                         
                         <!-- button to hide the rules and score in mobile size only -->
-                        <button id="closeRules" style="margin:0 auto; cursor:pointer;">CLOSE</button>
+                        <button id="closeRules" style="margin:0 auto;">CLOSE</button>
                         <script>
                             $('#closeRules').click(function() {
                                 $('.rules').css({
@@ -265,7 +266,7 @@
             </div>
             <div class="footer">
                 <!-- Footer -->
-                Version 1.31
+                Version 1.32
             </div>
         </div>
     </body>
