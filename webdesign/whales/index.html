@@ -828,9 +828,13 @@
             "<p>Score: " + myScore.gameScore + " (" + myScore.title + ")" + "<br>" + 
             "Games played: " + $.cookie("gamesplayed") + "<br>" +
             "Highest score: " + $.cookie("highscore") + "<br>" +
-            "Lowest score: " + $.cookie("lowscore") + "<br>" +
-            "Average score: " + Math.round(parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>" 
+            "Lowest score: " + $.cookie("lowscore") + "<br>"
             ;
+            // only include average score if games played is greater than 0. (can't divide by 0)
+            if ((parseInt($.cookie("gamesplayed"))) != 0) {            
+                document.getElementById(name).innerHTML = document.getElementById(name).innerHTML + "Average score: " + Math.round(parseInt($.cookie("totalscore"))/parseInt($.cookie("gamesplayed"))) + "</p>";
+            }
+            document.getElementById(name).innerHTML = document.getElementById(name).innerHTML + "</p>";
         },
         
         finish : async function() {
