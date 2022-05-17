@@ -1,25 +1,82 @@
 
 
 
-.sharpcorners 
-{
 
-	border-radius:0;
-
-
+.bgdarkblue1 {
+    background-color: #233b77!important;
 }
 
+.bgdarkblue2 {
+    background-color: #4C6A8B!important;
+}
 
+.bgmedblue {
+    background-color: #002b5a!important;
+}
+
+.bglightblue {
+    background-color: #DDEEFF!important;
+}
+
+.bgwhite {
+    background-color: #FFFFFF!important;
+}
+
+.bglightblueshaded {
+    background-color: #DDEEFF!important;
+    opacity: 0.5;
+}
+
+body {
+	overflow-y: scroll; 
+}
+
+.box {
+ 	padding:30px; 
+}
+
+.boxsmall {
+ 	display:inline-block;
+	padding:10px 20px; 
+	margin-right: 6px;
+	font-weight: bold;
+	float:
+}
+
+.boxlarge {
+	display:inline-block;
+	padding:10px; 
+	margin-right: 8px;
+}
+
+.btn {
+	white-space: nowrap;
+	border-radius:0;
+}
+
+.footer {
+	padding: 10px 0px 50px 0px;
+}
+
+.form-control {
+	border-radius:0;
+}
+
+.formdiv {
+	padding-top:10px
+}
+
+label {
+	font-weight:bold;
+	font-size:12px;
+	margin:2px;
+	text-transform:uppercase;
+}
 
 .lightbluebg
 {
-
 	background-color:#EEEEFF; 
-
-
 }
-
-
 
 .myfooter
 {
@@ -27,58 +84,48 @@
 	text-align:center; 
 }
 
-
 .mypaddedbody 
 {
-
   padding-top:56px;
+}
 
+.navbar-brand {
+	font-size: 18px;
+}
+
+.nowrap {
+	white-space:nowrap;
+}
+
+.pageheader {
+	padding:30px; 
+	background-image:url('../images/bgtrinkle.jpg'); 
+	background-color:#000000; 
+	background-size:cover; 
+	background-position:right; 
+	border-radius:0;
+}
+
+.pageheadersmall {
+	padding:20px 20px 10px 20px; 
+	background-color:#000000; 
+	border-radius:0;
+	margin-bottom:30px;
+	width:100%;
+}
+
+.pagetitle{
+	color:#FFFFFF;
+}
+.pagesubtitle {
+	color:#BBBBBB;
 }
 
 
-.bgdarkblue1 {
-    background-color: #005a87!important;
-}
 
-
-
-.bgdarkblue2 {
-    background-color: #4C6A8B!important;
-
-}
-
-.bgmedblue {
-    background-color: #002b5a!important;
-
-}
-
-.bglightblue {
-    background-color: #EEEEFF!important;
-}
-
-.bgwhite {
-    background-color: #FFFFFF!important;
-}
-
-
-.bglightblueshaded {
-    background-color: #EEEEFF!important;
-    opacity: 0.5;
-}
-
-
-.box {
- 	padding:30px; 
-}
-
-.boxsmall {
- 	padding:10px; 
- 	display:inline-block;
-}
-
-
-.tab {
- 	margin-bottom:20px; 
+.sharpcorners 
+{
+	border-radius:0;
 }
 
 .stretch {
@@ -89,4 +136,35 @@
 .shrink {
 	width:none!important;
 	max-width:none!important; 
+}
+
+.tab {
+	margin-bottom:20px; 
+}
+
+
+.title1 {
+
+}
+.title2 {
+	color:white;
+}
+
+
+@media (max-width:992px) {
+	table tr td:nth-child(4) {
+		display: none!important;
+	}
+	table thead th:nth-child(4) {
+		display: none!important;
+	}
+}
+
+@media (max-width:768px) {
+	table tr td:nth-child(3) {
+		display: none!important;
+	}
+	th:nth-child(3) {
+		display: none!important;
+	}
 }
