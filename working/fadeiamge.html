@@ -1,0 +1,78 @@
+<html>
+
+
+    <head>
+        <style>
+            
+            .box {
+                height: 800px;
+                width: 800px;
+                background-color: midnightblue;
+                color: white;
+            }
+            
+            .tag {
+                opacity: 0;
+                transition: all 3s;
+            }
+
+            .visible {
+                opacity: 1;
+            }
+
+        </style>
+    </head>
+
+
+    <body>
+        <br>
+        <br>
+        <div id="test1" class="box tag">
+            This is a div that I want to play with.
+        </div>
+        <br><br><br><br><br>
+        <div id="test2" class="box tag">
+            This is a div that I want to play with.
+        </div>
+        <br><br><br><br><br><br>
+        <div id="test3" class="box tag">
+            This is a div that I want to play with.
+        </div>
+        <br><br><br><br><br><br>&nbsp;
+    </body>
+
+
+
+</html>
+
+
+<script>
+   
+    // adds the visible class to the tag class elements when they scroll into view. removes visible when they scroll out of view
+    function showElements() {
+        
+        //console.log("running scrollTransparentImage")
+
+        var pageTop = document.body.scrollTop;
+        //console.log("window scroll position " + pageTop);
+
+        var pageBottom = pageTop + window.innerHeight;
+        //console.log("page bottom " + pageBottom);
+
+        const scrollers = document.getElementsByClassName("tag");
+        for (let i = 0; i < scrollers.length; i++) {
+       
+            if (scrollers[i].offsetTop < pageBottom) {
+                scrollers[i].classList.add("visible");
+                //console.log("adding visible class");
+            } else {
+                scrollers[i].classList.remove("visible");
+                //console.log("removing visible class");
+            }
+        }     
+    }
+
+    showElements();
+    document.addEventListener("scroll", showElements);
+
+</script>
