@@ -4,9 +4,84 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="keywords" content="Minecraft, Bedrock Edition, command blocks, coding">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/minecraft.css">
+
+
+  <style>
+    /* responsive styles for the header */
+    /* large screen */
+    .splashbox {
+      background-position: right top;
+      background-image:url('./images/splash.jpg'); 
+      background-size:cover; 
+      border-radius:0;
+      height: 500px; 
+      padding:40px 100px;
+    }
+    .splashh1 {
+      font-family: 'Roboto Flex', sans-serif;
+      font-weight:700;
+      color:#FFFF66; 
+      text-shadow: 2px 2px 4px black;
+      font-size: 80px;
+    }
+    .splashh2 {
+      font-size: 28px; 
+      color:white; 
+      text-shadow: 2px 2px 4px black; 
+      font-weight: lighter;
+    }
+    .blockimage {
+      width:280px;
+      margin-right:20px;
+      margin-top:0px;
+      float:right;
+      position:relative;
+      top:-70px;
+      filter: drop-shadow( 4px -4px 8px rgba(0,0,0,0.5));
+    }
+
+    /* medium screen */
+    @media screen and (max-width: 992px) {
+      .splashbox {
+        padding:60px 60px;
+        height: auto; 
+      }
+      .splashh1 {
+        font-size: 60px;
+      }
+      .splashh2 {
+        font-size: 24px;
+      }
+      .blockimage {
+        width:200px;
+        top:-60px;
+      }
+    }
+
+    /* small screen */
+    @media screen and (max-width: 600px) {
+      .splashbox {
+        padding:30px 30px;
+      }
+      .splashh1 {
+        font-size: 44px;
+      }
+      .splashh2 {
+        font-size: 20px;
+      }
+      .blockimage {
+        width:150px;
+        top:0px;
+        filter: drop-shadow( 2px -2px 4px rgba(0,0,0,0.5));
+      }
+    }
+
+  </style>
 
   <title>Command Blocks for Minecraft Bedrock Edition</title>
 </head>
@@ -15,46 +90,46 @@
 
 <body>
 
-
-  <!-- Title splash section -->
-  <div class="jumbotron" style="padding:50px; background-image:url('./images/splash.jpg'); background-size:cover; border-radius:0" >
-    <h1 class="display-4" style="color:#FFFF66">Command Blocks for <br>Minecraft Bedrock Edition</h1>
-    <p class="lead" style="color:white">A fun way to introduce kids to basic coding principles</p>
-    <a class="btn btn-primary btn-lg"  href="./gettingstarted.htm" role="button">START THE TUTORIAL</a>
+  <!-- Title splash section for big screen-->
+  <div class="splashbox">
+    <h1 class="splashh1">Command Blocks<br> for Minecraft <br>Bedrock Edition</h1>
+    <h2 class="splashh2">A fun way to introduce kids to basic coding principles</h2>
+    <a class="btn btn-primary btn-lg mt-3" href="./gettingstarted.htm" role="button">START THE TUTORIAL</a>
   </div>
 
 
-  <div class="container" style="padding:50px; padding-top:0px">
 
+
+
+  <div class="container">
+    <img src="./images/commandblock.png" class="blockimage" alt="A command block">
     <!-- Words to give a bit more information on the project -->
-    <div  style="padding:0px; padding-top:20px">
+    <div class="pt-3 pb-2 mt-4">
       <h3>The power of Command Blocks</h3>
-      <img src="./images/commandblock.jpg" style="width:150px;margin-right:20px;margin-top:0px;float:right">Minecraft is a massively popular game that is accessible through a PC, tablet, smart phone or even game consoles. But the game is not just mindless fun; it can be used to teach basic principles of coding and logic while also letting kids express themselves creatively. This website teaches the basics of command blocks for the Bedrock Edition. More complex commands can be done with the Java Edition of Minecraft, but the Bedrock version is more accessible across multiple platforms. This site was created by James Peacemaker as a class project at the University of Mary Washington in Fredericksburg, Va. This website is not affiliated with the makers of Minecraft.
-      <hr>
+      <p>Minecraft is a massively popular game that is accessible through a PC, tablet, smart phone or even game consoles. But the game is not just mindless fun; it can be used to teach basic principles of coding and logic while also letting kids express themselves creatively. This website teaches the basics of command blocks for the Bedrock Edition. More complex commands can be done with the Java Edition of Minecraft, but the Bedrock version is more accessible across multiple platforms. This site was created by James Peacemaker as a class project at the University of Mary Washington in Fredericksburg, Va. This website is not affiliated with the makers of Minecraft.</p>
     </div>
-
-
+    <hr>
     <!-- Three main sections of content -->
-    <div class="row">
-      <div class="col-sm">
+    <div class="row pt-3" style="clear:right;">
+      <div class="col-sm mb-4">
 
-        <img src="./images/commandblockssmall.jpg" class="figure-img img-fluid mb-3" alt="...">
+        <img src="./images/commandblockssmall.jpg" class="figure-img img-fluid mb-3" alt="Command blocks">
         <h3>The tutorial</h3>
         <p>Command blocks can be surprisingly powerful in Minecraft Bedrock Edition. Learn about the different types of command blocks and how to chain them together to create more complex instructions. You can add a whole new level of creativity to your maps.</p>
         <p><a class="btn btn-primary btn-md" href="./gettingstarted.htm" role="button">READ MORE</a></p>
 
       </div>
-      <div class="col-sm">
+      <div class="col-sm mb-4">
 
-        <img src="./images/spacestationsmall.jpg" class="figure-img img-fluid mb-3" alt="...">
+        <img src="./images/spacestationsmall.jpg" class="figure-img img-fluid mb-3" alt="A space station map">
         <h3>Download maps</h3>
         <p>Travel to outer space, become a wizard and battle a horde of enemies, or fight your friends with a map that explodes as you destroy it. These maps demonstrate how much fun you can make your maps with a few simple command blocks.</p>
         <p><a class="btn btn-primary btn-md" href="./downloads.htm" role="button">READ MORE</a></p>
 
       </div>
-      <div class="col-sm">
+      <div class="col-sm mb-4">
 
-        <img src="./images/blogsmall.jpg" class="figure-img img-fluid  mb-3" alt="...">
+        <img src="./images/blogsmall.jpg" class="figure-img img-fluid  mb-3" alt="A zombie">
         <h3>Blog: What's new</h3>
         <p>Get the latest updates on the progress of this website and find out a little bit more about the author. I'll update you when new maps are added to the download section.</p>
         <p><a class="btn btn-primary btn-md" href="./blog.htm" role="button">READ MORE</a></p>
