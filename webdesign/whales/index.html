@@ -303,10 +303,10 @@
 
     ////////////////////////////////////////
     // used to get the size of the screen. used to set the number of squares on the game board
-    var w = Math.min(window.screen.width, window.innerWidth);
+    var w = Math.min(window.screen.availWidth, window.innerWidth);
     console.log("width:" + w);
 
-    var h = Math.min (window.screen.height, window.innerHeight);
+    var h = Math.min (window.screen.availHeight, window.innerHeight);
     console.log("height:" + h);
     
     // used to resize the game if screen is small
@@ -917,9 +917,9 @@
     /////////////////////////////////////
     // sets position of game piece based on mouse click
     function doMouseDown(event) {
-        // get position of mouse on screen
-        canvasX = event.pageX;
-        canvasY = event.pageY;
+        // get position of mouse on screen (position on page - amount page is scrolled)
+        canvasX = event.pageX-window.scrollX;
+        canvasY = event.pageY-window.scrollY;
         //console.log("Debug: screen mouse position " + canvasX + " " + canvasY);
 
         //subtract canvas position from mouse position on screen
