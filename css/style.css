@@ -1,19 +1,14 @@
 @import "../bootstrap/css/bootstrap.css";
 
-
-
 .sharpcorners
 {
 	border-radius:0;
 }
 
-
 .lightbluebg
 {
 	background-color:#EEEEFF;
 }
-
-
 
 .myfooter
 {
@@ -21,8 +16,90 @@
 	text-align:center;
 }
 
-
 .mypaddedbody
 {
   padding-top:100px;
+}
+
+.column {
+	width: 50%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.column2 {
+width: 50%;
+padding: 10px;
+}
+
+@media screen and (max-width: 767px) {
+	.column {
+		width: 100%;
+	}
+	.column2 {
+		width: 0%;
+		padding: 0px;
+	}
+}
+
+/* Style the images inside the grid */
+.column img {
+cursor: pointer;
+}
+
+.column img:hover {
+opacity: 0.6;
+}
+
+#expandedImg {
+	padding: 0px;
+	border-color: #000000;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.expandedImgDiv {
+	height:100%; 
+	padding: 0px;
+	position:fixed;
+	top:90px;
+	padding-left:20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Expanding image text */
+#imgtext {
+	color: black;
+	font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+	position: absolute;
+	top: 5px;
+	right: 15px;
+	color: rgb(255, 251, 197);
+	text-shadow: 1px 1px 4px #000000;
+	font-size: 35px;
+	cursor: pointer;
+}
+
+.thumb {
+	width: calc(25%);
+	padding: 5px;
+	margin: -2px;
+}
+@media screen and (max-width: 992px) {
+	.thumb {
+		width: calc(33%);
+	}
+}
+
+* {
+	box-sizing: border-box;
 }
