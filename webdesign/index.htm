@@ -5,101 +5,23 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Bootstrap CSS -->
+		<!-- import site and Bootstrap CSS -->
 		<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 		<!-- Local CSS -->
 		<style>
-			/* The grid: Four equal columns that floats next to each other */
-			.column {
-			width: 30%;
-			padding: 10px;
-			}
-
-			.column2 {
-			width: 70%;
-			padding: 10px;
-			}
-
-			/* Style the images inside the grid */
-			.column img {
-			opacity: 1;
-			cursor: pointer;
-			}
-
-			/* Style the images inside the grid */
-			.column2 img {
-			opacity: 1;
-			cursor: arrow;
-				margin-bottom:10px;
-			}
-
-			.column img:hover {
-			opacity: 0.6;
-			}
-
-			/* Clear floats after the columns */
-			.row:after {
-			content: "";
-			display: table;
-			clear: both;
-			}
-
-			/* The expanding image container (positioning is needed to position the close button and the text) */
-			.container {
-			position: relative;
-			display: none;
-			}
-
-			/* Expanding image text */
-			#imgtext {
-			color: black;
-			font-size: 16px;
-			}
-
-			/* Closable button inside the image */
-			.closebtn {
-			position: absolute;
-			top: 30px;
-			right: 65px;
-			color: white;
-				text-shadow: 1px 1px 6px #000000;
-			font-size: 35px;
-			cursor: pointer;
-			}
-
-			.thumb {
-				width: 48%;
-				padding: 5px;
-			}
 		</style>
 
-
-		<script language="javascript">
-
-			function myFunction(imgs) {
-			// Get the expanded image
-			var expandImg = document.getElementById("expandedImg");
-			// Get the image text
-			var imgText = document.getElementById("imgtext");
-			// Use the same src in the expanded image as the image being clicked on from the grid
-			expandImg.src = imgs.src;
-			// Use the value of the alt attribute of the clickable image as text inside the expanded image
-			imgText.innerHTML = imgs.alt;
-			// Show the container element (hidden with CSS)
-			expandImg.parentElement.style.display = "block";
-			}
-
-		</script>
+		<script language="javascript" src="../scripts/thumbnail.js"></script>
+		<script language="javascript" src="../scripts/resize.js"></script>
 
 		<title>James Peacemaker Jr.</title>
-
 	</head>
 
 
 
 
-	<body class="mypaddedbody">
+	<body class="mypaddedbody" onresize="resizeExpandedImage();">
 
 		<!-- Header nav bar to be used on every page -->
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top"  style="background-color:#336699;padding:8px;">
@@ -145,16 +67,20 @@
 
 
 
+
 		<div class="container-fluid pl-5 pr-5">
+
 			<div class="row">
 
 				<!-- Vertical nav bar on left side -->
-				<div class="col-md-2">
+				<div class="col-lg-2 col-md-1">
 				</div>
 
 
 				<!-- content in the middle-->
 				<div class="col">
+					
+
 					<h1 class="display-4">Web design</h1>
 					<p class="lead">A selection of designs from jobs, classes and personal projects</p>
 					<hr>
@@ -165,76 +91,90 @@
 
 						<h5>Websites</h5>
 
-						<p><a href="whales/index.html">Don't Torpedo the Whales:</a> This is a game using the html canvas element. It uses two overlapping canvases controlled by javascript. It creates the game board based on the size of the screen. It also uses some jQuery, original .svg artwork and sound effects.</p>
+						<p><a href="whales/index.html" target="_blank">Don't Torpedo the Whales:</a> This is a game using the html canvas element. It uses two overlapping canvases controlled by javascript. It creates the game board based on the size of the screen. It also uses some jQuery, original .svg artwork and sound effects.</p>
 
-						<p><a href="minecraftwebsite/index.htm">Minecraft Command Block guide:</a> This website teaches people how to use command blocks in Minecraft Bedrock Edition. It has a responsive web design for PC, phone or tablet using Bootstrap.</p>
+						<p><a href="minecraftwebsite/index.htm" target="_blank">Minecraft Command Block guide:</a> This website teaches people how to use command blocks in Minecraft Bedrock Edition. It has a responsive web design for PC, phone or tablet using Bootstrap.</p>
 
-						<p><a href="jobboardprototype/index.htm">Job / Intership Board prototype:</a> This is a prototype for a job board website. This design was mine and was later implemented by a team in our software engineering class. It used Next.js (a REACT framework) for the front end and custom Javascript APIs (using Node.js) and a PostgreSQL database for the back end.</p>
+						<p><a href="jobboardprototype/index.htm" target="_blank">Job / Intership Board prototype:</a> This is a prototype for a job board website. This design was mine and was later implemented by a team in our software engineering class. It used Next.js (a REACT framework) for the front end and custom Javascript APIs (using Node.js) and a PostgreSQL database for the back end.</p>
 
-						<p><a href="capital/index.html">The Capital newspaper prototype:</a> A prototype design for The Capital newspaper website circa early 2000s. This is a bit outdated.</p>
+						<p><a href="capital/index.html" target="_blank">The Capital newspaper prototype:</a> A prototype design for The Capital newspaper website circa early 2000s. This is a bit outdated.</p>
 
-						<br><br>
+						<h5 class="mt-5 mb-3">Prototype designs for a progressive web app</h5>
+						<div class="row">
+							<div class="col-3">
+								<a href="shoutmap/welcome.png" target="_blank" class="thumbnail"><img src="shoutmap/welcome.png" alt="" style="width:100%"></a>
+							</div>
+							<div class="col-3">
+								<a href="shoutmap/explore.png" target="_blank" class="thumbnail"><img src="shoutmap/explore.png" alt="" style="width:100%"></a>
+							</div>
+							<div class="col-3">
+								<a href="shoutmap/post.png" target="_blank" class="thumbnail"><img src="shoutmap/post.png" alt="" style="width:100%"></a>
+							</div>
+							<div class="col-3">
+								<a href="shoutmap/people.png" target="_blank" class="thumbnail"><img src="shoutmap/people.png" alt="" style="width:100%"></a>
+							</div>
+						</div>
 
-						<h5>Screen shots</h5>
-
+						<h5 class="mt-5">Screen shots</h5>
 						<div class="column">
 
-							<img class="thumb" src="camping.jpg" alt="This was a class project using Next.js that searched for and displayed information about various campgrounds across the United States." onclick="myFunction(this);" onload="myFunction(this);">
+							<img class="thumb" src="camping_thumb.jpg" alt="This was a class project using Next.js that searched for and displayed information about various campgrounds across the United States." onclick="thumbnail(this);">
 
-							<img class="thumb" src="clintonemails.jpg" alt="This was a class project using Next.js and Elasticsearch that allowed users to search messages that were on Hillary Clinton's private email server that became political fodder in the 2016 election." onclick="myFunction(this);">
+							<img class="thumb" src="clintonemails_thumb.jpg" alt="This was a class project using Next.js and Elasticsearch that allowed users to search messages that were on Hillary Clinton's private email server that became political fodder in the 2016 election." onclick="thumbnail(this);">
 
-							<img class="thumb" src="nutritionfinder.jpg" alt="This was a class project using Next.js that allowed users to search a database of nutritional information." onclick="myFunction(this);">
+							<img class="thumb" src="nutritionfinder_thumb.jpg" alt="This was a class project using Next.js that allowed users to search a database of nutritional information." onclick="thumbnail(this);">
 
-							<img class="thumb" src="supersearch.jpg" alt="This was a class project using Next.js that allowed users to log in and search for places to eat and movie theaters in their zip code." onclick="myFunction(this);">
+							<img class="thumb" src="supersearch_thumb.jpg" alt="This was a class project using Next.js that allowed users to log in and search for places to eat and movie theaters in their zip code." onclick="thumbnail(this);">
 
-							<img class="thumb" src="port6.jpg" alt="This was a design used for the UMWC radio station website in the late 1990s." onclick="myFunction(this);">
+							<img class="thumb" src="port6_thumb.jpg" alt="This was a design used for the UMWC radio station website in the late 1990s." onclick="thumbnail(this);">
 
-							<img class="thumb" src="alexandsara.jpg" alt="A wedding photography website." onclick="myFunction(this);">
+							<img class="thumb" src="alexandsara_thumb.jpg" alt="A wedding photography website." onclick="thumbnail(this);">
 
-							<img class="thumb" src="samandmegan.jpg" alt="A wedding photography website." onclick="myFunction(this);">
+							<img class="thumb" src="samandmegan_thumb.jpg" alt="A wedding photography website." onclick="thumbnail(this);">
 
 
-							<h5><br>Prototype designs for a progressive web app</h5>
-							<img class="thumb" src="shoutmap/welcome.png" alt="" onclick="myFunction(this);">
-							<img class="thumb" src="shoutmap/explore.png" alt="" onclick="myFunction(this);">
-							<img class="thumb" src="shoutmap/post.png" alt="" onclick="myFunction(this);">
-							<img class="thumb" src="shoutmap/people.png" alt="" onclick="myFunction(this);">
+							
 
 					</div>
 
-						<div class="column2">
+					<div class="column2">
 
-							<!-- The expanding image container -->
-							<div class="container" style="fixed">
+						<!-- The expanding image container -->
+						<div class="expandedImgDiv" style="position:relative; top:0; width:400px; height:400px;">
 							<!-- Close the image -->
 							<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
 
 							<!-- Expanded image -->
-							<img id="expandedImg" style="width:100%; padding: 0px">
-
+							<a href onclick="window.open(document.getElementById('expandedImg').src,'targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes'); return false;"><img id="expandedImg" onload="resizeExpandedImage()" src="camping.jpg" alt=""></a>
+							
 							<!-- Image text -->
 							<div id="imgtext"></div>
-							</div>
-
 						</div>
+						
+					</div>
 
 					</div>
 
 				</div>
 
 
+
 				<!-- right sidebar if needed-->
-				<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+				<div class="col-md-2">
 				</div>
 
-			</div>
 
+			</div>
 		</div>
+
+
 
 
 		<!-- Footer to be used on every page -->
 		<div  class="myfooter"><br>
 		</div>
+
+
 
 
 		<!-- Optional JavaScript -->

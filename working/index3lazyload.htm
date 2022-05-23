@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- import site and Bootstrap CSS -->
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+		<!-- Local CSS -->
+		<style>
+			.lazy {
+				background: #c4c4c4;
+				width: 25%;
+				height: 200px;
+			}
+		</style>
+
+		<script language="javascript" src="../scripts/thumbnail.js"></script>
+		<script language="javascript" src="../scripts/resize.js"></script>
+
+
+		<script>
+
+			// used to lazy load images. image uses data-src insteand of src. also must have the lazy class
+			document.addEventListener("DOMContentLoaded", function() {
+				var lazyloadImages = document.querySelectorAll("img.lazy");    
+				var lazyloadThrottleTimeout;
+				function lazyload () {
+
+					if(lazyloadThrottleTimeout) {
+						clearTimeout(lazyloadThrottleTimeout);
+					}    
+					
+					lazyloadThrottleTimeout = setTimeout(function() {
+						var scrollTop = window.pageYOffset;
+						lazyloadImages.forEach(function(img) {
+							if(img.offsetTop < (window.innerHeight + scrollTop)) {
+								img.src = img.dataset.src;
+								img.classList.remove('lazy');
+							}
+						});
+						if(lazyloadImages.length == 0) { 
+							document.removeEventListener("scroll", lazyload);
+							window.removeEventListener("resize", lazyload);
+							window.removeEventListener("orientationChange", lazyload);
+						}
+					}, 20);
+				}
+				
+				document.addEventListener("scroll", lazyload);
+				window.addEventListener("resize", lazyload);
+				window.addEventListener("orientationChange", lazyload);
+			});
+
+		</script>
+
+
+		<title>James Peacemaker Jr.</title>
+	</head>
+
+
+
+
+	<body class="mypaddedbody" onresize="resizeExpandedImage();">
+
+		<!-- Header nav bar to be used on every page -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top"  style="background-color:#336699;padding:8px;">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNav" >
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="../index.htm">Home </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../webdesign/index.htm">Web design</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../programming/index.htm">Programming</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="../printdesign/index.htm"><b>Print</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../graphics/index.htm">Graphics </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../resume/index.htm">Résumé</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- bigger name/logo -->
+			<div class="d-none d-sm-none d-lg-block" style="position: absolute;right:6px;top:12px;">
+				<a class="navbar-brand text-white" href="../index.htm"><b>James Peacemaker Jr.</b></a>
+			</div>
+			<!-- smaller name/logo -->
+			<div class="d-lg-none" style="position: absolute;right:6px;top:12px;">
+				<a class="navbar-brand text-white" href="../index.htm"><b>James Peacemaker Jr.</b></a>
+			</div>
+
+		</nav>
+
+
+
+
+
+		<div class="container-fluid pl-5 pr-5">
+
+			<div class="row">
+
+				<!-- Vertical nav bar on left side -->
+				<div class="col-lg-2 col-md-1">
+				</div>
+
+
+				<!-- content in the middle-->
+				<div class="col">
+					
+
+					<!-- Section for thumbnails and expanded image -->
+					<div class="row">
+					
+						<!-- The thumbnails -->
+						<div class="column pt-0">
+							<h1 class="display-4">Print</h1>
+							<p class="lead">A selection of designs from newspapers and magazines  </p>
+							<hr>
+
+							<h5>The Progress-Index</h5>
+							<img class="thumb" src="../printdesign/progressindex/a1/obamainauguration_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb" src="../printdesign/progressindex/a1/020611_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb" src="../printdesign/progressindex/a1/110109_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb" src="../printdesign/progressindex/a1/072009_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb" src="../printdesign/progressindex/a1/040408_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb" src="../printdesign/progressindex/a1/012509E1_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb" src="../printdesign/progressindex/features/042609progress2_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb" src="../printdesign/progressindex/features/progress2_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+
+							<h5><br>The Capital</h5>
+
+							<img class="thumb lazy" data-src="../printdesign/capital/a1/footballpromo_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/a1/carsa1_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/features/10mostwantedsmall_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/features/bird_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/features/bug_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/features/cow_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/features/familycircus1_thumb.jpg"  alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/features/navy_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+
+							<h5><br>Potomac News / Manassas Journal Messenger</h5>
+
+							<img class="thumb lazy" data-src="../printdesign/potomacnews/a1/911_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/potomacnews/a1/bobbitt_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/potomacnews/a1/boom_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/potomacnews/a1/0209washingtoncover_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+
+							<h5><br>Magazines and tabloids</h5>
+
+							<img class="thumb lazy" data-src="../printdesign/progressindex/features/srmctabxraycover_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/hopewellnews/hnfootballpreview2015_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/mags/waterfrontliving_thumb.jpg" alt="" onclick="thumbnail(this);">
+
+							<img class="thumb lazy" data-src="../printdesign/capital/mags/youngandrealtors_thumb.jpg" alt="" onclick="thumbnail(this);">
+						</div>
+
+						<div class="column2">
+
+							<!-- The expanding image container -->
+							<div class="expandedImgDiv">
+								<!-- Close the image -->
+								<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+								<!-- Expanded image -->
+								<a href onclick="window.open(document.getElementById('expandedImg').src,'targetWindow', 'toolbar=no, location=no, status=no, menubar=no, scrollbars=yes, resizable=yes'); return false;"><img id="expandedImg" onload="resizeExpandedImage()" src="../printdesign/progressindex/a1/obamainauguration_thumb.jpg" alt=""></a>
+								
+								<!-- Image text -->
+								<div id="imgtext"></div>
+							</div>
+							
+						</div>
+
+					</div>
+
+				</div>
+
+
+
+				<!-- right sidebar if needed-->
+				<div class="col-md-2">
+				</div>
+
+
+			</div>
+		</div>
+
+
+
+
+		<!-- Footer to be used on every page -->
+		<div  class="myfooter"><br>
+		</div>
+
+
+
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	</body>
+</html>

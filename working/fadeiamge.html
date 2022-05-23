@@ -47,11 +47,26 @@
 
 
 <script>
+
+
+    function throttle (fn, delay) {
+        let lastCalled = 0;
+        return (...args) => {
+            let now = new Date().getTime();
+            if(now - lastCalled < delay) {
+                return;
+            }
+            lastCalled = now;
+            return fn(...args);
+        }
+    }
+
+
    
     // adds the visible class to the tag class elements when they scroll into view. removes visible when they scroll out of view
     function showElements() {
         
-        //console.log("running scrollTransparentImage")
+        console.log("running scrollTransparentImage")
 
         var pageTop = document.body.scrollTop;
         //console.log("window scroll position " + pageTop);
@@ -73,6 +88,6 @@
     }
 
     showElements();
-    document.addEventListener("scroll", showElements);
+    document.addEventListener("scroll", throttle(showElements,500));
 
 </script>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+		<!-- Local CSS -->
+		<style>
+			/* The grid: Four equal columns that floats next to each other */
+			.column {
+			width: 30%;
+			padding: 10px;
+			}
+
+			.column2 {
+			width: 70%;
+			padding: 10px;
+			}
+
+			/* Style the images inside the grid */
+			.column img {
+			opacity: 1;
+			cursor: pointer;
+			}
+
+			/* Style the images inside the grid */
+			.column2 img {
+			opacity: 1;
+			cursor: arrow;
+				margin-bottom:10px;
+			}
+
+			.column img:hover {
+			opacity: 0.6;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			content: "";
+			display: table;
+			clear: both;
+			}
+
+			/* The expanding image container (positioning is needed to position the close button and the text) */
+			.container {
+			position: relative;
+			display: none;
+			}
+
+			/* Expanding image text */
+			#imgtext {
+			color: black;
+			font-size: 16px;
+			}
+
+			/* Closable button inside the image */
+			.closebtn {
+			position: absolute;
+			top: 30px;
+			right: 65px;
+			color: white;
+				text-shadow: 1px 1px 6px #000000;
+			font-size: 35px;
+			cursor: pointer;
+			}
+
+			.thumb {
+				width: 48%;
+				padding: 5px;
+			}
+		</style>
+
+
+		<script language="javascript">
+
+			function myFunction(imgs) {
+			// Get the expanded image
+			var expandImg = document.getElementById("expandedImg");
+			// Get the image text
+			var imgText = document.getElementById("imgtext");
+			// Use the same src in the expanded image as the image being clicked on from the grid
+			expandImg.src = imgs.src;
+			// Use the value of the alt attribute of the clickable image as text inside the expanded image
+			imgText.innerHTML = imgs.alt;
+			// Show the container element (hidden with CSS)
+			expandImg.parentElement.style.display = "block";
+			}
+
+		</script>
+
+		<title>James Peacemaker Jr.</title>
+
+	</head>
+
+
+
+
+	<body class="mypaddedbody">
+
+		<!-- Header nav bar to be used on every page -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top"  style="background-color:#336699;padding:8px;">
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNav" >
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="../index.htm">Home </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="../webdesign/index.htm"><b>Web design</b></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../programming/index.htm">Programming</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../printdesign/index.htm">Print</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../graphics/index.htm">Graphics </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="../resume/index.htm">Résumé</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- bigger name/logo -->
+			<div class="d-none d-sm-none d-lg-block" style="position: absolute;right:6px;top:12px;">
+				<a class="navbar-brand text-white" href="../index.htm"><b>James Peacemaker Jr.</b></a>
+			</div>
+			<!-- smaller name/logo -->
+			<div class="d-lg-none" style="position: absolute;right:6px;top:12px;">
+				<a class="navbar-brand text-white" href="../index.htm"><b>James Peacemaker Jr.</b></a>
+			</div>
+
+		</nav>
+
+
+
+
+		<div class="container-fluid pl-5 pr-5">
+			<div class="row">
+
+				<!-- Vertical nav bar on left side -->
+				<div class="col-md-2">
+				</div>
+
+
+				<!-- content in the middle-->
+				<div class="col">
+					<h1 class="display-4">Web design</h1>
+					<p class="lead">A selection of designs from jobs, classes and personal projects</p>
+					<hr>
+
+					<!-- Here is the thumbnails section -->
+					<!-- The grid: four columns -->
+					<div class="row">
+
+						<h5>Websites</h5>
+
+						<p><a href="whales/index.html" target="_blank">Don't Torpedo the Whales:</a> This is a game using the html canvas element. It uses two overlapping canvases controlled by javascript. It creates the game board based on the size of the screen. It also uses some jQuery, original .svg artwork and sound effects.</p>
+
+						<p><a href="minecraftwebsite/index.htm" target="_blank">Minecraft Command Block guide:</a> This website teaches people how to use command blocks in Minecraft Bedrock Edition. It has a responsive web design for PC, phone or tablet using Bootstrap.</p>
+
+						<p><a href="jobboardprototype/index.htm" target="_blank">Job / Intership Board prototype:</a> This is a prototype for a job board website. This design was mine and was later implemented by a team in our software engineering class. It used Next.js (a REACT framework) for the front end and custom Javascript APIs (using Node.js) and a PostgreSQL database for the back end.</p>
+
+						<p><a href="capital/index.html" target="_blank">The Capital newspaper prototype:</a> A prototype design for The Capital newspaper website circa early 2000s. This is a bit outdated.</p>
+
+						
+						<h5 class="mt-5 mb-3">Prototype designs for a progressive web app</h5>
+						<img src="shoutmap/welcome.png" alt="" style="width:25%">
+						<img src="shoutmap/explore.png" alt=""  style="width:25%">
+						<img src="shoutmap/post.png" alt="" style="width:25%">
+						<img src="shoutmap/people.png" alt=""  style="width:25%">
+
+
+						<h5 class="mt-5">Screen shots</h5>
+						<div class="column">
+
+							<img class="thumb" src="camping.jpg" alt="This was a class project using Next.js that searched for and displayed information about various campgrounds across the United States." onclick="myFunction(this);" onload="myFunction(this);">
+
+							<img class="thumb" src="clintonemails.jpg" alt="This was a class project using Next.js and Elasticsearch that allowed users to search messages that were on Hillary Clinton's private email server that became political fodder in the 2016 election." onclick="myFunction(this);">
+
+							<img class="thumb" src="nutritionfinder.jpg" alt="This was a class project using Next.js that allowed users to search a database of nutritional information." onclick="myFunction(this);">
+
+							<img class="thumb" src="supersearch.jpg" alt="This was a class project using Next.js that allowed users to log in and search for places to eat and movie theaters in their zip code." onclick="myFunction(this);">
+
+							<img class="thumb" src="port6.jpg" alt="This was a design used for the UMWC radio station website in the late 1990s." onclick="myFunction(this);">
+
+							<img class="thumb" src="alexandsara.jpg" alt="A wedding photography website." onclick="myFunction(this);">
+
+							<img class="thumb" src="samandmegan.jpg" alt="A wedding photography website." onclick="myFunction(this);">
+
+
+							
+
+					</div>
+
+						<div class="column2">
+
+							<!-- The expanding image container -->
+							<div class="container" style="fixed">
+							<!-- Close the image -->
+							<span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+
+							<!-- Expanded image -->
+							<img id="expandedImg" style="width:100%; padding: 0px">
+
+							<!-- Image text -->
+							<div id="imgtext"></div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+				<!-- right sidebar if needed-->
+				<div class="col-md-2 d-none d-sm-none d-md-none d-lg-block">
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!-- Footer to be used on every page -->
+		<div  class="myfooter"><br>
+		</div>
+
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	</body>
+</html>
