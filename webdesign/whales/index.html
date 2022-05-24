@@ -52,6 +52,7 @@
                 display: flex;
                 align-items: stretch;
                 box-shadow: 3px 3px 10px 1px rgba(0, 0, 0, 0.2);
+                background-color: rgb(33, 66, 144);
             }
 
             .words {
@@ -322,10 +323,20 @@
             document.querySelector('.header2').style.display = 'block';
             document.querySelector('.center').style.flexDirection = 'column-reverse';
             document.querySelector('.center').style.width = gameSquareNumberX*20 + "px";
-            document.querySelector('#canvasDivHolder').style.minWidth = gameSquareNumberX*20 + "px";
-            document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
-            document.querySelector('#canvasDivHolder').style.width = gameSquareNumberX*20 + "px";
-            document.querySelector('#canvasDivHolder').style.height = gameSquareNumberY*20 + "px";
+            
+            if (typeof myGameArea == 'undefined') {
+                document.querySelector('#canvasDivHolder').style.minWidth = gameSquareNumberX*20 + "px";
+                document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
+                document.querySelector('#canvasDivHolder').style.width = gameSquareNumberX*20 + "px";
+                document.querySelector('#canvasDivHolder').style.height = gameSquareNumberY*20 + "px";
+            } else {
+                document.querySelector('#canvasDivHolder').style.minWidth = myGameArea.canvas.width + "px";
+                document.querySelector('#canvasDivHolder').style.minHeight = myGameArea.canvas.height + "px";
+                document.querySelector('#canvasDivHolder').style.width = myGameArea.canvas.width + "px";
+                document.querySelector('#canvasDivHolder').style.height = myGameArea.canvas.height + "px";
+                document.querySelector('.center').style.width = myGameArea.canvas.width + "px";
+            }
+
             document.querySelector('.rules').style.display = 'none';
             document.querySelector('.rules').style.position = 'absolute';
             document.querySelector('.rules').style.backgroundColor = '#FFFFCC';
@@ -348,10 +359,20 @@
             document.querySelector('.header2').style.display = 'none';
             document.querySelector('.center').style.flexDirection = 'row';
             document.querySelector('.center').style.width = '960px';
-            document.querySelector('#canvasDivHolder').style.minWidth = gameSquareNumberX*20 + "px";
-            document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
-            document.querySelector('#canvasDivHolder').style.width = gameSquareNumberX*20 + "px";
-            document.querySelector('#canvasDivHolder').style.height = gameSquareNumberY*20 + "px";
+                        
+            if (typeof myGameArea == 'undefined') {
+                document.querySelector('#canvasDivHolder').style.minWidth = gameSquareNumberX*20 + "px";
+                document.querySelector('#canvasDivHolder').style.minHeight = gameSquareNumberY*20 + "px";
+                document.querySelector('#canvasDivHolder').style.width = gameSquareNumberX*20 + "px";
+                document.querySelector('#canvasDivHolder').style.height = gameSquareNumberY*20 + "px";
+            } else {
+                document.querySelector('#canvasDivHolder').style.minWidth = myGameArea.canvas.width + "px";
+                document.querySelector('#canvasDivHolder').style.minHeight = myGameArea.canvas.height + "px";
+                document.querySelector('#canvasDivHolder').style.width = myGameArea.canvas.width + "px";
+                document.querySelector('#canvasDivHolder').style.height = myGameArea.canvas.height + "px";
+                document.querySelector('.center').style.width = myGameArea.canvas.width + 400 + "px";
+            }
+
             document.querySelector('.rules').style.display = 'block';
             document.querySelector('.rules').style.position = '';
             document.querySelector('.rules').style.backgroundColor = '';
@@ -364,7 +385,7 @@
             document.querySelector('.controls').style.display = 'block';
             document.querySelector('.controls2').style.display = 'none';
             document.querySelector('.footer').style.display = 'block';
-            
+
         }
     }
 
