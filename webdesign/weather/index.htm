@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Weather</title>
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+      .location {
+        background-color: antiquewhite;
+        margin:10px;
+        padding:10px;
+      }
+      .daily {
+        background-color: antiquewhite;
+        margin:10px;
+        padding:10px;
+      }
+      .weekly{
+        background-color: antiquewhite;
+        margin:10px;
+        padding:10px;
+      }
+
+    </style>
+
+  </head>
+
+
+
+  <body onload="getLocation()">
+    <div id="header">
+      <h1>Weather</h1>
+    </div>
+    <div id="weatheralerts"></div>
+    <div id="location"></div>
+    <div id="weeklyforecast"></div>
+    <div id="hourlyforecast"></div>
+    <div id="footer">
+      <p>2022 Peacemaker Media Empire</p>
+    </div>
+
+  </body>
+
+
+
+  <script>
+    // using https://www.weather.gov/documentation/services-web-api
+    /*
+    How do I get the forecast?
+    Forecasts are divided into 2.5km grids. Each NWS office is responsible for a section of the grid. The API endpoint for the forecast at a specific grid is:
+    https://api.weather.gov/gridpoints/{office}/{grid X},{grid Y}/forecast
+    For example: https://api.weather.gov/gridpoints/TOP/31,80/forecast
+    If you do not know the grid that correlates to your location, you can use the /points endpoint to retrieve the exact grid endpoint by coordinates:
+    https://api.weather.gov/points/{latitude},{longitude}
+    For example: https://api.weather.gov/points/39.7456,-97.0892
+    This will return the grid endpoint in the "forecast" property. Applications may cache the grid for a location to improve latency and reduce the additional lookup request. This endpoint also tells the application where to find information for issuing office, observation stations, and zones.
+    How do I get alerts?
+    The API has a robust selection of filters for alerts. A common request is all active alerts for a state:
+    https://api.weather.gov/alerts/active?area={state}
+    For example: https://api.weather.gov/alerts/active?area=KS
+    */
+
+
+
+    var myLongitude;
+    var myLatitude;
+    var positionResult;
+    var weatherResult;
+    var weatherResultHourly;
+
+
+    // get longitude and latitude from browser
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getWeatherPosition); //takes showPosition as callback function and returns position
+      } else {
+        document.getElementById("location").innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+
+
+    
+    // look up weather zone and grid position within the zone. also city and state.
+    function getWeatherPosition(position) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          positionResult = JSON.parse(this.responseText);
+          
+          document.getElementById("location").innerHTML = 
+          "<h2>Location</h2>" +
+          "<div class='location'>" +
+            "<p>Location: " + positionResult.properties.relativeLocation.properties.city + ", " + 
+            positionResult.properties.relativeLocation.properties.state +
+            "<br>Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude + "</p>" +
+          "</div>"
+          ;
+         
+          getWeather(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
+          getWeatherHourly(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
+
+        }
+      };
+      xhttp.open("GET", "https://api.weather.gov/points/" + position.coords.latitude + "," + position.coords.longitude, true);
+      xhttp.send();
+    }
+
+
+
+
+    // get and display weekly weather report
+    function getWeather(office, x, y) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          weatherResult = JSON.parse(this.responseText);         
+          console.log(weatherResult);
+
+          // print the weekly forecast into the div with the weeklyworecast id
+          var weeklyForecastText = document.getElementById("weeklyforecast");
+          weeklyForecastText.innerHTML = "<h2>Weekly forecast</h2>";
+          
+          for (i=0; i <weatherResult.properties.periods.length; i++) {          
+            weeklyForecastText.insertAdjacentHTML("beforeend", `
+              <div class='daily'>
+                <h3> ${weatherResult.properties.periods[i].name}</h3> 
+                <p><b>Forecast:</b> ${weatherResult.properties.periods[i].shortForecast}, 
+                <b>Temperature:</b> ${weatherResult.properties.periods[i].temperature}, 
+                <b>Wind:</b> ${weatherResult.properties.periods[i].windSpeed} ${weatherResult.properties.periods[i].windDirection}
+                <br> ${weatherResult.properties.periods[i].detailedForecast}</p>
+              </div>
+            `);
+          }
+        }
+      };
+      xhttp.open("GET", "https://api.weather.gov/gridpoints/" + office +"/" + x + "," + y + "/forecast", true);
+      xhttp.send();
+    }
+
+
+
+
+
+    // get and display weekly weather report
+    function getWeatherHourly(office, x, y) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          weatherResultHourly = JSON.parse(this.responseText);
+          console.log(weatherResultHourly);
+
+          // print the hourlyy forecast into the div with the weeklyworecast id
+          var hourlyForecastText = document.getElementById("hourlyforecast");
+          hourlyForecastText.innerHTML = "<h2>Hourly forecast</h2>";
+          
+          // used to format date. used to convert number into string
+          const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+
+          for (i=0; i <weatherResultHourly.properties.periods.length; i++) {
+            
+            // convert string from json into a proper date
+            var startTime = new Date(weatherResultHourly.properties.periods[i].startTime);
+            
+            // if first loop, create initial div and header
+            if (i==0) {
+              hourlyForecastText.insertAdjacentHTML("beforeend", `
+              <div class='weekly'>  
+                <h3>${days[startTime.getDay()]}, ${months[startTime.getMonth()]} ${startTime.getDate()}, ${startTime.getFullYear()}</h3>
+              </div>
+              `);
+            }
+
+            // create new div and header if the start of a new day
+            if (startTime.getHours()==0 && i!==0) {
+              hourlyForecastText.insertAdjacentHTML("beforeend", `
+                <div class='weekly'>  
+                  <h3>${days[startTime.getDay()]}, ${months[startTime.getMonth()]} ${startTime.getDate()}, ${startTime.getFullYear()}</h3>
+                </div>
+              `);
+            }
+
+            // insert text into most recent date's div
+            // print formatted time
+            if (startTime.getHours()==0) {
+              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
+                Time: Midnight 
+              `);
+            } else if (startTime.getHours() < 12)  {
+              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
+                Time: ${startTime.getHours()} a.m. 
+              `);
+            } else if (startTime.getHours() == 12) {
+              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
+                Time: Noon 
+              `);
+            } else {
+              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
+                Time: ${startTime.getHours()-12} p.m. 
+              `);
+            }
+
+            // print day or night  
+            if (weatherResultHourly.properties.periods[i].isDaytime) {
+              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `(day) `);
+            } else {
+              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `(night) `);
+            }
+            
+            // print forecast, temperature and wind
+            hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
+              <b>Forecast:</b> ${weatherResultHourly.properties.periods[i].shortForecast}, 
+              <b>Temperature:</b> ${weatherResultHourly.properties.periods[i].temperature}, 
+              <b>Wind:</b> ${weatherResultHourly.properties.periods[i].windSpeed} ${weatherResultHourly.properties.periods[i].windDirection} <br>
+            `);
+
+          }
+        }
+      };
+      xhttp.open("GET", "https://api.weather.gov/gridpoints/" + office +"/" + x + "," + y + "/forecast/hourly", true);
+      xhttp.send();
+    }
+
+
+    
+  </script>
+
+</html>
