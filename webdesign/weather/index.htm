@@ -6,45 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Dolly's Doggo Weather Forecast</title>
+    <title>Dolly the Doggo's Weather Forecast</title>
     <link href="css/style.css" rel="stylesheet">
 
     <style>
+      #header {
+        background-color: #c14b2b;
+        padding:20px 20px 10px 20px;
+        margin:0px 0px 0px 0px;
+      }
+      #headerhead {
+        color: white;
+        font-size: 60px;
+        font-family: 'Rokkitt', sans-serif;
+        margin:0px 0px 0px 0px;
+      }
       #weatheralerts {
-        display:none;
-        background-color: rgb(255, 204, 138);
-        margin:10px;
-        padding:10px;
+        display: none;
+        background-color: rgb(234, 255, 0);
+        padding: 20px;
+        margin:0px;
       }
       #location {
-        background-color: rgb(255, 204, 138);
-        margin:10px;
-        padding:10px;
+        margin:0px 0px 0px 0px;
       }
       #todayforecast {
         background-color: rgb(255, 204, 138);
-        margin:10px;
-        padding:10px;
+        margin:50px 50px 50px 50px;
+        padding:20px;
       }
       #dollysays {
-        background-color: rgb(255, 204, 138);
+        /*background-color: rgb(255, 204, 138);
         margin:10px;
-        padding:10px;
+        padding:10px;*/
+      }
+      #mainImage {
+        width:100%;
+        position:fixed;
+        z-index: -1;
+        top:-300px;
       }
       #dailyforecast {
         background-color: rgb(255, 204, 138);
-        margin:10px;
-        padding:10px;
+        margin: 0px;
+        padding: 10px;
       }
       #hourlyforecast {
         background-color: rgb(255, 204, 138);
-        margin:10px;
-        padding:10px;
+        margin: 0px;
+        padding: 20px;
       }
       #footer {
-        background-color: rgb(255, 204, 138);
-        margin:10px;
-        padding:10px;
+        background-color: #c14b2b;
+        margin: 0px;
+        padding: 10px;
       }
       
 
@@ -70,11 +85,11 @@
       }
       .hourly{
         background-color: antiquewhite;
-        margin:10px;
-        padding:10px;
+        margin:20px 0px;
+        padding:20px;
       }
       h2 {
-        font-family: 'Rokkitt', serif;
+        font-family: 'Rokkitt', sans-serif;
         font-size: 48px;
         color: rgb(255, 123, 0);
       }
@@ -89,13 +104,16 @@
 
 
   <body onload="getLocation()">
-    <div id="header">
-      <h1>Dolly's doggo weather forecast</h1>
+    <img id="mainImage" src="images/corner.jpg">
+    <div id="header" class="sticky-top">
+      <h1 id="headerhead">Dolly the Doggo's Weather Forecast</h1>
+      <div id="location"></div>
     </div>
     <div id="weatheralerts"></div>
-    <div id="location"></div>
-    <div id="todayforecast" class="row"></div>
-    <div id="dollysays" class="row"></div>
+    <div id="todayforecast" class="col-xl-3">
+      <div id="today" class="col"></div>
+      <div id="dollysays" class="col"></div>
+    </div>
     <div id="dailyforecast" class="row"></div>
     <div id="hourlyforecast"></div>
     <div id="footer">
@@ -137,17 +155,52 @@
       var dollySaysText = document.getElementById("dollysays");
       var dollyWords = "Bark, World!";
       
+      // terms
+      /*
+      rain = sky drips
+      thunderstorms = sky booms
+      snow = 
+      showers = 
+      precipitation = wets
+      windy = 
+      cloudy = sky fluffs
+      thunderstorms = angry sky fluffs
+      clear = no sky fluffs
+
+      */
+
+
+
+      // check the season?
+
+      // if day
+      // it would be good day for chesseburger party in the backyard.
+
+      // if night
+      // It would be good night to chase opossums! 
+      // It would be good night to chase opossums! 
+      // It would be good night to chase opossums! 
+      // It would be good night to chase opossums! 
+
       // if rain
+      // I brings in the mud
+      // good day for couch cuddles
+      // bath time is outside now
 
       // if thunderstorms
+      // Oh no! I will get scared by sky booms!
 
       // if snow
+      // Good time for couch snuggles.
 
       // if cold
-
+      // I need my extra fur today.
   
 
       // if hot
+      // don't let my paws get burned on the walks.
+      // can I has trip to the pool too?
+      // would be good day for ice creams?
 
       // if windy
 
@@ -179,9 +232,9 @@
           positionResult = JSON.parse(this.responseText);
           
           document.getElementById("location").innerHTML = 
-            "<p>Location: " + positionResult.properties.relativeLocation.properties.city + ", " + 
+            "<p>Location: <b>" + positionResult.properties.relativeLocation.properties.city + ", " + 
             positionResult.properties.relativeLocation.properties.state +
-            " (Longitude: " + position.coords.longitude + 
+            "</b> (Longitude: " + position.coords.longitude + 
             ", Latitude: " + position.coords.latitude +
             ")</p>"           
           ;
@@ -206,24 +259,21 @@
           weatherResult = JSON.parse(this.responseText);         
           console.log(weatherResult);
 
-          // print today's forecast into the div with thetodayforecast id
-          var todayForecastText = document.getElementById("todayforecast");
+          // print today's forecast into the div with the today id
+          var todayText = document.getElementById("today");
           // breakout the first day. if already passed noon, need to  make first day just tonight
           var dayStart = 0;
           if (weatherResult.properties.periods[0].name == "Tonight") {
-            todayForecastText.insertAdjacentHTML("beforeend", `
-              <div class='today col-xl-12'>
+            todayText.insertAdjacentHTML("beforeend", `
                 <h2> ${weatherResult.properties.periods[0].name}</h3> 
                 <p><b>Forecast:</b> ${weatherResult.properties.periods[0].shortForecast}, 
                 <b>Temperature:</b> ${weatherResult.properties.periods[0].temperature}, 
                 <b>Wind:</b> ${weatherResult.properties.periods[0].windSpeed} ${weatherResult.properties.periods[0].windDirection}
                 <br> ${weatherResult.properties.periods[0].detailedForecast}</p>
-              </div>
             `);
             dayStart = 1;
           } else if (weatherResult.properties.periods[0].name == "Today" || weatherResult.properties.periods[0].name == "This Afternoon") {
-            todayForecastText.insertAdjacentHTML("beforeend", `
-              <div class='today col-xl-12'>
+            todayText.insertAdjacentHTML("beforeend", `
                 <h2> ${weatherResult.properties.periods[0].name}</h3> 
                 <p><b>Forecast:</b> ${weatherResult.properties.periods[0].shortForecast}, 
                 <b>Temperature:</b> ${weatherResult.properties.periods[0].temperature}, 
@@ -234,7 +284,6 @@
                 <b>Temperature:</b> ${weatherResult.properties.periods[1].temperature}, 
                 <b>Wind:</b> ${weatherResult.properties.periods[1].windSpeed} ${weatherResult.properties.periods[0].windDirection}
                 <br> ${weatherResult.properties.periods[1].detailedForecast}</p>
-              </div>
             `);
             dayStart = 2;
           }
