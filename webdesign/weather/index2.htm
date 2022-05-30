@@ -12,14 +12,14 @@
     <style>
       #header {
         background-color: #c14b2b;
-        padding:20px 20px 10px 20px;
+        padding:12px 10px 1px 15px;
         margin:0px 0px 0px 0px;
       }
       #headerhead {
         color: white;
-        font-size: 60px;
+        font-size: 40px;
         font-family: 'Rokkitt', sans-serif;
-        margin:0px 0px 0px 0px;
+        margin:0px 0px -2px 0px;
       }
       #weatheralerts {
         display: none;
@@ -31,9 +31,7 @@
         margin:0px 0px 0px 0px;
       }
       #todayforecast {
-        background-color: rgb(255, 204, 138);
-        margin:50px 50px 50px 50px;
-        padding:20px;
+        padding:50px;
       }
       #dollysays {
         /*background-color: rgb(255, 204, 138);
@@ -47,9 +45,11 @@
         top:-300px;
       }
       #dailyforecast {
-        background-color: rgb(255, 204, 138);
+        /* background-color: rgb(255, 204, 138);
         margin: 0px;
-        padding: 10px;
+        padding: 10px;*/
+        padding: 40px 0px;
+
       }
       #hourlyforecast {
         background-color: rgb(255, 204, 138);
@@ -63,25 +63,36 @@
       }
       
 
-      .today {
+      #today {
         background-color: #fffc67;
-        margin: 10px 0px 20px 0px;
         padding: 30px;
+        border-radius: 10px;
       }
 
       .circle {
         background-color: #fffc67;
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         text-align: center;
-        padding-top:24px; 
-        margin: 20px auto 30px auto;
+        padding-top:16px; 
+        margin: 10px auto 5px auto;
+        cursor: pointer;
+        font-family: 'Rokkitt', sans-serif;
+        font-size: 36px;
+        font-weight:bold;
+        color: rgb(255, 123, 0);
       }
+      .circle:hover {
+        opacity:50%;
+      }
+
       .daily {
-        background-color: antiquewhite;
-        margin:10px;
-        padding:20px;
+        background-color: rgba(255,255,255, 0.7);
+        margin: 10px 10px;
+        padding:10px 20px 1px 20px;
+        border-radius: 10px;
+        font-size: 14px;
       }
       .hourly{
         background-color: antiquewhite;
@@ -90,7 +101,7 @@
       }
       h2 {
         font-family: 'Rokkitt', sans-serif;
-        font-size: 48px;
+        font-size: 30px;
         color: rgb(255, 123, 0);
       }
       body {
@@ -110,11 +121,25 @@
       <div id="location"></div>
     </div>
     <div id="weatheralerts"></div>
-    <div id="todayforecast" class="col-xl-3">
-      <div id="today" class="col"></div>
-      <div id="dollysays" class="col"></div>
+    <div class="container-fluid">
+      
+      <div class="row">
+        
+        <div id="todayforecast" class="col-xl-3 col-md-5">
+          <div id="today"></div>
+          <div id="dollysays"></div>
+        </div>
+
+        <div class="col-xl-9 col-md-7">
+          <div class="container-fluid">
+            <div id="dailyforecast" class="row"></div>
+          </div>
+        </div>
+      
+      </div>
+    
     </div>
-    <div id="dailyforecast" class="row"></div>
+    
     <div id="hourlyforecast"></div>
     <div id="footer">
       <p>2022 Peacemaker Media Empire</p>
@@ -146,6 +171,10 @@
     var positionResult;
     var weatherResult;
     var weatherResultHourly;
+    var weatherResultArray = [];
+    var weatherAbbreviationArray = [];
+
+    
 
 
 
@@ -238,8 +267,9 @@
             ", Latitude: " + position.coords.latitude +
             ")</p>"           
           ;
-         
-          getWeather(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
+          
+          loadWeather(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
+          //getWeather(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
           getWeatherHourly(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
           dollySays();
         }
@@ -252,55 +282,55 @@
 
 
     // get and display daily weather report
-    function getWeather(office, x, y) {
+    function loadWeather(office, x, y) {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           weatherResult = JSON.parse(this.responseText);         
           console.log(weatherResult);
 
-          // print today's forecast into the div with the today id
-          var todayText = document.getElementById("today");
-          // breakout the first day. if already passed noon, need to  make first day just tonight
+          // store today's forecast into the array
+          // if already passed noon, need to  make first day just tonight
           var dayStart = 0;
           if (weatherResult.properties.periods[0].name == "Tonight" || weatherResult.properties.periods[0].name == "Overnight") {
-            todayText.insertAdjacentHTML("beforeend", `
-                <h2> ${weatherResult.properties.periods[0].name}</h3> 
+            
+            weatherResultArray.push (`
+                <h2> ${weatherResult.properties.periods[0].name}</h2> 
                 <p><b>Forecast:</b> ${weatherResult.properties.periods[0].shortForecast}, 
                 <b>Temperature:</b> ${weatherResult.properties.periods[0].temperature}, 
                 <b>Wind:</b> ${weatherResult.properties.periods[0].windSpeed} ${weatherResult.properties.periods[0].windDirection}
                 <br> ${weatherResult.properties.periods[0].detailedForecast}</p>
+            `);
+
+            weatherAbbreviationArray.push (`
+                <div class='daily col'>
+                  <div class="circle" onclick="changeForecast(0);">
+                    Now
+                  </div> 
+                  <p><b> ${weatherResult.properties.periods[0].name}</b> 
+                  <br> ${weatherResult.properties.periods[0].shortForecast}, 
+                  ${weatherResult.properties.periods[0].temperature}F</p> 
+                </div>
             `);
             dayStart = 1;
-          } else if (weatherResult.properties.periods[0].name == "Today" || weatherResult.properties.periods[0].name == "This Afternoon") {
-            todayText.insertAdjacentHTML("beforeend", `
-                <h2> ${weatherResult.properties.periods[0].name}</h3> 
-                <p><b>Forecast:</b> ${weatherResult.properties.periods[0].shortForecast}, 
-                <b>Temperature:</b> ${weatherResult.properties.periods[0].temperature}, 
-                <b>Wind:</b> ${weatherResult.properties.periods[0].windSpeed} ${weatherResult.properties.periods[0].windDirection}
-                <br> ${weatherResult.properties.periods[0].detailedForecast}</p>
-                <h2> ${weatherResult.properties.periods[1].name}</h2> 
-                <p><b>Forecast:</b> ${weatherResult.properties.periods[1].shortForecast}, 
-                <b>Temperature:</b> ${weatherResult.properties.periods[1].temperature}, 
-                <b>Wind:</b> ${weatherResult.properties.periods[1].windSpeed} ${weatherResult.properties.periods[0].windDirection}
-                <br> ${weatherResult.properties.periods[1].detailedForecast}</p>
-            `);
-            dayStart = 2;
           }
-
-          // print the rest of the daily forecast into the div with the dailyforecast id
-          var dailyForecastText = document.getElementById("dailyforecast");
-          dailyForecastText.innerHTML = "<h2 class='rokkitt'>The rest of the week</h2>";
 
           var currentDayAbbreviation;
           var currentDayArray;
-              
+          
+          //add rest of the days into the array
           for (i=dayStart; i < weatherResult.properties.periods.length; i=i+2) {          
-            
+            // if day has a morning and evening
+            if (i+1 < weatherResult.properties.periods.length) {
+
+
               // create abbreviation of the day of the week
               currentDayAbbreviation = "";
+              if (weatherResult.properties.periods[i].name == "Today" || weatherResult.properties.periods[i].name == "This Afternoon") {
+                currentDayAbbreviation ="Now";
+              }
               //if current day has a space (is a special holiday), get first letter then each letter after the space
-              if (weatherResult.properties.periods[i].name.includes(" ")){
+              else if (weatherResult.properties.periods[i].name.includes(" ")){
                 currentDayArray = weatherResult.properties.periods[i].name.split(" ");
                 function getFirstLetters(item) {
                   currentDayAbbreviation = currentDayAbbreviation + item.slice(0, 1);
@@ -311,49 +341,96 @@
               else{
                 currentDayAbbreviation = weatherResult.properties.periods[i].name.slice(0, 2);
               }
-
-            // if day has a morning and evening
-            if (i+1 < weatherResult.properties.periods.length) {
-
-              dailyForecastText.insertAdjacentHTML("beforeend", `
-                <div class='daily col-xl'>
-                  <div class="circle">
-                    <h2> ${currentDayAbbreviation}</h2>
-                  </div> 
-                  <h3> ${weatherResult.properties.periods[i].name}</h3> 
+                           
+              // add full day to weather results array
+              weatherResultArray.push (`
+                  <h2> ${weatherResult.properties.periods[i].name}</h2> 
                   <p><b>Forecast:</b> ${weatherResult.properties.periods[i].shortForecast}, 
                   <b>Temperature:</b> ${weatherResult.properties.periods[i].temperature}, 
                   <b>Wind:</b> ${weatherResult.properties.periods[i].windSpeed} ${weatherResult.properties.periods[i].windDirection}
                   <br> ${weatherResult.properties.periods[i].detailedForecast}</p>
                   
-                  <h3> ${weatherResult.properties.periods[i+1].name}</h3> 
+                  <h2> ${weatherResult.properties.periods[i+1].name}</h2> 
                   <p><b>Forecast:</b> ${weatherResult.properties.periods[i+1].shortForecast}, 
                   <b>Temperature:</b> ${weatherResult.properties.periods[i+1].temperature}, 
                   <b>Wind:</b> ${weatherResult.properties.periods[i+1].windSpeed} ${weatherResult.properties.periods[i].windDirection}
                   <br> ${weatherResult.properties.periods[i+1].detailedForecast}</p>
+              `);
+              
+              // add full day to weather abbreviations array
+              weatherAbbreviationArray.push (`
+                <div class='daily col'>
+                  <div class="circle" onclick="changeForecast(${weatherResultArray.length-1});">
+                    ${currentDayAbbreviation}
+                  </div> 
+                  <p><b> ${weatherResult.properties.periods[i].name}</b> 
+                  <br> ${weatherResult.properties.periods[i].shortForecast}, 
+                  ${weatherResult.properties.periods[i].temperature}F, 
+                  ${weatherResult.properties.periods[i+1].temperature}F</p> 
                 </div>
               `);
 
-            // else print half day at the end
+
+            // else add half day to weather results array
             } else {
-              dailyForecastText.insertAdjacentHTML("beforeend", `
-                <div class='daily col-xl'>
-                  <div class="circle">
-                    <h2> ${currentDayAbbreviation}</h2>
-                  </div> 
-                  <h3> ${weatherResult.properties.periods[i].name}</h3> 
+              weatherResultArray.push (`
+                  <h2> ${weatherResult.properties.periods[i].name}</h2> 
                   <p><b>Forecast:</b> ${weatherResult.properties.periods[i].shortForecast}, 
                   <b>Temperature:</b> ${weatherResult.properties.periods[i].temperature}, 
                   <b>Wind:</b> ${weatherResult.properties.periods[i].windSpeed} ${weatherResult.properties.periods[i].windDirection}
                   <br> ${weatherResult.properties.periods[i].detailedForecast}</p>
+              `);
+
+              weatherAbbreviationArray.push (`
+                <div class='daily col'>
+                  <div class="circle" onclick="changeForecast(${weatherResultArray.length-1});">
+                    ${currentDayAbbreviation}
+                  </div> 
+                  <p><b> ${weatherResult.properties.periods[i].name}</b> 
+                  <br> ${weatherResult.properties.periods[i].shortForecast}, 
+                  ${weatherResult.properties.periods[i].temperature}F</p> 
                 </div>
               `);
+
             }
           }
+        
+      
+          // log to console for debugging
+          for (i=0; i < weatherResultArray.length; i++) {
+            console.log(weatherAbbreviationArray[i]);
+            console.log(weatherResultArray[i]);
+          }
+        
+
+
+
+
+          // print today's forecast into the div with the today id
+          var todayText = document.getElementById("today");
+          todayText.insertAdjacentHTML("beforeend", weatherResultArray[0]);
+
+          // print the rest of the daily forecast into the div with the dailyforecast id
+          var dailyForecastText = document.getElementById("dailyforecast");
+          for (i=0; i < weatherResultArray.length; i++) {          
+              dailyForecastText.insertAdjacentHTML("beforeend", weatherAbbreviationArray[i]);           
+          }
         }
+      
       };
       xhttp.open("GET", "https://api.weather.gov/gridpoints/" + office +"/" + x + "," + y + "/forecast", true);
       xhttp.send();
+    }
+
+
+
+
+
+
+    function changeForecast(dayNumber) {
+      console.log(dayNumber);
+      console.log(weatherResultArray[dayNumber]);
+      document.getElementById("today").innerHTML = weatherResultArray[dayNumber];
     }
 
 
