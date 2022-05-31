@@ -11,49 +11,44 @@
 
     <style>
       #header {
-        border-style: none;
-        padding:0px 0px 0px 0px;
-        margin:0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        margin: -2px 0px -2px 0px;
         transition: all 1s;
       }
       #headerhead {
         color: white;
-        border-style: none;
         font-size: 48px;
         font-family: 'Rokkitt', sans-serif;
-        margin:0px 0px 0px 0px;
+        margin: -2px 0px -2px 0px;
         padding: 20px 20px 0px 20px;
         background-color: #c14b2b;
       }
-      #imagetop{
+      #imagetop {
         width: 100%;
-        margin:0px 0px -30px 0px;
+        margin: -2px 0px -2px 0px;
       }
-
+      #imagetopdiv {
+        font-size: 1px;
+        width: 100%;
+        margin: -2px 0px -30px 0px;
+      }
       #weatheralerts {
         display: none;
         color:#ffffff;
         background-color: rgb(255, 123, 0);
         padding: 20px;
-        margin:0px;
+        margin: 0px;
       }
       #location {
-        border-style: none;
-        margin:0px 0px -16px 0px;
-        padding: 0px 20px 5px 20px;
+        margin: -2px 0px -3px 0px;
+        padding: 0px 20px 4px 20px;
         background-color: #c14b2b;
       }
       #todayforecast {
         padding:50px;
       }
-      #mainimage {
-        width:100%;
-        position:fixed;
-        z-index: -1;
-        top:-50px;
-      }
       #dailyforecast {
-        margin: 0px 10px 300px 10px;
+        margin: 0px 10px 200px 10px;
         padding: 40px 30px;
       }
       #hourlyforecast {
@@ -94,6 +89,9 @@
       }
       .circle:hover {
         background-color: #ffffff;
+      }
+      .container-fluid {
+        padding: 0px;
       }
 
       .daily {
@@ -146,7 +144,9 @@
     <div id="header" class="sticky-top">
       <h1 id="headerhead">Dolly the Doggo's Weather Forecast</h1>
       <div id="location"></div>
-      <img id="imagetop" src="images/top.svg">
+      <div id="imagetopdiv">
+        <img id="imagetop" src="images/top.svg">
+      </div>
     </div>
 
     <div id="weatheralerts"></div>
@@ -671,10 +671,8 @@
     // hide header when page is scrolled down
     function hideHeader() {
       if (window.pageYOffset >= 400) {
-        //header.classList.remove("sticky-top");
-        document.getElementById("header").style.top = "-200px";
+        document.getElementById("header").style.top = "-400px";
       } else {
-        //header.classList.add("sticky-top");
         document.getElementById("header").style.top = "0px";
       }
     }
@@ -750,10 +748,11 @@
             // print forecast, temperature and wind
             hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
               ${weatherResultHourly.properties.periods[i].shortForecast}, 
-              Temperature: ${weatherResultHourly.properties.periods[i].temperature}, 
-              Wind: ${weatherResultHourly.properties.periods[i].windSpeed} ${weatherResultHourly.properties.periods[i].windDirection} 
+              ${weatherResultHourly.properties.periods[i].temperature}F, 
+              wind ${weatherResultHourly.properties.periods[i].windSpeed} ${weatherResultHourly.properties.periods[i].windDirection} 
             `);
 
+            // is good for walk?
             if (weatherResultHourly.properties.periods[i].temperature >= 40 && weatherResultHourly.properties.periods[i].temperature < 90 &&
                 startTime.getHours() >= 6 && startTime.getHours() <= 20 && 
                 (weatherResultHourly.properties.periods[i].shortForecast == "Sunny" || 
