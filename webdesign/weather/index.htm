@@ -450,6 +450,8 @@
           // store today's forecast into the array
           // if already passed noon, need to  make first day just tonight
           var dayStart = 0;
+          var hourlyDayCount = 0;
+          
           if (weatherResult.properties.periods[0].name == "Tonight" || weatherResult.properties.periods[0].name == "Overnight") {
             
             weatherResultArray.push (`
@@ -465,7 +467,7 @@
                   <p>${dollySays(0, 1)}</p>
                 </div>
 
-                <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour walk forecast</a></p>
+                <p><a href="#hourly${hourlyDayCount}">Hour-by-hour walk forecast</a></p>
               </div>
             `);
 
@@ -480,6 +482,9 @@
                 </div>
             `);
             dayStart = 1;
+            if (weatherResult.properties.periods[0].name !== "Overnight") {
+              hourlyDayCount = 1;
+            }
           }
 
           var currentDayAbbreviation;
@@ -529,7 +534,7 @@
                     <p>${dollySays(i, 2)}</p>
                   </div>
 
-                  <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour walk forecast</a></p>
+                  <p><a href="#hourly${hourlyDayCount}">Hour-by-hour walk forecast</a></p>
 
                 </div>
               `);
@@ -563,7 +568,7 @@
                     <p>${dollySays(i, 1)}</p>
                   </div>
 
-                  <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour walk forecast</a></p>
+                  <p><a href="#hourly${hourlyDayCount}">Hour-by-hour walk forecast</a></p>
 
                 </div>
               `);
@@ -580,6 +585,7 @@
               `);
 
             }
+            hourlyDayCount++;
           }
       
           // log to console for debugging
