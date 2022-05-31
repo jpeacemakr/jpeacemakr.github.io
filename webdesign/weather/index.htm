@@ -11,17 +11,25 @@
 
     <style>
       #header {
-        background-color: #c14b2b;
-        padding:12px 10px 1px 15px;
+        border-style: none;
+        padding:0px 0px 0px 0px;
         margin:0px 0px 0px 0px;
         transition: all 1s;
       }
       #headerhead {
         color: white;
-        font-size: 40px;
+        border-style: none;
+        font-size: 48px;
         font-family: 'Rokkitt', sans-serif;
-        margin:0px 0px -2px 0px;
+        margin:0px 0px 0px 0px;
+        padding: 20px 20px 0px 20px;
+        background-color: #c14b2b;
       }
+      #imagetop{
+        width: 100%;
+        margin:0px 0px -30px 0px;
+      }
+
       #weatheralerts {
         display: none;
         color:#ffffff;
@@ -30,7 +38,10 @@
         margin:0px;
       }
       #location {
-        margin:0px 0px 0px 0px;
+        border-style: none;
+        margin:0px 0px -16px 0px;
+        padding: 0px 20px 5px 20px;
+        background-color: #c14b2b;
       }
       #todayforecast {
         padding:50px;
@@ -118,6 +129,10 @@
       }
       body {
         background-color: #c14b2b;
+        background-image: url('images/corner.jpg');
+        background-size: cover;
+        background-position: bottom left;
+        background-attachment: fixed;
       }
 
     </style>
@@ -127,11 +142,11 @@
 
 
   <body onload="getLocation()" onscroll="hideHeader()">
-    <img id="mainimage" src="images/corner.jpg">
 
     <div id="header" class="sticky-top">
       <h1 id="headerhead">Dolly the Doggo's Weather Forecast</h1>
       <div id="location"></div>
+      <img id="imagetop" src="images/top.svg">
     </div>
 
     <div id="weatheralerts"></div>
@@ -141,10 +156,14 @@
       </div>
     </div>
     
-    <div id="hourlyforecast"></div>
+    <div id="hourlyforecast"><h2>Bark, world!</h2>
+      <p>Just wait a second while I fetch the data from the National Weather Service. 
+      <br>Press the "Allow" button if your browser asks if I can know your location.
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;</p>
+    </div>
 
     <div id="footer">
-      <p>Copyright 2022 Peacemaker Media Empire. Weather data from <a href ="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a>. If the information on this page is bad, don't blame us. You are the one who got your weather from a dog.</p>
+      <p>Copyright 2022, Peacemaker Media Empire. Weather data from <a href ="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a>. If the information on this page is bad, don't blame us. You are the one who got your weather from a dog.</p>
     </div>
 
   </body>
@@ -636,13 +655,15 @@
     // change background image based on day's weather
     function changeImage(dayNumber) {
       if (dayNumber == 0) {
-        document.getElementById("mainimage").src = "images/corner.jpg";
+        document.body.style.backgroundImage = "url('images/corner.jpg')";
+        document.body.style.backgroundPosition = "bottom left"
       } else if (dayNumber == 1) {
-        document.getElementById("mainimage").src = "images/upsidedown.jpg";
+        document.body.style.backgroundImage = "url('images/upsidedown.jpg')";
+        document.body.style.backgroundPosition = "top center"
       } else {
-        document.getElementById("mainimage").src = "images/couch.jpg";
+        document.body.style.backgroundImage = "url('images/couch.jpg')";
+        document.body.style.backgroundPosition = "bottom center"
       }
-
     }
 
 
