@@ -42,7 +42,7 @@
         top:-50px;
       }
       #dailyforecast {
-        margin: 0px 0px 300px 0px;
+        margin: 0px 10px 300px 10px;
         padding: 40px 30px;
       }
       #hourlyforecast {
@@ -105,6 +105,7 @@
         background-color: antiquewhite;
         margin:20px 0px;
         padding:20px;
+        columns: 620px 2;
       }
 
       a {
@@ -112,7 +113,7 @@
       }
       h2 {
         font-family: 'Rokkitt', sans-serif;
-        font-size: 30px;
+        font-size: 36px;
         color: rgb(255, 123, 0);
       }
       body {
@@ -175,17 +176,14 @@
     var weatherResultArray = [];
     var weatherAbbreviationArray = [];
 
-    
 
 
 
     // use weather information to get what dolly says
-    function dollySays() {
+    function dollySays(position, num) {
       
-      var dollyWords = "Bark, World!";
-      
-      // terms
-      /*
+      /* 
+      TERMS
       rain = sky drips
       thunderstorms = sky booms
       snow = 
@@ -195,63 +193,206 @@
       cloudy = sky fluffs
       thunderstorms = angry sky fluffs
       clear = no sky fluffs
-
       */
 
+      /* 
+      DATA TO USE
+      weatherResult.properties.periods[position].name 
+      weatherResult.properties.periods[position].shortForecast 
+      weatherResult.properties.periods[position].temperature 
+      weatherResult.properties.periods[position].windSpeed
+      weatherResult.properties.periods[position].windDirection
+      weatherResult.properties.periods[position].detailedForecast
 
+      weatherResult.properties.periods[position+1].name 
+      weatherResult.properties.periods[position+1].shortForecast 
+      weatherResult.properties.periods[position+1].temperature 
+      weatherResult.properties.periods[position+1].windSpeed
+      weatherResult.properties.periods[position+1].windDirection
+      weatherResult.properties.periods[position+1].detailedForecast
+      */
 
       // check the season?
+      // check for holiday?
 
-      // if day
-      // it would be good day for chesseburger party in the backyard.
 
-      // if night
-      // It would be good night to chase opossums! 
-      // It would be good night to chase opossums! 
-      // It would be good night to chase opossums! 
-      // It would be good night to chase opossums! 
+      var dollyWords = "";
+      
+      
+      // level of sunshine
+      const clearWords = [
+        " It would be good night to chase opossums!", 
+        " Maybe I will see the sky ball tonight.",
+        " Maybe the raccoon will visit my trash tonight (That's where the no-no food goes)."
 
-      // if rain
-      // I brings in the mud
-      // good day for couch cuddles
-      // bath time is outside now
+      ];
+      const sunWords = [
+        " It would be good day for a chesseburger party in the backyard.",
+        " It will be bright today.",
+        " It will be a good day to lie in the sun.",
+        " The sun can warm my belly. Not as good as chicken warms my belly, but good enough."
 
-      // if thunderstorms
-      // Oh no! I will get scared by sky booms!
+      ];
+      const mostSunWords = [
+        " There will only be a few sky fluffs in the air today."
 
-      // if snow
-      // Good time for couch snuggles.
+      ];
+      const partCloudWords = [
+        " There will be a lot of sky fluffs in the air today."
 
-      // if cold
-      // I need my extra fur today.
-  
+      ];
+      const cloudWords = [
+        " The sky fluffs will fill the air today."
 
-      // if hot
-      // don't let my paws get burned on the walks.
-      // can I has trip to the pool too?
-      // would be good day for ice creams?
+      ];
+
+      // temperature
+      const hotWords = [
+        " It is so hot. Bring water bowl on your walk .",
+        " Keep paws off the outdoor floor so they don't get burned.",
+        " Can I has trip to the pool too?",
+        " Would be good day for ice creams. Peanut butter is my favorite!",
+        " When I go outside, I has the pants!"
+
+      ];
+      const coldWords = [
+        " It is so cold I need my extra fur today.",
+        " It is cold, but nice hot chicken could keep me warm."
+
+      ];
+      
+      // precipitation
+      const chanceRainWords = [ 
+        " The sky fluffs are drooling today.", 
+        " I brings in the mud from the walk.",
+        " It might be a good day for couch cuddles.",
+        " Bath time is outside now."
+
+      ];
+      const rainWords = [ 
+        " The sky fluffs are drooling today.", 
+        " I brings in the mud from the walk.",
+        " It might be a good day for couch cuddles.",
+        " Bath time is outside now."
+
+      ];
+      const stormWords = [
+        " Try not to get scared by the sky booms!",
+        " The sky fluffs will be angry today!"
+
+      ];
+      const chanceStormWords = [
+        " The sky fluffs might get angry today."
+
+      ];
+      const snowWords = [
+        "Good time for couch snuggles."
+
+      ];
+      const chanceSnowWords = [
+        "Good time for couch snuggles."
+
+      ];
+      
+      // wind
+      const windWords = [
+        " The sky fluffs will be running fast today.", 
+        " Be careful which way you pees today."
+
+      ];
+      
+      // perfect weather
+      const perfectWords = [
+        " It is a great day for lots of walks!"
+
+      ];
+      
+      
+      // how to call random words >> randomWords(windWords);
+      function randomWords (wordsArray) {
+        return ( wordsArray [ Math.floor ( Math.random() * wordsArray.length ) ] );
+      }
+
+
+      // level of sunshine
+      // If clear
+      if (weatherResult.properties.periods[position].shortForecast.startsWith("Clear")) {
+          dollyWords += randomWords(clearWords);
+      }
+      // If mostly clear
+      if (weatherResult.properties.periods[position].shortForecast.startsWith("Mostly Clear")) {
+          dollyWords += randomWords(clearWords);
+      }
+      // If partly clear
+      if (weatherResult.properties.periods[position].shortForecast.startsWith("Partly Clear")) {
+          dollyWords += randomWords(clearWords);
+      }
+      // if sunny
+      else if (weatherResult.properties.periods[position].shortForecast.startsWith("Sunny")) {
+        dollyWords += randomWords(sunWords);  
+      }
+      // if mostly sunny
+      else if (weatherResult.properties.periods[position].shortForecast.startsWith("Mostly Sunny")) {
+        dollyWords += randomWords(mostSunWords);  
+      }
+      
+      // if partly sunny
+      else if (weatherResult.properties.periods[position].shortForecast.startsWith("Partly Sunny")) {
+        dollyWords += randomWords(partCloudWords);  
+      }
+      // if partly cloudy
+      else if (weatherResult.properties.periods[position].shortForecast.startsWith("Partly Cloudy")) {
+        dollyWords += randomWords(partCloudWords);  
+      }
+      // if mostly cloudy
+      else if (weatherResult.properties.periods[position].shortForecast.startsWith("Mostly Cloudy")) {
+        dollyWords += randomWords(partCloudWords);  
+      }
+      // if cloudy
+      else if (weatherResult.properties.periods[position].shortForecast.startsWith("Cloudy")) {
+        dollyWords += randomWords(cloudWords);  
+      }
+
+      // temperature
+      if (weatherResult.properties.periods[position].temperature <= 32) {
+        dollyWords += randomWords(coldWords);  
+      } else if (weatherResult.properties.periods[position].temperature >= 90) {
+        dollyWords += randomWords(hotWords);  
+      }
+
+
+      // precipitation
+      // chance
+      if (weatherResult.properties.periods[position].detailedForecast.includes("chance")) {
+
+        if (weatherResult.properties.periods[position].detailedForecast.includes("showers")) {
+          dollyWords += randomWords(chanceRainWords);
+        }
+        if (weatherResult.properties.periods[position].detailedForecast.includes("thunderstorms")) {
+            dollyWords += randomWords(chanceStormWords);
+        }
+        if (weatherResult.properties.periods[position].detailedForecast.includes("snow")) {
+            dollyWords += randomWords(chanceSnowWords);
+        }
+      // full on
+      } else {
+        if (weatherResult.properties.periods[position].detailedForecast.includes("showers")) {
+          dollyWords += randomWords(rainWords);
+        }
+        if (weatherResult.properties.periods[position].detailedForecast.includes("thunderstorms")) {
+            dollyWords += randomWords(stormWords);
+        }
+        if (weatherResult.properties.periods[position].detailedForecast.includes("snow")) {
+            dollyWords += randomWords(snowWords);
+        }
+      }
+      
 
       // if windy
-      // I must be careful with the pees
+      if (weatherResult.properties.periods[position].windSpeed >= 10) {
+        dollyWords += randomWords(windWords);  
+      }
 
-      // if date is holiday
-
-
-      /* things to use
-      weatherResult.properties.periods[i].name 
-      weatherResult.properties.periods[i].shortForecast 
-      weatherResult.properties.periods[i].temperature 
-      weatherResult.properties.periods[i].windSpeed
-      weatherResult.properties.periods[i].windDirection
-      weatherResult.properties.periods[i].detailedForecast
-
-      weatherResult.properties.periods[i+1].name 
-      weatherResult.properties.periods[i+1].shortForecast 
-      weatherResult.properties.periods[i+1].temperature 
-      weatherResult.properties.periods[i+1].windSpeed
-      weatherResult.properties.periods[i].windDirection
-      weatherResult.properties.periods[i+1].detailedForecast
-      */
 
       return dollyWords;
     }
@@ -312,7 +453,7 @@
           if (weatherResult.properties.periods[0].name == "Tonight" || weatherResult.properties.periods[0].name == "Overnight") {
             
             weatherResultArray.push (`
-              <div id="full0" class="today col-xl-3 col-lg-5">
+              <div id="full0" class="today col-xl-3 col-md-5">
                 <h2> ${weatherResult.properties.periods[0].name}</h2> 
                 <p><b>Forecast:</b> ${weatherResult.properties.periods[0].shortForecast}, 
                 <b>Temperature:</b> ${weatherResult.properties.periods[0].temperature}, 
@@ -324,7 +465,7 @@
                   <p>${dollySays(0, 1)}</p>
                 </div>
 
-                <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour forecast</a></p>
+                <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour walk forecast</a></p>
               </div>
             `);
 
@@ -370,7 +511,7 @@
                            
               // add full day to weather results array
               weatherResultArray.push (`
-                <div id="full${weatherResultArray.length}" class="today col-xl-3 col-lg-5">
+                <div id="full${weatherResultArray.length}" class="today col-xl-3 col-md-5">
                   <h2> ${weatherResult.properties.periods[i].name}</h2> 
                   <p><b>Forecast:</b> ${weatherResult.properties.periods[i].shortForecast}, 
                   <b>Temperature:</b> ${weatherResult.properties.periods[i].temperature}, 
@@ -380,7 +521,7 @@
                   <h2> ${weatherResult.properties.periods[i+1].name}</h2> 
                   <p><b>Forecast:</b> ${weatherResult.properties.periods[i+1].shortForecast}, 
                   <b>Temperature:</b> ${weatherResult.properties.periods[i+1].temperature}, 
-                  <b>Wind:</b> ${weatherResult.properties.periods[i+1].windSpeed} ${weatherResult.properties.periods[i].windDirection}
+                  <b>Wind:</b> ${weatherResult.properties.periods[i+1].windSpeed} ${weatherResult.properties.periods[i+1].windDirection}
                   <br> ${weatherResult.properties.periods[i+1].detailedForecast}</p>
 
                   <div class="dollysays">
@@ -388,7 +529,7 @@
                     <p>${dollySays(i, 2)}</p>
                   </div>
 
-                  <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour forecast</a></p>
+                  <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour walk forecast</a></p>
 
                 </div>
               `);
@@ -410,7 +551,7 @@
             // else add half day to weather results array
             } else {
               weatherResultArray.push (`
-                <div id="full${weatherResultArray.length}" class="today col-xl-3 col-lg-5">
+                <div id="full${weatherResultArray.length}" class="today col-xl-3 col-md-5">
                   <h2> ${weatherResult.properties.periods[i].name}</h2> 
                   <p><b>Forecast:</b> ${weatherResult.properties.periods[i].shortForecast}, 
                   <b>Temperature:</b> ${weatherResult.properties.periods[i].temperature}, 
@@ -422,7 +563,7 @@
                     <p>${dollySays(i, 1)}</p>
                   </div>
 
-                  <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour forecast</a></p>
+                  <p><a href="#hourly${weatherResultArray.length}">Hour-by-hour walk forecast</a></p>
 
                 </div>
               `);
@@ -523,7 +664,7 @@
 
           // print the hourly forecast into the div with the hourlyforecast id
           var hourlyForecastText = document.getElementById("hourlyforecast");
-          hourlyForecastText.innerHTML = "<h2>Hour-by-hour forecast</h2>";
+          hourlyForecastText.innerHTML = "<h2>Hour-by-hour walk forecast</h2><p>(<b>Ideal walking weather:</b> 6 a.m. to 8 p.m. 40 to 89 degrees and no precipitation.)</p>";
           
           // used to format date. used to convert number into string
           const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -536,7 +677,7 @@
             // convert string from json into a proper date
             var startTime = new Date(weatherResultHourly.properties.periods[i].startTime);
             
-            console.log(`hourly${i}`);
+            //console.log(`hourly${i}`);
 
             // if first loop, create initial div and header
             if (i==0) {
@@ -563,34 +704,47 @@
             // print formatted time
             if (startTime.getHours()==0) {
               hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
-                Time: Midnight 
+                <b>Midnight, </b>
               `);
             } else if (startTime.getHours() < 12)  {
               hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
-                Time: ${startTime.getHours()} a.m. 
+                <b>${startTime.getHours()} a.m., </b> 
               `);
             } else if (startTime.getHours() == 12) {
               hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
-                Time: Noon 
+                <b>Noon, </b>
               `);
             } else {
               hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
-                Time: ${startTime.getHours()-12} p.m. 
+                <b>${startTime.getHours()-12} p.m., </b>
               `);
             }
 
-            // print day or night  
-            if (weatherResultHourly.properties.periods[i].isDaytime) {
-              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `(day) `);
-            } else {
-              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `(night) `);
-            }
-            
             // print forecast, temperature and wind
             hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
-              <b>Forecast:</b> ${weatherResultHourly.properties.periods[i].shortForecast}, 
-              <b>Temperature:</b> ${weatherResultHourly.properties.periods[i].temperature}, 
-              <b>Wind:</b> ${weatherResultHourly.properties.periods[i].windSpeed} ${weatherResultHourly.properties.periods[i].windDirection} <br>
+              ${weatherResultHourly.properties.periods[i].shortForecast}, 
+              Temperature: ${weatherResultHourly.properties.periods[i].temperature}, 
+              Wind: ${weatherResultHourly.properties.periods[i].windSpeed} ${weatherResultHourly.properties.periods[i].windDirection} 
+            `);
+
+            if (weatherResultHourly.properties.periods[i].temperature >= 40 && weatherResultHourly.properties.periods[i].temperature < 90 &&
+                startTime.getHours() >= 6 && startTime.getHours() <= 20 && 
+                (weatherResultHourly.properties.periods[i].shortForecast == "Sunny" || 
+                weatherResultHourly.properties.periods[i].shortForecast == "Mostly Sunny" ||
+                weatherResultHourly.properties.periods[i].shortForecast == "Partly Sunny" ||
+                weatherResultHourly.properties.periods[i].shortForecast == "Partly Cloudy" ||
+                weatherResultHourly.properties.periods[i].shortForecast == "Mostly Cloudy" ||
+                weatherResultHourly.properties.periods[i].shortForecast == "Cloudy" || 
+                weatherResultHourly.properties.periods[i].shortForecast == "Clear" || 
+                weatherResultHourly.properties.periods[i].shortForecast == "Mostly Clear" || 
+                weatherResultHourly.properties.periods[i].shortForecast == "Partly Clear")) {
+              hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
+              <b><span style="color:red">(WALK)</span></b> 
+            `);
+            }
+
+            hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
+              <br>
             `);
 
           }
