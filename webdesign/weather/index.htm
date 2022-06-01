@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    
+    <!-- This is a website designed and coded by James Peacemaker Jr.
+      It uses Dolly, his dog as a fun way to display the weather.
+      It uses three API calls from the National Weather Service.
+      https://www.weather.gov/documentation/services-web-api -->
+
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -131,6 +137,7 @@
         border-radius: 10px;
         font-size: 14px;
         height:fit-content;
+        overflow-wrap: break-word;
       }
 
       .dollysays {
@@ -144,9 +151,7 @@
         columns: 620px 2;
       }
 
-     
-
-    </style>
+     </style>
 
   </head>
 
@@ -154,6 +159,7 @@
 
   <body onload="getLocation()" onscroll="hideHeader()">
 
+    <!-- sticky header -->
     <div id="header" class="sticky-top">
 
       <h1 id="headerhead">Dolly the Doggo's Weather Forecast</h1>
@@ -170,12 +176,13 @@
     </div>
 
     
-
+    <!-- daily forecasts -->
     <div class="container-fluid">
       <div id="dailyforecast" class="row">
       </div>
     </div>
     
+    <!-- hourly forecasts -->
     <div id="hourlyforecast"><h2>Bark, world!</h2>
       <p>Just wait a second while I fetch the data from the National Weather Service. 
       <br>Press the "Allow" button if your browser asks if I can know your location.
@@ -192,112 +199,7 @@
 
 
   <script>
-    // using https://www.weather.gov/documentation/services-web-api
-    /*
-    How do I get the forecast?
-    Forecasts are divided into 2.5km grids. Each NWS office is responsible for a section of the grid. The API endpoint for the forecast at a specific grid is:
-    https://api.weather.gov/gridpoints/{office}/{grid X},{grid Y}/forecast
-    For example: https://api.weather.gov/gridpoints/TOP/31,80/forecast
-    If you do not know the grid that correlates to your location, you can use the /points endpoint to retrieve the exact grid endpoint by coordinates:
-    https://api.weather.gov/points/{latitude},{longitude}
-    For example: https://api.weather.gov/points/39.7456,-97.0892
-    This will return the grid endpoint in the "forecast" property. Applications may cache the grid for a location to improve latency and reduce the additional lookup request. This endpoint also tells the application where to find information for issuing office, observation stations, and zones.
-    How do I get alerts?
-    The API has a robust selection of filters for alerts. A common request is all active alerts for a state:
-    https://api.weather.gov/alerts/active?area={state}
-    For example: https://api.weather.gov/alerts/active?area=KS
-    
-    active alerts for point
-    https://api.weather.gov/alerts/active?point=38.9807,-76.9373
-    
-    
-  schema
-  {
-  "type": "FeatureCollection",
-  "features": [
-    {
-      "id": "string",
-      "type": "Feature",
-      "properties": {
-        "id": "string",
-        "areaDesc": "string",
-        "geocode": {
-          "UGC": [
-            "string"
-          ],
-          "SAME": [
-            "string"
-          ]
-        },
-        "affectedZones": [
-          "string"
-        ],
-        "references": [
-          {
-            "@id": "string",
-            "identifier": "string",
-            "sender": "string",
-            "sent": "2022-05-31T18:37:11.106Z"
-          }
-        ],
-        "sent": "2022-05-31T18:37:11.107Z",
-        "effective": "2022-05-31T18:37:11.107Z",
-        "onset": "2022-05-31T18:37:11.107Z",
-        "expires": "2022-05-31T18:37:11.107Z",
-        "ends": "2022-05-31T18:37:11.107Z",
-        "status": "Actual",
-        "messageType": "Alert",
-        "category": "Met",
-        "severity": "Extreme",
-        "certainty": "Observed",
-        "urgency": "Immediate",
-        "event": "string",
-        "sender": "string",
-        "senderName": "string",
-        "headline": "string",
-        "description": "string",
-        "instruction": "string",
-        "response": "Shelter",
-        "parameters": {
-          "additionalProp1": [
-            null
-          ],
-          "additionalProp2": [
-            null
-          ],
-          "additionalProp3": [
-            null
-          ]
-        }
-      }
-    }
-  ],
-  "title": "string",
-  "updated": "2022-05-31T18:37:11.107Z",
-  "pagination": {
-    "next": "string"
-  }
-}
-
-https://api.weather.gov/alerts/active?point=37.52985065563401,-77.41054289211888
--77.41054289211888, 37.52985065563401
-
-example with no active alerts
-{
-    "@context": {
-        "@version": "1.1"
-    },
-    "type": "FeatureCollection",
-    "features": [],
-    "title": "current watches, warnings, and advisories for 38.9807 N, 76.9373 W",
-    "updated": "2022-05-28T03:00:00+00:00"
-}
-
-
-
-
-    */
-
+        
     var myLatitude;
     var myLongitude;
     var positionResult;
@@ -307,9 +209,9 @@ example with no active alerts
     var weatherAbbreviationArray = [];
 
 
-
-
     // use weather information to get what dolly says
+    // position is position of data (0-13) from weather service API. 
+    // num is number of positions to include (1 for half day or 2 for full day)
     function dollySays(position, num) {
       
       /* 
@@ -517,12 +419,10 @@ example with no active alerts
         }
       }
       
-
       // if windy
       if (weatherResult.properties.periods[position].windSpeed >= 10) {
         dollyWords += randomWords(windWords);  
       }
-
 
       return dollyWords;
     }
@@ -542,7 +442,7 @@ example with no active alerts
 
 
     
-    // look up weather zone and grid position within the zone. also city and state.
+    // look up weather zone and grid position within the zone. also gets city and state.
     function getWeatherPosition(position) {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -569,6 +469,8 @@ example with no active alerts
 
 
     // get and display daily weather report
+    // it fetches data (positions 0-13) from weather service API
+    // it then adds them to two arrays. one for expanded forecasts. one for abbreviated forecasts
     function loadWeather(office, x, y) {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -577,10 +479,11 @@ example with no active alerts
           console.log(weatherResult);
 
           // store today's forecast into the array
-          // if already passed noon, need to  make first day just tonight
-          var dayStart = 0;
-          var hourlyDayCount = 0;
+          // if already passed noon, need to make first day just tonight (half day)
+          var dayStart = 0; // 1 if positions start with a half-day forecast. Otherwise 0.
+          var hourlyDayCount = 0; // used to build links to hourly forecasts
           
+          // if starting with a half day
           if (weatherResult.properties.periods[0].name == "Tonight" || weatherResult.properties.periods[0].name == "Overnight") {
             
             weatherResultArray.push (`
@@ -606,8 +509,8 @@ example with no active alerts
                     Now
                   </div> 
                   <p><b> ${weatherResult.properties.periods[0].name}</b> 
-                  <br> ${weatherResult.properties.periods[0].shortForecast}, 
-                  ${weatherResult.properties.periods[0].temperature}F</p> 
+                  <br>${weatherResult.properties.periods[0].shortForecast}
+                  <br>${weatherResult.properties.periods[0].temperature}F</p> 
                 </div>
             `);
             dayStart = 1;
@@ -617,9 +520,9 @@ example with no active alerts
           }
 
           var currentDayAbbreviation;
-          var currentDayArray;
+          var currentDayArray; // used to split holiday names so we can get the first letters for an abbreviation. example Memorial Day abbreviation is MD
           
-          //add rest of the days into the array
+          //add rest of the full days into the array
           for (i=dayStart; i < weatherResult.properties.periods.length; i=i+2) {          
             
             
@@ -642,7 +545,7 @@ example with no active alerts
             }
             
                         
-            // if day has a morning and evening
+            // if full day (has a morning and evening)
             if (i+1 < weatherResult.properties.periods.length) {
 
               // add full day to weather results array
@@ -676,9 +579,9 @@ example with no active alerts
                   <div class="circle">
                     ${currentDayAbbreviation}
                   </div> 
-                  <p><b> ${weatherResult.properties.periods[i].name}</b> 
-                  <br> ${weatherResult.properties.periods[i].shortForecast}, 
-                  ${weatherResult.properties.periods[i].temperature}F, 
+                  <p><b>${weatherResult.properties.periods[i].name}</b> 
+                  <br>${weatherResult.properties.periods[i].shortForecast}
+                  <br>${weatherResult.properties.periods[i].temperature}F, 
                   ${weatherResult.properties.periods[i+1].temperature}F</p> 
                 </div>
               `);
@@ -709,9 +612,9 @@ example with no active alerts
                   <div class="circle">
                     ${currentDayAbbreviation}
                   </div> 
-                  <p><b> ${weatherResult.properties.periods[i].name}</b> 
-                  <br> ${weatherResult.properties.periods[i].shortForecast}, 
-                  ${weatherResult.properties.periods[i].temperature}F</p> 
+                  <p><b>${weatherResult.properties.periods[i].name}</b> 
+                  <br>${weatherResult.properties.periods[i].shortForecast}
+                  <br>${weatherResult.properties.periods[i].temperature}F</p> 
                 </div>
               `);
 
@@ -719,17 +622,11 @@ example with no active alerts
             hourlyDayCount++;
           }
       
-          // log to console for debugging
-          /* for (i=0; i < weatherResultArray.length; i++) {
-            console.log(weatherAbbreviationArray[i]);
-            console.log(weatherResultArray[i]);
-          }*/
-        
-          // print today's forecast into the div with the today id
+          // print today's expanded forecast into the div with the today id
           var dailyForecastText = document.getElementById("dailyforecast");
           dailyForecastText.insertAdjacentHTML("beforeend", weatherResultArray[0]);           
 
-          // print the rest of the daily forecast into the div with the dailyforecast id
+          // print the rest of the abbreviated daily forecasts into the div with the dailyforecast id
           for (i=1; i < weatherResultArray.length; i++) {          
               dailyForecastText.insertAdjacentHTML("beforeend", weatherAbbreviationArray[i]);           
           }
@@ -742,7 +639,8 @@ example with no active alerts
 
 
 
-    // swap expanded and abbreviated forecasts
+
+    // swap expanded and abbreviated forecasts. used to pop out forecast with onclick event
     function changeForecast(dayNumber, thisElement) {
       // convert expanded day to abbreviated day
       var temp = document.createElement("div");
@@ -765,6 +663,7 @@ example with no active alerts
 
 
     // change background image based on day's weather
+    // needs work
     function changeImage(dayNumber) {
       if (dayNumber == 0) {
         document.body.style.backgroundImage = "url('images/corner.jpg')";
@@ -814,8 +713,6 @@ example with no active alerts
             // convert string from json into a proper date
             var startTime = new Date(weatherResultHourly.properties.periods[i].startTime);
             
-            //console.log(`hourly${i}`);
-
             // if first loop, create initial div and header
             if (i==0) {
               hourlyForecastText.insertAdjacentHTML("beforeend", `
@@ -896,7 +793,8 @@ example with no active alerts
 
 
 
-    // get and display hourly weather report
+    // get and display weather alerts
+    // example api call: https://api.weather.gov/alerts/active?point=37.52985065563401,-77.41054289211888
     function getWeatherAlert(latitude, longitude) {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -935,6 +833,8 @@ example with no active alerts
 
 
 
+
+    // toggles the display of weatheralertsbody when used with onclick event
     function toggleWeatherAlert() {
       var alertBody = document.getElementById("weatheralertbody");
       console.log(alertBody.style);
