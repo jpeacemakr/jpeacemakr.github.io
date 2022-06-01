@@ -10,17 +10,34 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
+
+      a {
+        color: rgb(0, 0, 0);
+      }
+      h2 {
+        font-family: 'Rokkitt', sans-serif;
+        font-size: 36px;
+        color: rgb(255, 123, 0);
+      }
+      body {
+        background-color: #c14b2b;
+        background-image: url('images/corner.jpg');
+        background-size: cover;
+        background-position: bottom left;
+        background-attachment: fixed;
+      }
+      
       #header {
         padding: 0px 0px 0px 0px;
-        margin: -2px 0px -2px 0px;
+        margin: 0px 0px -2px 0px;
         transition: all 1s;
       }
       #headerhead {
         color: white;
         font-size: 48px;
         font-family: 'Rokkitt', sans-serif;
-        margin: -2px 0px -2px 0px;
-        padding: 20px 20px 0px 20px;
+        margin: 0px 0px -2px 0px;
+        padding: 20px 30px 0px 30px;
         background-color: #c14b2b;
       }
       #imagetop {
@@ -32,16 +49,29 @@
         width: 100%;
         margin: -2px 0px -30px 0px;
       }
-      #weatheralerts {
-        display: none;
-        color:#ffffff;
+      #weatheralert {
         background-color: rgb(255, 123, 0);
-        padding: 20px;
-        margin: 0px;
+        padding: 16px 20px 5px 20px;
+        border-radius: 10px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        margin: 30px;
+        z-index: 9;
+        cursor: pointer;
+        transition: all 1s;
       }
+      #weatheralerthead {
+        color:#ffffff;
+        font-size: 32px;
+      }
+      #weatheralertbody {
+        display: none;
+      }
+      
       #location {
         margin: -2px 0px -3px 0px;
-        padding: 0px 20px 4px 20px;
+        padding: 0px 30px 4px 30px;
         background-color: #c14b2b;
       }
       #todayforecast {
@@ -103,11 +133,8 @@
         height:fit-content;
       }
 
-
       .dollysays {
-        /*background-color: rgb(255, 204, 138);
-        margin:10px;
-        padding:10px;*/
+    
       }
 
       .hourly{
@@ -117,21 +144,7 @@
         columns: 620px 2;
       }
 
-      a {
-        color: rgb(0, 0, 0);
-      }
-      h2 {
-        font-family: 'Rokkitt', sans-serif;
-        font-size: 36px;
-        color: rgb(255, 123, 0);
-      }
-      body {
-        background-color: #c14b2b;
-        background-image: url('images/corner.jpg');
-        background-size: cover;
-        background-position: bottom left;
-        background-attachment: fixed;
-      }
+     
 
     </style>
 
@@ -142,14 +155,21 @@
   <body onload="getLocation()" onscroll="hideHeader()">
 
     <div id="header" class="sticky-top">
+
       <h1 id="headerhead">Dolly the Doggo's Weather Forecast</h1>
       <div id="location"></div>
       <div id="imagetopdiv">
         <img id="imagetop" src="images/top.svg">
       </div>
+    
+      <div id="weatheralert" onclick="toggleWeatherAlert()">
+        <h2 id="weatheralerthead">Bark! Bark! Bark! (Weather Alert)</h2>
+        <div id="weatheralertbody">Wait while I sniff for weather alerts.</div>
+      </div>
+    
     </div>
 
-    <div id="weatheralerts"></div>
+    
 
     <div class="container-fluid">
       <div id="dailyforecast" class="row">
@@ -159,7 +179,8 @@
     <div id="hourlyforecast"><h2>Bark, world!</h2>
       <p>Just wait a second while I fetch the data from the National Weather Service. 
       <br>Press the "Allow" button if your browser asks if I can know your location.
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;</p>
+      <br>This site only works for areas covered by the United States National Weather Service.
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;</p>
     </div>
 
     <div id="footer">
@@ -185,10 +206,100 @@
     The API has a robust selection of filters for alerts. A common request is all active alerts for a state:
     https://api.weather.gov/alerts/active?area={state}
     For example: https://api.weather.gov/alerts/active?area=KS
+    
+    active alerts for point
+    https://api.weather.gov/alerts/active?point=38.9807,-76.9373
+    
+    
+  schema
+  {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": "string",
+      "type": "Feature",
+      "properties": {
+        "id": "string",
+        "areaDesc": "string",
+        "geocode": {
+          "UGC": [
+            "string"
+          ],
+          "SAME": [
+            "string"
+          ]
+        },
+        "affectedZones": [
+          "string"
+        ],
+        "references": [
+          {
+            "@id": "string",
+            "identifier": "string",
+            "sender": "string",
+            "sent": "2022-05-31T18:37:11.106Z"
+          }
+        ],
+        "sent": "2022-05-31T18:37:11.107Z",
+        "effective": "2022-05-31T18:37:11.107Z",
+        "onset": "2022-05-31T18:37:11.107Z",
+        "expires": "2022-05-31T18:37:11.107Z",
+        "ends": "2022-05-31T18:37:11.107Z",
+        "status": "Actual",
+        "messageType": "Alert",
+        "category": "Met",
+        "severity": "Extreme",
+        "certainty": "Observed",
+        "urgency": "Immediate",
+        "event": "string",
+        "sender": "string",
+        "senderName": "string",
+        "headline": "string",
+        "description": "string",
+        "instruction": "string",
+        "response": "Shelter",
+        "parameters": {
+          "additionalProp1": [
+            null
+          ],
+          "additionalProp2": [
+            null
+          ],
+          "additionalProp3": [
+            null
+          ]
+        }
+      }
+    }
+  ],
+  "title": "string",
+  "updated": "2022-05-31T18:37:11.107Z",
+  "pagination": {
+    "next": "string"
+  }
+}
+
+https://api.weather.gov/alerts/active?point=37.52985065563401,-77.41054289211888
+-77.41054289211888, 37.52985065563401
+
+example with no active alerts
+{
+    "@context": {
+        "@version": "1.1"
+    },
+    "type": "FeatureCollection",
+    "features": [],
+    "title": "current watches, warnings, and advisories for 38.9807 N, 76.9373 W",
+    "updated": "2022-05-28T03:00:00+00:00"
+}
+
+
+
+
     */
 
-    var myLongitude;
     var myLatitude;
+    var myLongitude;
     var positionResult;
     var weatherResult;
     var weatherResultHourly;
@@ -419,7 +530,7 @@
 
 
 
-    // get longitude and latitude from browser
+    // get latitude and longitude from browser
     function getLocation() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getWeatherPosition); //takes showPosition as callback function and returns position
@@ -441,14 +552,13 @@
           document.getElementById("location").innerHTML = 
             "<p>Location: <b>" + positionResult.properties.relativeLocation.properties.city + ", " + 
             positionResult.properties.relativeLocation.properties.state +
-            "</b> (Longitude: " + position.coords.longitude + 
-            ", Latitude: " + position.coords.latitude +
+            "</b> (Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude +
             ")</p>"           
           ;
           
           loadWeather(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
-          //getWeather(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
           getWeatherHourly(positionResult.properties.gridId, positionResult.properties.gridX, positionResult.properties.gridY);
+          getWeatherAlert(position.coords.latitude, position.coords.longitude);
         }
       };
       xhttp.open("GET", "https://api.weather.gov/points/" + position.coords.latitude + "," + position.coords.longitude, true);
@@ -511,28 +621,30 @@
           
           //add rest of the days into the array
           for (i=dayStart; i < weatherResult.properties.periods.length; i=i+2) {          
+            
+            
+            // create abbreviation of the day of the week
+            currentDayAbbreviation = "";
+            if (weatherResult.properties.periods[i].name == "Today" || weatherResult.properties.periods[i].name == "This Afternoon") {
+              currentDayAbbreviation ="Now";
+            }
+            //if current day has a space (is a special holiday), get first letter then each letter after the space
+            else if (weatherResult.properties.periods[i].name.includes(" ")){
+              currentDayArray = weatherResult.properties.periods[i].name.split(" ");
+              function getFirstLetters(item) {
+                currentDayAbbreviation = currentDayAbbreviation + item.slice(0, 1);
+              }
+              currentDayArray.forEach(getFirstLetters);
+            }
+            // else just use the first two letters of the day of the week
+            else{
+              currentDayAbbreviation = weatherResult.properties.periods[i].name.slice(0, 2);
+            }
+            
+                        
             // if day has a morning and evening
             if (i+1 < weatherResult.properties.periods.length) {
 
-
-              // create abbreviation of the day of the week
-              currentDayAbbreviation = "";
-              if (weatherResult.properties.periods[i].name == "Today" || weatherResult.properties.periods[i].name == "This Afternoon") {
-                currentDayAbbreviation ="Now";
-              }
-              //if current day has a space (is a special holiday), get first letter then each letter after the space
-              else if (weatherResult.properties.periods[i].name.includes(" ")){
-                currentDayArray = weatherResult.properties.periods[i].name.split(" ");
-                function getFirstLetters(item) {
-                  currentDayAbbreviation = currentDayAbbreviation + item.slice(0, 1);
-                }
-                currentDayArray.forEach(getFirstLetters);
-              }
-              // else just use the first two letters of the day of the week
-              else{
-                currentDayAbbreviation = weatherResult.properties.periods[i].name.slice(0, 2);
-              }
-                           
               // add full day to weather results array
               weatherResultArray.push (`
                 <div id="full${weatherResultArray.length}" class="today col-xl-3 col-md-5">
@@ -778,6 +890,60 @@
       };
       xhttp.open("GET", "https://api.weather.gov/gridpoints/" + office +"/" + x + "," + y + "/forecast/hourly", true);
       xhttp.send();
+    }
+
+
+
+
+
+    // get and display hourly weather report
+    function getWeatherAlert(latitude, longitude) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          
+          weatherAlert = JSON.parse(this.responseText);
+          console.log(weatherAlert);
+
+          // print the hourly forecast into the div with the hourlyforecast id
+          var alertText = document.getElementById("weatheralertbody");
+
+          // checks to see if alerts exist
+          if (weatherAlert.features.length==0){
+            alertText.innerHTML = `
+              <p>There are no active weather alerts for your location. </p>
+            `;
+          
+          // loop through alerts
+          } else {
+
+            alertText.innerHTML = "";
+            for (i=0; i<weatherAlert.features.length; i++) {
+              alertText.insertAdjacentHTML("beforeend", `
+                  <p>${weatherAlert.features[i].properties.event} 
+                  ${weatherAlert.features[i].properties.headline} 
+                  ${weatherAlert.features[i].properties.description}
+                  ${weatherAlert.features[i].properties.instruction}</p>
+              `);
+            }
+          }
+        }
+      };
+      xhttp.open("GET", `https://api.weather.gov/alerts/active?point=${latitude},${longitude}`, true);
+      xhttp.send();
+    }
+
+
+
+    function toggleWeatherAlert() {
+      var alertBody = document.getElementById("weatheralertbody");
+      console.log(alertBody.style);
+      
+      if (alertBody.style.display === "block") {
+        alertBody.style.display = "none";
+      } else {
+        alertBody.style.display = "block";
+      }
     }
 
 
