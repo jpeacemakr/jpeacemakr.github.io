@@ -26,19 +26,54 @@
         color: rgb(255, 123, 0);
       }
       body {
-        background-color: #c14b2b;
-        background-image: url('images/corner.jpg');
+        background-color: #000000;
+        /* background-image: url('images/corner.jpg');
         background-size: cover;
         background-position: bottom left;
         background-attachment: fixed;
+        overflow: scroll;
+        width:100%;
+        height:100%;
+        */
       }
       
-      #header {
-        padding: 0px 0px 0px 0px;
-        margin: 0px 0px -2px 0px;
-        transition: all 1s;
+      #backdropimage {
+        background-image: url('images/corner.jpg');
+        position: fixed; 
+        top: 0; 
+        bottom: 0; 
+        left: 0; 
+        right: 0;
+        background-size: cover;
+        background-position: bottom left;
+        z-index: -9;
       }
+
+      #header {
+        padding: 0px 0px 6.7% 0px;
+        margin: 0px 0px 0px 0px;
+        transition: all 1s;
+        background-image: url("images/top.svg");
+        background-position: bottom;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      
+
       #headerhead {
+        color: white;
+        font-size: 44px;
+        font-family: 'Rokkitt', sans-serif;
+        margin: 0px 0px -2px 0px;
+        padding: 20px 30px 0px 30px;
+        background-color: #c14b2b;
+      }
+      @media screen and (min-width: 851px) {
+        #headerhead {
+          display:none;
+        }
+      }
+      #headerhead2 {
         color: white;
         font-size: 48px;
         font-family: 'Rokkitt', sans-serif;
@@ -46,15 +81,18 @@
         padding: 20px 30px 0px 30px;
         background-color: #c14b2b;
       }
-      #imagetop {
-        width: 100%;
-        margin: -2px 0px -2px 0px;
+      @media screen and (max-width: 850px) {
+        #headerhead2 {
+          display:none;
+        }
       }
-      #imagetopdiv {
-        font-size: 1px;
-        width: 100%;
-        margin: -2px 0px -30px 0px;
+
+      #weatheralertouter {
+        background-color: #c14b2b;
+        margin:0px;
+        padding:0px;
       }
+
       #weatheralert {
         background-color: rgb(255, 123, 0);
         padding: 16px 20px 5px 20px;
@@ -65,8 +103,22 @@
         margin: 30px;
         z-index: 9;
         cursor: pointer;
-        transition: all 1s;
       }
+
+      @media screen and (max-width: 1400px) {
+        #weatheralertouter {
+          background-color: #c14b2b;
+          margin: 0px 0px -20px 0px; 
+          padding: 10px 10px 1px 10px;
+        }
+        #weatheralert {
+          position: static;
+          top: 0px;
+          right: 0px;
+          margin: 20px;        
+        }
+      }
+
       #weatheralerthead {
         color:#ffffff;
         font-size: 32px;
@@ -76,8 +128,8 @@
       }
       
       #location {
-        margin: -2px 0px -3px 0px;
-        padding: 0px 30px 4px 30px;
+        margin: -2px 0px -1px 0px;
+        padding: 0px 30px 1px 30px;
         background-color: #c14b2b;
       }
       #todayforecast {
@@ -85,7 +137,7 @@
       }
       #dailyforecast {
         margin: 0px 10px 200px 10px;
-        padding: 40px 30px;
+        padding: 10px 30px 10px 30px;
       }
       #hourlyforecast {
         background-color: rgb(255, 204, 138);
@@ -93,6 +145,24 @@
         padding: 20px 20px 5px 20px;
         border-radius: 10px;
       }
+
+
+      .container-fluid {
+        padding: 0px;
+      }
+      
+      .daily {
+        background-color: rgba(255,255,255, 0.7);
+        margin: 40px 10px 10px 10px;
+        padding:10px 20px 1px 20px;
+        border-radius: 10px;
+        font-size: 14px;
+        height:fit-content;
+        overflow-wrap: break-word;
+      }
+
+      
+
       #footer {
         background-color: #c14b2b;
         margin: 0px;
@@ -126,19 +196,8 @@
       .circle:hover {
         background-color: #ffffff;
       }
-      .container-fluid {
-        padding: 0px;
-      }
-
-      .daily {
-        background-color: rgba(255,255,255, 0.7);
-        margin: 40px 10px 10px 10px;
-        padding:10px 20px 1px 20px;
-        border-radius: 10px;
-        font-size: 14px;
-        height:fit-content;
-        overflow-wrap: break-word;
-      }
+      
+      
 
       .dollysays {
     
@@ -151,6 +210,26 @@
         columns: 620px 2;
       }
 
+
+      @media screen and (max-width: 600px) {
+        #hourlyforecast {
+          margin: 20px;
+        }
+        #dailyforecast {
+          margin: 0px;
+          padding: 20px;
+        }
+        .today {
+          margin-left: 0px;
+          margin-right: 0px;
+        }
+        .daily {
+          margin-left: 0px;
+          margin-right: 0px;
+        }
+      }
+
+
      </style>
 
   </head>
@@ -158,21 +237,21 @@
 
 
   <body onload="getLocation()" onscroll="hideHeader()">
+    <div id="backdropimage"></div>
 
     <!-- sticky header -->
     <div id="header" class="sticky-top">
 
-      <h1 id="headerhead">Dolly the Doggo's Weather Forecast</h1>
+      <div id="weatheralertouter">
+        <div id="weatheralert" onclick="toggleWeatherAlert()">
+          <h2 id="weatheralerthead">Bark! Bark! Bark! (Weather Alert)</h2>
+          <div id="weatheralertbody">Wait while I sniff for weather alerts.</div>
+        </div>
+      </div>
+      <h1 id="headerhead2">Dolly the Doggo's Weather Forecast</h1>
+      <h1 id="headerhead">Dolly's Weather</h1>
       <div id="location"></div>
-      <div id="imagetopdiv">
-        <img id="imagetop" src="images/top.svg">
-      </div>
-    
-      <div id="weatheralert" onclick="toggleWeatherAlert()">
-        <h2 id="weatheralerthead">Bark! Bark! Bark! (Weather Alert)</h2>
-        <div id="weatheralertbody">Wait while I sniff for weather alerts.</div>
-      </div>
-    
+        
     </div>
 
     
@@ -262,7 +341,8 @@
         " It would be good day for a chesseburger party in the backyard.",
         " It will be bright today.",
         " It will be a good day to lie in the sun.",
-        " The sun can warm my belly. Not as good as chicken warms my belly, but good enough."
+        " The sun can warm my belly. Not as good as chicken warms my belly, but good enough.",
+        " Sun's out, tongues out!"
 
       ];
       const mostSunWords = [
@@ -504,7 +584,7 @@
             `);
 
             weatherAbbreviationArray.push (`
-                <div id="abbreviated0" class='daily col' onclick="changeForecast(0, this);">
+                <div id="abbreviated0" class='col-md daily' onclick="changeForecast(0, this);">
                   <div class="circle">
                     Now
                   </div> 
@@ -575,7 +655,7 @@
               
               // add full day to weather abbreviations array
               weatherAbbreviationArray.push (`
-                <div id="abbreviated${weatherAbbreviationArray.length}" class='daily col' onclick="changeForecast(${weatherResultArray.length-1}, this);">
+                <div id="abbreviated${weatherAbbreviationArray.length}" class='col-md daily' onclick="changeForecast(${weatherResultArray.length-1}, this);">
                   <div class="circle">
                     ${currentDayAbbreviation}
                   </div> 
@@ -608,7 +688,7 @@
               `);
 
               weatherAbbreviationArray.push (`
-                <div id="abbreviated${weatherAbbreviationArray.length}" class='daily col' onclick="changeForecast(${weatherResultArray.length-1}, this);">
+                <div id="abbreviated${weatherAbbreviationArray.length}" class='col-md daily' onclick="changeForecast(${weatherResultArray.length-1}, this);">
                   <div class="circle">
                     ${currentDayAbbreviation}
                   </div> 
@@ -665,15 +745,18 @@
     // change background image based on day's weather
     // needs work
     function changeImage(dayNumber) {
+      
+      var backdropImage = document.getElementById("backdropimage");
+
       if (dayNumber == 0) {
-        document.body.style.backgroundImage = "url('images/corner.jpg')";
-        document.body.style.backgroundPosition = "bottom left"
+        backdropImage.style.backgroundImage = "url('images/corner.jpg')";
+        backdropImage.style.backgroundPosition = "bottom left"
       } else if (dayNumber == 1) {
-        document.body.style.backgroundImage = "url('images/upsidedown.jpg')";
+        backdropImage.style.backgroundImage = "url('images/upsidedown.jpg')";
         document.body.style.backgroundPosition = "top center"
       } else {
-        document.body.style.backgroundImage = "url('images/couch.jpg')";
-        document.body.style.backgroundPosition = "bottom center"
+        backdropImage.style.backgroundImage = "url('images/couch.jpg')";
+        backdropImage.style.backgroundPosition = "bottom center"
       }
     }
 
