@@ -39,13 +39,14 @@
       
       #backdropimage {
         background-image: url('images/corner.jpg');
+        background-repeat: no-repeat;
         position: fixed; 
         top: 0; 
         bottom: 0; 
         left: 0; 
         right: 0;
         background-size: cover;
-        background-position: bottom left;
+        background-position: left bottom;
         z-index: -9;
       }
 
@@ -750,13 +751,19 @@
 
       if (dayNumber == 0) {
         backdropImage.style.backgroundImage = "url('images/corner.jpg')";
-        backdropImage.style.backgroundPosition = "bottom left"
+        backdropImage.style.backgroundPosition = "left bottom";
       } else if (dayNumber == 1) {
         backdropImage.style.backgroundImage = "url('images/upsidedown.jpg')";
-        document.body.style.backgroundPosition = "top center"
+        backdropImage.style.backgroundPosition = "center top";
+      } else if (dayNumber == 2) {
+        backdropImage.style.backgroundImage = "url('images/grass.jpg')";
+        backdropImage.style.backgroundPosition = "right top";
+      } else if (dayNumber == 3) {
+        backdropImage.style.backgroundImage = "url('images/bench.jpg')";
+        backdropImage.style.backgroundPosition = "left top";
       } else {
         backdropImage.style.backgroundImage = "url('images/couch.jpg')";
-        backdropImage.style.backgroundPosition = "bottom center"
+        backdropImage.style.backgroundPosition = "center bottom";
       }
     }
 
