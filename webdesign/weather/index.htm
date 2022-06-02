@@ -27,14 +27,6 @@
       }
       body {
         background-color: #000000;
-        /* background-image: url('images/corner.jpg');
-        background-size: cover;
-        background-position: bottom left;
-        background-attachment: fixed;
-        overflow: scroll;
-        width:100%;
-        height:100%;
-        */
       }
       
       #backdropimage {
@@ -60,7 +52,6 @@
         background-repeat: no-repeat;
       }
       
-
       #headerhead {
         color: white;
         font-size: 44px;
@@ -124,6 +115,11 @@
         color:#ffffff;
         font-size: 32px;
       }
+      #weatheralerthead2 {
+        color:#ffffff;
+        font-size: 28px;
+        display: none;
+      }
       #weatheralertbody {
         display: none;
       }
@@ -147,10 +143,12 @@
         border-radius: 10px;
       }
 
-
-      .container-fluid {
-        padding: 0px;
+      #footer {
+        background-color: #c14b2b;
+        margin: 0px;
+        padding: 20px;
       }
+
       
       .daily {
         background-color: rgba(255,255,255, 0.7);
@@ -161,15 +159,6 @@
         height:fit-content;
         overflow-wrap: break-word;
       }
-
-      
-
-      #footer {
-        background-color: #c14b2b;
-        margin: 0px;
-        padding: 20px;
-      }
-      
 
       .today {
         background-color: #fffc67;
@@ -199,11 +188,6 @@
       }
       
       
-
-      .dollysays {
-    
-      }
-
       .hourly{
         background-color: antiquewhite;
         margin:20px 0px;
@@ -212,7 +196,7 @@
       }
 
 
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 767px) {
         #hourlyforecast {
           margin: 20px;
         }
@@ -228,7 +212,15 @@
           margin-left: 0px;
           margin-right: 0px;
         }
+        #weatheralerthead {
+          display:none;
+        }
+        #weatheralerthead2 {
+          display:block;
+        }
       }
+
+
 
 
      </style>
@@ -246,6 +238,7 @@
       <div id="weatheralertouter">
         <div id="weatheralert" onclick="toggleWeatherAlert()">
           <h2 id="weatheralerthead">Bark! Bark! Bark! (Weather Alert)</h2>
+          <h2 id="weatheralerthead2">Bark! (Weather Alert)</h2>
           <div id="weatheralertbody">Wait while I sniff for weather alerts.</div>
         </div>
       </div>
@@ -771,11 +764,16 @@
 
     // hide header when page is scrolled down
     function hideHeader() {
-      if (window.pageYOffset >= 400) {
-        document.getElementById("header").style.top = "-400px";
+      
+      
+      if ((window.innerWidth >= 768 && window.pageYOffset >= 400) ||(window.innerWidth < 768 && window.pageYOffset >= 100) ) {
+        document.getElementById("header").style.top = "-600px";
       } else {
         document.getElementById("header").style.top = "0px";
       }
+    
+    
+    
     }
 
 
@@ -901,6 +899,8 @@
             alertText.innerHTML = `
               <p>There are no active weather alerts for your location. </p>
             `;
+          document.getElementById("weatheralertouter").style.display = "none";
+
           
           // loop through alerts
           } else {
@@ -908,12 +908,16 @@
             alertText.innerHTML = "";
             for (i=0; i<weatherAlert.features.length; i++) {
               alertText.insertAdjacentHTML("beforeend", `
-                  <p>${weatherAlert.features[i].properties.event} 
-                  ${weatherAlert.features[i].properties.headline} 
-                  ${weatherAlert.features[i].properties.description}
-                  ${weatherAlert.features[i].properties.instruction}</p>
+                  <h3>${weatherAlert.features[i].properties.event}</h3> 
+                  <p><b>${weatherAlert.features[i].properties.headline}</b> 
+                  ${weatherAlert.features[i].properties.description}</p>
               `);
+              if (weatherAlert.features[i].properties.instruction !== null) {
+              alertText.insertAdjacentHTML("beforeend", `
+                  <p>${weatherAlert.features[i].properties.instruction}</p>
+              `);}
             }
+
           }
         }
       };
