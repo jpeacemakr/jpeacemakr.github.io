@@ -30,7 +30,7 @@
       }
       
       #backdropimage {
-        background-image: url('images/corner.jpg');
+        background-image: url('images/grass.jpg');
         background-repeat: no-repeat;
         position: fixed; 
         top: 0; 
@@ -38,7 +38,7 @@
         left: 0; 
         right: 0;
         background-size: cover;
-        background-position: left bottom;
+        background-position: right top;
         z-index: -9;
       }
 
@@ -81,8 +81,9 @@
 
       #weatheralertouter {
         background-color: #c14b2b;
-        margin:0px;
-        padding:0px;
+        margin: 0px;
+        padding: 0px;
+        display: none;
       }
 
       #weatheralert {
@@ -745,17 +746,29 @@
       var backdropImage = document.getElementById("backdropimage");
 
       if (dayNumber == 0) {
-        backdropImage.style.backgroundImage = "url('images/corner.jpg')";
-        backdropImage.style.backgroundPosition = "left bottom";
+        backdropImage.style.backgroundImage = "url('images/grass.jpg')";
+        backdropImage.style.backgroundPosition = "right top";
       } else if (dayNumber == 1) {
         backdropImage.style.backgroundImage = "url('images/upsidedown.jpg')";
         backdropImage.style.backgroundPosition = "center top";
       } else if (dayNumber == 2) {
-        backdropImage.style.backgroundImage = "url('images/grass.jpg')";
+        backdropImage.style.backgroundImage = "url('images/bench.jpg')";
         backdropImage.style.backgroundPosition = "right top";
       } else if (dayNumber == 3) {
-        backdropImage.style.backgroundImage = "url('images/bench.jpg')";
+        backdropImage.style.backgroundImage = "url('images/rain3.jpg')";
         backdropImage.style.backgroundPosition = "left top";
+      } else if (dayNumber == 4) {
+        backdropImage.style.backgroundImage = "url('images/couch2.jpg')";
+        backdropImage.style.backgroundPosition = "left top";
+      } else if (dayNumber == 5) {
+        backdropImage.style.backgroundImage = "url('images/rain2.jpg')";
+        backdropImage.style.backgroundPosition = "left top";
+      } else if (dayNumber == 6) {
+        backdropImage.style.backgroundImage = "url('images/corner.jpg')";
+        backdropImage.style.backgroundPosition = "left bottom";
+      } else if (dayNumber == 7) {
+        backdropImage.style.backgroundImage = "url('images/rain1.jpg')";
+        backdropImage.style.backgroundPosition = "center top";
       } else {
         backdropImage.style.backgroundImage = "url('images/couch.jpg')";
         backdropImage.style.backgroundPosition = "center bottom";
@@ -901,11 +914,11 @@
             alertText.innerHTML = `
               <p>There are no active weather alerts for your location. </p>
             `;
-          document.getElementById("weatheralertouter").style.display = "none";
-
           
-          // loop through alerts
+          // loop through alerts and display if they exist
           } else {
+
+            document.getElementById("weatheralertouter").style.display = "block";
 
             alertText.innerHTML = "";
             for (i=0; i<weatherAlert.features.length; i++) {
