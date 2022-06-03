@@ -129,9 +129,6 @@
         padding: 0px 30px 1px 30px;
         background-color: #c14b2b;
       }
-      #todayforecast {
-        padding:50px;
-      }
       #dailyforecast {
         margin: 0px 10px 200px 10px;
         padding: 10px 30px 10px 30px;
@@ -723,11 +720,16 @@
       temp = temp.firstElementChild;
       document.getElementsByClassName("today")[0].replaceWith(temp);
       
-      // convert expanded day to abbreviated day
+      // convert abbreviated day to expanded day
       var temp2 = document.createElement("div");
       temp2.innerHTML = weatherResultArray[dayNumber];
       temp2 = temp2.firstElementChild;
       thisElement.replaceWith(temp2);
+
+      // scroll to 
+      if (window.innerWidth < 768){
+        document.getElementById("full"+dayNumber).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+      }
 
       // change picture
       changeImage(dayNumber);
