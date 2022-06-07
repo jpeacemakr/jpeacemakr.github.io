@@ -4,7 +4,8 @@
     
     <!-- This is a website designed and coded by James Peacemaker Jr.
       It uses Dolly, his dog as a fun way to display the weather.
-      It uses three API calls from the National Weather Service.
+      It uses three API calls from the National Weather Service. 
+      (Get location based on GPS, get daily weather forecast, and get hourly forecast)
       https://www.weather.gov/documentation/services-web-api -->
 
 
@@ -16,212 +17,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <style>
-
-      a {
-        color: rgb(0, 0, 0);
-      }
-      h2 {
-        font-family: 'Rokkitt', sans-serif;
-        font-size: 36px;
-        color: rgb(255, 123, 0);
-      }
-      body {
-        background-color: #000000;
-      }
-      
-      #backdropimage {
-        background-image: url('images/grass.jpg');
-        background-repeat: no-repeat;
-        position: fixed; 
-        top: 0; 
-        bottom: 0; 
-        left: 0; 
-        right: 0;
-        background-size: cover;
-        background-position: right top;
-        z-index: -9;
-      }
-
-      #header {
-        padding: 0px 0px 6.7% 0px;
-        margin: 0px 0px 0px 0px;
-        transition: all 1s;
-        background-image: url("images/top.svg");
-        background-position: bottom;
-        background-size: contain;
-        background-repeat: no-repeat;
-      }
-      
-      #headerhead {
-        color: white;
-        font-size: 44px;
-        font-family: 'Rokkitt', sans-serif;
-        margin: 0px 0px -2px 0px;
-        padding: 20px 30px 0px 30px;
-        background-color: #c14b2b;
-      }
-      @media screen and (min-width: 851px) {
-        #headerhead {
-          display:none;
-        }
-      }
-      #headerhead2 {
-        color: white;
-        font-size: 48px;
-        font-family: 'Rokkitt', sans-serif;
-        margin: 0px 0px -2px 0px;
-        padding: 20px 30px 0px 30px;
-        background-color: #c14b2b;
-      }
-      @media screen and (max-width: 850px) {
-        #headerhead2 {
-          display:none;
-        }
-      }
-
-      #weatheralertouter {
-        background-color: #c14b2b;
-        margin: 0px;
-        padding: 0px;
-        display: none;
-      }
-
-      #weatheralert {
-        background-color: rgb(255, 123, 0);
-        padding: 16px 20px 5px 20px;
-        border-radius: 10px;
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        margin: 30px;
-        z-index: 9;
-        cursor: pointer;
-      }
-
-      @media screen and (max-width: 1400px) {
-        #weatheralertouter {
-          background-color: #c14b2b;
-          margin: 0px 0px -20px 0px; 
-          padding: 10px 10px 1px 10px;
-        }
-        #weatheralert {
-          position: static;
-          top: 0px;
-          right: 0px;
-          margin: 20px;        
-        }
-      }
-
-      #weatheralerthead {
-        color:#ffffff;
-        font-size: 32px;
-      }
-      #weatheralerthead2 {
-        color:#ffffff;
-        font-size: 28px;
-        display: none;
-      }
-      #weatheralertbody {
-        display: none;
-      }
-      
-      #location {
-        margin: -2px 0px -1px 0px;
-        padding: 0px 30px 1px 30px;
-        background-color: #c14b2b;
-      }
-      #dailyforecast {
-        margin: 0px 10px 200px 10px;
-        padding: 10px 30px 10px 30px;
-      }
-      #hourlyforecast {
-        background-color: rgb(255, 204, 138);
-        margin: 50px;
-        padding: 20px 20px 5px 20px;
-        border-radius: 10px;
-      }
-
-      #footer {
-        background-color: #c14b2b;
-        margin: 0px;
-        padding: 20px;
-      }
-
-      
-      .daily {
-        background-color: rgba(255,255,255, 0.7);
-        margin: 40px 10px 10px 10px;
-        padding:10px 20px 1px 20px;
-        border-radius: 10px;
-        font-size: 14px;
-        height:fit-content;
-        overflow-wrap: break-word;
-      }
-
-      .today {
-        background-color: #fffc67;
-        padding: 30px 30px 15px 30px;
-        border-radius: 10px;
-        margin: 10px;
-      }
-
-      .circle {
-        background-color: #fffc67;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        text-align: center;
-        padding-top:16px; 
-        margin: 10px auto -45px auto;
-        cursor: pointer;
-        font-family: 'Rokkitt', sans-serif;
-        font-size: 36px;
-        font-weight:bold;
-        color: rgb(255, 123, 0);
-        position: relative;
-        top:-50px;
-      }
-      .circle:hover {
-        background-color: #ffffff;
-      }
-      
-      
-      .hourly{
-        background-color: antiquewhite;
-        margin:20px 0px;
-        padding:20px;
-        columns: 620px 2;
-      }
-
-
-      @media screen and (max-width: 767px) {
-        #hourlyforecast {
-          margin: 20px;
-        }
-        #dailyforecast {
-          margin: 0px;
-          padding: 20px;
-        }
-        .today {
-          margin-left: 0px;
-          margin-right: 0px;
-        }
-        .daily {
-          margin-left: 0px;
-          margin-right: 0px;
-        }
-        #weatheralerthead {
-          display:none;
-        }
-        #weatheralerthead2 {
-          display:block;
-        }
-      }
-
-
-
-
-     </style>
+    </style>
 
   </head>
 
@@ -270,33 +66,154 @@
 
 
   <script>
-        
-    var myLatitude;
-    var myLongitude;
-    var positionResult;
-    var weatherResult;
-    var weatherResultHourly;
-    var weatherResultArray = [];
-    var weatherAbbreviationArray = [];
+    
+    // json data retrieved from weather service
+    let positionResult; // stores location json info
+    let weatherResult; // stores daily weather forecast json info
+    let weatherResultHourly; // stores hourly weather forecast json info
+
+    // arrays to store info for each day of the week. Typically 0..7 or 0..8
+    let weatherResultArray = [];
+    let weatherAbbreviationArray = [];
+    let weatherImageArray = [];
+
 
 
     // use weather information to get what dolly says
+    // day is day of week 0-X that image will be assigned to
     // position is position of data (0-13) from weather service API. 
     // num is number of positions to include (1 for half day or 2 for full day)
-    function dollySays(position, num) {
+    function dollySays(day, position, num) {
+    
+      let dollyWords = ""; // the string that will be built
+      let dollyWordsObject; // object to be assigned { words:"xxx", image:"xxx", position:"xxxx" }. 
+                            // it will store the last object (image and position to be used) as the string is being built.
+                            // this setup allows an image and position to be linked with a specific phrase
+                            // the array of phrase objects allows one of the phrases to be randomly chosen for a particular weather type
+        
+      // level of sunshine
+      const clearWords = [
+        { words: " It would be good night to chase opossums!", image: "night.jpg", position: "bottom center" }, 
+        { words: " Maybe I will see the sky ball tonight.", image: "night.jpg", position: "bottom center" },
+        { words: " Maybe the raccoon will visit my trash tonight (That's where the no-no food goes).", image: "night.jpg", position: "bottom center" }
+
+      ];
+      const sunWords = [
+        { words: " Today would be good day for a cheeseburger party in the backyard.", image: "cookout4.jpg", position: "center right" },
+        { words: " It will be bright today.", image: "sun1.jpg", position: "bottom center" },
+        { words: " Today will be a good day to lie in the sun.", image: "grass.jpg", position: "top right" },
+        { words: " The sun can warm my belly today. Not as good as chicken warms my belly, but good enough.", image: "grass.jpg", position: "top right" },
+        { words: " Sun's out, tongues out!", image: "bench.jpg", position: "top left" }
+
+      ];
+      const mostSunWords = [
+        { words: " There will only be a few sky fluffs in the air today.", image: "bench.jpg", position: "top left" }
+
+      ];
+      const partSunWords = [
+        { words: " There will some sky fluffs in the air today.", image: "sunset.jpg", position: "center right" },
+        { words: " Would be a good day to drive to Dairy Queen? I sit in backseat and wait for cheeseburger.", image: "drive.jpg", position: "center center" }
+
+      ];
+      const partCloudWords = [
+        { words: " There will be some sky fluffs in the air today.", image: "sunset.jpg", position: "center right" }
+
+      ];
+      const mostCloudWords = [
+        { words: " There will be a lot of sky fluffs in the air today.", image: "sunset.jpg", position: "center right" }
+
+      ];
+      const cloudWords = [
+        { words: " The sky fluffs will fill the air today.", image: "sunset.jpg", position: "center right" }
+
+      ];
+
+      // temperature
+      const hotWords = [
+        { words: " It will be so hot. Bring water bowl on your walk.", image: "grass.jpg", position: "top right" },
+        { words: " Keep paws off the outdoor floor so they don't get burned.", image: "corner.jpg", position: "bottom left" },
+        { words: " It is hot. Can I has trip to the pool too?", image: "drive.jpg", position: "center center" },
+        { words: " So hot. It would be good day for ice cream cone. Peanut butter is my favorite, not doggo cone!", image: "cone2.jpg", position: "top center" },
+        { words: " When I go outside, I has the pants!", image: "bench.jpg", position: "top left" }
+
+      ];
+      const warmWords = [
+        { words: " It will be so hot. Bring water bowl on your walk.", image: "sun1.jpg", position: "center center" },
+        { words: " Keep paws off the outdoor floor so they don't get burned.", image: "corner.jpg", position: "bottom right" },
+        { words: " Can I has trip to the pool too?", image: "drive.jpg", position: "center center" },
+        { words: " It would be good day for ice cream cone. Peanut butter is my favorite, not doggo cone!", image: "cone2.jpg", position: "top center" },
+        { words: " When I go outside, I has the pants!", image: "bench.jpg", position: "top left" }
+
+      ];
+      const coolWords = [
+        { words: " It will be so cold that I need my extra fur.", image: "night.jpg", position: "bottom center" },
+        { words: " I found this leaf on my walk. I thought it was banana. It does not taste like banana but I carry it home anyways.", image: "banana.jpg", position: "center left" },
+        { words: " It will be cold, but nice hot chicken could keep me warm.", image: "night.jpg", position: "bottom center" }
+
+      ];
+      const coldWords = [
+        { words: " It will be so cold that I need my extra fur.", image: "night.jpg", position: "bottom center" },
+        { words: " It will be cold, but nice hot chicken could keep me warm.", image: "night.jpg", position: "bottom center" }
+
+      ];
       
-      /* 
-      TERMS
-      rain = sky drips
-      thunderstorms = sky booms
-      snow = 
-      showers = 
-      precipitation = wets
-      windy = 
-      cloudy = sky fluffs
-      thunderstorms = angry sky fluffs
-      clear = no sky fluffs
-      */
+      // precipitation
+      const chanceRainWords = [ 
+        { words: " The sky fluffs might be drooling.", image: "rain2.jpg", position: "top right" }, 
+        { words: " I might brings in the mud from the walk.", image: "rain1.jpg", position: "top right" },
+        { words: " It might be a good day for couch cuddles if too wet for walks.", image: "rain2.jpg", position: "top right" },
+        { words: " Outside might be like bath time.", image: "rain2.jpg", position: "top right" }
+
+      ];
+      const rainWords = [ 
+        { words: " The sky fluffs will be drooling.", image: "rain2.jpg", position: "top right" }, 
+        { words: " I will bring in the mud from the walk.", image: "rain1.jpg", position: "top right" },
+        { words: " Rain makes it a good day for couch cuddles.", image: "ferocious.jpg", position: "center right" },
+        { words: " Outside will be like bath time.", image: "rain2.jpg", position: "top right" }
+
+      ];
+      const chanceStormWords = [
+        { words: " The sky fluffs might get angry today.", image: "rain2.jpg", position: "top right" },
+        { words: " I might get scared by the sky booms!", image: "rain1.jpg", position: "top right" },
+        { words: " Me and Papa like to sit on the swing and watch lightnings.", image: "rain2.jpg", position: "top right" }
+
+      ];
+      const stormWords = [
+        { words: " Try not to get scared by the sky booms!", image: "rain2.jpg", position: "top right" },
+        { words: " The sky fluffs will be angry today!", image: "rain1.jpg", position: "top right" },
+        { words: " Me and Papa like to sit on the swing and watch lightnings.", image: "rain2.jpg", position: "top right" }
+
+      ];
+      const snowWords = [
+        { words: " Good time for couch snuggles.", image: "night.jpg", position: "bottom center" }
+
+      ];
+      const chanceSnowWords = [
+        { words: " Good time for couch snuggles.", image: "night.jpg", position: "bottom center" }
+
+      ];
+      
+      // wind
+      const windWords = [
+        { words: " The sky fluffs will be running fast today.", image: "grass.jpg", position: "top right" }, 
+        { words: " Be careful which way you pees today.", image: "grass.jpg", position: "top right" }
+
+      ];
+      
+      // perfect weather
+      const perfectWords = [
+        { words: " It is a great day for lots of walks!", image: "sun1.jpg", position: "center center" }
+
+      ];
+      
+      
+      // assigns dollyWordsObject (stores image and position to use) and adds words to dollyWords
+      function randomWords (wordsArray) {
+        // pick a random phrase from the array of choices
+        dollyWordsObject = wordsArray [ Math.floor ( Math.random() * wordsArray.length ) ];
+        // concatenate the small phrase onto the larger whole phrase
+        dollyWords += dollyWordsObject.words;
+      }
 
       /* 
       DATA TO USE
@@ -319,157 +236,54 @@
       // check for holiday?
 
 
-      var dollyWords = "";
-      
-      
-      // level of sunshine
-      const clearWords = [
-        " It would be good night to chase opossums!", 
-        " Maybe I will see the sky ball tonight.",
-        " Maybe the raccoon will visit my trash tonight (That's where the no-no food goes)."
-
-      ];
-      const sunWords = [
-        " It would be good day for a cheeseburger party in the backyard.",
-        " It will be bright today.",
-        " It will be a good day to lie in the sun.",
-        " The sun can warm my belly. Not as good as chicken warms my belly, but good enough.",
-        " Sun's out, tongues out!"
-
-      ];
-      const mostSunWords = [
-        " There will only be a few sky fluffs in the air today."
-
-      ];
-      const partSunWords = [
-        " There will be a lot of sky fluffs in the air today."
-
-      ];
-      const partCloudWords = [
-        " There will be a lot of sky fluffs in the air today."
-
-      ];
-      const mostCloudWords = [
-        " There will be a lot of sky fluffs in the air today."
-
-      ];
-      const cloudWords = [
-        " The sky fluffs will fill the air today."
-
-      ];
-
-      // temperature
-      const hotWords = [
-        " It is so hot. Bring water bowl on your walk .",
-        " Keep paws off the outdoor floor so they don't get burned.",
-        " Can I has trip to the pool too?",
-        " Would be good day for ice creams. Peanut butter is my favorite!",
-        " When I go outside, I has the pants!"
-
-      ];
-      const coldWords = [
-        " It is so cold I need my extra fur today.",
-        " It is cold, but nice hot chicken could keep me warm."
-
-      ];
-      
-      // precipitation
-      const chanceRainWords = [ 
-        " The sky fluffs are drooling today.", 
-        " I brings in the mud from the walk.",
-        " It might be a good day for couch cuddles.",
-        " Bath time is outside now."
-
-      ];
-      const rainWords = [ 
-        " The sky fluffs are drooling today.", 
-        " I brings in the mud from the walk.",
-        " It might be a good day for couch cuddles.",
-        " Bath time is outside now."
-
-      ];
-      const stormWords = [
-        " Try not to get scared by the sky booms!",
-        " The sky fluffs will be angry today!"
-
-      ];
-      const chanceStormWords = [
-        " The sky fluffs might get angry today."
-
-      ];
-      const snowWords = [
-        "Good time for couch snuggles."
-
-      ];
-      const chanceSnowWords = [
-        "Good time for couch snuggles."
-
-      ];
-      
-      // wind
-      const windWords = [
-        " The sky fluffs will be running fast today.", 
-        " Be careful which way you pees today."
-
-      ];
-      
-      // perfect weather
-      const perfectWords = [
-        " It is a great day for lots of walks!"
-
-      ];
-      
-      
-      // how to call random words >> randomWords(windWords);
-      function randomWords (wordsArray) {
-        return ( wordsArray [ Math.floor ( Math.random() * wordsArray.length ) ] );
-      }
-
-
       // level of sunshine
       // If clear
       if (weatherResult.properties.periods[position].shortForecast.startsWith("Clear")) {
-          dollyWords += randomWords(clearWords);
+          randomWords(clearWords);
       }
       // If mostly clear
       if (weatherResult.properties.periods[position].shortForecast.startsWith("Mostly Clear")) {
-          dollyWords += randomWords(clearWords);
+          randomWords(clearWords);
       }
       // If partly clear
       if (weatherResult.properties.periods[position].shortForecast.startsWith("Partly Clear")) {
-          dollyWords += randomWords(clearWords);
+          randomWords(clearWords);
       }
       // if sunny
       else if (weatherResult.properties.periods[position].shortForecast.startsWith("Sunny")) {
-        dollyWords += randomWords(sunWords);  
+        randomWords(sunWords);  
       }
       // if mostly sunny
       else if (weatherResult.properties.periods[position].shortForecast.startsWith("Mostly Sunny")) {
-        dollyWords += randomWords(mostSunWords);  
+        randomWords(mostSunWords);  
       }
-      
       // if partly sunny
       else if (weatherResult.properties.periods[position].shortForecast.startsWith("Partly Sunny")) {
-        dollyWords += randomWords(partCloudWords);  
+        randomWords(partCloudWords);  
       }
       // if partly cloudy
       else if (weatherResult.properties.periods[position].shortForecast.startsWith("Partly Cloudy")) {
-        dollyWords += randomWords(partCloudWords);  
+        randomWords(partCloudWords);  
       }
       // if mostly cloudy
       else if (weatherResult.properties.periods[position].shortForecast.startsWith("Mostly Cloudy")) {
-        dollyWords += randomWords(partCloudWords);  
+        randomWords(partCloudWords);  
       }
       // if cloudy
       else if (weatherResult.properties.periods[position].shortForecast.startsWith("Cloudy")) {
-        dollyWords += randomWords(cloudWords);  
+        randomWords(cloudWords);  
       }
+
 
       // temperature
       if (weatherResult.properties.periods[position].temperature <= 32) {
-        dollyWords += randomWords(coldWords);  
+        randomWords(coldWords);  
+      } else if (weatherResult.properties.periods[position].temperature <= 50) {
+        randomWords(coolWords);  
       } else if (weatherResult.properties.periods[position].temperature >= 90) {
-        dollyWords += randomWords(hotWords);  
+        randomWords(hotWords);  
+      } else if (weatherResult.properties.periods[position].temperature >= 80) {
+        randomWords(warmWords);  
       }
 
 
@@ -478,31 +292,35 @@
       if (weatherResult.properties.periods[position].detailedForecast.includes("chance")) {
 
         if (weatherResult.properties.periods[position].detailedForecast.includes("showers")) {
-          dollyWords += randomWords(chanceRainWords);
+          randomWords(chanceRainWords);
         }
         if (weatherResult.properties.periods[position].detailedForecast.includes("thunderstorms")) {
-            dollyWords += randomWords(chanceStormWords);
+          randomWords(chanceStormWords);
         }
         if (weatherResult.properties.periods[position].detailedForecast.includes("snow")) {
-            dollyWords += randomWords(chanceSnowWords);
+          randomWords(chanceSnowWords);
         }
       // full on
       } else {
         if (weatherResult.properties.periods[position].detailedForecast.includes("showers")) {
-          dollyWords += randomWords(rainWords);
+          randomWords(rainWords);
         }
         if (weatherResult.properties.periods[position].detailedForecast.includes("thunderstorms")) {
-            dollyWords += randomWords(stormWords);
+          randomWords(stormWords);
         }
         if (weatherResult.properties.periods[position].detailedForecast.includes("snow")) {
-            dollyWords += randomWords(snowWords);
+          randomWords(snowWords);
         }
       }
       
+      
       // if windy
       if (weatherResult.properties.periods[position].windSpeed >= 10) {
-        dollyWords += randomWords(windWords);  
+        randomWords(windWords);  
       }
+
+      // add photo and position to weatherImageArray
+      weatherImageArray.push ({ name: dollyWordsObject.image, position: dollyWordsObject.position });
 
       return dollyWords;
     }
@@ -524,7 +342,7 @@
     
     // look up weather zone and grid position within the zone. also gets city and state.
     function getWeatherPosition(position) {
-      var xhttp = new XMLHttpRequest();
+      let xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           positionResult = JSON.parse(this.responseText);
@@ -552,7 +370,7 @@
     // it fetches data (positions 0-13) from weather service API
     // it then adds them to two arrays. one for expanded forecasts. one for abbreviated forecasts
     function loadWeather(office, x, y) {
-      var xhttp = new XMLHttpRequest();
+      let xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           weatherResult = JSON.parse(this.responseText);         
@@ -560,8 +378,8 @@
 
           // store today's forecast into the array
           // if already passed noon, need to make first day just tonight (half day)
-          var dayStart = 0; // 1 if positions start with a half-day forecast. Otherwise 0.
-          var hourlyDayCount = 0; // used to build links to hourly forecasts
+          let dayStart = 0; // 1 if positions start with a half-day forecast. Otherwise 0.
+          let hourlyDayCount = 0; // used to build links to hourly forecasts
           
           // if starting with a half day
           if (weatherResult.properties.periods[0].name == "Tonight" || weatherResult.properties.periods[0].name == "Overnight") {
@@ -576,13 +394,13 @@
 
                 <div class="dollysays">
                   <h2>Dolly says</h2> 
-                  <p>${dollySays(0, 1)}</p>
+                  <p>${dollySays(0, 0, 1)}</p>
                 </div>
 
                 <p><a href="#hourly${hourlyDayCount}">Hour-by-hour walk forecast</a></p>
               </div>
             `);
-
+            
             weatherAbbreviationArray.push (`
                 <div id="abbreviated0" class='col-md daily' onclick="changeForecast(0, this);">
                   <div class="circle">
@@ -593,14 +411,16 @@
                   <br>${weatherResult.properties.periods[0].temperature}F</p> 
                 </div>
             `);
+            weatherAbbreviationArray[weatherAbbreviationArray.length-1] = weatherAbbreviationArray[weatherAbbreviationArray.length-1].replace("Thunderstorm", "Storm");
+            
             dayStart = 1;
             if (weatherResult.properties.periods[0].name !== "Overnight") {
               hourlyDayCount = 1;
             }
           }
 
-          var currentDayAbbreviation;
-          var currentDayArray; // used to split holiday names so we can get the first letters for an abbreviation. example Memorial Day abbreviation is MD
+          let currentDayAbbreviation;
+          let currentDayArray; // used to split holiday names so we can get the first letters for an abbreviation. example Memorial Day abbreviation is MD
           
           //add rest of the full days into the array
           for (i=dayStart; i < weatherResult.properties.periods.length; i=i+2) {          
@@ -645,7 +465,7 @@
 
                   <div class="dollysays">
                     <h2>Dolly says</h2> 
-                    <p>${dollySays(i, 2)}</p>
+                    <p>${dollySays(hourlyDayCount, i, 2)}</p>
                   </div>
 
                   <p><a href="#hourly${hourlyDayCount}">Hour-by-hour walk forecast</a></p>
@@ -665,7 +485,8 @@
                   ${weatherResult.properties.periods[i+1].temperature}F</p> 
                 </div>
               `);
-
+              weatherAbbreviationArray[weatherAbbreviationArray.length-1] = weatherAbbreviationArray[weatherAbbreviationArray.length-1].replace("Thunderstorm", "Storm");
+            
 
             // else add half day to weather results array
             } else {
@@ -679,7 +500,7 @@
 
                   <div class="dollysays">
                     <h2>Dolly says</h2> 
-                    <p>${dollySays(i, 1)}</p>
+                    <p>${dollySays(hourlyDayCount, i, 1)}</p>
                   </div>
 
                   <p><a href="#hourly${hourlyDayCount}">Hour-by-hour walk forecast</a></p>
@@ -697,13 +518,14 @@
                   <br>${weatherResult.properties.periods[i].temperature}F</p> 
                 </div>
               `);
-
+              weatherAbbreviationArray[weatherAbbreviationArray.length-1] = weatherAbbreviationArray[weatherAbbreviationArray.length-1].replace("Thunderstorm", "Storm");
+            
             }
             hourlyDayCount++;
           }
       
           // print today's expanded forecast into the div with the today id
-          var dailyForecastText = document.getElementById("dailyforecast");
+          let dailyForecastText = document.getElementById("dailyforecast");
           dailyForecastText.insertAdjacentHTML("beforeend", weatherResultArray[0]);           
 
           // print the rest of the abbreviated daily forecasts into the div with the dailyforecast id
@@ -723,14 +545,14 @@
     // swap expanded and abbreviated forecasts. used to pop out forecast with onclick event
     function changeForecast(dayNumber, thisElement) {
       // convert expanded day to abbreviated day
-      var temp = document.createElement("div");
-      var todayNumber = document.getElementsByClassName("today")[0].id.charAt(4); //gets number from id full0 ... full8
+      let temp = document.createElement("div");
+      let todayNumber = document.getElementsByClassName("today")[0].id.charAt(4); //gets number from id full0 ... full8
       temp.innerHTML = weatherAbbreviationArray[todayNumber];
       temp = temp.firstElementChild;
       document.getElementsByClassName("today")[0].replaceWith(temp);
       
       // convert abbreviated day to expanded day
-      var temp2 = document.createElement("div");
+      let temp2 = document.createElement("div");
       temp2.innerHTML = weatherResultArray[dayNumber];
       temp2 = temp2.firstElementChild;
       thisElement.replaceWith(temp2);
@@ -748,81 +570,42 @@
 
 
     // change background image based on day's weather
-    // needs work
+    // it uses image names and positions stored in weatherImageArray[]
     function changeImage(dayNumber) {
+      console.log("changing " + dayNumber + " image to " + weatherImageArray[dayNumber].name + " " +  weatherImageArray[dayNumber].position);
+      let backdropImage = document.getElementById("backdropimage");
+      backdropImage.style.backgroundImage = `url('images/${weatherImageArray[dayNumber].name}')`;
+      backdropImage.style.backgroundPosition = weatherImageArray[dayNumber].position;
       
-      var backdropImage = document.getElementById("backdropimage");
-
-      if (dayNumber == 0) {
-        backdropImage.style.backgroundImage = "url('images/grass.jpg')";
-        backdropImage.style.backgroundPosition = "right top";
-      } else if (dayNumber == 1) {
-        backdropImage.style.backgroundImage = "url('images/upsidedown.jpg')";
-        backdropImage.style.backgroundPosition = "center top";
-      } else if (dayNumber == 2) {
-        backdropImage.style.backgroundImage = "url('images/bench.jpg')";
-        backdropImage.style.backgroundPosition = "right top";
-      } else if (dayNumber == 3) {
-        backdropImage.style.backgroundImage = "url('images/rain3.jpg')";
-        backdropImage.style.backgroundPosition = "left top";
-      } else if (dayNumber == 4) {
-        backdropImage.style.backgroundImage = "url('images/couch2.jpg')";
-        backdropImage.style.backgroundPosition = "left top";
-      } else if (dayNumber == 5) {
-        backdropImage.style.backgroundImage = "url('images/rain2.jpg')";
-        backdropImage.style.backgroundPosition = "left top";
-      } else if (dayNumber == 6) {
-        backdropImage.style.backgroundImage = "url('images/corner.jpg')";
-        backdropImage.style.backgroundPosition = "left bottom";
-      } else if (dayNumber == 7) {
-        backdropImage.style.backgroundImage = "url('images/rain1.jpg')";
-        backdropImage.style.backgroundPosition = "center top";
-      } else {
-        backdropImage.style.backgroundImage = "url('images/couch.jpg')";
-        backdropImage.style.backgroundPosition = "center bottom";
-      }
     }
 
 
 
-    // hide header when page is scrolled down
-    function hideHeader() {
-      
-      
-      if ((window.innerWidth >= 768 && window.pageYOffset >= 400) ||(window.innerWidth < 768 && window.pageYOffset >= 100) ) {
-        document.getElementById("header").style.top = "-600px";
-      } else {
-        document.getElementById("header").style.top = "0px";
-      }
-    
-    
-    
-    }
 
 
 
     // get and display hourly weather report
     function getWeatherHourly(office, x, y) {
-      var xhttp = new XMLHttpRequest();
+      let xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           weatherResultHourly = JSON.parse(this.responseText);
           console.log(weatherResultHourly);
 
           // print the hourly forecast into the div with the hourlyforecast id
-          var hourlyForecastText = document.getElementById("hourlyforecast");
+          let hourlyForecastText = document.getElementById("hourlyforecast");
           hourlyForecastText.innerHTML = "<h2>Hour-by-hour walk forecast</h2><p>(<b>Ideal walking weather:</b> 6 a.m. to 8 p.m. 40 to 89 degrees and no precipitation.)</p>";
           
           // used to format date. used to convert number into string
           const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
           const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-          var dayCount = 0; // keeps track of the number of days printed
+          let dayCount = 0; // keeps track of the number of days printed
 
           for (i=0; i <weatherResultHourly.properties.periods.length; i++) {
             
             // convert string from json into a proper date
-            var startTime = new Date(weatherResultHourly.properties.periods[i].startTime);
+            let startTime = new Date(weatherResultHourly.properties.periods[i].startTime);
             
             // if first loop, create initial div and header
             if (i==0) {
@@ -894,6 +677,7 @@
             `);
 
           }
+          changeImage(0);
         }
       };
       xhttp.open("GET", "https://api.weather.gov/gridpoints/" + office +"/" + x + "," + y + "/forecast/hourly", true);
@@ -907,7 +691,7 @@
     // get and display weather alerts
     // example api call: https://api.weather.gov/alerts/active?point=37.52985065563401,-77.41054289211888
     function getWeatherAlert(latitude, longitude) {
-      var xhttp = new XMLHttpRequest();
+      let xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           
@@ -915,7 +699,7 @@
           console.log(weatherAlert);
 
           // print the hourly forecast into the div with the hourlyforecast id
-          var alertText = document.getElementById("weatheralertbody");
+          let alertText = document.getElementById("weatheralertbody");
 
           // checks to see if alerts exist
           if (weatherAlert.features.length==0){
@@ -949,11 +733,9 @@
     }
 
 
-
-
     // toggles the display of weatheralertsbody when used with onclick event
     function toggleWeatherAlert() {
-      var alertBody = document.getElementById("weatheralertbody");
+      let alertBody = document.getElementById("weatheralertbody");
       
       if (alertBody.style.display === "block") {
         alertBody.style.display = "none";
@@ -962,6 +744,16 @@
       }
     }
 
+
+    
+    // hide header when page is scrolled down
+    function hideHeader() {
+      if ((window.innerWidth >= 768 && window.pageYOffset >= 400) ||(window.innerWidth < 768 && window.pageYOffset >= 100) ) {
+        document.getElementById("header").style.top = "-600px";
+      } else {
+        document.getElementById("header").style.top = "0px";
+      }
+    }
 
     
   </script>
