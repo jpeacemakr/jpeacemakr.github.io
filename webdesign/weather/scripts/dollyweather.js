@@ -463,7 +463,13 @@ function badLocation() {
 
      } else if (this.status == 500){
        let dailyForecastText = document.getElementById("dailyforecast");
-       dailyForecastText.innerHTML="<span style='color:yellow'>Something went wrong with the National Weather Service. This page will try again in 5 seconds or try hitting the reload button.</span>";
+       dailyForecastText.innerHTML=`
+        <div id="day0" class="daily-full col-xl-3 col-md-5">
+          <div id="full0" class="visible">
+            Something went wrong with the National Weather Service. This page will try again in 5 seconds or try hitting the reload button.
+          </div>
+        </div>
+      `;
        
       setTimeout(function(){
         getLocation();
