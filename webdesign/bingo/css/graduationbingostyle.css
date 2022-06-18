@@ -1,0 +1,81 @@
+@import "../../../bootstrap/css/bootstrap.css";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+
+
+.square-outside {
+	padding: 0px;
+	padding-bottom: 33%;
+	background-color: #8be1ed;
+	position:relative;
+}
+.square-inside {
+	display:flex;
+	position:absolute;
+	background-color: #1191b4;
+	padding:10px;
+	margin:10%;
+	width:80%;
+	height:80%;
+	align-items: center;
+	text-align: center;
+}
+.square-inside:hover {
+	background-color: #00c8ff;
+}
+
+
+.rokkitt {
+	font-family: 'Rokkitt', serif;
+}
+
+.middle {
+	padding:0px;
+	max-width: 600px;
+}
+
+.center {
+	margin: 0 auto;
+	font-size: 1em;
+	font-size:3.5vw;	
+}
+@media (min-width: 600px) {
+	.center {
+		font-size: 1em;
+	}	
+}
+
+.free-space {
+	font-size: 1.7em;
+	font-size:5vw;	
+	color: white;
+	font-weight: bold;
+}
+@media (min-width: 600px) {
+	.free-space {
+		font-size: 1.7em;
+	}	
+}
+
+
+a {
+	color: rgb(0, 0, 0);
+}
+h1 {
+	font-family: 'Rokkitt', sans-serif;
+	font-size: 36px;
+	color: rgb(0, 124, 173);
+}
+body {
+	background-color: #ffffff;
+	display:flex;
+	justify-content: center;
+}
+
+
+* {
+	box-sizing: border-box;
+}
