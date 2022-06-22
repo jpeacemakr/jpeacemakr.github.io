@@ -74,7 +74,6 @@ var bingo = {
     verticalSpaces : 5, // number of vertical spaces on the bingo card
     bingoBoard : new Array (this.horizontalSpaces), // an array of arrays to store the words, scores and whether each square has been clicked
     
-
     // initializes the bingo board
     start : function() {
         

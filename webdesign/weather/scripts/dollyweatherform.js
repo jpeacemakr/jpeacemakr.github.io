@@ -6,6 +6,8 @@
  // arrays to store images for each day of the week. Typically 0..7 or 0..8
  let weatherImageArray = [];
 
+ getLocation();
+
  // use weather information to get what dolly says
  // day is day of week 0-X that image will be assigned to
  // position is position of data (0-13) from weather service API. 
@@ -66,10 +68,7 @@
 
    ];
    const warmWords = [
-     { words: " It will be so hot. Bring water bowl on your walk.", image: "sun1.jpg", position: "center center" },
-     { words: " Keep paws off the outdoor floor so they don't get burned.", image: "corner.jpg", position: "bottom right" },
      { words: " Can I has trip to the pool too?", image: "drive.jpg", position: "center center" },
-     { words: " It would be good day for ice cream cone. Peanut butter is my favorite, not doggo cone!", image: "cone2.jpg", position: "top center" },
      { words: " When I go outside, I has the pants!", image: "bench.jpg", position: "top left" }
 
    ];
@@ -563,7 +562,7 @@ function badLocation() {
  let walkStartTime = 6;
  let walkEndTime = 20;
  let walkTempMin = 40;
- let walkTempMax = 90;
+ let walkTempMax = 85;
  let walkPrecipitation = 0;
 
 
@@ -833,7 +832,7 @@ function badLocation() {
     }
 
     // is good for walk?
-    if (weatherResultHourly.properties.periods[i].temperature >= walkTempMin && weatherResultHourly.properties.periods[i].temperature < walkTempMax &&
+    if (weatherResultHourly.properties.periods[i].temperature >= walkTempMin && weatherResultHourly.properties.periods[i].temperature <= walkTempMax &&
         startTime.getHours() >= walkStartTime && startTime.getHours() <= walkEndTime && precipitationNumber <= walkPrecipitation ) {
       hourlyForecastText.lastElementChild.insertAdjacentHTML("beforeend", `
       <b><span style="color:red">(WALK)</span></b> 
