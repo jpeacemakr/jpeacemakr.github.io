@@ -5,47 +5,47 @@ class BingoSquare {
     
     // a static list of phrases that will be used to fill the bingo board
     static bingoWords = [
-        { words: "quote from civil rights leader", score: 10, used: false },
-        { words: "quote from children's book", score: 10, used: false },
-        { words: "quote from movie/song", score: 10, used: false },
-        { words: "quote from a poet", score: 10, used: false },
-        { words: "someone trips", score: 10, used: false },
-        { words: "peace sign", score: 10, used: false },
-        { words: "speech about tragedy", score: 10, used: false },
-        { words: "crying baby", score: 10, used: false },
-        { words: "sign/shirt with grad's photo", score: 10, used: false },
-        { words: "bundle of balloons", score: 10, used: false },
-        { words: "first day of the rest of your lives", score: 10, used: false },
-        { words: "never stop learning", score: 10, used: false },
-        { words: "travel/journey metaphor", score: 10, used: false },
-        { words: "definition from dictionary", score: 10, used: false },
-        { words: "thanks family", score: 10, used: false },
-        { words: "class of XXXX", score: 10, used: false },
-        { words: "mispronounced name", score: 10, used: false },
-        { words: "someone yells a nickname", score: 10, used: false },
-        { words: "rehearsed group scream", score: 10, used: false },
-        { words: "clapping goes on too long", score: 10, used: false },
-        { words: "sequins/glitter", score: 10, used: false },
-        { words: "dance, dab or strut on stage", score: 10, used: false },
-        { words: "sports analogy", score: 10, used: false },
-        { words: "crying", score: 10, used: false },
-        { words: "hugs person giving out diploma", score: 10, used: false },
-        { words: "super high heels", score: 10, used: false },
-        { words: "future", score: 10, used: false },
-        { words: "obstacle", score: 10, used: false },
-        { words: "challenge", score: 10, used: false },
-        { words: "dreams", score: 10, used: false },
-        { words: "heart", score: 10, used: false },
-        { words: "dreams", score: 10, used: false },
-        { words: "chapter", score: 10, used: false },
-        { words: "secret", score: 10, used: false },
-        { words: "no one laughs at joke", score: 10, used: false },
-        { words: "Someone playing a video game", score: 10, used: false },
-        { words: "phone rings", score: 10, used: false },
-        { words: "school mascot mentioned", score: 10, used: false },
-        { words: "social media mentioned", score: 10, used: false },
-        { words: "someone's name ends with III or higher", score: 10, used: false },
-        { words: "someone yells bingo", score: 10, used: false }
+        { words: "Quote from <br>civil rights leader", score: 10, used: false },
+        { words: "Quote from <br>children's book", score: 10, used: false },
+        { words: "Quote from <br>movie/song", score: 10, used: false },
+        { words: "Quote <br>from <br>a poet", score: 10, used: false },
+        { words: "Someone <br>trips", score: 10, used: false },
+        { words: "Peace <br>sign", score: 10, used: false },
+        { words: "Speech <br>about <br>tragedy", score: 10, used: false },
+        { words: "Crying <br>baby", score: 10, used: false },
+        { words: "Sign/shirt <br>with grad's <br>photo", score: 10, used: false },
+        { words: "Bundle of <br>balloons", score: 10, used: false },
+        { words: "First day <br>of the rest <br>of your lives", score: 10, used: false },
+        { words: "Never <br>stop <br>learning", score: 10, used: false },
+        { words: "Travel/journey <br>metaphor", score: 10, used: false },
+        { words: "Definition <br>from <br>dictionary", score: 10, used: false },
+        { words: "Thanks <br>family", score: 10, used: false },
+        { words: "Class of <br>XXXX", score: 10, used: false },
+        { words: "Name <br>pronounced <br>wrong", score: 10, used: false },
+        { words: "Someone <br>yells a <br>nickname", score: 10, used: false },
+        { words: "Rehearsed <br>group <br>scream", score: 10, used: false },
+        { words: "Clapping <br>goes on <br>too long", score: 10, used: false },
+        { words: "Sequins/<br>glitter", score: 10, used: false },
+        { words: "Dance, <br>dab or strut <br>on stage", score: 10, used: false },
+        { words: "Sports <br>analogy", score: 10, used: false },
+        { words: "Crying", score: 10, used: false },
+        { words: "Hugs person <br>giving out \ndiploma", score: 10, used: false },
+        { words: "Super <br>high <br>heels", score: 10, used: false },
+        { words: "'future'", score: 10, used: false },
+        { words: "'obstacle'", score: 10, used: false },
+        { words: "'challenge'", score: 10, used: false },
+        { words: "'dreams'", score: 10, used: false },
+        { words: "'heart'", score: 10, used: false },
+        { words: "'dreams'", score: 10, used: false },
+        { words: "'chapter'", score: 10, used: false },
+        { words: "'secret'", score: 10, used: false },
+        { words: "No one <br>laughs at <br>joke", score: 10, used: false },
+        { words: "Someone <br>playing a <br>video game", score: 10, used: false },
+        { words: "Phone <br>rings", score: 10, used: false },
+        { words: "School <br>mascot <br>mentioned", score: 10, used: false },
+        { words: "Social <br>media <br>mentioned", score: 10, used: false },
+        { words: "Someone's <br>name ends <br>with III <br>or higher", score: 10, used: false },
+        { words: "Someone <br>yells <br>bingo", score: 10, used: false }
       ];
     
     // assigns a random phrase and then deletes that phrase from the list of possible phrases
@@ -86,17 +86,37 @@ var bingo = {
         for ( let i=0; i < this.horizontalSpaces; i++ ) {
             for ( let j=0; j < this.verticalSpaces; j++ ) {
                 this.bingoBoard[i][j] = new BingoSquare();
+                // replace static content with randomly generated phrases
+                if (i!==1 || j!==2){
+                    $("#square" + (i+1) + (j+1) + "-inside").children("p").html(this.bingoBoard[i][j].words);
+                }
             }
         }  
-        
         this.printToConsole();
-        // if horizontal and vertical spaces are odd, set free space on center space
-
-
     },
 
-    clickSquare : function () {
-
+    clickSquare : function (square) {
+        console.log("running bingo.clickSquare");
+        // if square doesn't have class big, add it. else if it does, remove it
+        if($(square).hasClass("big")) {
+            $(square).removeClass("big");
+            if($(square).hasClass("picked")) {
+                $(square).removeClass("picked");
+                // remove score
+                //console.log($(square).attr("id").charAt(6)-1);
+                //console.log($(square).attr("id").charAt(7)-1);
+                this.bingoBoard[$(square).attr("id").charAt(6)-1][$(square).attr("id").charAt(7)-1].picked = false;
+            }
+            else { 
+                $(square).addClass("picked");
+                // add score string
+                //console.log($(square).attr("id").charAt(6)-1);
+                //console.log($(square).attr("id").charAt(7)-1);
+                this.bingoBoard[$(square).attr("id").charAt(6)-1][$(square).attr("id").charAt(7)-1].picked = true;
+            }
+        } else {
+            $(square).addClass("big");
+        }
     },
 
     checkHorizontal : function() {
@@ -113,7 +133,17 @@ var bingo = {
 
 
     getScore : function() {
-        
+        bingoScore = 0;
+        for ( let i=0; i < this.horizontalSpaces; i++ ) {
+            for ( let j=0; j < this.verticalSpaces; j++ ) {
+                if (this.bingoBoard[i][j].picked === true) {
+                    bingoScore = bingoScore + this.bingoBoard[i][j].score;
+                }
+            }
+        }
+        // console.log("Score:" + bingoScore);
+        $(".score").html("Your score is: " + bingoScore);
+  
     },
 
     printToConsole : function () {
@@ -127,10 +157,21 @@ var bingo = {
 }
 
 
+$(document).ready(function(){
+    //console.log("ready");
 
-window.addEventListener('load', (event) => {
-    console.log('The page has fully loaded');
+    // initialize the game board with random phrases
     bingo.start();
-});
+
+    // make square big and calculate score when you click on it
+    $(".square-inside").click(function(){
+      //console.log("click");
+      bingo.clickSquare(this);
+      bingo.getScore();
+    });
+
+  });
+
+
 
 
