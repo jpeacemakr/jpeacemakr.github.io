@@ -9,7 +9,7 @@
 .square-outside {
 	padding: 0px;
 	padding-bottom: 33%;
-	background-color: #8be1ed;
+	background-color: #ffffff;
 	position:relative;
 }
 .square-inside {
@@ -28,10 +28,10 @@
 	background-color: #00c8ff;
 }
 .picked {
-	opacity: 50%;
+	opacity: 100%;
+	background-image: url("../images/x.svg");
+	background-size: 100% 100%;
 }
-
-
 
 
 .rokkitt {
