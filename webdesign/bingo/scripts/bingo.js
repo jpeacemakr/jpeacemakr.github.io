@@ -142,7 +142,7 @@ var bingo = {
             }
         }
         // console.log("Score:" + bingoScore);
-        $(".score").html("Your score is: " + bingoScore);
+        $(".score").html(bingoScore);
   
     },
 

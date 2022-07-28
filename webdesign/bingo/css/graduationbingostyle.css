@@ -4,33 +4,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 
-
+.header {
+	background-color: rgb(255, 255, 148);
+	max-width: 600px;
+	margin:-1px;
+	padding:0px;
+	position:relative;
+}
+.scoreword {
+	position:absolute;
+	top:10px;
+	right:20px;
+	font-weight: bold;
+}
+.score {
+	position:absolute;
+	top:30px;
+	right:20px;
+}
 
 .square-outside {
 	padding: 0px;
 	padding-bottom: 33%;
-	background-color: #ffffff;
+	background-color: white;
 	position:relative;
 }
 .square-inside {
 	display: flex;
 	position: absolute;
-	background-color: #1191b4;
+	background-color: #b0eefd;
 	padding:10px;
-	margin:10%;
-	width:80%;
-	height:80%;
+	margin:5%;
+	width:90%;
+	height:90%;
 	align-items: center;
 	text-align: center;
 	transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s, right 0.5s, bottom 0.5s, padding 0.5s, margin 0.5s;
 }
 .square-inside:hover {
-	background-color: #00c8ff;
+	background-color: #61ddff;
 }
 .picked {
 	opacity: 100%;
 	background-image: url("../images/x.svg");
 	background-size: 100% 100%;
+	background-color: rgb(255, 255, 255);
+
 }
 
 
@@ -39,10 +58,11 @@
 }
 
 .middle {
-	padding:0px;
+	padding:10px;
 	max-width: 600px;
 	font-size: 1em;
 	font-size: 3.5vw;
+	background-color: rgb(255, 255, 255);
 }
 @media (min-width: 600px) {
 	.middle {
@@ -60,7 +80,7 @@
 .free-space {
 	font-size: 1.7em;
 	font-size:5vw;	
-	color: white;
+	color: rgb(10, 178, 220);
 	font-weight: bold;
 }
 @media (min-width: 600px) {
@@ -102,12 +122,13 @@ a {
 h1 {
 	font-family: 'Rokkitt', sans-serif;
 	font-size: 36px;
-	color: rgb(0, 124, 173);
+	color: rgb(10, 178, 220);
 }
 body {
-	background-color: #ffffff;
+	background-color: rgb(10, 178, 220);
 	display:flex;
 	justify-content: center;
+	padding:10px;
 }
 
 
