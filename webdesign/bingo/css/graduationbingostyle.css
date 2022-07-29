@@ -7,7 +7,6 @@
 .header {
 	background-color: rgb(255, 255, 148);
 	max-width: 600px;
-	margin:-1px;
 	padding:0px;
 	position:relative;
 }
@@ -41,9 +40,12 @@
 	text-align: center;
 	transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s, right 0.5s, bottom 0.5s, padding 0.5s, margin 0.5s;
 }
-.square-inside:hover {
-	background-color: #61ddff;
+@media (min-width: 600px) {
+	.square-inside:hover {
+		background-color: #89e5ff;
+	}	
 }
+
 .picked {
 	opacity: 100%;
 	background-image: url("../images/x.svg");
@@ -51,6 +53,7 @@
 	background-color: rgb(255, 255, 255);
 
 }
+
 
 
 .rokkitt {
@@ -78,14 +81,16 @@
 
 
 .free-space {
-	font-size: 1.7em;
-	font-size:5vw;	
+	font-size: 2em;
+	font-size:6vw;	
 	color: rgb(10, 178, 220);
 	font-weight: bold;
+	line-height:6vw;
 }
 @media (min-width: 600px) {
 	.free-space {
-		font-size: 1.7em;
+		font-size: 2.3em;
+		line-height: 1em;
 	}	
 }
 
@@ -112,6 +117,11 @@
 }
 
 
+.footer {
+	max-width: 600px;
+	padding:0px;
+	position:relative;
+}
 
 
 

@@ -141,6 +141,40 @@ var bingo = {
                 }
             }
         }
+
+        // diagonal down right
+        for ( let i=0; i < (this.verticalSpaces - this.horizontalSpaces + 1); i++ ) {
+            if (this.bingoBoard[0][i].picked === true && this.bingoBoard[1][i+1].picked === true && this.bingoBoard[2][i+2].picked === true) {
+                console.log("Diagonal down bingo! Words: " +  this.bingoBoard[0][i].words);
+                bingoScore = bingoScore + 100;
+            } 
+        }
+
+        // diagonal up right
+        for ( let i=(this.verticalSpaces - this.horizontalSpaces); i < this.verticalSpaces; i++ ) {
+            if (this.bingoBoard[0][i].picked === true && this.bingoBoard[1][i-1].picked === true && this.bingoBoard[2][i-2].picked === true) {
+                console.log("Diagonal up bingo! Words: " +  this.bingoBoard[0][i].words);
+                bingoScore = bingoScore + 100;
+            } 
+        }
+
+        // horizontal bingo
+        for ( let i=0; i < this.verticalSpaces; i++ ) {
+            if (this.bingoBoard[0][i].picked === true && this.bingoBoard[1][i].picked === true && this.bingoBoard[2][i].picked === true === true) {
+                console.log("Horizontal bingo! Words: " +  this.bingoBoard[0][i].words);
+                bingoScore = bingoScore + 100;
+            } 
+        }
+
+        // vertical bingo
+        for ( let i=0; i < this.horizontalSpaces; i++ ) {
+            if (this.bingoBoard[i][0].picked === true && this.bingoBoard[i][1].picked === true && this.bingoBoard[i][2].picked === true === true  && this.bingoBoard[i][3].picked === true === true  && this.bingoBoard[i][4].picked === true === true) {
+                console.log("Verical bingo! Words: " +  this.bingoBoard[i][0].words);
+                bingoScore = bingoScore + 200;
+            } 
+        }
+
+        
         // console.log("Score:" + bingoScore);
         $(".score").html(bingoScore);
   
