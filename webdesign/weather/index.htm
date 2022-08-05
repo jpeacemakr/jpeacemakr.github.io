@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang = “en”>
   <head>
-    
-    <!-- This is a website designed and coded by James Peacemaker Jr.
-      It uses Dolly, his dog as a fun way to display the weather.
-      It uses three API calls from the National Weather Service. 
-      (Get location based on GPS, get daily weather forecast, and get hourly forecast)
-      https://www.weather.gov/documentation/services-web-api -->
-
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv=”content-language” content=”en-us”>
+
+    <meta description="Get the weather forecast from Dolly the Doggo. She can tell you when it is the best time to walk your dog.">
+    <meta keywords="weather, forecast, dog, walk, Dolly, Doggo, furcast">
 
     <title>Dolly the Doggo's Weather Forecast</title>
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="css/dollystyleform.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    
+    <link rel="dns-prefetch" href="https://api.weather.gov">
+
     <link rel="shortcut icon" type="image/png" href="images/dollyfavicon.png" />
     <link rel="apple-touch-icon" href="images/dollyappleicon.png" />
   </head>
-
 
 
   <body onscroll="hideHeader()">
@@ -64,7 +64,14 @@
       <p>Copyright 2022, Peacemaker Media Empire. Weather data from <a href ="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a>. If the information on this page is bad, don't blame us. You are the one who got your weather from a dog.</p>
     </div>
 
-    <script src="scripts/hide.js#updated-1628-6-13-2022"></script>
     <script src="scripts/dollyweatherform.js#updated-2155-6-21-2022"></script>
+    <script src="scripts/hide.js#updated-1628-6-13-2022"></script>
+
   </body>
 </html>
+
+<!-- This is a website designed and coded by James Peacemaker Jr.
+      It uses Dolly, his dog as a fun way to display the weather.
+      It uses three API calls from the National Weather Service. 
+      (Get location based on GPS, get daily weather forecast, and get hourly forecast)
+      https://www.weather.gov/documentation/services-web-api -->
