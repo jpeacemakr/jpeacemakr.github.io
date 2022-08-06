@@ -21,7 +21,7 @@
   </head>
 
 
-  <body onscroll="hideHeader()">
+  <body onscroll="hideHeader()" onkeypress="handleEnter(event)">
 
     <div class="backdropimage"></div>
 
@@ -67,6 +67,15 @@
 
     <script src="scripts/dollyweatherform.js#updated-2155-6-21-2022"></script>
     <script src="scripts/hide.js#updated-1628-6-13-2022"></script>
+    <script>
+      //used so that hitting enter triggers the click on the div. for accessibility
+      function handleEnter(e){
+        var keycode = (e.keyCode ? e.keyCode : e.which);
+        if (keycode == '13') {
+          document.activeElement.click();
+        }
+      }
+    </script>
 
   </body>
 </html>
