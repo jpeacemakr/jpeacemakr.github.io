@@ -151,12 +151,12 @@ body {
 	background-color: #c14b2b;
 }
 #dailyforecast {
-	margin: 0px 0px 300px 0px;
+	margin: 0px 0px 0px 0px;
 	padding: 10px 30px 10px 30px;
 }
 #hourlyforecast {
 	background-color: rgb(255, 204, 138);
-	margin: 50px;
+	margin: 50px 50px 2000px 50px;
 	padding: 20px 20px 5px 20px;
 	border-radius: 10px;
 }
@@ -168,9 +168,9 @@ body {
 
   
 .daily-abbreviated {
-	background-color: rgba(255,255,255, 0.7);
+	background-color: rgba(255,255,255, 0.9);
 	margin: 40px 10px 10px 10px;
-	padding:10px 20px 1px 20px;
+	padding: 10px 20px 1px 20px;
 	border-radius: 10px;
 	font-size: 14px;
 	height:fit-content;
@@ -201,9 +201,12 @@ body {
 	color: rgb(255, 123, 0);
 	position: relative;
 	top:-50px;
+	box-shadow: rgba(150, 150, 150, 0.3) 0px 8px 24px;
+
 }
 .circle:hover {
 	background-color: #ffffff;
+	box-shadow: rgba(150, 150, 150, 0.6) 0px 8px 24px;
 }
     
 .hourly{
@@ -216,7 +219,7 @@ body {
 
 @media screen and (max-width: 767px) {
 	#hourlyforecast {
-		margin: 20px;
+		margin: 20px 20px 2000px 20px;
 	}
 	#dailyforecast {
 		margin: 0px;

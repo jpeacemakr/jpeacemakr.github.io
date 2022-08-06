@@ -314,6 +314,8 @@ function badLocation() {
        // today's expanded and abbreviated forecasts into the dailyforecast div
        let dailyForecastText = document.getElementById("dailyforecast");
        
+       dailyForecastText.parentElement.style.minHeight = window.innerHeight + "px";
+
        dailyForecastText.innerHTML="";
 
        // if starting with a half day
@@ -339,7 +341,7 @@ function badLocation() {
                <p><a href="#hourly${dayCount}">Hour-by-hour walk forecast</a></p>
              </div>
          
-             <div id="abbreviated0" class="hidden" onclick="changeForecast(0, this);">
+             <div id="abbreviated0" tabindex="0" class="hidden" onclick="changeForecast(0, this);">
                <div class="circle">
                  Now
                </div> 
@@ -387,7 +389,7 @@ function badLocation() {
          if (i+1 < weatherResult.properties.periods.length) {
 
            dailyForecastText.insertAdjacentHTML("beforeend", `
-             <div id="day${dayCount}" class="${dayCount==0 ?'col-xl-3 col-md-5 daily-full':'col-md-2 col-xxl-1 daily-abbreviated'}">
+            <div id="day${dayCount}" class="${dayCount==0 ?'col-xl-3 col-md-5 daily-full':'col-md-2 col-xxl-1 daily-abbreviated'}">
 
                <div id="full${dayCount}" class="${dayCount==0 ?'visible':'hidden'}">
                  <img id="image${dayCount}" class="backdropimage2">
@@ -411,7 +413,7 @@ function badLocation() {
                  <p><a href="#hourly${ weatherResult.properties.periods[0].name == "Overnight" ? dayCount-1 : dayCount }">Hour-by-hour walk forecast</a></p>
                </div>
                
-               <div id="abbreviated${dayCount}" class="${dayCount==0 ?'hidden':'visible'}" onclick="changeForecast(${dayCount-1}, this);">
+               <div id="abbreviated${dayCount}" tabindex="0" class="${dayCount==0 ?'hidden':'visible'}" onclick="changeForecast(${dayCount-1}, this);">
                  <div class="circle">
                    ${currentDayAbbreviation}
                  </div> 
@@ -445,7 +447,7 @@ function badLocation() {
                  <p><a href="#hourly${ weatherResult.properties.periods[0].name == "Overnight" ? dayCount-1 : dayCount }">Hour-by-hour walk forecast</a></p>
                </div>
            
-               <div id="abbreviated${dayCount}" class="visible" onclick="changeForecast(${dayCount-1}, this);">
+               <div id="abbreviated${dayCount}" tabindex="0" class="visible" onclick="changeForecast(${dayCount-1}, this);">
                  <div class="circle">
                    ${currentDayAbbreviation}
                  </div> 
@@ -612,6 +614,9 @@ function badLocation() {
   
   // print the hourly forecast into the div with the hourlyforecast id
   let hourlyForecastText = document.getElementById("hourlyforecast");
+  
+  hourlyForecastText.style.marginBottom = "50px";
+
   hourlyForecastText.innerHTML = `
   
    <h2>Hour-by-hour walk forecast</h2><p><b>Pick your ideal walking conditions:</b></p>
