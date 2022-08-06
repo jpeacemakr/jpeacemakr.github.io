@@ -20,17 +20,19 @@
 
 
 
-  <body style="display:block">
-    
-    <div class="header center">
-        <img src="images/bingotop.svg" alt="Graduation Bingo" style="width:75%">
-        <div class="scoreword">
-            SCORE
+  <body style="display:block" onkeypress="handleEnter(event)">
+    <header>
+        <div class="header center">
+            <img src="images/bingotop.svg" alt="Graduation Bingo" style="width:75%">
+            <div class="scoreword">
+                SCORE
+            </div>
+            <div class="score">
+                0
+            </div>
         </div>
-        <div class="score">
-            0
-        </div>
-    </div>
+    </header>
+
     <div class="container-fluid middle">
         
         
@@ -40,17 +42,17 @@
 
             <div class="row">
                 <div id="square11-outside" class="col-4 square-outside">
-                    <div id="square11-inside" class="col-4 square-inside">
+                    <div id="square11-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">quote from civil rights leader</p>
                     </div>
                 </div>
                 <div id="square21-outside" class="col-4 square-outside">
-                    <div id="square21-inside" class="col-4 square-inside">
+                    <div id="square21-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">sign/shirt with grad's photo</p>
                     </div>
                 </div>
                 <div id="square31-outside" class="col-4 square-outside">
-                    <div id="square31-inside" class="col-4 square-inside">
+                    <div id="square31-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">someone yells bingo</p>
                     </div>
                 </div>
@@ -58,17 +60,17 @@
         
             <div class="row">
                 <div id="square12-outside" class="col-4 square-outside">
-                    <div id="square12-inside" class="col-4 square-inside">
+                    <div id="square12-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">dance, dab or strut on stage</p>
                     </div>
                 </div>
                 <div id="square22-outside" class="col-4 square-outside">
-                    <div id="square22-inside" class="col-4 square-inside">
+                    <div id="square22-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">someone yells a nickname</p>
                     </div>
                 </div>
                 <div id="square32-outside" class="col-4 square-outside">
-                    <div id="square32-inside" class="col-4 square-inside">
+                    <div id="square32-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">name ends with III or higher</p>
                     </div>
                 </div>
@@ -76,17 +78,17 @@
 
             <div class="row">
                 <div id="square13-outside" class="col-4 square-outside">
-                    <div id="square13-inside" class="col-4 square-inside">
+                    <div id="square13-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">"first day of the rest of our lives"</p>
                     </div>
                 </div>
                 <div id="square23-outside" class="col-4 square-outside">
-                    <div id="square23-inside" class="col-4 square-inside">
+                    <div id="square23-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center free-space">FREE <BR>SPACE</p>
                     </div>
                 </div>
                 <div id="square33-outside" class="col-4 square-outside">
-                    <div id="square33-inside" class="col-4 square-inside">
+                    <div id="square33-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">rehearsed group scream</p>
                     </div>
                 </div>
@@ -94,17 +96,17 @@
 
             <div class="row">
                 <div id="square14-outside" class="col-4 square-outside">
-                    <div id="square14-inside" class="col-4 square-inside">
+                    <div id="square14-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">quote from children's book</p>
                     </div>
                 </div>
                 <div id="square24-outside" class="col-4 square-outside">
-                    <div id="square24-inside" class="col-4 square-inside">
+                    <div id="square24-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">definition from dictionary</p>
                     </div>
                 </div>
                 <div id="square34-outside" class="col-4 square-outside">
-                    <div id="square34-inside" class="col-4 square-inside">
+                    <div id="square34-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">name pronounced wrong</p>
                     </div>
                 </div>
@@ -112,17 +114,17 @@
 
             <div class="row">
                 <div id="square15-outside" class="col-4 square-outside">
-                    <div id="square15-inside" class="col-4 square-inside">
+                    <div id="square15-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">quote from movie/song</p>
                     </div>
                 </div>
                 <div id="square25-outside" class="col-4 square-outside">
-                    <div id="square25-inside" class="col-4 square-inside">
+                    <div id="square25-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">someone trips</p>
                     </div>
                 </div>
                 <div id="square35-outside" class="col-4 square-outside">
-                    <div id="square35-inside" class="col-4 square-inside">
+                    <div id="square35-inside" tabindex="0" class="col-4 square-inside">
                         <p class="center">quote from a poet</p>
                     </div>
                 </div>
@@ -130,22 +132,30 @@
         
         </div>
   
-  
-        
-  
     </div>
-    <div class="footer center">
-        <br><b>Scoring:</b><br>
-        10 points for a single space.<br>
-        100 points for three in a row diagonally.<br>
-        100 points for three in a row horizontally.<br>
-        200 points for five in a row vertically.
 
-    
-    </div>
+    <footer>
+        <div class="footer center">
+            <br><b>Scoring:</b><br>
+            10 points for a single space.<br>
+            100 points for three in a row diagonally.<br>
+            100 points for three in a row horizontally.<br>
+            200 points for five in a row vertically.
+        </div>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="scripts/bingo.js"></script>
+    <script>
+        //used so that hitting enter triggers the click on the div. for accessibility
+        function handleEnter(e){
+
+          var keycode = (e.keyCode ? e.keyCode : e.which);
+          if (keycode == '13') {
+            document.activeElement.click();
+          }
+        }
+      </script>
   </body>
 
 
