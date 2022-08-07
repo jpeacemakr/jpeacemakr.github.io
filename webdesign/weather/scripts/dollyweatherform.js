@@ -325,7 +325,7 @@ function badLocation() {
 
          dailyForecastText.insertAdjacentHTML("beforeend", `
            <div id="day0" class="daily-full col-xl-3 col-md-5">
-             <div id="full0" class="visible">
+             <div id="full0" class="visible" tabindex="0">
                <img id="image0" class="backdropimage2">
                <h2> ${weatherResult.properties.periods[0].name}</h2> 
                <p><b>Forecast:</b> ${weatherResult.properties.periods[0].shortForecast}, 
@@ -341,8 +341,8 @@ function badLocation() {
                <p><a href="#hourly${dayCount}">Hour-by-hour walk forecast</a></p>
              </div>
          
-             <div id="abbreviated0" tabindex="0" class="hidden" onclick="changeForecast(0, this);">
-               <div class="circle">
+             <div id="abbreviated0" tabindex="0" class="hidden" onclick="changeForecast(0, this);" role="button">
+               <div class="circle" aria-hidden="true">
                  Now
                </div> 
                <p><b> ${weatherResult.properties.periods[0].name}</b> 
@@ -391,7 +391,7 @@ function badLocation() {
            dailyForecastText.insertAdjacentHTML("beforeend", `
             <div id="day${dayCount}" class="${dayCount==0 ?'col-xl-3 col-md-5 daily-full':'col-md-2 col-xxl-1 daily-abbreviated'}">
 
-               <div id="full${dayCount}" class="${dayCount==0 ?'visible':'hidden'}">
+               <div id="full${dayCount}" class="${dayCount==0 ?'visible':'hidden'}" tabindex="0">
                  <img id="image${dayCount}" class="backdropimage2">
                  <h2> ${weatherResult.properties.periods[i].name}</h2> 
                  <p><b>Forecast:</b> ${weatherResult.properties.periods[i].shortForecast}, 
@@ -413,8 +413,8 @@ function badLocation() {
                  <p><a href="#hourly${ weatherResult.properties.periods[0].name == "Overnight" ? dayCount-1 : dayCount }">Hour-by-hour walk forecast</a></p>
                </div>
                
-               <div id="abbreviated${dayCount}" tabindex="0" class="${dayCount==0 ?'hidden':'visible'}" onclick="changeForecast(${dayCount-1}, this);">
-                 <div class="circle">
+               <div id="abbreviated${dayCount}" tabindex="0" class="${dayCount==0 ?'hidden':'visible'}" onclick="changeForecast(${dayCount-1}, this);" role="button">
+                 <div class="circle" aria-hidden="true">
                    ${currentDayAbbreviation}
                  </div> 
                  <p><b>${weatherResult.properties.periods[i].name}</b> 
@@ -431,7 +431,7 @@ function badLocation() {
          } else {
            dailyForecastText.insertAdjacentHTML("beforeend", `
              <div id="day${dayCount}" class="col-md-2 col-xxl-1 daily-abbreviated">
-               <div id="full${dayCount}" class="hidden">
+               <div id="full${dayCount}" class="hidden" tabindex="0">
                  <img id="image${dayCount}" class="backdropimage2">
                  <h2> ${weatherResult.properties.periods[i].name}</h2> 
                  <p><b>Forecast:</b> ${weatherResult.properties.periods[i].shortForecast}, 
@@ -447,8 +447,8 @@ function badLocation() {
                  <p><a href="#hourly${ weatherResult.properties.periods[0].name == "Overnight" ? dayCount-1 : dayCount }">Hour-by-hour walk forecast</a></p>
                </div>
            
-               <div id="abbreviated${dayCount}" tabindex="0" class="visible" onclick="changeForecast(${dayCount-1}, this);">
-                 <div class="circle">
+               <div id="abbreviated${dayCount}" tabindex="0" class="visible" onclick="changeForecast(${dayCount-1}, this);" role="button">
+                 <div class="circle" aria-hidden="true">
                    ${currentDayAbbreviation}
                  </div> 
                  <p><b>${weatherResult.properties.periods[i].name}</b> 
@@ -518,7 +518,11 @@ function badLocation() {
      document.getElementById("day"+todayNumber).classList.add("daily-full", "col-xl-3", "col-md-5");
      document.getElementById("day"+todayNumber).classList.remove("daily-abbreviated", "col-md-2", "col-xxl-1");
 
+     document.getElementById("full"+todayNumber).focus({preventScroll: true});
+
    },500);
+
+
 
 
    // scroll to new forecast (used to align top of screen to new position of expanded forecast)
