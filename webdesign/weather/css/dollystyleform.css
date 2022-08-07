@@ -184,6 +184,10 @@ body {
 	border-radius: 10px;
 	margin: 10px;
 	transition: all 1s;
+	
+}
+.daily-full div:focus {
+	outline:none;
 }
 
 .circle {
@@ -253,6 +257,7 @@ body {
 .rokkitt {
 	font-family: 'Rokkitt', serif;
 }
+
 
 
 * {
