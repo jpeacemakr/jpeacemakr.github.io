@@ -1,9 +1,11 @@
 // hide header when page is scrolled down
 function hideHeader() {
-    if ((window.innerWidth >= 768 && window.pageYOffset >= 400) ||(window.innerWidth < 768 && window.pageYOffset >= 100) ) {
-      document.getElementById("header").style.top = "-600px";
+    
+
+    if ((window.innerWidth >= 768 && window.pageYOffset >= 400) || ((window.innerWidth < 768 && window.pageYOffset >= 100) && (window.getComputedStyle(document.getElementById("weatheralertouter")).display === "none"))) {
+      document.getElementById("hideheader").style.top = "-600px";
     } else {
-      document.getElementById("header").style.top = "0px";
+      document.getElementById("hideheader").style.top = "0px";
     }
   }
 

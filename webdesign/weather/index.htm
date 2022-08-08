@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang = “en”>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,11 +23,10 @@
 
   <body onscroll="hideHeader()" onkeypress="handleEnter(event)">
 
-    <div class="backdropimage"></div>
+    <div class="backdropimage" aria-hidden="true"></div>
 
     <!-- sticky header -->
-    <div id="header" class="sticky-top">
-
+    <header id="hideheader" class="sticky-top">
       <div id="weatheralertouter">
         <div id="weatheralert" onclick="toggleWeatherAlert()">
           <h2 id="weatheralerthead">Bark! Bark! Bark! (Weather Alert)</h2>
@@ -38,35 +37,40 @@
       <h1 id="headerhead2">Dolly the Doggo's Weather Forecast</h1>
       <h1 id="headerhead">Dolly's Weather</h1>
       <div id="location"></div>
-        
-    </div>
+    </header>
 
-    
-    <!-- daily forecasts -->
-    <div class="container-fluid">
-      <div id="dailyforecast" class="row justify-content-center">
-        <!-- This is where the weather data will be inserted -->
-      </div>
-    </div>
-    
-    <!-- hourly forecasts -->
-    <div id="hourlyforecast">
-      <h2>Bark, world!</h2>
-      <!-- The hourly forecast will replace the innerhtml of this div once it is loaded -->
-      <p>Just wait a second while Dolly fetches the data from the National Weather Service. 
-      <br>Press the "Allow" button if your browser asks if I can know your location.
-      <br>Make sure you have geolocation turned on for your device.
-      <br>This site only works for areas covered by the United States National Weather Service.
-      <br>You can also check the weather at <a href="#" onclick="badLocation()">Dolly's location</a>.
-      </p>
-    </div>
 
-    <div id="footer">
+    <main>
+      <section>
+        <!-- daily forecasts -->
+        <div class="container-fluid">
+          <div id="dailyforecast" class="row justify-content-center">
+            <!-- This is where the weather data will be inserted -->
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <!-- hourly forecasts -->
+        <div id="hourlyforecast">
+          <h2>Bark, world!</h2>
+          <!-- The hourly forecast will replace the innerhtml of this div once it is loaded -->
+          <p>Just wait a second while Dolly fetches the data from the National Weather Service. 
+          <br>Press the "Allow" button if your browser asks if I can know your location.
+          <br>Make sure you have geolocation turned on for your device.
+          <br>This site only works for areas covered by the United States National Weather Service.
+          <br>You can also check the weather at <a href="#" onclick="badLocation()">Dolly's location</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
       <p>Copyright 2022, Peacemaker Media Empire. Weather data from <a href ="https://www.weather.gov/documentation/services-web-api">National Weather Service API</a>. If the information on this page is bad, don't blame us. You are the one who got your weather from a dog.</p>
-    </div>
+    </footer>
 
-    <script src="scripts/dollyweatherform.js#updated-2155-6-21-2022"></script>
-    <script src="scripts/hide.js#updated-1628-6-13-2022"></script>
+    <script src="scripts/dollyweatherform.js#updated-1605-8-8-2022"></script>
+    <script src="scripts/hide.js#updated-1605-8-8-2022"></script>
     <script>
       //used so that hitting enter triggers the click on the div. for accessibility
       function handleEnter(e){

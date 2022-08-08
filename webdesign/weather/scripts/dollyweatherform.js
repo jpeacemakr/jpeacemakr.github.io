@@ -704,14 +704,14 @@ function badLocation() {
 
       <div class="row mt-2">
         <div class="form-group col-md-4">
-          <label for="lowtempoutput">Min temperature: <b><span id="lowtempoutput"></span></b></label> 
+          <label for="lowtempslider">Min temperature: <b><span id="lowtempoutput"></span></b></label> 
           <div class="range"> 
             <input type="range" min="0" max="100" class="form-range" id="lowtempslider"> 
           </div>
         </div>
           
         <div class="form-group col-md-4">
-          <label for="hightempoutput">Max temperature: <b><span id="hightempoutput"></span></b></label>
+          <label for="hightempslider">Max temperature: <b><span id="hightempoutput"></span></b></label>
           <div class="range"> 
             <input type="range" min="0" max="100" class="form-range" id="hightempslider"> 
           </div>
