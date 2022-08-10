@@ -17,11 +17,15 @@ function hideHeader() {
 // toggles the display of weatheralertsbody when used with onclick event
 function toggleWeatherAlert() {
     let alertBody = document.getElementById("weatheralertbody");
+    let alertHeader = document.getElementById("hideheader");
+
     
     if (alertBody.style.display === "block") {
         alertBody.style.display = "none";
+        alertHeader.style.position = "sticky";
     } else {
         alertBody.style.display = "block";
+        alertHeader.style.position = "static";
     }
 }
 
