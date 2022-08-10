@@ -22,7 +22,9 @@ function toggleWeatherAlert() {
     
     if (alertBody.style.display === "block") {
         alertBody.style.display = "none";
-        alertHeader.style.position = "sticky";
+        if (window.innerWidth >= 768) {
+          alertHeader.style.position = "sticky";
+        }
     } else {
         alertBody.style.display = "block";
         alertHeader.style.position = "static";
