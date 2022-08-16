@@ -1,0 +1,5 @@
+journey
+quest
+diary
+map
+adventure

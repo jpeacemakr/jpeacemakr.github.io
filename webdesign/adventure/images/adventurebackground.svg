@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="199.97331mm"
+   height="200.75354mm"
+   viewBox="0 0 199.97332 200.75354"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="adventurebackground.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:snap-nodes="false"
+     showguides="false"
+     inkscape:zoom="1.0179639"
+     inkscape:cx="236.25591"
+     inkscape:cy="352.17358"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     fit-margin-top="-0.2"
+     fit-margin-left="-0.2"
+     fit-margin-right="-0.2"
+     fit-margin-bottom="-0.2"
+     showborder="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid916"
+       empspacing="40"
+       snapvisiblegridlinesonly="true"
+       originx="0.46128542"
+       originy="-0.26225362" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.46128535,-0.26225363)">
+    <g
+       id="g3648"
+       transform="matrix(0.85694471,0,0,0.86147227,-0.09445215,27.874117)">
+      <path
+         style="fill:#003045;fill-opacity:1;stroke:#000000;stroke-width:0.153007px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M -0.58495481,201.13912 V 84.853865 c 47.91030781,0 91.89962381,0.50964 24.66644581,91.562195 90.703309,-67.30907 91.618799,-24.0598 91.618799,24.72306 z"
+         id="path857"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#003045;fill-opacity:1;stroke:#000000;stroke-width:0.153007px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M 232.96036,201.01453 V 84.729276 c -47.91031,0 -91.89963,0.50964 -24.66645,91.562194 -90.70331,-67.30907 -91.6188,-24.0598 -91.6188,24.72306 z"
+         id="path857-5"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#003045;fill-opacity:1;stroke:#000000;stroke-width:0.153007px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="M -0.55967354,-32.14531 V 84.13994 C 47.350636,84.13994 91.339956,83.6303 24.106776,-7.4222504 114.81008,59.88682 115.72557,16.63755 115.72557,-32.14531 Z"
+         id="path857-5-0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:#003045;fill-opacity:1;stroke:#000000;stroke-width:0.153007px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 233.08495,-32.207604 v 116.28525 c -47.91032,0 -91.89964,-0.50964 -24.66645,-91.5621899 C 117.71518,59.824526 116.79969,16.575257 116.79969,-32.207604 Z"
+         id="path857-5-0-4"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+    <circle
+       style="fill:#003045;fill-opacity:0.5;stroke-width:0.600001;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="path5150"
+       cx="93.673584"
+       cy="103.40231"
+       r="40.676579" />
+    <circle
+       style="fill:#003045;fill-opacity:0.5;stroke-width:0.600001;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="path5150-0"
+       cx="103.92387"
+       cy="95.418106"
+       r="40.676579" />
+    <ellipse
+       style="fill:#003045;fill-opacity:1;stroke-width:0.600001;stroke-linecap:round;stroke-linejoin:round;paint-order:fill markers stroke"
+       id="path5276"
+       cx="98.436081"
+       cy="100.4592"
+       rx="11.566184"
+       ry="33.918812" />
+  </g>
+</svg>
